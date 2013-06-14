@@ -33,10 +33,20 @@
 		-moz-animation-delay: 300ms;
 	}
 	
-	#logo, #container, .bv-submit-wrap, section.social {
+	#glare, #logo, #container, .bv-submit-wrap, section.social {
 		display: none;
 	}
 	
+/* Glare
+================================================== */
+
+#glare {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2;
+}
+
 /* Logo
 ================================================== */
 	#logo {
@@ -46,6 +56,7 @@
 		max-width: 400px;
 		width: 100%;
 		.center;
+		z-index: 1;
 	}
 
 /* Icons
@@ -157,8 +168,8 @@
 		margin-top: 0;
 		margin-bottom: 0;
 		max-width: 62.5em;
-		padding-left: 1.2em;
-		padding-right: 1.2em;
+		padding-left: 4em;
+		padding-right: 4em;
 		*zoom: 1;
 		
 		&:before, &:after {

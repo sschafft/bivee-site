@@ -1,8 +1,8 @@
-@import url('http://fonts.googleapis.com/css?family=Lato:100');
+@import url('http://fonts.googleapis.com/css?family=Lato:300');
 /* Bivee Styles
 ===================================================================*/
 .font {
-  font-family: 'Helvetica Neue', 'Lato', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 }
 .center {
   margin-left: auto;
@@ -83,13 +83,19 @@ video {
   vertical-align: baseline;
   background: transparent;
 }
+html {
+  border: 40px solid #ffffff;
+  min-height: 100%;
+}
 html,
 body {
-  font-family: 'Helvetica Neue', 'Lato', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
   font-size: 100%;
+  color: #666666;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   overflow: hidden;
+  background: #f2f2f2;
 }
 article,
 aside,
@@ -126,7 +132,7 @@ html {
 ================================================== */
 #loading {
   display: block;
-  font-family: 'Helvetica Neue', 'Lato', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
   font-size: 50px;
   left: 50%;
   margin-left: -28px;
@@ -168,11 +174,20 @@ html {
   -webkit-animation-delay: 300ms;
   -moz-animation-delay: 300ms;
 }
+#glare,
 #logo,
 #container,
 .bv-submit-wrap,
 section.social {
   display: none;
+}
+/* Glare
+================================================== */
+#glare {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
 }
 /* Logo
 ================================================== */
@@ -184,6 +199,7 @@ section.social {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  z-index: 1;
 }
 /* Icons
 ================================================== */
@@ -294,8 +310,8 @@ section {
   margin-top: 0;
   margin-bottom: 0;
   max-width: 62.5em;
-  padding-left: 1.2em;
-  padding-right: 1.2em;
+  padding-left: 4em;
+  padding-right: 4em;
   *zoom: 1;
 }
 section:before,
@@ -318,7 +334,9 @@ section .columns {
   margin: 0.3em auto 0 auto;
   font-size: 4em;
   line-height: 1.3;
-  font-weight: 100;
+  font-weight: 300;
+  position: relative;
+  z-index: 3;
 }
 .bv-form ul {
   list-style: none;
@@ -356,14 +374,14 @@ section .columns {
 .bv-form select {
   line-height: inherit;
   display: inline-block;
-  color: #00aae5;
+  color: #fdb813;
   cursor: pointer;
-  border-bottom: 1px dashed #00aae5;
+  border-bottom: 1px dashed #fdb813;
 }
 .bv-field ul {
   position: absolute;
   visibility: hidden;
-  background: #00aae5;
+  background: #fdb813;
   left: -0.5em;
   top: 50%;
   font-size: 80%;
@@ -395,13 +413,13 @@ section .columns {
   white-space: nowrap;
 }
 .bv-dd ul li.bv-dd-checked {
-  color: #007199;
+  color: #c28902;
 }
 .no-touch .bv-dd ul li:hover {
   background: rgba(0, 0, 0, 0.05);
 }
 .no-touch .bv-dd ul li:hover:active {
-  color: #007199;
+  color: #c28902;
 }
 /* icons for some elements */
 .bv-dd ul li.bv-dd-checked:before,
@@ -520,10 +538,10 @@ input:focus::-ms-input-placeholder {
 }
 .no-touch .bv-form .bv-submit:hover,
 .no-touch .bv-form .bv-submit:active {
-  background: #fdb813;
+  background: #00aae5;
 }
 .no-touch .bv-form .bv-submit:hover:before {
-  background: #a97701;
+  background: #005e7f;
 }
 .bv-overlay {
   position: fixed;
@@ -554,12 +572,12 @@ input:focus::-ms-input-placeholder {
 .bv-result p {
   font-size: 3em;
   line-height: 1.3;
-  font-weight: 100;
+  font-weight: 300;
   margin-bottom: 20px;
 }
 .bv-result p em {
   font-weight: 300;
-  color: #e31d38;
+  color: #fdb813;
 }
 /* Responsive
 ================================================== */
@@ -569,10 +587,20 @@ input:focus::-ms-input-placeholder {
   }
   .bv-form .bv-submit {
     margin-top: 2em;
-    font-size: 70%;
+    font-size: 50%;
   }
   .bv-result p {
     font-size: 2.5em;
+  }
+  section {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  html {
+    border: 30px solid #ffffff;
+  }
+  #glare {
+    width: 300px;
   }
 }
 @media screen and (max-width: 25em) {
@@ -588,5 +616,15 @@ input:focus::-ms-input-placeholder {
   }
   .bv-result p {
     font-size: 2em;
+  }
+  section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  html {
+    border: 20px solid #ffffff;
+  }
+  #glare {
+    width: 200px;
   }
 }
