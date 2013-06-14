@@ -609,7 +609,7 @@ input:focus::-ms-input-placeholder {
   }
   .bv-form .bv-submit {
     margin-top: 2em;
-    font-size: 50%;
+    font-size: 40%;
   }
   .bv-form .bv-field ul li {
     font-size: 70%;
