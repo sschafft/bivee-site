@@ -628,3 +628,15 @@ input:focus::-ms-input-placeholder {
     width: 200px;
   }
 }
+
+
+===== SCOTT ADDITIONS =====
+
+.center {
+  left-margin:auto;
+  right-margin:auto;
+}
+
+.orange {
+  color:#fdb813;
+}
