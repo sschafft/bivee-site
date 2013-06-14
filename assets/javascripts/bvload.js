@@ -1,10 +1,10 @@
 $(window).load(function() {
 		// Animate loader off screen
 		$("#loading").fadeOut(1000, function(){
-			$("#logo").fadeIn(400, function(){
-				$("#container").fadeIn(400, function(){
-					$(".bv-submit-wrap").fadeIn(400, function(){
-						$(".social").fadeIn(400);
+			$("#logo").fadeIn(600, function(){
+				$("#container").fadeIn(700, function(){
+					$(".bv-submit-wrap").fadeIn(700, function(){
+						$(".social").fadeIn(500);
 					});
 				});
 			});
