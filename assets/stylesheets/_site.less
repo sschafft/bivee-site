@@ -1,7 +1,16 @@
 /* Loading Effect
 ================================================== */
 
- 	#loading { display: block; .font; font-size: 50px; left: 50%; margin-left: -28px; position: absolute; top: 50%; }
+ 	#loading { 
+ 		display: block; 
+ 		.font; 
+ 		font-size: 50px; 
+ 		left: 50%; 
+ 		margin-left: -28px; 
+ 		position: absolute; 
+ 		top: 50%; 
+ 	}
+ 	
 	.no-js #loading { display: none;  }
 	
 	@-webkit-keyframes opacity {
@@ -24,31 +33,28 @@
 	}
 	
 	#loading span:nth-child(2) {
-		-webkit-animation-delay: 100ms;
-		-moz-animation-delay: 100ms;
+		-webkit-animation-delay: 200ms;
+		-moz-animation-delay: 200ms;
 	}
 	
 	#loading span:nth-child(3) {
-		-webkit-animation-delay: 300ms;
-		-moz-animation-delay: 300ms;
-	}
-	
-	#glare, #logo, #container, .bv-submit-wrap, section.social {
-		display: none;
+		-webkit-animation-delay: 400ms;
+		-moz-animation-delay: 400ms;
 	}
 	
 /* Glare
 ================================================== */
 
-#glare {
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 2;
-}
+	#glare {
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 2;
+	}
 
 /* Logo
 ================================================== */
+
 	#logo {
 		position: relative;
 		padding-top: 100px;
@@ -71,8 +77,7 @@
 		font-weight: normal;
 		font-style: normal;
 	}
-		
-	/* Use the following CSS code if you want to use data attributes for inserting your icons */
+
 	[data-icon]:before {
 		font-family: 'icomoon';
 		content: attr(data-icon);
@@ -110,9 +115,36 @@
 		content: "\e004";
 	}
 	
+/* Grid
+================================================== */
+
+	section {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0;
+		margin-bottom: 0;
+		max-width: 62.5em;
+		padding-left: 4em;
+		padding-right: 4em;
+		*zoom: 1;
+		
+		&:before, &:after {
+			content: " ";
+			display: table; 
+		}
+		
+		&:after { clear: both; }
+	  
+		.columns {
+			position: relative;
+			float: left; 
+			width: 100%;
+		}
+	}
+	
 	.social .columns {
-	margin: 50px 0;
-	text-align: center;
+		margin: 50px 0;
+		text-align: center;
 	
 		a {
 			background: @colour2;
@@ -140,48 +172,5 @@
 			&:hover {
 				background: @gray;
 			}
-		}
-	}
-
-/* Grid
-================================================== */
-	
-	*,
-	*:before,
-	*:after {
-		-moz-box-sizing: border-box;
-		-webkit-box-sizing: border-box;
-		box-sizing: border-box;
-	}
-	
-	a:hover {
-		cursor: pointer; 
-	}
-	
-	a:focus {
-		outline: none;
-	}
-	
-	section {
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 0;
-		margin-bottom: 0;
-		max-width: 62.5em;
-		padding-left: 4em;
-		padding-right: 4em;
-		*zoom: 1;
-		
-		&:before, &:after {
-			content: " ";
-			display: table; 
-		}
-		
-		&:after { clear: both; }
-	  
-		.columns {
-			position: relative;
-			float: left; 
-			width: 100%;
 		}
 	}

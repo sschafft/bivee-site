@@ -9,23 +9,14 @@
 		font-size: 100%;
 		vertical-align: baseline;
 		background: transparent;
-	}									
-	
-	html {
-		border: 40px solid @white;
-		min-height: 100%;
 	}
+	
 	html, body {
-	    .font;
 	    font-size: 100%;
-	    color: @black;
 	    -webkit-text-size-adjust: 100%;
-	    -ms-text-size-adjust: 100%;
-	    overflow: hidden;
-	    background: @offwhite;
-	    
+	        -ms-text-size-adjust: 100%;
 	}
-	
+
 	article, aside, figure, footer, header, hgroup, nav, section { display: block; }
 
 	header, section, footer { width: 100%; }
@@ -39,3 +30,32 @@
 /* Define highlighting colours */
 	::selection { background: lighten(@colour2, 20%); }
 	::-moz-selection{ background: lighten(@colour2, 20%); }
+	
+/* Fix for psuedo elements */
+	*, *:before, *:after {
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+	
+/* Bivee Reset styles */
+	html {
+		border: 40px solid @white;
+		min-height: 100%;
+	}
+	html, body {
+	    .font;
+	    color: @black;
+	    overflow: hidden;
+	    background: @offwhite;
+	}
+	a:hover {
+		cursor: pointer; 
+	}
+	a:focus {
+		outline: none;
+	}
+	
+	#glare, #logo, #container, .bv-submit-wrap, section.social {
+		display: none;
+	}

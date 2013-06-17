@@ -112,22 +112,25 @@
 		<div class="columns">
 			<p>We know you really want to get started, we do too!</p>
 			<p>Please give us some details about the project in the space below and we would be glad to get back to you.</p>
+			
+				<iframe id="JotFormIFrame" onload="window.parent.scrollTo(0,0)" allowtransparency="true" src="http://form.jotform.me/form/31644617087458" frameborder="0" style="width:100%; height:465px; border:none;" class="center" scrolling="no"></iframe>
 
-			<div class="center" style="width:500px;"> 
-				<iframe id="JotFormIFrame" onload="window.parent.scrollTo(0,0)" allowtransparency="true" src="http://form.jotform.me/form/31644617087458" frameborder="0" style="width:100%; height:465px; border:none;" scrolling="no"></iframe>
-			</div>
 		</div>
 	</section>
-	<section class="social">
+	<!-- <section class="social">
 		<div class="columns">
-			<!-- <a href="#" target="_blank" class="fb"><i class="icon-facebook"></i></a>
+			<a href="#" target="_blank" class="fb"><i class="icon-facebook"></i></a>
 			<a href="#" target="_blank" class="tw"><i class="icon-twitter"></i></a>
-			<a href="#" target="_blank" class="gt"><i class="icon-github"></i></a> -->
+			<a href="#" target="_blank" class="gt"><i class="icon-github"></i></a>
 		</div>
-	</section>
+	</section>-->
 	<script src="assets/javascripts/bvform.js"></script>
 	<script src="assets/javascripts/bvscripts.js"></script>
-	<script type="text/javascript">window.handleIFrameMessage = function(e) {var args = e.data.split(":");var iframe = document.getElementById("JotFormIFrame");if (!iframe)return;switch (args[0]) {case "scrollIntoView":iframe.scrollIntoView();break;case "setHeight":iframe.style.height = args[1] + "px";break;}};if (window.addEventListener) {window.addEventListener("message", handleIFrameMessage, false);} else if (window.attachEvent) {window.attachEvent("onmessage", handleIFrameMessage);}</script>
+	
+	<!-- Scott's Magical Form -->
+	<script type="text/javascript">
+	window.handleIFrameMessage = function(e) {var args = e.data.split(":");var iframe = document.getElementById("JotFormIFrame");if (!iframe)return;switch (args[0]) {case "scrollIntoView":iframe.scrollIntoView();break;case "setHeight":iframe.style.height = args[1] + "px";break;}};if (window.addEventListener) {window.addEventListener("message", handleIFrameMessage, false);} else if (window.attachEvent) {window.attachEvent("onmessage", handleIFrameMessage);}
+	</script>
 
 </body>
 </html>
