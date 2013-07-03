@@ -1,0 +1,136 @@
+/* Logo
+================================================== */
+
+	.logo {
+		position: relative;
+		text-align: left;
+		padding-bottom: 30px;
+	}
+	
+/* Sections
+================================================== */
+
+section, footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+	
+	section#top {
+  	background: @colour3;
+    position: relative;
+    z-index: 100;
+    padding-left: 60px;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: @white;
+    
+    .logo svg{
+      width: 150px;
+      display: block;
+    }
+    p {
+      padding-top: 50px;
+      font-size: 120%;
+    }
+	}
+	section.content {
+  	min-height: 650px;
+	}
+
+
+/* Nav Menus
+================================================== */
+  nav#main {
+    position: fixed;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    z-index: 99;
+    
+    ul {
+      display: block;
+      list-style: none;
+    }
+    li {
+      padding-top: 15px;
+      display: block;
+      font-weight: @light;
+    }
+    
+    a {
+      color: @black;
+    }
+    
+    #showmenu {
+      display: none;
+      position: absolute;
+      right: 15px;
+      top: 0;
+      background: @colour3;
+      height: 40px;
+      width: 40px;
+      padding-top: 12px;
+      color: @white;
+      text-align: center;
+      .radius(20px);
+      &:hover {
+        background: @colour1;
+      }
+    }
+  }
+
+/* Footer 
+================================================== */
+
+  footer {
+    background: @offwhite;
+    
+    h2, a {
+      color: @grey;
+    }
+    a {
+      display: block;
+      font-weight: @light;
+      padding-bottom: 5px;
+    }
+    a:hover {
+      color: @colour1;
+    }
+    i {
+      margin-right: 10px;
+    }
+    h3 {
+      font-weight: @light;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-size: 80%;
+      color: @colour1;
+    }
+  }
+ 
+ /* Set footer height to same as push to make footer sticky */
+ @footerHeight: 50px;
+ 
+ footer#bottom {
+   background: @black;
+   color: @white;
+   font-weight: @thin;
+   font-size: 80%;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   
+   span {
+     padding-right: 20px;
+     color: @grey;
+   }
+ }
+  #push, footer#bottom {
+    height: @footerHeight;
+  }
+  #container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto (-1 * @footerHeight);
+  }

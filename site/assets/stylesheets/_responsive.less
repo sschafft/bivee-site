@@ -1,0 +1,77 @@
+/* Responsive
+================================================== */
+  
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: block;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mobile {
+      display: block;
+    }
+    .desktop {
+      display: none;
+    }
+    
+    nav#main {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: fixed;
+        z-index: 101;
+        background: @white;
+        border-bottom: 1px solid @offwhite;
+        
+        ul#menu {
+          display: none;
+          width: 100%;
+          background: @white;
+          z-index: 1;
+          padding-top: 15px;
+        }
+        li {
+          display: block;
+          text-align: left;
+          margin-left: -0.9375em;
+          margin-right: -0.9375em;
+          padding-left: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px dotted @offwhite;
+          &:hover {
+            background: @colour1;
+          }
+        }
+        .logo {
+          padding: 0;
+          svg {
+            height: 40px;
+            width: 115px;
+          }
+        }
+        #showmenu {
+          display: block;
+        }
+      }
+      section#top {
+        padding-left: 0;
+      }
+      h1 {
+        font-size: 250%;   
+      }
+      h2 {
+        font-size: 170%;
+      }
+
+    }
+  
+  @media screen and (max-width: 25em) {
+    section#top {
+      h1 {
+        font-size: 200%;
+      }
+    }
+  
+      }

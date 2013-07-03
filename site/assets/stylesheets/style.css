@@ -1,0 +1,729 @@
+/*
+	Stylesheet for http://www.bivee.co
+	----------------------------------------------------------
+	Designed & developed by Nicholas A. Kingston, Scott M. Schaffter
+	
+	Version 1.0
+	
+-------------------------------------------------------------------------------*/
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Reset
+================================================== */
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+html,
+body {
+  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+header,
+nav,
+section,
+footer {
+  width: 100%;
+}
+/* Responsive images and other image fixes */
+img {
+  max-width: 100%;
+  -ms-interpolation-mode: bicubic;
+}
+/* Force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll;
+}
+/* Define highlighting colours */
+::selection {
+  background: #fed678;
+}
+::-moz-selection {
+  background: #fed678;
+}
+/* Fix for psuedo elements */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Fix for links */
+a:hover {
+  cursor: pointer;
+}
+a:focus {
+  outline: none;
+}
+/* Typography
+================================================== */
+.font {
+  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+}
+.heading {
+  font-family: .font;
+}
+/* Link Styles */
+a {
+  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  text-decoration: none;
+}
+/* Heading Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+}
+h1 {
+  font-weight: 300;
+  font-size: 320%;
+  line-height: 160%;
+}
+h2 {
+  font-weight: 300;
+  font-size: 200%;
+  line-height: 160%;
+  color: #00aae5;
+}
+/* Paragraph Styles */
+p {
+  padding-bottom: 25px;
+  font-weight: 300;
+  line-height: 180%;
+}
+/* Other Styles */
+.heart {
+  color: #e31d38;
+}
+/* SVG
+================================================== */
+svg.white {
+  fill: #ffffff !important;
+}
+svg.white:hover path {
+  fill: rgba(255, 255, 255, 0.7) !important;
+}
+svg.black {
+  fill: #333333 !important;
+}
+svg.black:hover path {
+  fill: rgba(51, 51, 51, 0.7) !important;
+}
+svg.colour1 {
+  fill: #00aae5 !important;
+}
+svg.colour1:hover path {
+  fill: rgba(0, 170, 229, 0.7) !important;
+}
+svg.colour2 {
+  fill: #fdb813 !important;
+}
+svg.colour2:hover path {
+  fill: rgba(253, 184, 19, 0.7) !important;
+}
+svg.colour3 {
+  fill: #e31d38 !important;
+}
+svg.colour3:hover path {
+  fill: rgba(227, 29, 56, 0.7) !important;
+}
+/* Logo
+================================================== */
+.logo {
+  position: relative;
+  text-align: left;
+  padding-bottom: 30px;
+}
+/* Sections
+================================================== */
+section,
+footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+section#top {
+  background: #e31d38;
+  position: relative;
+  z-index: 100;
+  padding-left: 60px;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  color: #ffffff;
+}
+section#top .logo svg {
+  width: 150px;
+  display: block;
+}
+section#top p {
+  padding-top: 50px;
+  font-size: 120%;
+}
+section.content {
+  min-height: 650px;
+}
+/* Nav Menus
+================================================== */
+nav#main {
+  position: fixed;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  z-index: 99;
+}
+nav#main ul {
+  display: block;
+  list-style: none;
+}
+nav#main li {
+  padding-top: 15px;
+  display: block;
+  font-weight: 300;
+}
+nav#main a {
+  color: #333333;
+}
+nav#main #showmenu {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  background: #e31d38;
+  height: 40px;
+  width: 40px;
+  padding-top: 12px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+}
+nav#main #showmenu:hover {
+  background: #00aae5;
+}
+/* Footer 
+================================================== */
+footer {
+  background: #f2f2f2;
+}
+footer h2,
+footer a {
+  color: #89949b;
+}
+footer a {
+  display: block;
+  font-weight: 300;
+  padding-bottom: 5px;
+}
+footer a:hover {
+  color: #00aae5;
+}
+footer i {
+  margin-right: 10px;
+}
+footer h3 {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 80%;
+  color: #00aae5;
+}
+/* Set footer height to same as push to make footer sticky */
+footer#bottom {
+  background: #333333;
+  color: #ffffff;
+  font-weight: 200;
+  font-size: 80%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+footer#bottom span {
+  padding-right: 20px;
+  color: #89949b;
+}
+#push,
+footer#bottom {
+  height: 50px;
+}
+#container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -50px;
+}
+/* Grid Styles
+================================================== */
+article {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 1200px;
+  *zoom: 1;
+}
+article:before,
+article:after {
+  content: " ";
+  display: table;
+}
+article:after {
+  clear: both;
+}
+article article {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
+}
+article article:before,
+article article:after {
+  content: " ";
+  display: table;
+}
+article article:after {
+  clear: both;
+}
+.columns {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
+.columns .columns {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media only screen {
+  .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    float: left;
+  }
+  .small-1,
+  .small-2,
+  .small-3,
+  .small-4,
+  .small-5,
+  .small-6,
+  .small-7,
+  .small-8,
+  .small-9,
+  .small-10,
+  .small-11,
+  .small-12,
+  .small-offset-1,
+  .small-offset-2,
+  .small-offset-3,
+  .small-offset-4,
+  .small-offset-5,
+  .small-offset-6,
+  .small-offset-7,
+  .small-offset-8,
+  .small-offset-9,
+  .small-offset-10,
+  .small-offset-11,
+  .small-offset-12 {
+    position: relative;
+  }
+  .small-1 {
+    width: 8.33333%;
+  }
+  .small-2 {
+    width: 16.66667%;
+  }
+  .small-3 {
+    width: 25%;
+  }
+  .small-4 {
+    width: 33.33333%;
+  }
+  .small-5 {
+    width: 41.66667%;
+  }
+  .small-6 {
+    width: 50%;
+  }
+  .small-7 {
+    width: 58.33333%;
+  }
+  .small-8 {
+    width: 66.66667%;
+  }
+  .small-9 {
+    width: 75%;
+  }
+  .small-10 {
+    width: 83.33333%;
+  }
+  .small-11 {
+    width: 91.66667%;
+  }
+  .small-12 {
+    width: 100%;
+  }
+  .small-offset-1 {
+    margin-left: 8.33333%;
+  }
+  .small-offset-2 {
+    margin-left: 16.66667%;
+  }
+  .small-offset-3 {
+    margin-left: 25%;
+  }
+  .small-offset-4 {
+    margin-left: 33.33333%;
+  }
+  .small-offset-5 {
+    margin-left: 41.66667%;
+  }
+  .small-offset-6 {
+    margin-left: 50%;
+  }
+  .small-offset-7 {
+    margin-left: 58.33333%;
+  }
+  .small-offset-8 {
+    margin-left: 66.66667%;
+  }
+  .small-offset-9 {
+    margin-left: 75%;
+  }
+  .small-offset-10 {
+    margin-left: 83.33333%;
+  }
+  [class*="column"] + [class*="column"]:last-child {
+    float: right;
+  }
+  [class*="column"] + [class*="column"].end {
+    float: left;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .large-1,
+  .large-2,
+  .large-3,
+  .large-4,
+  .large-5,
+  .large-6,
+  .large-7,
+  .large-8,
+  .large-9,
+  .large-10,
+  .large-11,
+  .large-12,
+  .large-offset-1,
+  .large-offset-2,
+  .large-offset-3,
+  .large-offset-4,
+  .large-offset-5,
+  .large-offset-6,
+  .large-offset-7,
+  .large-offset-8,
+  .large-offset-9,
+  .large-offset-10,
+  .large-offset-11,
+  .large-offset-12 {
+    position: relative;
+  }
+  .large-1 {
+    width: 8.33333%;
+  }
+  .large-2 {
+    width: 16.66667%;
+  }
+  .large-3 {
+    width: 25%;
+  }
+  .large-4 {
+    width: 33.33333%;
+  }
+  .large-5 {
+    width: 41.66667%;
+  }
+  .large-6 {
+    width: 50%;
+  }
+  .large-7 {
+    width: 58.33333%;
+  }
+  .large-8 {
+    width: 66.66667%;
+  }
+  .large-9 {
+    width: 75%;
+  }
+  .large-10 {
+    width: 83.33333%;
+  }
+  .large-11 {
+    width: 91.66667%;
+  }
+  .large-12 {
+    width: 100%;
+  }
+  .large-offset-1 {
+    margin-left: 8.33333%;
+  }
+  .large-offset-2 {
+    margin-left: 16.66667%;
+  }
+  .large-offset-3 {
+    margin-left: 25%;
+  }
+  .large-offset-4 {
+    margin-left: 33.33333%;
+  }
+  .large-offset-5 {
+    margin-left: 41.66667%;
+  }
+  .large-offset-6 {
+    margin-left: 50%;
+  }
+  .large-offset-7 {
+    margin-left: 58.33333%;
+  }
+  .large-offset-8 {
+    margin-left: 66.66667%;
+  }
+  .large-offset-9 {
+    margin-left: 75%;
+  }
+  .large-offset-10 {
+    margin-left: 83.33333%;
+  }
+}
+/* Responsive
+================================================== */
+.mobile {
+  display: none;
+}
+.desktop {
+  display: block;
+}
+@media screen and (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+  .desktop {
+    display: none;
+  }
+  nav#main {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: fixed;
+    z-index: 101;
+    background: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  nav#main ul#menu {
+    display: none;
+    width: 100%;
+    background: #ffffff;
+    z-index: 1;
+    padding-top: 15px;
+  }
+  nav#main li {
+    display: block;
+    text-align: left;
+    margin-left: -0.9375em;
+    margin-right: -0.9375em;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #f2f2f2;
+  }
+  nav#main li:hover {
+    background: #00aae5;
+  }
+  nav#main .logo {
+    padding: 0;
+  }
+  nav#main .logo svg {
+    height: 40px;
+    width: 115px;
+  }
+  nav#main #showmenu {
+    display: block;
+  }
+  section#top {
+    padding-left: 0;
+  }
+  h1 {
+    font-size: 250%;
+  }
+  h2 {
+    font-size: 170%;
+  }
+}
+@media screen and (max-width: 25em) {
+  section#top h1 {
+    font-size: 200%;
+  }
+}
+/* Form Styles
+================================================== *//* Icons
+================================================== */
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot');
+  src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.ttf') format('truetype'), url('../fonts/icomoon.svg#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-facebook,
+.icon-twitter,
+.icon-github,
+.icon-arrow-right,
+.icon-checkmark {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+.icon-facebook:before {
+  content: "\e000";
+}
+.icon-twitter:before {
+  content: "\e001";
+}
+.icon-github:before {
+  content: "\e002";
+}
+.icon-arrow-right:before {
+  content: "\e003";
+}
+.icon-checkmark:before {
+  content: "\e004";
+}
+/* Social Colours
+================================================== */
+.fb {
+  background: #;
+}
+.tw {
+  background: #;
+}
+.gp {
+  background: #;
+}
+.sk {
+  background: #;
+}
+.pi {
+  background: #;
+}
+.gt {
+  background: #;
+}
