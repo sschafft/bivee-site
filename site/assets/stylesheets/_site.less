@@ -3,6 +3,7 @@
 
 	.logo {
 		position: relative;
+		display: block;
 		text-align: left;
 		padding-bottom: 30px;
 	}
@@ -10,10 +11,10 @@
 /* Sections
 ================================================== */
 
-section, footer {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
+  section, footer {
+      padding-top: 40px;
+      padding-bottom: 40px;
+  }
 	
 	section#top {
   	background: @colour3;
@@ -26,7 +27,6 @@ section, footer {
     
     .logo svg{
       width: 150px;
-      display: block;
     }
     p {
       padding-top: 50px;
@@ -40,11 +40,15 @@ section, footer {
 
 /* Nav Menus
 ================================================== */
-  nav#main {
-    position: fixed;
-    padding-top: 40px;
+  div#main {
+    padding-top: 20px;
     padding-bottom: 40px;
     z-index: 99;
+    position: absolute;
+    
+    .logo svg {
+      width: 180px;
+    }
     
     ul {
       display: block;
@@ -64,7 +68,7 @@ section, footer {
       display: none;
       position: absolute;
       right: 15px;
-      top: 0;
+      top: 15px;
       background: @colour3;
       height: 40px;
       width: 40px;

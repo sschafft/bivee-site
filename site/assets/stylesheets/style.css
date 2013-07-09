@@ -141,6 +141,14 @@ a:hover {
 a:focus {
   outline: none;
 }
+/* Nicer HR Tags */
+hr {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 20px;
+}
 /* Typography
 ================================================== */
 .font {
@@ -220,6 +228,7 @@ svg.colour3:hover path {
 ================================================== */
 .logo {
   position: relative;
+  display: block;
   text-align: left;
   padding-bottom: 30px;
 }
@@ -241,7 +250,6 @@ section#top {
 }
 section#top .logo svg {
   width: 150px;
-  display: block;
 }
 section#top p {
   padding-top: 50px;
@@ -252,29 +260,32 @@ section.content {
 }
 /* Nav Menus
 ================================================== */
-nav#main {
-  position: fixed;
-  padding-top: 40px;
+div#main {
+  padding-top: 20px;
   padding-bottom: 40px;
   z-index: 99;
+  position: absolute;
 }
-nav#main ul {
+div#main .logo svg {
+  width: 180px;
+}
+div#main ul {
   display: block;
   list-style: none;
 }
-nav#main li {
+div#main li {
   padding-top: 15px;
   display: block;
   font-weight: 300;
 }
-nav#main a {
+div#main a {
   color: #333333;
 }
-nav#main #showmenu {
+div#main #showmenu {
   display: none;
   position: absolute;
   right: 15px;
-  top: 0;
+  top: 15px;
   background: #e31d38;
   height: 40px;
   width: 40px;
@@ -288,7 +299,7 @@ nav#main #showmenu {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
 }
-nav#main #showmenu:hover {
+div#main #showmenu:hover {
   background: #00aae5;
 }
 /* Footer 
@@ -605,22 +616,23 @@ article article:after {
   .desktop {
     display: none;
   }
-  nav#main {
+  div#main {
     padding-top: 15px;
     padding-bottom: 15px;
     position: fixed;
+    top: 0;
     z-index: 101;
     background: #ffffff;
     border-bottom: 1px solid #f2f2f2;
   }
-  nav#main ul#menu {
+  div#main ul#menu {
     display: none;
     width: 100%;
     background: #ffffff;
     z-index: 1;
     padding-top: 15px;
   }
-  nav#main li {
+  div#main li {
     display: block;
     text-align: left;
     margin-left: -0.9375em;
@@ -630,17 +642,17 @@ article article:after {
     padding-bottom: 10px;
     border-bottom: 1px dotted #f2f2f2;
   }
-  nav#main li:hover {
+  div#main li:hover {
     background: #00aae5;
   }
-  nav#main .logo {
+  div#main .logo {
     padding: 0;
   }
-  nav#main .logo svg {
+  div#main .logo svg {
     height: 40px;
     width: 115px;
   }
-  nav#main #showmenu {
+  div#main #showmenu {
     display: block;
   }
   section#top {
@@ -726,4 +738,21 @@ article article:after {
 }
 .gt {
   background: #;
+}
+/* JS is disabled
+================================================== */
+.no-js div#main {
+  z-index: 101;
+  position: fixed;
+  background: #ffffff;
+  top: 0;
+}
+.no-js div#main ul {
+  display: block;
+  list-style: none;
+}
+.no-js div#main li {
+  padding-top: 15px;
+  display: block;
+  font-weight: 300;
 }
