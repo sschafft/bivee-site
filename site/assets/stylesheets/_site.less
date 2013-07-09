@@ -7,6 +7,9 @@
 		text-align: left;
 		padding-bottom: 30px;
 	}
+	.flask {
+  	margin-bottom: 30px;
+	}
 	
 /* Sections
 ================================================== */
@@ -15,24 +18,7 @@
       padding-top: 40px;
       padding-bottom: 40px;
   }
-	
-	section#top {
-  	background: @colour3;
-    position: relative;
-    z-index: 100;
-    padding-left: 60px;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    color: @white;
-    
-    .logo svg{
-      width: 150px;
-    }
-    p {
-      padding-top: 50px;
-      font-size: 120%;
-    }
-	}
+  
 	section.content {
   	min-height: 650px;
 	}
@@ -62,6 +48,9 @@
     
     a {
       color: @black;
+      &:hover {
+        color: @colour1;
+      }
     }
     
     #showmenu {

@@ -21,8 +21,8 @@
         padding-bottom: 15px;
         position: fixed;
         top: 0;
-        z-index: 101;
-        background: @white;
+        z-index: 10000;
+        background: fade(@white, 95%);
         border-bottom: 1px solid @offwhite;
         
         ul#menu {
@@ -45,12 +45,11 @@
             background: @colour1;
           }
         }
-        .logo {
+        svg {
           padding: 0;
-          svg {
-            height: 40px;
-            width: 115px;
-          }
+          height: 40px;
+          width: 147px;
+        
         }
         #showmenu {
           display: block;
@@ -65,7 +64,9 @@
       h2 {
         font-size: 170%;
       }
-
+      #slider {
+        margin-top: 74px;
+      }
     }
   
   @media screen and (max-width: 25em) {

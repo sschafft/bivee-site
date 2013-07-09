@@ -1,38 +1,33 @@
 /* SVG
 ================================================== */
 
-  svg.white {
-    @color: @white;
-    fill: @color !important;
-    &:hover path {
-      fill: fade(@color, 70%) !important;
+  .logo svg path {
+    &.letters, &.outline {
+      fill: @white !important;
     }
   }
-  svg.black {
-    @color: @black;
-    fill: @color !important;
-    &:hover path {
-      fill: fade(@color, 70%) !important;
-    }
-  }
-  svg.colour1 {
-    @color: @colour1;
-    fill: @color !important;
-    &:hover path {
-      fill: fade(@color, 70%) !important;
-    }
-  }
-  svg.colour2 {
-   @color: @colour2;
-    fill: @color !important;
-    &:hover path {
-      fill: fade(@color, 70%) !important;
-    }
-  }
-  svg.colour3 {
+  .flask svg {
     @color: @colour3;
-    fill: @color !important;
+    width: 70px;
+    height: 70px;
+    
+    path {
+      &.liquid {
+        fill: @color !important;
+      }
+      &.bubbles {
+        fill: lighten(@color, 10%) !important;
+      }
+      &.outline {
+        fill: #E5E5E5;
+      }
+    }
     &:hover path {
-      fill: fade(@color, 70%) !important;
+      &.liquid {
+        fill: darken(@color, 5%) !important;
+      }
+      &.bubbles {
+        fill: darken(@color, 0%) !important;
+      }
     }
   }

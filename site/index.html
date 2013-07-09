@@ -56,18 +56,74 @@
 
   <div id="container">
   
-    <!-- Top Header -->
-    <section id="top">
-      <article class="slide">
-        <div class="columns large-10 large-offset-2">
-          <div class="logo desktop"><a href="#"><img class="svg white" src="http://www.bivee.co/site/assets/images/logo.svg" /></a></div>
-          <h1>We develop customized web applications that improve how people interact online.</h1>
-          <p>Some content comes here</p>
-        </div>
-      </article>
-    </section>
+    <div id="slider" class="sl-slider-wrapper">
+				<div class="sl-slider">
+				
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-1"></div>
+							<h2>
+							  <div class="logo desktop"><img class="svg" src="http://www.bivee.co/site/assets/images/logo.svg" /></div>
+							  We develop web apps that improve how people interact online.</h2>
+							<blockquote><p></p></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-2"></div>
+							<h2>
+							  <div class="logo desktop"><img class="svg" src="http://www.bivee.co/site/assets/images/logo.svg" /></div>
+							  We develop web apps that improve how people interact online.</h2>
+							<blockquote><p></p></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-3"></div>
+							<h2>
+							  <div class="logo desktop"><img class="svg" src="http://www.bivee.co/site/assets/images/logo.svg" /></div>
+							  We develop web apps that improve how people interact online.</h2>
+							<blockquote><p></p></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-4"></div>
+							<h2>
+							  <div class="logo desktop"><img class="svg" src="http://www.bivee.co/site/assets/images/logo.svg" /></div>
+							  We develop web apps that improve how people interact online.</h2>
+							<blockquote><p></p></blockquote>
+						</div>
+					</div>
+					
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1">
+						<div class="sl-slide-inner">
+							<div class="bg-img bg-img-5"></div>
+							<h2>
+							  <div class="logo desktop"><img class="svg" src="http://www.bivee.co/site/assets/images/logo.svg" /></div>
+							  We develop web apps that improve how people interact online.</h2>
+							<blockquote><p></p></blockquote>
+						</div>
+					</div>
+				</div><!-- /sl-slider -->
+				
+				<nav id="nav-arrows" class="nav-arrows">
+					<span class="nav-arrow-prev">Previous</span>
+					<span class="nav-arrow-next">Next</span>
+				</nav>
 
+				<nav id="nav-dots" class="nav-dots">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</nav>
 
+			</div><!-- /slider-wrapper -->
    
     <section class="content">
       <article>
@@ -88,9 +144,10 @@
           <p>Nullam tincidunt nisl id tortor imperdiet, nec eleifend mi vulputate. Nulla lobortis nunc sit amet tempus dapibus. Mauris porta dignissim malesuada. Nam sodales velit id nunc hendrerit ultrices. Quisque a eros nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas a rhoncus dolor, vel posuere lacus.</p>
         </div>
         <div id="main" class="columns large-2">
-          <div class="logo">
-            <a href="#"><img class="svg colour1" src="http://www.bivee.co/site/assets/images/logo.svg" /></a>
+          <div class="flask desktop">
+            <a href="#"><img class="svg" src="http://www.bivee.co/site/assets/images/flask.svg" /></a>
           </div>
+          <div class="mobile"><a href="#"><img class="svg white" src="http://www.bivee.co/site/assets/images/logo.svg" /></a></div>
           <div id="showmenu"><i class="icon-facebook"></i></div>
           <ul id="menu">
             <li><a href="/about">About</a></li>
@@ -154,6 +211,8 @@
   <!-- jQuery -->
   <script src="assets/javascripts/modernizr.custom.js"></script>
   <script src="assets/javascripts/jquery.min.js"></script>
+  <script src="assets/javascripts/jquery.ba-cond.min.js"></script>
+  <script src="assets/javascripts/jquery.slider.js"></script>
   <script src="assets/javascripts/jquery.pin.js"></script>
   <script src="assets/javascripts/jquery.svg.js"></script>
   <script src="assets/javascripts/bvscripts.js"></script>
