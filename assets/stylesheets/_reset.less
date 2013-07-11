@@ -12,14 +12,17 @@
 	}
 	
 	html, body {
-	    font-size: 100%;
-	    -webkit-text-size-adjust: 100%;
-	        -ms-text-size-adjust: 100%;
+	  .font;
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
 	}
 
 	article, aside, figure, footer, header, hgroup, nav, section { display: block; }
 
-	header, section, footer { width: 100%; }
+	header, nav, section, footer { width: 100%; }
 
 /* Responsive images and other image fixes */
 	img { max-width: 100%; -ms-interpolation-mode: bicubic; }
@@ -37,25 +40,19 @@
 		   -moz-box-sizing: border-box;
 		        box-sizing: border-box;
 	}
-	
-/* Bivee Reset styles */
-	html {
-		border: 40px solid @white;
-		min-height: 100%;
-	}
-	html, body {
-	    .font;
-	    color: @black;
-	    overflow: hidden;
-	    background: @offwhite;
-	}
+/* Fix for links */
 	a:hover {
 		cursor: pointer; 
 	}
 	a:focus {
 		outline: none;
 	}
-	
-	#glare, #logo, #container, .bv-submit-wrap, section.social {
-		display: none;
-	}
+
+/* Nicer HR Tags */
+  hr {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid @offwhite;
+    margin-bottom: 20px;
+  }

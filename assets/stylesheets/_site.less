@@ -1,176 +1,129 @@
-/* Loading Effect
-================================================== */
-
- 	#loading { 
- 		display: block; 
- 		.font; 
- 		font-size: 50px; 
- 		left: 50%; 
- 		margin-left: -28px; 
- 		position: absolute; 
- 		top: 50%; 
- 	}
- 	
-	.no-js #loading { display: none;  }
-	
-	@-webkit-keyframes opacity {
-		0% { opacity: 1; }
-		100% { opacity: 0; }
-	}
-	@-moz-keyframes opacity {
-		0% { opacity: 1; }
-		100% { opacity: 0; }
-	}
-	
-	#loading span {
-		-webkit-animation-name: opacity;
-		-webkit-animation-duration: 1s;
-		-webkit-animation-iteration-count: infinite;
-		
-		-moz-animation-name: opacity;
-		-moz-animation-duration: 1s;
-		-moz-animation-iteration-count: infinite;
-	}
-	
-	#loading span:nth-child(2) {
-		-webkit-animation-delay: 200ms;
-		-moz-animation-delay: 200ms;
-	}
-	
-	#loading span:nth-child(3) {
-		-webkit-animation-delay: 400ms;
-		-moz-animation-delay: 400ms;
-	}
-	
-/* Glare
-================================================== */
-
-	#glare {
-		position: fixed;
-		top: 0;
-		right: 0;
-		z-index: 2;
-	}
-
 /* Logo
 ================================================== */
 
-	#logo {
+	.logo {
 		position: relative;
-		padding-top: 100px;
-		margin-bottom: 50px;
-		max-width: 400px;
-		width: 100%;
-		.center;
-		z-index: 1;
+		display: block;
+		text-align: left;
+		padding-bottom: 30px;
 	}
-
-/* Icons
-================================================== */
-	@font-face {
-		font-family: 'icomoon';
-		src:url('fonts/icomoon.eot');
-		src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-			url('fonts/icomoon.woff') format('woff'),
-			url('fonts/icomoon.ttf') format('truetype'),
-			url('fonts/icomoon.svg#icomoon') format('svg');
-		font-weight: normal;
-		font-style: normal;
-	}
-
-	[data-icon]:before {
-		font-family: 'icomoon';
-		content: attr(data-icon);
-		speak: none;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
-		line-height: 1;
-		-webkit-font-smoothing: antialiased;
+	.flask {
+  	margin-bottom: 30px;
 	}
 	
-	.icon-facebook, .icon-twitter, .icon-github, .icon-arrow-right, .icon-checkmark {
-		font-family: 'icomoon';
-		speak: none;
-		font-style: normal;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
-		line-height: 1;
-		-webkit-font-smoothing: antialiased;
-	}
-	.icon-facebook:before {
-		content: "\e000";
-	}
-	.icon-twitter:before {
-		content: "\e001";
-	}
-	.icon-github:before {
-		content: "\e002";
-	}
-	.icon-arrow-right:before {
-		content: "\e003";
-	}
-	.icon-checkmark:before {
-		content: "\e004";
-	}
-	
-/* Grid
+/* Sections
 ================================================== */
 
-	section {
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 0;
-		margin-bottom: 0;
-		max-width: 62.5em;
-		padding-left: 4em;
-		padding-right: 4em;
-		*zoom: 1;
-		
-		&:before, &:after {
-			content: " ";
-			display: table; 
-		}
-		
-		&:after { clear: both; }
-	  
-		.columns {
-			position: relative;
-			float: left; 
-			width: 100%;
-		}
+  section, footer {
+      padding-top: 40px;
+      padding-bottom: 40px;
+  }
+  
+	section.content {
+  	min-height: 650px;
 	}
-	
-	.social .columns {
-		margin: 50px 0;
-		text-align: center;
-	
-		a {
-			background: @colour2;
-			.radius(30px);
-			text-decoration: none;
-			color: @white;
-			width: 50px;
-			height: 50px;
-			padding-top: 8px;
-			display: inline-block;
-			text-align: center;
-			font-size: 2em;
-			margin: 0 10px;
-			.transition;
-			
-			&.fb {
-				background: #3D62B3;
-			}
-			&.tw {
-				background: #00ACED;
-			}
-			&.gt {
-				background: #666666;
-			}
-			&:hover {
-				background: @gray;
-			}
-		}
-	}
+
+
+/* Nav Menus
+================================================== */
+  div#main {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    z-index: 99;
+    position: absolute;
+    
+    .logo svg {
+      width: 180px;
+    }
+    
+    ul {
+      display: block;
+      list-style: none;
+    }
+    li {
+      padding-top: 15px;
+      display: block;
+      font-weight: @light;
+    }
+    
+    a {
+      color: @black;
+      &:hover {
+        color: @colour1;
+      }
+    }
+    
+    #showmenu {
+      display: none;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      background: @colour3;
+      height: 40px;
+      width: 40px;
+      padding-top: 12px;
+      color: @white;
+      text-align: center;
+      .radius(20px);
+      &:hover {
+        background: @colour1;
+      }
+    }
+  }
+
+/* Footer 
+================================================== */
+
+  footer {
+    background: @offwhite;
+    
+    h2, a {
+      color: @grey;
+    }
+    a {
+      display: block;
+      font-weight: @light;
+      padding-bottom: 5px;
+    }
+    a:hover {
+      color: @colour1;
+    }
+    i {
+      margin-right: 10px;
+    }
+    h3 {
+      font-weight: @light;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-size: 80%;
+      color: @colour1;
+    }
+  }
+ 
+ /* Set footer height to same as push to make footer sticky */
+ @footerHeight: 50px;
+ 
+ footer#bottom {
+   background: @black;
+   color: @white;
+   font-weight: @thin;
+   font-size: 80%;
+   padding-top: 15px;
+   padding-bottom: 15px;
+   
+   span {
+     padding-right: 20px;
+     color: @grey;
+   }
+ }
+  #push, footer#bottom {
+    height: @footerHeight;
+  }
+  #container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto (-1 * @footerHeight);
+  }

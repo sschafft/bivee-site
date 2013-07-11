@@ -1,13 +1,53 @@
-var bvform = new BVForm( document.getElementById( 'bv-form' ) );
-
-$('#bv-form').submit(function() {
-    $.ajax({
-        data: $(this).serialize(), // get the form data
-        success: function(response) { // on success..
-            $('#created').html(response);
-            $('#bv-form').fadeOut(300);
-            $('.bv-result').delay(300).fadeIn(700);
-        }
+/*
+ * Misc jqueries - Slidetoggle to show mobile menu
+ */
+  $('#showmenu').click(function() {
+    $('ul#menu').slideToggle('fast', function() {
     });
-    return false; // cancel original event to prevent form submitting
+  });
+/*
+ * Misc jqueries - Pin nav
+ */
+  $("div#main").pin({
+      containerSelector: ".content",
+      minWidth: 768
+  });
+
+$(function() {
+	var Page = (function() {
+    var $navArrows = $('#nav-arrows'),
+		$nav = $('#nav-dots > span'),
+			slitslider = $('#slider').slitslider({
+				onBeforeChange : function(slide, pos){
+					$nav.removeClass( 'nav-dot-current');
+					$nav.eq(pos).addClass('nav-dot-current');
+				}
+			}),
+			init = function() {
+				initEvents();
+			},
+			initEvents = function(){
+          $navArrows.children(':last').on('click', function(){
+					slitslider.next();
+					return false;
+				});
+				$navArrows.children(':first').on('click', function() {
+					slitslider.previous();
+					return false;
+				});
+				$nav.each( function(i){
+					$(this).on('click', function(event){
+						var $dot = $(this);
+						if(!slitslider.isActive()){
+							$nav.removeClass('nav-dot-current');
+							$dot.addClass('nav-dot-current');
+						}
+						slitslider.jump( i + 1 );
+						return false;
+					});
+				});
+			};
+			return { init : init };
+	})();
+	Page.init();
 });
