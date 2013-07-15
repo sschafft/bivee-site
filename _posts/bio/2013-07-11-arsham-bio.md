@@ -3,7 +3,6 @@ layout: bio
 title:  Arsham Skrenes
 date:   2013-07-11
 categories: bio partner
-type: bio
 name: Arsham Skrenes
 job-title: Founding Partner
 specialities: iPhone Development, Server Management, Application Development

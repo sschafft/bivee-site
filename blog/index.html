@@ -4,12 +4,10 @@ title: Bivee - Blog
 ---
 <div id="blog_container">
   <h1>Blog</h1>
-    {% for post in site.posts %}
-      	{% if post.type == "blog" %} 
+    {% for post in site.categories.blog %}
                 <h2> {{ post.title }} </h2>
       	      {{ post.content }}
       		<hr>
-      	{% endif %}
     {% endfor %}
   
 </div>

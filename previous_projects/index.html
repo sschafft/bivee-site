@@ -1,20 +1,19 @@
 ---
 layout: no-slider
-title: Bivee - Team Members
+title: Bivee - Previous Projects
 ---
-<div id="bio_container">
-  <h1>Team Members</h1>
-  <ul class="bios">
-    {% for post in site.posts %}
-      
-    	{% if post.type == "bio" %} 
-    		<h2>{{ post.name }}</h2>
-    		<h3>{{ post.job-title }}</h3>
+<div id="projects_container">
+  <h1>Previous Projects</h1>
+    {% for post in site.categories.project %}
+
+    		<h2>{{ post.title }}</h2>
+            <h3>{{ post.ProjectCompleted }}</h3>
+            <h3>{{ post.ProjectType }}</h3>
+            <h3>{{ post.ProjectURL }}</h3>
+            <h3>{{ post.ProjectTech | array_to_sentence_string }}</h3>
+            <h3>{{ post.ProjectTeam | array_to_sentence_string }}</h3>
             <img src="{{ post.image }}" />
-            <h4> Specialities: {{ post.specialities }} </h4>
     		{{ post.content }}
-    		<hr>
-    	{% endif %}
 
     {% endfor %}
   

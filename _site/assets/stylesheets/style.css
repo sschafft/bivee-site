@@ -10,6 +10,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
+
 /* Reset
 ================================================== */
 html,
@@ -152,7 +155,7 @@ hr {
 /* Typography
 ================================================== */
 .font {
-  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 }
 .heading {
   font-family: .font;
@@ -169,15 +172,21 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 }
 h1 {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 320%;
   line-height: 160%;
 }
 h2 {
   font-weight: 300;
+  font-size: 200%;
+  line-height: 100%;
+  color: #00aae5;
+}
+h3 {
+  font-weight: 200;
   font-size: 200%;
   line-height: 160%;
   color: #00aae5;
