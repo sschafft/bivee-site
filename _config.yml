@@ -1,2 +1,4 @@
 name: Bivee - Systems Development
 pygments: true
+safe: true
+lsi: false
