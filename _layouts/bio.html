@@ -1,10 +1,27 @@
----
-layout: no-slider
----
-<h2>{{ page.name }}</h2>
-<h3>{{ page.title }}</h3>
-<img src="{{ page.image }}" />
+{% include header.html %}
+  <div id="container">
+    <section id="banner" class="blue">
+      <article>
+        <div class="columns large-12">
+          <h1>{{ page.title }}</h1>
+        </div>
+      </article>
+    </section>
+    <section>
+      <article>
+        <div class="columns large-9 large-offset-3">
+{% for post in site.categories.bio %}
+          <div class="bios">
+            <img class="profile" src="{{ post.image }}" />
+        		<h2>{{ post.name }}</h2>
+        		<h3 class="title">{{ post.job-title }}</h3>
+            <h4 class="specialities"> Specialities: {{ post.specialities }} </h4>
+        	  <p>{{ post.content }}</p>
+          </div>
+{% if forloop.last %}{% else %}
+          <hr />
+{% endif %}{% endfor %}
+        </div>
+{% include nav.html %}
 
-<div class="post">
-{{ content }}
-</div>
+{% include footer.html %}

@@ -20,8 +20,81 @@
   }
   
 	section.content {
-  	min-height: 650px;
 	}
+	
+	.bios {
+  	img.profile {
+    	.radius(50px);
+    	height: 100px;
+    	width: 100px;
+    	float: left;
+    	margin-right: 20px;
+  	}
+  	h3 {
+    	font-weight: @regular;
+    	line-height: 1.5em;
+  	}
+  	h4 {
+    	font-weight: @light;
+    	font-style: italic;
+    	color: @grey;
+  	}
+	}
+	
+	.posts{
+  	ul li {
+    	display: block;
+    	border-bottom: 1px solid @offwhite;
+    	padding-top: 1em;
+    	padding-bottom: 1em;
+    	.transition;
+    	&:hover {
+      	background: darken(@white, 2.5%);
+    	}
+  	}
+  	.date {
+    	text-transform: uppercase;
+    	font-weight: @light;
+    	color: @grey;
+    	font-size: 80%;
+  	}
+  	h2 a{
+    	color: @colour1;
+    	font-size: 80%;
+  	}
+	}
+	
+	ul.pagination {
+	  padding-top: 30px;
+	  padding-bottom: 30px;
+	  color: darken(@white, 10%);
+	  
+  	li {
+    	display: inline-block;
+    	a {
+      	color: @colour1;
+    	}
+    	&.prev {
+      	float: left;
+    	}
+    	&.next {
+      	float: right;
+    	}
+  	}
+  }
+	
+
+/* Page Headers
+================================================== */
+  section#banner {
+    @color: @colour1;
+    background: @color;
+    
+    h1 {
+      color: @white;
+    }
+  }
+
 
 
 /* Nav Menus
@@ -102,8 +175,8 @@
     }
   }
  
- /* Set footer height to same as push to make footer sticky */
- @footerHeight: 50px;
+ /* Set footerHeight to TOTAL height of all divs to be sticky */
+ @footerHeight: 309px;
  
  footer#bottom {
    background: @black;
@@ -118,7 +191,7 @@
      color: @grey;
    }
  }
-  #push, footer#bottom {
+  #push {
     height: @footerHeight;
   }
   #container {

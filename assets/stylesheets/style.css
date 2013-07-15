@@ -10,9 +10,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-@import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
-
 /* Reset
 ================================================== */
 html,
@@ -155,7 +152,7 @@ hr {
 /* Typography
 ================================================== */
 .font {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 }
 .heading {
   font-family: .font;
@@ -172,21 +169,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Verdana, Arial, sans-serif;
 }
 h1 {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 320%;
   line-height: 160%;
 }
 h2 {
   font-weight: 300;
-  font-size: 200%;
-  line-height: 100%;
-  color: #00aae5;
-}
-h3 {
-  font-weight: 200;
   font-size: 200%;
   line-height: 160%;
   color: #00aae5;
@@ -245,8 +236,75 @@ footer {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-section.content {
-  min-height: 650px;
+.bios img.profile {
+  border-radius: 50px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  height: 100px;
+  width: 100px;
+  float: left;
+  margin-right: 20px;
+}
+.bios h3 {
+  font-weight: 400;
+  line-height: 1.5em;
+}
+.bios h4 {
+  font-weight: 300;
+  font-style: italic;
+  color: #89949b;
+}
+.posts ul li {
+  display: block;
+  border-bottom: 1px solid #f2f2f2;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+}
+.posts ul li:hover {
+  background: #f9f9f9;
+}
+.posts .date {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #89949b;
+  font-size: 80%;
+}
+.posts h2 a {
+  color: #00aae5;
+  font-size: 80%;
+}
+ul.pagination {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #e6e6e6;
+}
+ul.pagination li {
+  display: inline-block;
+}
+ul.pagination li a {
+  color: #00aae5;
+}
+ul.pagination li.prev {
+  float: left;
+}
+ul.pagination li.next {
+  float: right;
+}
+/* Page Headers
+================================================== */
+section#banner {
+  background: #00aae5;
+}
+section#banner h1 {
+  color: #ffffff;
 }
 /* Nav Menus
 ================================================== */
@@ -324,7 +382,7 @@ footer h3 {
   font-size: 80%;
   color: #00aae5;
 }
-/* Set footer height to same as push to make footer sticky */
+/* Set footerHeight to TOTAL height of all divs to be sticky */
 footer#bottom {
   background: #333333;
   color: #ffffff;
@@ -337,21 +395,20 @@ footer#bottom span {
   padding-right: 20px;
   color: #89949b;
 }
-#push,
-footer#bottom {
-  height: 50px;
+#push {
+  height: 309px;
 }
 #container {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -50px;
+  margin: 0 auto -309px;
 }
 /* Slider
 ================================================== */
 .sl-slider-wrapper {
   width: 100%;
-  height: 600px;
+  min-height: 600px;
   overflow: hidden;
   position: relative;
 }
@@ -1112,6 +1169,9 @@ article article:after {
   .desktop {
     display: none;
   }
+  div#container {
+    margin-top: 72px;
+  }
   div#main {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -1124,7 +1184,6 @@ article article:after {
   div#main ul#menu {
     display: none;
     width: 100%;
-    background: #ffffff;
     z-index: 1;
     padding-top: 15px;
   }
@@ -1139,7 +1198,8 @@ article article:after {
     border-bottom: 1px dotted #f2f2f2;
   }
   div#main li:hover {
-    background: #00aae5;
+    background: #4cd1ff;
+    color: #ffffff;
   }
   div#main svg {
     padding: 0;
@@ -1160,11 +1220,12 @@ article article:after {
   }
   #slider {
     margin-top: 74px;
+    min-height: 100%;
   }
 }
 @media screen and (max-width: 25em) {
   section#top h1 {
-    font-size: 200%;
+    font-size: 180%;
   }
 }
 /* Form Styles

@@ -1,0 +1,23 @@
+  <!-- jQuery -->
+  <script src="/assets/javascripts/modernizr.custom.js"></script>
+  <script src="/assets/javascripts/jquery.min.js"></script>
+  <script src="/assets/javascripts/jquery.pin.js"></script>
+  <script src="/assets/javascripts/jquery.svg.js"></script>
+{% if page.class == "slider" %}
+  <script src="/assets/javascripts/jquery.ba-cond.min.js"></script>
+  <script src="/assets/javascripts/jquery.slider.js"></script>
+{% endif %} 
+  <script src="/assets/javascripts/bvscripts.js"></script>
+  
+    
+  <!-- Google Analytics -->
+  <script>var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{ site.google.analytics }}']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; 
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>

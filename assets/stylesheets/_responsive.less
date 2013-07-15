@@ -16,6 +16,10 @@
       display: none;
     }
     
+    div#container {
+      margin-top: 72px;
+    }
+    
     div#main {
         padding-top: 15px;
         padding-bottom: 15px;
@@ -28,7 +32,6 @@
         ul#menu {
           display: none;
           width: 100%;
-          background: @white;
           z-index: 1;
           padding-top: 15px;
         }
@@ -42,7 +45,8 @@
           padding-bottom: 10px;
           border-bottom: 1px dotted @offwhite;
           &:hover {
-            background: @colour1;
+            background: lighten(@colour1, 20%);
+            color: @white;
           }
         }
         svg {
@@ -66,13 +70,14 @@
       }
       #slider {
         margin-top: 74px;
+        min-height: 100%;
       }
     }
   
   @media screen and (max-width: 25em) {
     section#top {
       h1 {
-        font-size: 200%;
+        font-size: 180%;
       }
     }
   

@@ -1,0 +1,16 @@
+
+        <div id="main" class="columns large-2">
+          <div class="flask desktop">
+            <a href="/"><img class="svg" src="/assets/images/flask.svg" /></a>
+          </div>
+          <div class="mobile"><a href="/"><img class="svg white" src="/assets/images/logo.svg" /></a></div>
+          <div id="showmenu"><i class="icon-facebook"></i></div>
+          <ul id="menu">
+            <li{% if page.active_tab == "about" %} class="active"{% endif %}><a href="/about">About</a></li>
+            <li{% if page.active_tab == "team" %} class="active"{% endif %}><a href="/team">Team</a></li>
+            <li{% if page.active_tab == "services" %} class="active"{% endif %}><a href="/services">Services</a></li>
+            <li{% if page.active_tab == "portfolio" %} class="active"{% endif %}><a href="/portfolio">Portfolio</a></li>
+            <li{% if page.active_tab == "blog" %} class="active"{% endif %}><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="clearfix"></div>
