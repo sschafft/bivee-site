@@ -1,0 +1,21 @@
+---
+layout: no-slider
+title: Bivee - Team Members
+---
+<div id="bio_container">
+  <h1>Team Members</h1>
+  <ul class="bios">
+    {% for post in site.posts %}
+      
+    	{% if post.type == "bio" %} 
+    		<h2>{{ post.name }}</h2>
+    		<h3>{{ post.job-title }}</h3>
+            <img src="{{ post.image }}" />
+            <h4> Specialities: {{ post.specialities }} </h4>
+    		{{ post.content }}
+    		<hr>
+    	{% endif %}
+
+    {% endfor %}
+  
+</div>
