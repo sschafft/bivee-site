@@ -86,14 +86,12 @@
 				</nav>
 
 				<nav id="nav-dots" class="nav-dots">				
-        {% for post in site.posts %} 
-          {% if post.type == "slider" %} 
+        {% for post in site.categories.slider %} 
             {% if forloop.first %}
             <span class="nav-dot-current"></span>
             {% else %}
             <span> </span>
             {% endif %}
-          {% endif %}
         {% endfor %}
 				</nav>
 
