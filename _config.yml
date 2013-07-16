@@ -1,3 +1,35 @@
 name: Bivee
 pygments: true
+markdown: kramdown
 paginate: 10
+version: 0.9
+
+seo:
+  author: Nicholas Kingston, Scott Schaffter, Arsham Skrenes - Bivee
+  description: 
+  keywords:
+  
+
+url: http://www.bivee.co
+permalink: /:year/:title
+  
+social:
+  facebook: 
+  twitter:
+  linkedin:
+  googleplus:
+  github: 'biveeco'
+  
+google:
+  analytics : 'UA-111-11'
+  verification : 'SVC'
+
+facebook:
+  admins : '2188a'
+  api : 'asdfas'
+
+assets:
+  img: '/assets/images/'
+  css: '/assets/stylesheets/'
+  js: '/assets/javascripts/'
+  
