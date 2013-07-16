@@ -29,7 +29,7 @@ facebook:
   api : 'asdfas'
 
 assets:
-  img: '/assets/images/'
-  css: '/assets/stylesheets/'
-  js: '/assets/javascripts/'
+  img: 'assets/images/'
+  css: 'assets/stylesheets/'
+  js: 'assets/javascripts/'
   
