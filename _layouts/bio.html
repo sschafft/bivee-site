@@ -1,4 +1,5 @@
 {% include header.html %}
+{% include nav.html %}
   <div id="container">
     <section id="banner" class="blue">
       <article>
@@ -7,21 +8,17 @@
         </div>
       </article>
     </section>
-    <section>
+    <section id="team">
       <article>
-        <div class="columns large-9 large-offset-3">
+        <div class="columns large-8 large-offset-2">
 {% for post in site.categories.bio %}
-          <div class="bios">
-            <img class="profile" src="{{ post.image }}" />
-        		<h2>{{ post.name }}</h2>
-        		<h3 class="title">{{ post.job-title }}</h3>
-            <h4 class="specialities"> Specialities: {{ post.specialities }} </h4>
-        	  <p>{{ post.content }}</p>
+          <div class="columns large-4">
+            <div class="bios">
+              <img class="profile" src="{{ post.image }}" />
+          		<h2 class="color1">{{ post.name }}</h2>
+          		<h3 class="grey">{{ post.job-title }}</h3>
+            </div>
           </div>
-{% if forloop.last %}{% else %}
-          <hr />
-{% endif %}{% endfor %}
+{% endfor %}
         </div>
-{% include nav.html %}
-
 {% include footer.html %}

@@ -8,16 +8,22 @@ seo:
   author: Nicholas Kingston, Scott Schaffter, Arsham Skrenes - Bivee
   description: 
   keywords:
-  
 
-url: http://www.bivee.co
+
+contact:
+  phone: '+1 703/ 261-9290'
+  email: 'letstalk@bivee.co'
+  address:
+    line1: 'A coffee shop'
+    line2:  'very near you' 
+
+url:
 permalink: /:year/:title
   
 social:
   facebook: 
-  twitter:
+  twitter: 'biveeco'
   linkedin:
-  googleplus:
   github: 'biveeco'
   
 google:

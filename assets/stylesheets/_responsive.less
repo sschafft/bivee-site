@@ -20,59 +20,53 @@
       margin-top: 72px;
     }
     
-    div#main {
+    nav#main {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      position: fixed;
+      top: 0;
+      z-index: 10000;
+      background: fade(@white, 95%);
+      border-bottom: 1px solid @offwhite;
+      
+      ul#menu {
+        display: none;
+        width: 100%;
+        z-index: 1;
         padding-top: 15px;
-        padding-bottom: 15px;
-        position: fixed;
-        top: 0;
-        z-index: 10000;
-        background: fade(@white, 95%);
-        border-bottom: 1px solid @offwhite;
-        
-        ul#menu {
-          display: none;
-          width: 100%;
-          z-index: 1;
-          padding-top: 15px;
-        }
-        li {
-          display: block;
-          text-align: left;
-          margin-left: -0.9375em;
-          margin-right: -0.9375em;
-          padding-left: 20px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          border-bottom: 1px dotted @offwhite;
-          &:hover {
-            background: lighten(@colour1, 20%);
-            color: @white;
-          }
-        }
-        svg {
-          padding: 0;
-          height: 40px;
-          width: 147px;
-        
-        }
-        #showmenu {
-          display: block;
+      }
+      li {
+        display: block;
+        text-align: left;
+        margin-left: -0.9375em;
+        margin-right: -0.9375em;
+        padding-left: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px dotted @offwhite;
+        &:hover {
+          background: lighten(@color1, 20%);
+          color: @white;
         }
       }
-      section#top {
-        padding-left: 0;
+      svg {
+        padding: 0;
+        height: 40px;
+        width: 147px;
+      
       }
-      h1 {
-        font-size: 250%;   
-      }
-      h2 {
-        font-size: 170%;
-      }
-      #slider {
-        margin-top: 74px;
-        min-height: 100%;
+      #showmenu {
+        display: block;
       }
     }
+    h1 { font-size: 250%; }
+    h2 { font-size: 170%; }
+    h3 { font-size: 250%; }
+    h4 { font-size: 170%; }
+    h5 { font-size: 250%; }
+    h6 { font-size: 170%; }
+    p { font-size: 100%; }
+  }
   
   @media screen and (max-width: 25em) {
     section#top {
