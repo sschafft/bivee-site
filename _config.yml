@@ -10,7 +10,7 @@ seo:
   keywords:
   
 
-url: http://www.bivee.co
+url: http://jekyll.bivee.co
 permalink: /:year/:title
   
 social:
@@ -29,7 +29,7 @@ facebook:
   api : 'asdfas'
 
 assets:
-  img: 'assets/images/'
-  css: 'assets/stylesheets/'
-  js: 'assets/javascripts/'
+  img: '/assets/images/'
+  css: '/assets/stylesheets/'
+  js: '/assets/javascripts/'
   

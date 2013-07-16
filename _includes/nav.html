@@ -1,9 +1,9 @@
 
         <div id="main" class="columns large-2">
           <div class="flask desktop">
-            <a href="/"><img class="svg" src="/assets/images/flask.svg" /></a>
+            <a href="/"><img class="svg" src="{{ site.assets.img }}flask.svg" /></a>
           </div>
-          <div class="mobile"><a href="/"><img class="svg white" src="/assets/images/logo.svg" /></a></div>
+          <div class="mobile"><a href="/"><img class="svg white" src="{{ site.assets.img }}logo.svg" /></a></div>
           <div id="showmenu"><i class="icon-facebook"></i></div>
           <ul id="menu">
             <li{% if page.active_tab == "about" %} class="active"{% endif %}><a href="/about">About</a></li>
