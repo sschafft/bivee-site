@@ -1,5 +1,5 @@
 ---
-layout: bio
+layout: profile
 title:  "Scott Schaffter"
 date:   2013-07-11
 categories: bio partner

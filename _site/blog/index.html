@@ -35,8 +35,8 @@
   <meta property="fb:app_id" content="asdfas"/>
   <meta property="og:title" content="Blog Archives"/>
   <meta property="og:description" content=""/>
-  <meta property="og:image" content="assets/images/og-image.jpg"/>
-  <meta property="og:url" content="http://www.bivee.co/blog/"/>
+  <meta property="og:image" content="/assets/images/og-image.jpg"/>
+  <meta property="og:url" content="/blog/"/>
   
   <!-- Robots & Favicons  -->
   <link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -45,7 +45,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
   <!-- CSS and Fonts  -->
-  <link rel="stylesheet" media="screen" href="assets/stylesheets/style.css">
+  <link rel="stylesheet" media="screen" href="/assets/stylesheets/style.css">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,500' rel='stylesheet' type='text/css'>
   
   <!-- IE Fixes  -->
@@ -54,6 +54,29 @@
 
 </head>
 <body>
+
+  <header>
+    <article>
+      <div class="columns large-12">
+        <a href="/"><img class="svg color3" src="/assets/images/logo.svg" /></a>
+        <i id="showmenu" class="icon-list mobile"></i>
+      </div>
+    </article>
+  </header>
+
+        <nav id="main" data-spy="affix" data-offset-top="00">
+          <article>
+            <div class="columns large-12">
+              <ul id="menu">
+                <li><a href="/about">About</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/blog">Blog</a></li>
+              </ul>
+            </div>
+          </article>
+        </nav>
   <div id="container">
     <section id="banner" class="blue">
       <article>
@@ -64,18 +87,18 @@
     </section>
     <section>
       <article>
-        <div class="columns large-9 large-offset-3">
+        <div class="columns large-8 large-offset-2">
               <div class="posts">
       <ul>
 
         <li>
           <span class="date">15 July, 2013</span>
-          <h2 class="title"><a href="/2013/blog-post2">Blog Post 2</a></h2>
+          <h2 class="title"><a href="/blog/2013/07/15/blog-post2.html">Blog Post 2</a></h2>
         </li>
 
         <li>
           <span class="date">15 July, 2013</span>
-          <h2 class="title"><a href="/2013/blog-post1">Blog Post 1</a></h2>
+          <h2 class="title"><a href="/blog/2013/07/15/blog-post1.html">Blog Post 1</a></h2>
         </li>
 
       </ul>
@@ -90,24 +113,6 @@
 
 </ol>
         </div>
-
-        <div id="main" class="columns large-2">
-          <div class="flask desktop">
-            <a href="/"><img class="svg" src="assets/images/flask.svg" /></a>
-          </div>
-          <div class="mobile"><a href="/"><img class="svg white" src="assets/images/logo.svg" /></a></div>
-          <div id="showmenu"><i class="icon-facebook"></i></div>
-          <ul id="menu">
-            <li><a href="/about">About</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="clearfix"></div>
-
-
       </article>
     </section>
     
@@ -119,32 +124,30 @@
   <footer id="contact">
     <article>
       <div class="columns large-12">
-        <h2>Here is how you can get in touch</h2>
+          <h2>Here is how you can get in touch</h2>
       </div>
+      
       <div class="columns large-6">
-        <div class="columns small-6">
+        <div class="columns small-5 small-offset-1">
           <h3>Contact</h3>
-          <a href="#">+1 703/ 261-9290</a>
-          <a href="#">letstalk@bivee.co</a>
+          <a href="tel:+1 703/ 261-9290">+1 703/ 261-9290</a>
+          <a href="mailto:letstalk@bivee.co">letstalk@bivee.co</a>
         </div>
-        <div class="columns small-6">
+        <div class="columns small-5 small-offset-1">
           <h3>Address</h3>
-          <a href="#">
-            <div>A coffee shop</div>
-            <div>very near you</div>
-          </a>
+          <a href="#">A coffee shop<br />very near you</a>
         </div>
       </div>
       <div class="columns large-6">
-        <div class="columns small-6">
+        <div class="columns small-4 small-offset-1">
           <h3>Follow us</h3>
-          <a href="#"><i class="icon-facebook"></i>Facebook</a>
-          <a href="#"><i class="icon-twitter"></i>Twitter</a>
+          <a href="http://www.facebook.com/"><i class="icon-facebook"></i>Facebook</a>
+          <a href="http://www.twitter.com/biveeco"><i class="icon-twitter"></i>Twitter</a>
         </div>
-        <div class="columns small-6">
+        <div class="columns small-5 small-offset-1">
           <h3>Connect</h3>
-          <a href="#"><i class="icon-linkedin"></i>Linkedin</a>
-          <a href="#"><i class="icon-github"></i>Github</a>
+          <a href="http://www.linkedin.com/"><i class="icon-linkedin"></i>Linkedin</a>
+          <a href="http://www.github.com/biveeco"><i class="icon-github"></i>Github</a>
         </div>
       </div>
     </article>
@@ -154,7 +157,7 @@
   <footer id="bottom">
     <article>
       <div class="columns large-12">
-          <span>&copy; Copyright 2013 Bivee</span>
+          <span>&copy; Copyright  Bivee 2013</span>
           <span>|</span>
           <span>Made with <b class="heart">♥</b> in DC</span>
       </div>
@@ -162,11 +165,12 @@
   </footer>
 
   <!-- jQuery -->
-  <script src="assets/javascripts/modernizr.custom.js"></script>
-  <script src="assets/javascripts/jquery.min.js"></script>
-  <script src="assets/javascripts/jquery.pin.js"></script>
-  <script src="assets/javascripts/jquery.svg.js"></script>
-  <script src="assets/javascripts/bvscripts.js"></script>
+  <script src="/assets/javascripts/modernizr.custom.js"></script>
+  <script src="/assets/javascripts/jquery.min.js"></script>
+  <script src="/assets/javascripts/jquery.svg.js"></script>
+  <script src="/assets/javascripts/jquery.affix.js"></script>
+
+  <script src="/assets/javascripts/bvscripts.js"></script>
   
     
   <!-- Google Analytics -->

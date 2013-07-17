@@ -11,6 +11,11 @@
     <section>
       <article>
         <div class="columns large-8 large-offset-2">
-          {{ content }}
-        </div>
+          <div class="bios">
+            <img class="profile" src="{{ page.image }}" />
+        		<h2 class="color1">{{ post.name }}</h2>
+        		<h3 class="grey">{{ post.job-title }}</h3>
+            <h4 class="grey"> Specialities: {{ post.specialities }} </h4>
+            {{ post.content }}
+          </div>
 {% include footer.html %}

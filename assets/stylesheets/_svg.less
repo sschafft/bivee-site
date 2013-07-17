@@ -1,33 +1,126 @@
 /* SVG
 ================================================== */
-
-  .logo svg path {
-    &.letters, &.outline {
-      fill: @white !important;
-    }
-  }
-  .flask svg {
-    @color: @colour3;
-    width: 70px;
-    height: 70px;
-    
-    path {
-      &.liquid {
-        fill: @color !important;
-      }
-      &.bubbles {
-        fill: lighten(@color, 10%) !important;
-      }
-      &.outline {
-        fill: #E5E5E5;
+  svg {
+  
+    &.color1 {
+      @color: @color1;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
       }
     }
-    &:hover path {
-      &.liquid {
-        fill: darken(@color, 5%) !important;
-      }
-      &.bubbles {
-        fill: darken(@color, 0%) !important;
+    &.color2 {
+      @color: @color2;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
       }
     }
+    &.color3 {
+      @color: @color3;
+      fill: @color !important;
+      .transition;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+        .transition;
+      }
+    }
+    &.red {
+      @color: @red;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.fusia {
+      @color: @fusia;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.orange {
+      @color: @orange;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.yellow {
+      @color: @yellow;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.lime {
+      @color: @lime;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.green {
+      @color: @green;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.aqua {
+      @color: @aqua;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.blue {
+      @color: @blue;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.navy {
+      @color: @navy;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.purple {
+      @color: @purple;
+      fill: @color !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.white {
+      @color: @white;
+      fill: @color !important;
+      &:hover {
+        fill: darken(@color, 20%) !important;
+      }
+    }
+    &.offwhite {
+      @color: @offwhite;
+      fill: @color !important;
+      &:hover {
+        fill: darken(@color, 20%) !important;
+      }
+    }
+    &.grey {
+      @color: @grey;
+      fill: @grey !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }
+    &.black {
+      @color: @black;
+      fill: @grey !important;
+      &:hover {
+        fill: lighten(@color, 20%) !important;
+      }
+    }    
   }

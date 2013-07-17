@@ -1,26 +1,10 @@
-/* Logo
-================================================== */
-
-	.logo {
-		position: relative;
-		display: block;
-		text-align: left;
-		padding-bottom: 30px;
-	}
-	.flask {
-  	margin-bottom: 30px;
-	}
-	
 /* Sections
 ================================================== */
 
-  section, footer {
+  section, nav, footer {
       padding-top: 40px;
       padding-bottom: 40px;
   }
-  
-	section.content {
-	}
 	
 	.bios {
   	img.profile {
@@ -29,15 +13,6 @@
     	width: 100px;
     	float: left;
     	margin-right: 20px;
-  	}
-  	h3 {
-    	font-weight: @regular;
-    	line-height: 1.5em;
-  	}
-  	h4 {
-    	font-weight: @light;
-    	font-style: italic;
-    	color: @grey;
   	}
 	}
 	
@@ -59,7 +34,7 @@
     	font-size: 80%;
   	}
   	h2 a{
-    	color: @colour1;
+    	color: @color1;
     	font-size: 80%;
   	}
 	}
@@ -72,7 +47,7 @@
   	li {
     	display: inline-block;
     	a {
-      	color: @colour1;
+      	color: @color1;
     	}
     	&.prev {
       	float: left;
@@ -82,12 +57,26 @@
     	}
   	}
   }
+
+/* Header
+================================================== */
+	
+	header {
+	  padding-top: 40px;
+	  padding-bottom: 40px;
+	  text-align: center;
+	  
+  	.logo svg {
+  	  display: inline-block;
+    	width: 180px;
+  	}
+	}
 	
 
 /* Page Headers
 ================================================== */
   section#banner {
-    @color: @colour1;
+    @color: @color1;
     background: @color;
     
     h1 {
@@ -97,49 +86,50 @@
 
 
 
-/* Nav Menus
+/* Nav Menu
 ================================================== */
-  div#main {
+  nav#main {
     padding-top: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     z-index: 99;
-    position: absolute;
-    
-    .logo svg {
-      width: 180px;
-    }
-    
+    border-top: 1px solid @offwhite;
+    position: relative;
+    background: @white;
+        
     ul {
-      display: block;
       list-style: none;
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
     li {
-      padding-top: 15px;
-      display: block;
-      font-weight: @light;
+      padding-left: 20px;
+      padding-right: 20px;
+      display: inline-block;
     }
     
     a {
-      color: @black;
+      color: @grey;
       &:hover {
-        color: @colour1;
+        color: @color1;
       }
     }
     
     #showmenu {
       display: none;
       position: absolute;
+      font-size: 200%;
       right: 15px;
-      top: 15px;
-      background: @colour3;
+      top: 5px;
+      padding-top: 4px;
+      background: @grey;
       height: 40px;
       width: 40px;
-      padding-top: 12px;
       color: @white;
       text-align: center;
       .radius(20px);
       &:hover {
-        background: @colour1;
+        background: @color1;
       }
     }
   }
@@ -153,13 +143,16 @@
     h2, a {
       color: @grey;
     }
+    h2 {
+      text-align: center;
+    }
     a {
       display: block;
       font-weight: @light;
       padding-bottom: 5px;
     }
     a:hover {
-      color: @colour1;
+      color: @color1;
     }
     i {
       margin-right: 10px;
@@ -171,7 +164,7 @@
       margin-top: 50px;
       margin-bottom: 20px;
       font-size: 80%;
-      color: @colour1;
+      color: @color1;
     }
   }
  
@@ -185,6 +178,7 @@
    font-size: 80%;
    padding-top: 15px;
    padding-bottom: 15px;
+   text-align: center;
    
    span {
      padding-right: 20px;

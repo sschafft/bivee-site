@@ -35,8 +35,8 @@
   <meta property="fb:app_id" content="asdfas"/>
   <meta property="og:title" content="Team"/>
   <meta property="og:description" content=""/>
-  <meta property="og:image" content="assets/images/og-image.jpg"/>
-  <meta property="og:url" content="http://www.bivee.co/team/"/>
+  <meta property="og:image" content="/assets/images/og-image.jpg"/>
+  <meta property="og:url" content="/team/"/>
   
   <!-- Robots & Favicons  -->
   <link rel="shortcut icon" type="image/png" href="/favicon.png" />
@@ -45,7 +45,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
   <!-- CSS and Fonts  -->
-  <link rel="stylesheet" media="screen" href="assets/stylesheets/style.css">
+  <link rel="stylesheet" media="screen" href="/assets/stylesheets/style.css">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,500' rel='stylesheet' type='text/css'>
   
   <!-- IE Fixes  -->
@@ -54,6 +54,29 @@
 
 </head>
 <body>
+
+  <header>
+    <article>
+      <div class="columns large-12">
+        <a href="/"><img class="svg color3" src="/assets/images/logo.svg" /></a>
+        <i id="showmenu" class="icon-list mobile"></i>
+      </div>
+    </article>
+  </header>
+
+        <nav id="main" data-spy="affix" data-offset-top="00">
+          <article>
+            <div class="columns large-12">
+              <ul id="menu">
+                <li><a href="/about">About</a></li>
+                <li><a href="/team">Team</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/blog">Blog</a></li>
+              </ul>
+            </div>
+          </article>
+        </nav>
   <div id="container">
     <section id="banner" class="blue">
       <article>
@@ -62,71 +85,43 @@
         </div>
       </article>
     </section>
-    <section>
+    <section id="team">
       <article>
-        <div class="columns large-9 large-offset-3">
+        <div class="columns large-8 large-offset-2">
 
-          <div class="bios">
-            <img class="profile" src="/assets/images/bios/scott.jpg" />
-        		<h2>Scott Schaffter</h2>
-        		<h3 class="title">Founding Partner</h3>
-            <h4 class="specialities"> Specialities: Application Development, Marketing, Strategy, Project Management </h4>
-        	  <p><p>Scott has over five years of experience in online systems development in an international context. Most recently he has focused on online-learning and collaboration tools. Specifically, while working with PSI he was responsible for the development of its internal collaboration tool “SocialCast”, developing its online University, as well as developing PSI’s new online document collaboration tool “WorkSmart”. Scott spoke at the Masie Learning 2012 conference around online community development and has been invited as a guest lecturer to UPenn’s CLO program to showcase effective online community development techniques. He has worked in Thailand, Laos, El Salvador, China, Kyrgyzstan and Canada. Scott’s is one of the lead developers in the Bivee group and also helps provide project management support to its clients. </p>
-</p>
+          <div class="columns large-4">
+            <div class="bios">
+              <img class="profile" src="/assets/images/bios/scott.jpg" />
+          		<h2 class="color1">Scott Schaffter</h2>
+          		<h3 class="grey">Founding Partner</h3>
+            </div>
           </div>
 
-          <hr />
-
-          <div class="bios">
-            <img class="profile" src="/assets/images/bios/nicholas.jpg" />
-        		<h2>Nicholas Kingston</h2>
-        		<h3 class="title">Founding Partner</h3>
-            <h4 class="specialities"> Specialities: Branding, Marketing, Front-End Design, Strategy </h4>
-        	  <p><p>Nicholas has over nine years in Marketing, Branding and Business Restructuring / Transformation, Nicholas has worked with firms ranging from start-ups to Fortune 500 providing extensive consulting services in design, web applications and strategy. Nicholas is responsible for Design, Front-End Development and Business Strategy in the Bivee group.</p>
-</p>
+          <div class="columns large-4">
+            <div class="bios">
+              <img class="profile" src="/assets/images/bios/nicholas.jpg" />
+          		<h2 class="color1">Nicholas Kingston</h2>
+          		<h3 class="grey">Founding Partner</h3>
+            </div>
           </div>
 
-          <hr />
-
-          <div class="bios">
-            <img class="profile" src="/assets/images/bios/arsham.jpg" />
-        		<h2>Arsham Skrenes</h2>
-        		<h3 class="title">Founding Partner</h3>
-            <h4 class="specialities"> Specialities: iPhone Development, Server Management, Application Development </h4>
-        	  <p><p>Arsham has over ten years of experience developing applications for both web and desktop use. He has developed systems managing the data and interactions of over 100,000 volunteers and staff members while at the Vancouver Olympic Organizing Committee. He continued his large scale systems development while working with PSI to develop its online University, helping develop a custom single-sign-on system between Moodle and Drupal. Arsham was also entered into the Computer Graphics hall of fame at UBC for his work on game engine development. Currently completing a masters degree in Computer Science, Arsham has a strong understanding of how to scale and build robust applications that perform well in low-bandwidth contexts. Arsham is one of the lead-developers in the Bivee group and insures that applications perform consistently at scale.</p>
-</p>
+          <div class="columns large-4">
+            <div class="bios">
+              <img class="profile" src="/assets/images/bios/arsham.jpg" />
+          		<h2 class="color1">Arsham Skrenes</h2>
+          		<h3 class="grey">Founding Partner</h3>
+            </div>
           </div>
 
-          <hr />
-
-          <div class="bios">
-            <img class="profile" src="/assets/images/bios/jay.jpg" />
-        		<h2>Jay Perry</h2>
-        		<h3 class="title">Design Lead</h3>
-            <h4 class="specialities"> Specialities: Branding, Web Interface Design, Print Design </h4>
-        	  <p><p>Jay has worked in the design industry for over ten years, working on projects ranging from video and motion graphics to subway station takeovers, newspapers and websites. Jay served as an associate art director at Discovery Communications with a team that focused on the Animal Planet, Planet Green and Science networks. Recently Jay has focused on application interface design. He has designed the interface of PSI’s current collaborative document creation and learning tool - WorkSmart. He also contributed to the development of PennState’s online learning system’s interface. Jay is one of the lead designers in the Bivee group and guides the creation of intuitive, simple and effective web applications. Jay Perry’s previous work and portfolio.</p>
-</p>
+          <div class="columns large-4">
+            <div class="bios">
+              <img class="profile" src="/assets/images/bios/jay.jpg" />
+          		<h2 class="color1">Jay Perry</h2>
+          		<h3 class="grey">Design Lead</h3>
+            </div>
           </div>
 
         </div>
-
-        <div id="main" class="columns large-2">
-          <div class="flask desktop">
-            <a href="/"><img class="svg" src="assets/images/flask.svg" /></a>
-          </div>
-          <div class="mobile"><a href="/"><img class="svg white" src="assets/images/logo.svg" /></a></div>
-          <div id="showmenu"><i class="icon-facebook"></i></div>
-          <ul id="menu">
-            <li><a href="/about">About</a></li>
-            <li><a href="/team">Team</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
-        </div>
-        <div class="clearfix"></div>
-
-
       </article>
     </section>
     
@@ -138,32 +133,30 @@
   <footer id="contact">
     <article>
       <div class="columns large-12">
-        <h2>Here is how you can get in touch</h2>
+          <h2>Here is how you can get in touch</h2>
       </div>
+      
       <div class="columns large-6">
-        <div class="columns small-6">
+        <div class="columns small-5 small-offset-1">
           <h3>Contact</h3>
-          <a href="#">+1 703/ 261-9290</a>
-          <a href="#">letstalk@bivee.co</a>
+          <a href="tel:+1 703/ 261-9290">+1 703/ 261-9290</a>
+          <a href="mailto:letstalk@bivee.co">letstalk@bivee.co</a>
         </div>
-        <div class="columns small-6">
+        <div class="columns small-5 small-offset-1">
           <h3>Address</h3>
-          <a href="#">
-            <div>A coffee shop</div>
-            <div>very near you</div>
-          </a>
+          <a href="#">A coffee shop<br />very near you</a>
         </div>
       </div>
       <div class="columns large-6">
-        <div class="columns small-6">
+        <div class="columns small-4 small-offset-1">
           <h3>Follow us</h3>
-          <a href="#"><i class="icon-facebook"></i>Facebook</a>
-          <a href="#"><i class="icon-twitter"></i>Twitter</a>
+          <a href="http://www.facebook.com/"><i class="icon-facebook"></i>Facebook</a>
+          <a href="http://www.twitter.com/biveeco"><i class="icon-twitter"></i>Twitter</a>
         </div>
-        <div class="columns small-6">
+        <div class="columns small-5 small-offset-1">
           <h3>Connect</h3>
-          <a href="#"><i class="icon-linkedin"></i>Linkedin</a>
-          <a href="#"><i class="icon-github"></i>Github</a>
+          <a href="http://www.linkedin.com/"><i class="icon-linkedin"></i>Linkedin</a>
+          <a href="http://www.github.com/biveeco"><i class="icon-github"></i>Github</a>
         </div>
       </div>
     </article>
@@ -173,7 +166,7 @@
   <footer id="bottom">
     <article>
       <div class="columns large-12">
-          <span>&copy; Copyright 2013 Bivee</span>
+          <span>&copy; Copyright  Bivee 2013</span>
           <span>|</span>
           <span>Made with <b class="heart">♥</b> in DC</span>
       </div>
@@ -181,11 +174,12 @@
   </footer>
 
   <!-- jQuery -->
-  <script src="assets/javascripts/modernizr.custom.js"></script>
-  <script src="assets/javascripts/jquery.min.js"></script>
-  <script src="assets/javascripts/jquery.pin.js"></script>
-  <script src="assets/javascripts/jquery.svg.js"></script>
-  <script src="assets/javascripts/bvscripts.js"></script>
+  <script src="/assets/javascripts/modernizr.custom.js"></script>
+  <script src="/assets/javascripts/jquery.min.js"></script>
+  <script src="/assets/javascripts/jquery.svg.js"></script>
+  <script src="/assets/javascripts/jquery.affix.js"></script>
+
+  <script src="/assets/javascripts/bvscripts.js"></script>
   
     
   <!-- Google Analytics -->
