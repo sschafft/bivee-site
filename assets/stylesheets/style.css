@@ -347,6 +347,29 @@ footer {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+#team .bios {
+  text-align: center;
+  margin-bottom: 50px;
+}
+#team .bios img.profile {
+  display: inline-block;
+  float: none !important;
+  width: 75%;
+  max-width: 150px;
+  height: auto;
+  border-radius: 100%;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+#team .bios h2,
+#team .bios h3 {
+  font-size: 120%;
+}
 .bios img.profile {
   border-radius: 50px;
   -moz-border-radius: 50px;
@@ -424,14 +447,14 @@ section#banner h1 {
 nav#main {
   padding-top: 20px;
   padding-bottom: 20px;
-  z-index: 99;
+  z-index: 100;
   border-top: 1px solid #f2f2f2;
-  position: relative;
+  position: fixed;
   background: #ffffff;
 }
 nav#main ul {
   list-style: none;
-  text-align: center;
+  text-align: right;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -467,6 +490,14 @@ nav#main #showmenu {
 }
 nav#main #showmenu:hover {
   background: #ec008b;
+}
+nav#main a.logo {
+  display: block;
+  position: absolute;
+  top: 5px;
+}
+nav#main a.logo svg {
+  height: 40px;
 }
 /* Footer 
 ================================================== */
@@ -527,7 +558,7 @@ footer#bottom span {
 ================================================== */
 .sl-slider-wrapper {
   width: 100%;
-  min-height: 600px;
+  min-height: 500px;
   overflow: hidden;
   position: relative;
 }

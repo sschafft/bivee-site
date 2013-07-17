@@ -5,7 +5,24 @@
       padding-top: 40px;
       padding-bottom: 40px;
   }
-	
+	#team .bios {
+	  text-align: center;
+	  margin-bottom: 50px;
+	  
+  	img.profile {
+    	display: inline-block;
+    	float: none !important;
+    	width: 75%;
+    	max-width: 150px;
+    	height: auto;
+    	.radius(100%);
+    	margin-left: auto;
+    	margin-right: auto;
+  	}
+  	h2, h3 {
+    	font-size: 120%;
+  	}
+	}
 	.bios {
   	img.profile {
     	.radius(50px);
@@ -78,7 +95,6 @@
   section#banner {
     @color: @color1;
     background: @color;
-    
     h1 {
       color: @white;
     }
@@ -91,14 +107,14 @@
   nav#main {
     padding-top: 20px;
     padding-bottom: 20px;
-    z-index: 99;
+    z-index: 100;
     border-top: 1px solid @offwhite;
-    position: relative;
+    position: fixed;
     background: @white;
         
     ul {
       list-style: none;
-      text-align: center;
+      text-align: right;
       padding-top: 20px;
       padding-bottom: 20px;
     }
@@ -130,6 +146,14 @@
       .radius(20px);
       &:hover {
         background: @color1;
+      }
+    }
+    a.logo {
+      display: block;
+      position: absolute;
+      top: 5px;
+      svg {
+        height: 40px;
       }
     }
   }
