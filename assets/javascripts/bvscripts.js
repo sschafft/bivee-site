@@ -46,3 +46,20 @@ $(function() {
 	})();
 	Page.init();
 });
+
+
+
+$(window).scroll(function(){
+
+	var scroll = $(window).scrollTop();
+	var width = $(window).width();
+	var height = $(window).height();
+
+	if (width > 768 && scroll > (height - 400)) {
+		$("nav#main").css({"padding-top": "0", "padding-bottom": "0"});
+	} else if (width > 768 && scroll < (height - 400)) {
+		$("nav#main").css({"padding-top": "20px", "padding-bottom": "20px"});
+	} else {
+		$("nav#main").css({"padding-top": "0", "padding-bottom": "0"});
+	}
+});

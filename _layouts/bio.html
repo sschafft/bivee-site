@@ -13,7 +13,12 @@
 {% for post in site.categories.bio %}
           <div class="columns large-4">
             <div class="bios">
-              <img class="profile" src="{{ post.image }}" />
+              <div class="hex">		
+              	<a href="{{ post.url }}" style="background: url({{ post.image }});">	
+                	<div class="corner-1"></div>
+                	<div class="corner-2"></div>
+              	</a>	
+              </div>            
           		<h2 class="color1">{{ post.name }}</h2>
           		<h3 class="grey">{{ post.job-title }}</h3>
             </div>
@@ -21,3 +26,10 @@
 {% endfor %}
         </div>
 {% include footer.html %}
+
+
+
+<div class="hexagon pic">
+    <span class="top"></span>
+    <span class="bottom"></span>
+</div>

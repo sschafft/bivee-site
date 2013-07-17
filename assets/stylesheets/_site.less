@@ -1,3 +1,54 @@
+.hive {
+	margin: -1.6em 0;
+	text-align: center;
+}
+.hex {
+	display: inline-block;
+	overflow: hidden;
+	width: 10em; height: 10em;
+	-webkit-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
+	-moz-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
+	-ms-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
+	-o-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
+	transform: rotate(-30deg) skewX(30deg) scaleY(.866);
+}
+.hex a {
+	display: block;
+	height: 100%;
+	-webkit-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
+	-moz-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
+	-ms-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
+	-o-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
+  transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
+	background: @color1;
+	background-size: auto 100%;
+	&:hover {
+  	background: @color2;
+	}
+}
+
+.inner {
+  position: absolute;
+  top: 2em;
+  width: 100%;
+  height: 60%;
+  padding: 0 1em;
+  color: @white;
+  h4 {
+    font-size: 150%;
+    font-style: normal;
+  }
+  h4, p {
+    padding: 0;
+    margin: 0;
+    line-height: 1.2em;
+  }
+  hr {
+    margin: 0.5em 2em;
+  }
+}
+
+
 /* Sections
 ================================================== */
 
@@ -25,11 +76,7 @@
 	}
 	.bios {
   	img.profile {
-    	.radius(50px);
-    	height: 100px;
-    	width: 100px;
-    	float: left;
-    	margin-right: 20px;
+  	
   	}
 	}
 	
@@ -92,15 +139,20 @@
 
 /* Page Headers
 ================================================== */
-  section#banner {
+  section#banner { 
+    padding-top: 150px;
     @color: @color1;
     background: @color;
     h1 {
       color: @white;
     }
   }
-
-
+  .content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  
+    
 
 /* Nav Menu
 ================================================== */
@@ -111,6 +163,7 @@
     border-top: 1px solid @offwhite;
     position: fixed;
     background: @white;
+    .transition;
         
     ul {
       list-style: none;
