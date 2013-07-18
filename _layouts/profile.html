@@ -1,20 +1,22 @@
-{% include header.html %}
-{% include nav.html %}
-    <section id="banner" class="blue">
-      <article>
-        <div class="columns large-12">
-          <h1>{{ page.title }}</h1>
-        </div>
-      </article>
-    </section>
-    <section>
-      <article>
-        <div class="columns large-8 large-offset-2">
-          <div class="bios">
-            <img class="profile" src="{{ page.image }}" />
-        		<h2 class="color1">{{ post.name }}</h2>
-        		<h3 class="grey">{{ post.job-title }}</h3>
-            <h4 class="grey"> Specialities: {{ post.specialities }} </h4>
-            {{ post.content }}
+---
+layout: default
+---
+          <div id="profile">
+            <div class="bios">
+              <div class="picture" data-title="{{ page.nickname }}">
+          	    <img src="{{ page.image }}" />
+          	  </div>
+          	  <div class="details">
+          		  <h2 class="textcolor1">{{ page.name }}</h2>
+                <h3 class="textgrey">{{ page.job-title }}</h3>
+                <ul>
+{% for item in page.specialities %}
+                  <li>{{ item }}</li>
+{% endfor %}
+                </ul>
+              </div>
+            </div>
+            <div class="content">
+              {{ page.content }}
+            </div>
           </div>
-{% include footer.html %}

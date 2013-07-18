@@ -1,54 +1,3 @@
-.hive {
-	margin: -1.6em 0;
-	text-align: center;
-}
-.hex {
-	display: inline-block;
-	overflow: hidden;
-	width: 10em; height: 10em;
-	-webkit-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
-	-moz-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
-	-ms-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
-	-o-transform: rotate(-30deg) skewX(30deg) scaleY(.866);
-	transform: rotate(-30deg) skewX(30deg) scaleY(.866);
-}
-.hex a {
-	display: block;
-	height: 100%;
-	-webkit-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
-	-moz-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
-	-ms-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
-	-o-transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
-  transform: scaleY(1.155) skewX(-30deg) rotate(30deg) scaleX(.866);
-	background: @color1;
-	background-size: auto 100%;
-	&:hover {
-  	background: @color2;
-	}
-}
-
-.inner {
-  position: absolute;
-  top: 2em;
-  width: 100%;
-  height: 60%;
-  padding: 0 1em;
-  color: @white;
-  h4 {
-    font-size: 150%;
-    font-style: normal;
-  }
-  h4, p {
-    padding: 0;
-    margin: 0;
-    line-height: 1.2em;
-  }
-  hr {
-    margin: 0.5em 2em;
-  }
-}
-
-
 /* Sections
 ================================================== */
 
@@ -56,30 +5,113 @@
       padding-top: 40px;
       padding-bottom: 40px;
   }
-	#team .bios {
-	  text-align: center;
-	  margin-bottom: 50px;
-	  
-  	img.profile {
-    	display: inline-block;
-    	float: none !important;
-    	width: 75%;
-    	max-width: 150px;
-    	height: auto;
-    	.radius(100%);
-    	margin-left: auto;
-    	margin-right: auto;
+  
+/* Bio
+================================================== */
+  .team {
+    text-align: center;
+    
+    h2 {
+      text-align: left;
+      color: @color3;
+    }
+    
+    .bios {
+  	  margin-bottom: 50px;
+  	  margin-left: 20px;
+  	  margin-right: 20px;
+  	  display: inline-block;
+  	  width: 160px;
+  	  .transition;
+  	  
+  	  
+  	  .picture {
+        display: inline-block;
+        position: relative;
+        .radius(50%);
+        margin: 10px;
+        
+        img {
+          .radius(50%);
+          display: block;
+          max-width: 100%;
+          .transition;
+          z-index: 0;
+        }
+         
+        &:hover img {
+          .scale(1.2);
+        }
+        &::before {
+          
+          position: absolute;
+          text-align: center;
+          padding: 25% 10%;
+          color: @white;
+          font-size: 1.4em; 
+          font-weight: 100;
+          background: @color1;
+          background: fade(@color1,80%);
+          content: attr(data-title);
+          z-index: 1;
+          .transition;
+          .radius(50%);
+          .opacity(0);
+          .scale(0);
+          
+        }
+        &:hover::before  {
+          width: 100%;
+          height: 100%;
+          .opacity(1);
+          .scale(1);
+        }
+      } 
+    	  
+    	h2, h3 {
+      	font-size: 120%;
+      	
+    	}
   	}
-  	h2, h3 {
-    	font-size: 120%;
-  	}
-	}
-	.bios {
-  	img.profile {
-  	
-  	}
-	}
+  }
+  
+  #profile {
+    text-align: left;
+    
+    .picture img {
+      float: left;
+      margin-right: 20px;
+      .radius(50%);
+      max-width: 150px;
+      height: auto;
+    }
+    .details {
+      display: inline-block;
+      
+      ul {
+        list-style: none;
+        text-align: left;
+        margin-top: 30px;
+        li {
+          font-weight: @light;
+          display: inline-block;
+          background: @grey;
+          padding: 4px 8px;
+          margin-right: 10px;
+          font-size: 80%;
+          color: @white;
+          .radius(3px);
+          
+        }
+      }
+    }
+    
+  }
+
 	
+/* Blog
+================================================== */
+
 	.posts{
   	ul li {
     	display: block;
@@ -146,6 +178,9 @@
     h1 {
       color: @white;
     }
+  }
+  #slider {
+    top: 100px;
   }
   .content {
     padding-top: 70px;

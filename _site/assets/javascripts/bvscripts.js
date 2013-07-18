@@ -55,11 +55,23 @@ $(window).scroll(function(){
 	var width = $(window).width();
 	var height = $(window).height();
 
-	if (width > 768 && scroll > (height - 400)) {
-		$("nav#main").css({"padding-top": "0", "padding-bottom": "0"});
-	} else if (width > 768 && scroll < (height - 400)) {
-		$("nav#main").css({"padding-top": "20px", "padding-bottom": "20px"});
+	if (width > 768 && scroll > 200) {
+		$("nav#main").css({
+		  "padding-top": "0", 
+		  "padding-bottom": "0",
+		  "background": "rgba(255,255,255,0.8)"
+		});
+	} else if (width > 768 && scroll < 200) {
+		$("nav#main").css({
+		  "padding-top": "20px", 
+		  "padding-bottom": "20px",
+		  "background": "rgba(255,255,255,1)"
+		});
 	} else {
-		$("nav#main").css({"padding-top": "0", "padding-bottom": "0"});
+		$("nav#main").css({
+  		"padding-top": "0", 
+		  "padding-bottom": "0",
+		  "background": "rgba(255,255,255,0.8)"
+		});
 	}
 });

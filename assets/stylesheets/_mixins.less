@@ -49,6 +49,14 @@
 	-ms-transition: @property @time @function;
 }
 
+.translate (@x, @y:0) {
+	-webkit-transform: translate(@x, @y);
+	   -moz-transform: translate(@x, @y);
+      -ms-transform: translate(@x, @y);
+       -o-transform: translate(@x, @y);
+          transform: translate(@x, @y);
+}
+
 .background-size(@prop: cover) {
 	background-size: @prop;
 	-webkit-background-size: @prop;

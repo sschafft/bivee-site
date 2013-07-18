@@ -5,6 +5,7 @@ date:   2013-07-11
 categories: bio partner
 name: "Nicholas Kingston"
 job-title: Founding Partner
+nickname: The Merovingian 
 specialities: Branding, Marketing, Front-End Design, Strategy
 image: /assets/images/bios/nicholas.jpg
 ---
