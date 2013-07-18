@@ -6,7 +6,7 @@ categories: bio partner
 name: Arsham Skrenes
 job-title: Founding Partner
 nickname: The Architect
-specialities: iPhone Development, Server Management, Application Development
+specialities: [iPhone Development, Server Management, Application Development]
 image: /assets/images/bios/arsham.jpg
 ---
 
