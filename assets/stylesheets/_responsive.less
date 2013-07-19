@@ -21,15 +21,17 @@
       padding-bottom: 15px;
       position: fixed;
       top: 0;
-      z-index: 10000;
+      z-index: 100;
+      background: @white;
       background: fade(@white, 95%);
       border-bottom: 1px solid @offwhite;
-      
+      .logo {
+        display: block;
+      }
       ul#menu {
         display: none;
         width: 100%;
         z-index: 1;
-        padding-top: 15px;
       }
       li {
         display: block;
@@ -39,10 +41,12 @@
         padding-left: 20px;
         padding-top: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px dotted @offwhite;
+        border-bottom: 1px dotted darken(@offwhite, 10%);
         &:hover {
-          background: lighten(@color1, 20%);
-          color: @white;
+          background: @color1;
+          a {
+            color: @white;
+          }
         }
       }
       svg {
@@ -55,20 +59,19 @@
         display: block;
       }
     }
+    #profile .title {
+      text-align: center;
+    }
     h1 { font-size: 250%; }
     h2 { font-size: 170%; }
-    h3 { font-size: 250%; }
-    h4 { font-size: 170%; }
-    h5 { font-size: 250%; }
-    h6 { font-size: 170%; }
+    h3 { font-size: 120%; }
+    h4 { font-size: 100%; }
+    h5 { font-size: 90%; }
+    h6 { font-size: 80%; }
     p { font-size: 100%; }
   }
-  
-  @media screen and (max-width: 25em) {
-    section#top {
-      h1 {
-        font-size: 180%;
-      }
-    }
-  
-      }
+@media screen and (max-width: 25em) {
+    h1 { font-size: 180%; }
+    h2 { font-size: 150%; }
+    h3 { font-size: 120%; }
+  }

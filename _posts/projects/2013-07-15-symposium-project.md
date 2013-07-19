@@ -6,7 +6,7 @@ ProjectCompleted: 2013-07-11
 ProjectType: Website Development
 ProjectURL: http://www.symposium-magazine.com
 ProjectTech: [Wordpress, PHP, jQuery, MySQL]
-ProjectTeam: [Nicholas Kingston, Scott Schaffter]
+team: [Nicholas Kingston, Scott Schaffter]
 image: /assets/images/projects/symposium.png
 ---
 

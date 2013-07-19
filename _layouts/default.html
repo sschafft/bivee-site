@@ -3,13 +3,13 @@
     <section id="banner" class="blue">
       <article>
         <div class="columns large-12">
-          <h1>{{ page.title }}</h1>
+          <h1>{% if page.date %}{% if page.nickname %}{{ page.nickname }}{% else %}{{ page.title }}{% endif %}{% else %}{{ page.title }}{% endif %}</h1>
         </div>
       </article>
     </section>
     <section>
       <article>
-        <div class="columns large-8 large-offset-2">
-          {{ content }}
+        <div class="columns large-10 large-offset-1">
+{{ content }}
         </div>
 {% include footer.html %}

@@ -57,21 +57,21 @@ $(window).scroll(function(){
 
 	if (width > 768 && scroll > 200) {
 		$("nav#main").css({
-		  "padding-top": "0", 
-		  "padding-bottom": "0",
-		  "background": "rgba(255,255,255,0.8)"
+		  "padding-top": "10px", 
+		  "padding-bottom": "10px",
+		  "background": "rgba(255,255,255,0.9)"
 		});
 	} else if (width > 768 && scroll < 200) {
 		$("nav#main").css({
-		  "padding-top": "20px", 
-		  "padding-bottom": "20px",
+		  "padding-top": "30px", 
+		  "padding-bottom": "30px",
 		  "background": "rgba(255,255,255,1)"
 		});
-	} else {
+	} else if (width > 768 && scroll > 200) {
 		$("nav#main").css({
-  		"padding-top": "0", 
-		  "padding-bottom": "0",
-		  "background": "rgba(255,255,255,0.8)"
+  		"padding-top": "10px", 
+		  "padding-bottom": "10px",
+		  "background": "rgba(255,255,255,0.9)"
 		});
 	}
 });
