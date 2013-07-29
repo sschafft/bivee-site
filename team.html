@@ -4,49 +4,37 @@ title: Team
 permalink: /team/
 summary: This is the page summary introducing our dynamic team.
 ---
-        <p>{{ page.summary }}</p>
+        <p>{{ page.summary }}</p>{% if site.categories.partner %}
         <div class="team">
           <h2>Founding Partners</h2>
-          <hr>
-{% for post in site.categories.partner %}
+          <hr>{% for post in site.categories.partner %}
           <div class="bios">		
-          	<a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
-          	  <div class="picture" data-title="{{ post.nickname }}">
-          	    <img src="{{ post.image }}" />
-          	  </div>
-            	<h4 class="textcolor1">{{ post.name }}</h2>
-              <h5 class="textgrey">{{ post.job-title }}</h3>
-          	</a>	
-          </div>
-{% endfor %}
-        </div>
+            <a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
+              <div class="picture" data-title="{{ post.nickname }}"><img src="{{ post.image }}" /></div>
+              <h4 class="textcolor1">{{ post.name }}</h4>
+              <h5 class="textgrey">{{ post.job-title }}</h5>
+            </a>	
+          </div>{% endfor %}
+        </div>{% endif %}{% if site.categories.design %}
         <div class="team">
           <h2>Design Team</h2>
-          <hr>
-{% for post in site.categories.design %}
+          <hr>{% for post in site.categories.design %}
           <div class="bios">		
-          	<a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
-          	  <div class="picture" data-title="{{ post.nickname }}">
-          	    <img src="{{ post.image }}" />
-          	  </div>
-            	<h4 class="textcolor1">{{ post.name }}</h2>
-              <h5 class="textgrey">{{ post.job-title }}</h3>
-          	</a>	
-          </div>
-{% endfor %}
-        </div>
+            <a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
+              <div class="picture" data-title="{{ post.nickname }}"><img src="{{ post.image }}" /></div>
+              <h4 class="textcolor1">{{ post.name }}</h4>
+              <h5 class="textgrey">{{ post.job-title }}</h5>
+            </a>	
+          </div>{% endfor %}
+        </div>{% endif %}{% if site.categories.developer %}
         <div class="team">
           <h2>Developer Team</h2>
-          <hr>
-{% for post in site.categories.developer %}
+          <hr>{% for post in site.categories.developer %}
           <div class="bios">		
-          	<a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
-          	  <div class="picture" data-title="{{ post.nickname }}">
-          	    <img src="{{ post.image }}" />
-          	  </div>
-            	<h4 class="textcolor1">{{ post.name }}</h2>
-              <h5 class="textgrey">{{ post.job-title }}</h3>
-          	</a>	
-          </div>
-{% endfor %}
-        </div>
+            <a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
+              <div class="picture" data-title="{{ post.nickname }}"><img src="{{ post.image }}" /></div>
+              <h4 class="textcolor1">{{ post.name }}</h4>
+              <h5 class="textgrey">{{ post.job-title }}</h5>
+            </a>	
+          </div>{% endfor %}
+        </div>{% endif %}

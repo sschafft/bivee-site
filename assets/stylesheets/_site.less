@@ -6,7 +6,7 @@
       padding-bottom: 40px;
   }
   
-/* Bio
+/* Bio [For future versions]
 ================================================== */
   .team {
     text-align: center;
@@ -102,6 +102,88 @@
         font-size: 80%;
         color: @white;
         .radius(3px);
+        
+      }
+    }
+  }
+
+/* Portfolio
+================================================== */
+
+.projects {
+    text-align: center;
+    
+    h2 {
+      text-align: left;
+      color: @color3;
+    }
+    
+    .case {
+  	  margin-bottom: 50px;
+  	  margin-left: 20px;
+  	  margin-right: 20px;
+  	  display: inline-block;
+  	  width: 300px;
+  	  .transition;
+  	  padding: 20px;
+  	  
+  	  
+  	  .picture {
+        display: inline-block;
+        position: relative;
+        margin: 10px;
+        
+        
+        img {
+          display: block;
+          width: 100%;
+          max-width: 160px;
+          .transition;
+          z-index: 0;
+        }
+         
+        &:hover img {
+          .scale(1.2);
+        }
+      } 
+    	  
+    	h2, h3 {
+      	font-size: 120%;
+      	
+    	}
+  	}
+  }
+  
+  #case {
+    text-align: center;
+
+    img { 
+      &.casephoto {
+        display: block;
+        width: 100%;
+      }
+      &.clientlogo{
+        display: inline-block;
+        max-width: 400px;
+        height: auto;
+      }
+    }
+    .title {
+      text-align: left;
+    }
+    ul {
+      list-style: none;
+      margin-top: 30px;
+      li {
+        font-weight: @light;
+        display: inline-block;
+        padding: 8px 16px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        font-size: 80%;
+        color: @grey;
+        border: 1px solid @offwhite;
+        .radius(4px);
         
       }
     }

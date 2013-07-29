@@ -369,7 +369,7 @@ footer {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-/* Bio
+/* Bio [For future versions]
 ================================================== */
 .team {
   text-align: center;
@@ -514,6 +514,90 @@ footer {
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  background-clip: padding-box;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+}
+/* Portfolio
+================================================== */
+.projects {
+  text-align: center;
+}
+.projects h2 {
+  text-align: left;
+  color: #00aae5;
+}
+.projects .case {
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: inline-block;
+  width: 300px;
+  transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  padding: 20px;
+}
+.projects .case .picture {
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+}
+.projects .case .picture img {
+  display: block;
+  width: 100%;
+  max-width: 160px;
+  transition: all 300ms ease-in-out;
+  -moz-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
+  z-index: 0;
+}
+.projects .case .picture:hover img {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.projects .case h2,
+.projects .case h3 {
+  font-size: 120%;
+}
+#case {
+  text-align: center;
+}
+#case img.casephoto {
+  display: block;
+  width: 100%;
+}
+#case img.clientlogo {
+  display: inline-block;
+  max-width: 400px;
+  height: auto;
+}
+#case .title {
+  text-align: left;
+}
+#case ul {
+  list-style: none;
+  margin-top: 30px;
+}
+#case ul li {
+  font-weight: 300;
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-size: 80%;
+  color: #89949b;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
   background-clip: padding-box;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;

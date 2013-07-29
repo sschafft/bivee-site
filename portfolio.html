@@ -2,7 +2,24 @@
 layout: default
 title: Portfolio
 permalink: /portfolio/
+summary: This is the page summary introducing our dynamic team.
 ---
-<div id="projects_container">
-  <h1>Previous Projects</h1>
-</div>
+        <p>{{ page.summary }}</p>
+        
+{% if site.categories.web %}
+        <div class="projects">
+          <h2>Web Projects</h2>
+          <hr>
+{% for post in site.categories.web %}
+          <div class="case">		
+          	<a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
+          	  <div class="picture">
+          	    <img src="{{ post.image }}" />
+          	  </div>
+            	<h4 class="textcolor1">{{ post.name }}</h2>
+              <h5 class="textgrey">{{ post.job-title }}</h3>
+          	</a>	
+          </div>
+{% endfor %}
+        </div>
+{% endif %}
