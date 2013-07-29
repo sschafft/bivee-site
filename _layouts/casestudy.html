@@ -1,0 +1,20 @@
+---
+layout: default
+---
+          <div id="case" class="colums large-12">
+            <img src="{{ page.image }}" class="clientlogo" />
+            {% if page.tech %}<ul>{% for tech in page.tech %}
+                <li>{{ tech }}</li>{% endfor %}
+              </ul>{% endif %}
+            </div>
+          <div class="content">
+            {{ content }}
+          </div>
+          {% if page.photos %}
+          <div class="images">
+            {% for photo in page.photos %}
+            <img src="{{ photo }}" class="casephoto" />
+            {% endfor %}
+            </div>
+            {% endif %}
+          </div>
