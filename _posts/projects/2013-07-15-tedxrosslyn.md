@@ -5,11 +5,10 @@ categories: project web
 date: 2013-07-11
 type: Website Development
 clienturl: http://www.tedxrosslyn.com
-tech: [Wordpress, PHP, jQuery, MySQL]
+tech: [Ruby on Rails, jQuery, PostgreSQL, Google Maps]
 team: [Nicholas Kingston, Scott Schaffter]
 image: /assets/images/projects/tedxrosslyn.png
-photos: []
+photos: ['/assets/images/projects/tedxrosslyn.png']
 ---
 
-The Symposium Magazine project involved the development of an online magazine site that would allow academics to contribute new articles and foster a discussion around key topics of interest. The site was built with responsive design in mind and allows for easy viewing of content on a tablet or mobile device.  The site also compiles curated content that is automatically pulled from a variety of selected external sources.
-  
+The TEDx Rosslyn project involved developing an engaging site to allow conference participants to live stream the TEDx Event, view speaker profiles, purchase tickets and view location information. The conference focused on bringing together speakers in the DC area to discuss the world 30 years from now. The site was developed to allow mobile and tablet users to easily navigate and access the site content.

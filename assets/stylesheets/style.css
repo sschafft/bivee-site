@@ -927,22 +927,22 @@ footer#bottom span {
   background: rgba(255, 255, 255, 0.8);
 }
 .bg-img-1 {
-  background-image: url(/assets/images/slider/hero2.jpg);
+  background-image: url(../images/slider/cliffs2.jpg);
 }
 .bg-img-2 {
-  background-image: url(../images/2.jpg);
-  background: #1abc9c;
+  background-image: url(../images/slider/gear3.jpg);
+  /*background: #1abc9c;*/
 }
 .bg-img-3 {
-  background-image: url(../images/3.jpg);
-  background: #00aae5;
+  background-image: url(../images/slider/caribeener.jpg);
+  /*background: #00aae5;*/
 }
 .bg-img-4 {
-  background-image: url(../images/4.jpg);
-  background: #89949b;
+  background-image: url(../images/slider/chinatown.jpg);
+  /*background: #89949b;*/
 }
 .bg-img-5 {
-  background-image: url(../images/5.jpg);
+  background-image: url(../images/slider/mountaintop.jpg);
 }
 /* Animations for content elements */
 .sl-trans-elems .deco {
