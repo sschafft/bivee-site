@@ -2,10 +2,10 @@
 layout: profile
 title:  "Nicholas Kingston"
 date:   2013-07-11
-categories: bio partner
+categories: bio partner team
 name: "Nicholas Kingston"
 job-title: Founding Partner
-nickname: The Merovingian 
+nickname: Effective Business Strategy 
 specialities: [Branding, Marketing, Front-End Design, Strategy]
 image: /assets/images/bios/nicholas.jpg
 ---

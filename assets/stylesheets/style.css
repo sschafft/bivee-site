@@ -518,6 +518,14 @@ footer {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
 }
+
+/* About Page Intro
+================================================== */
+.about h2 {
+  text-align: left;
+  color: #00aae5;
+}
+
 /* Portfolio
 ================================================== */
 .projects {
@@ -777,13 +785,13 @@ footer#bottom span {
   color: #89949b;
 }
 #push {
-  height: 309px;
+  height: 209px;
 }
 #container {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -309px;
+  margin: 0 auto -209px;
 }
 /* Slider
 ================================================== */

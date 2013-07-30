@@ -2,11 +2,11 @@
 layout: profile
 title:  "Scott Schaffter"
 date:   2013-07-11
-categories: bio partner
+categories: bio partner team
 name: "Scott Schaffter"
 job-title: Founding Partner
-nickname: I am Morpheus
-specialities: [Application Development, Marketing, Strategy, Project Management]
+nickname: Application Development
+specialities: [Application Development, Marketing, Strategy, Project Management, Organization Development]
 image: /assets/images/bios/scott.jpg
 ---
 

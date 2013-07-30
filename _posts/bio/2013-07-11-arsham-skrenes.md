@@ -2,10 +2,10 @@
 layout: profile
 title:  Arsham Skrenes
 date:   2013-07-11
-categories: bio partner
+categories: bio partner team
 name: Arsham Skrenes
 job-title: Founding Partner
-nickname: The Architect
+nickname: Fast, Efficient Code
 specialities: [iPhone Development, Server Management, Application Development]
 image: /assets/images/bios/arsham.jpg
 ---
