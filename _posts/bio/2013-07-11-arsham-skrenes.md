@@ -6,7 +6,7 @@ categories: bio partner team
 name: Arsham Skrenes
 job-title: Founding Partner
 nickname: Fast, Efficient Code
-specialities: [iPhone Development, Server Management, Application Development]
+specialities: [iPhone Development, Server Management, Application Development, Database Optimization]
 image: /assets/images/bios/arsham.jpg
 ---
 

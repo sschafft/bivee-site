@@ -635,6 +635,17 @@ div#portfolio .team .bios .picture img{
   max-width:110px;
 }
 
+div#portfolio .images img{
+  display:inline-block;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+div#portfolio .images{
+ text-align:center;
+
+}
+
 
 /* Blog
 ================================================== */
@@ -819,6 +830,26 @@ footer#bottom span {
   height: 100%;
   margin: 0 auto -209px;
 }
+/* Front page
+================================================== */
+
+div#clients {
+  margin-top:35px;
+}
+
+div#clients .projects .case {
+  margin:0px;
+  width:250px;
+}
+
+div#clients .projects .picture {
+  margin:0px;
+}
+
+div#clients .projects .picture img {
+  max-width:150px;
+}
+
 /* Slider
 ================================================== */
 .sl-slider-wrapper {
