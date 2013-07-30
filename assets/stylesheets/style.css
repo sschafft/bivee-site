@@ -610,6 +610,32 @@ footer {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
 }
+
+div#portfolio h3 {
+  text-align:left;
+  font-weight:200;
+  font-size:130%;
+  margin-bottom:10px;
+  color: #00aae5 ;
+}
+
+div#portfolio .content{
+  padding:0px;
+}
+
+div#portfolio .team{
+  text-align:left;
+}
+
+div#portfolio .team .bios{
+  margin:0 0 35px 0;
+  width:110px;
+}
+div#portfolio .team .bios .picture img{
+  max-width:110px;
+}
+
+
 /* Blog
 ================================================== */
 .posts ul li {

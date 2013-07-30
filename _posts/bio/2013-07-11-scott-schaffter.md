@@ -8,6 +8,8 @@ job-title: Founding Partner
 nickname: Application Development
 specialities: [Application Development, Marketing, Strategy, Project Management, Organization Development]
 image: /assets/images/bios/scott.jpg
+phone: 202-258-2640
+email: scott@bivee.co
 ---
 
 

@@ -1,25 +1,41 @@
 ---
 layout: default
 ---
-          <div id="case" class="colums large-12">
-            <a href="{{ page.clienturl }}" target="_blank"><img src="{{ page.image }}" class="clientlogo" /></a>
-            {% if page.tech %}<ul>{% for tech in page.tech %}
-                <li>{{ tech }}</li>{% endfor %}
-              </ul>{% endif %}
-            </div>
-            <div> 
-            ADD TEAM INFO HERE
-            </div>
+  <div id="portfolio">    
+      <div id="case" class="colums large-12">
+        <a href="{{ page.clienturl }}" target="_blank"><img src="{{ page.image }}" class="clientlogo" /></a>
+        {% if page.tech %}<ul>{% for tech in page.tech %}
+            <li>{{ tech }}</li>{% endfor %}
+          </ul>{% endif %}
+        </div>
 
+      <div class="content">
+      <h3>About Project</h3>
+        {{ content }}
+      </div>
 
-          <div class="content">
-            {{ content }}
+       {% if page.team %}
+        <div class="team"> 
+          <h3> Project Team</h3>  
+          {% for team_member in page.team %}
+          {% for post in site.categories.team %}{% if post.name contains team_member %}
+          <div class="bios">
+            <a href="{{ post.url }}" title="{{ post.name }}, {{ post.job-title }}">
+              <div class="picture" data-title="{{ post.name }}"><img src="{{ post.image }}" /></div>
+            </a>  
           </div>
-          {% if page.photos %}
-          <div class="images">
-            {% for photo in page.photos %}
-            <img src="{{ photo }}" class="casephoto" />
-            {% endfor %}
-            </div>
-            {% endif %}
-          </div>
+          {% endif %}{% endfor %}
+          {% endfor %}
+        </div>
+        {% endif %}
+        
+      {% if page.photos %}
+      <h3> Project Pictures</h3>
+      <div class="images">
+        {% for photo in page.photos %}
+        <img src="{{ photo }}" class="casephoto" />
+        {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+  </div>
