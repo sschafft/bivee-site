@@ -927,8 +927,7 @@ footer#bottom span {
   background: rgba(255, 255, 255, 0.8);
 }
 .bg-img-1 {
-  background-image: url(../images/1.jpg);
-  background: #a6ce38;
+  background-image: url(/assets/images/slider/hero2.jpg);
 }
 .bg-img-2 {
   background-image: url(../images/2.jpg);

@@ -2,7 +2,7 @@
 layout: default
 ---
           <div id="case" class="colums large-12">
-            <img src="{{ page.image }}" class="clientlogo" />
+            <a href="{{ page.clienturl }}" target="_blank"><img src="{{ page.image }}" class="clientlogo" /></a>
             {% if page.tech %}<ul>{% for tech in page.tech %}
                 <li>{{ tech }}</li>{% endfor %}
               </ul>{% endif %}
