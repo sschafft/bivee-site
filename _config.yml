@@ -10,11 +10,11 @@ seo:
   keywords:
 
 contact:
-  phone: '+1 703/ 261-9290'
+  phone: '+1 (202) 258 2640'
   email: 'letstalk@bivee.co'
   address:
-    line1: 'A coffee shop'
-    line2:  'very near you' 
+    line1: '754 Fairmont St NW'
+    line2:  'Washington, DC 20001' 
 
 url:
 permalink: /:year/:title
@@ -26,7 +26,7 @@ social:
   github: 'biveeco'
   
 google:
-  analytics : 'UA-111-11'
+  analytics : 'UA-42800055-1'
   verification : 'SVC'
 
 facebook:
