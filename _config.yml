@@ -13,8 +13,8 @@ contact:
   phone: '+1 (202) 258 2640'
   email: 'sayhi@bivee.co'
   address:
-    line1: '754 Fairmont St NW'
-    line2:  'Washington, DC 20001' 
+    line1: '1350 Beverly Road, Suite 115-197'
+    line2:  'Mclean, Virginia, USA, 22101' 
 
 url:
 permalink: /:year/:title
