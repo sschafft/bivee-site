@@ -1,9 +1,9 @@
 name: 'Bivee Group'
-tagline: 'This is the tagline of the site'
+tagline: 'Business-Driven Design'
 highlighter: pygments
 markdown: kramdown
 version: 0.9
 
 
-root_url: 'http://www.bivee.co/new_site'
+root_url: 'http://www.bivee.co/'
 #root_url: 'http://localhost:4000'
