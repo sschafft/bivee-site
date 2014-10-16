@@ -1,0 +1,106 @@
+// Base Styles
+// --------------------------------------------------------------------------
+
+body {
+    background: @color-white--light;
+}
+
+// Layout
+// --------------------------------------------------------------------------
+
+#container {
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+
+// Content Area
+// --------------------------------------------------------------------------
+
+#container {
+    position: relative;
+    max-width: @max-width;
+    margin-left: auto;
+    margin-right: auto;
+    
+    footer {
+        background: none !important;
+        border-bottom: 1px solid @color-white--dark;
+    }
+}
+
+section {
+    color: @color-black;
+    .padding-vert(1em);
+    min-height: 570px;
+    &#content-page {
+        padding: 0 !important;
+    }
+}
+article {
+    .padding-vert(1em);
+}
+header {
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+footer {
+    .padding-vert(4em);
+    background: @color-white;
+    &#end {
+        .padding-vert(1em) !important;
+        background: @color-black--dark;
+        font-size: 75%;
+        p {
+            color: @color-grey--dark !important;
+        }
+    }
+}
+
+// Colour Scheme Set Up
+// --------------------------------------------------------------------------
+
+#hero {
+    position: relative;
+    background: url(../images/home/cover.jpg) no-repeat center center;
+    height: 100%;
+    min-height: 570px;
+
+    text-align: left;
+    position: relative;
+    font-size: 100%;
+    .background-size;
+    article, h1, h2 {
+        text-align: left;
+        color: @color-white !important; 
+        text-shadow: 0 0 2px @color-black--dark;
+    }
+    button {
+        background: @color-orange;
+        &:hover {
+            background: @color-orange--dark;
+        }
+    }
+}
+
+#contact {
+    background: @color-black;
+    h1, h2, h3, h4 ,h5 ,h6, p {
+        color: @color-grey--dark !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

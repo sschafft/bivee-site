@@ -1,0 +1,904 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"dis",
+				"display"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"padding",
+				"padding-left"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"padding-",
+				"padding-left"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"pos",
+				"post-content"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"le",
+				"letter-spacing"
+			],
+			[
+				"c",
+				"color"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"video",
+				"video_link"
+			],
+			[
+				"margon",
+				"margin-top"
+			],
+			[
+				"slide",
+				"slideToggle"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"max-",
+				"max-width"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"return",
+				"return_string"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"padin",
+				"padding-right"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"fade-in",
+				"fade-in-3"
+			],
+			[
+				"v",
+				"vertical-align"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "assets/javascripts/main.js",
+			"settings":
+			{
+				"buffer_size": 4242,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 11274,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/core/_base.less",
+			"settings":
+			{
+				"buffer_size": 3634,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/core/_responsive.less",
+			"settings":
+			{
+				"buffer_size": 2102,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/modules/_social.less",
+			"settings":
+			{
+				"buffer_size": 1450,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/modules/_navigation.less",
+			"settings":
+			{
+				"buffer_size": 975,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/modules/_blog.less",
+			"settings":
+			{
+				"buffer_size": 1887,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/modules/_buttons.less",
+			"settings":
+			{
+				"buffer_size": 373,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/_less/modules/_photography.less",
+			"settings":
+			{
+				"buffer_size": 458,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 360.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 108.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_content.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_responsive.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_reset.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_social.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_base.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/javascripts/main.js",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/index.html",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_blog.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_photography.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/javascripts/jquery.min.js",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/_config.yml",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_navigation.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_buttons.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/style.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_fonts.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_settings.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/core/_helpers.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_grid.less",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/nickingston.sublime-project",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_less/modules/_form.less",
+		"/Users/nickingston/.Trash/_syntax.scss",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_sass/core/_settings.scss",
+		"/Users/nickingston/Sites/nickingston.com/nickingston/assets/_sass/core/_normalize.scss",
+		"/Users/nickingston/Library/Preferences/Adobe InDesign/Version 8.0/en_US/Scripts/Scripts Panel/markdownID.jsx",
+		"/Applications/Adobe InDesign CS6/Scripts/converturltohyperlink/startup scripts/ConvertURLToHyperlinkMenuItemLoader.jsx",
+		"/Applications/Adobe InDesign CS6/Scripts/converturltohyperlink/ConvertURLToHyperlink.jsxbin",
+		"/Users/nickingston/Downloads/markdownID.jsx",
+		"/Users/nickingston/Desktop/Notes Call with Laura May 8, 2014",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/header.php",
+		"/Users/nickingston/Sites/bivee.co/valetparker.github.io/index.html",
+		"/Users/nickingston/Sites/bivee.co/valetparker.github.io/assets/_less/_sections.less",
+		"/Users/nickingston/Sites/bivee.co/valetparker.github.io/assets/_less/_site.less",
+		"/Users/nickingston/Sites/bivee.co/valetparker.github.io/_config.yml",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/plugins/eventon/classes/class-calendar_generator.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-config.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_inc/functions/wp_content.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/footer.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_js/runscripts.js",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_css/_site.less",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_css/_sections.less",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/items/2014-04-23-product-name.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/product-tile.html",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/items/2014-04-22-floppy-bunny.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/items/2014-04-22-handbags.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_layouts/catalog.html",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/assets/js/main.js",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/assets/_sass/app.scss",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/assets/js/mixitup.js",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_layouts/default.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/_layouts/sort.html",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/2014-02-26-catalogs-mix.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/catalogs/spring/2014-04-22-floppy-bunny.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/catalogs/spring/2014-04-22-handbags.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_layouts/productmix.html",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/LICENSE",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/products/2014-02-26-catalogs-intro.md",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/page-partners.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_css/_responsive.less",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_css/_grid.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/_layouts/home.html",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/functions.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/single-projects.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_inc/template/header-cover.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_css/_reset.less",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_js/jqvmap/map.script.js",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/page-project.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/options.php",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_inc/assets/js/backend.js",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_posts/about/2014-02-26-about.md",
+		"/Users/nickingston/Sites/bivee.co/documentation/sass/core/_settings.scss",
+		"/Users/nickingston/Sites/bivee.co/documentation/sass/core/_base.scss",
+		"/Users/nickingston/Sites/bivee.co/documentation/sass/core/_helpers.scss",
+		"/Users/nickingston/Sites/bivee.co/documentation/sass/app.scss",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/sass/core/_helpers.scss",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/html/nav-global.html",
+		"/Users/nickingston/Sites/bivee.co/documentation/sass/modules/_grid-inline.scss",
+		"/Users/nickingston/Sites/bivee.co/documentation/config.rb",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/_typography.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/style.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/_form.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/_definitions.less",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/sass/core/_base.scss",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/sass/core/_layout.scss",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/sass/core/_content.scss",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/_includes/js/app.js",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/contact/index.html",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/assets/stylesheets/_site.less",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_includes/header.html",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_layouts/default.html",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_posts/sponsors/2013-07-11-intel.md",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_posts/sponsors/2013-07-12-emc.md",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_posts/sponsors/2013-07-10-emc.md",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_posts/sponsors/2013-07-11-emc.md",
+		"/Users/nickingston/Sites/bivee.co/petting-zoo/assets/js/app.js",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_includes/scripts.html",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/assets/javascripts/bvscripts.js",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_config.yml",
+		"/Users/nickingston/Sites/bivee.co/divwoman/conference2014/_includes/speakers.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/_grid.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/_responsive.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/_config.yml",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/_less/_site.less",
+		"/Users/nickingston/Sites/bivee.co/bivee/_includes/nav.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/_includes/header.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/index.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/clients.html",
+		"/Users/nickingston/Sites/bivee.co/bivee.co/_layouts/casestudy.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/javascripts/jquery.mixitup.min.js",
+		"/Users/nickingston/Sites/bivee.co/bivee/assets/javascripts/scripts.js",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_inc/taxonomies/faqs.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative_2014/header.php",
+		"/Users/nickingston/Downloads/icomoon/style.css",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative_2014/style.css",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/functions.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/ds-gallery-masonry-template.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/style.css",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/ds-gallery-masonry-template-home.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/ds-gallery-masonry-template-stock.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/inc/taxonomies/stock.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/footer.php",
+		"/Users/nickingston/Sites/wordpress/ccdc/wp-content/themes/creative/ds-gallery-template.php",
+		"/Users/nickingston/Sites/ltc/single.php",
+		"/Users/nickingston/Sites/bivee.co/valetparker/valetparker.sublime-project",
+		"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_inc/taxonomies/projects.php",
+		"/Users/nickingston/Sites/bivee.co/bivee/team.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/_layouts/team.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/_layouts/case.html",
+		"/Users/nickingston/Sites/bivee.co/bivee/_includes/footer.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/nickingston/Sites/bivee.co/petting-zoo/assets/_sass",
+			"/Users/nickingston/Sites/bivee.co/petting-zoo",
+			"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag/_css",
+			"/Users/nickingston/Sites/bivee.co/hftag/wp-content/themes/hftag"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"==================================================== */",
+			"        max-width: 300px;\n        display: inline-block;",
+			"Sample",
+			"strong",
+			"Markdown\\",
+			"MARKDOWN\\\\:",
+			"markdown",
+			"rule",
+			"h4",
+			"header",
+			"#",
+			"h1",
+			"H1",
+			"faq",
+			"main",
+			"filter",
+			"show",
+			".project",
+			".green",
+			"vmap",
+			"f39c12",
+			"map",
+			"vmap",
+			"svg",
+			"style.css",
+			".style.css",
+			"gsub",
+			"map_canvas",
+			"    position: relative;\n    z-index: 10 !important;",
+			"map",
+			"/*",
+			"masonry",
+			"dsframework_gallery",
+			"button",
+			"<div class=\"overlay\">",
+			"</li>",
+			"<li>",
+			"</a>",
+			"<a href=\"#\">",
+			"relative",
+			"<li>\n					<a href=\"#\">",
+			"<li>",
+			"<div class=\"table\">",
+			"<span>This is a caption</span>",
+			"<figcaption>",
+			"    <li>",
+			"<i",
+			"i><i cl",
+			"></i>';",
+			"</i>';",
+			"<?php\n                        $taxonomy = 'location_category';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-earth\"></i>';\n                            echo get_the_term_list(get_the_ID(), $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?> \n                    <?php\n                        $taxonomy = 'objective';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-group\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'context';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-graph\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?> \n                    <?php\n                        $taxonomy = 'registration';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-calendar\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?> \n                    <?php\n                        $taxonomy = 'scale';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?> \n                    <?php\n                        $taxonomy = 'target_population';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?> \n                    <?php\n                        $taxonomy = 'primary_target_group';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'secondary_target_group';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'product_type';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'product_composition';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'distribution_channel';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'cost_to_target_recipient';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'suggested_intake';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'frequency_of_distribution';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'sachet_dist';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }\n                    ?>\n                    <?php\n                        $taxonomy = 'source_of_funding';\n                        if(has_term( \"\", $taxonomy)) { \n                            echo '                              <li><i class=\"icon-fullscreen\"></i>';\n                            echo get_the_term_list(get_the_ID(),  $taxonomy, '', ', ', '' ); \n                            echo '</li>';\n                        }",
+			"<i class=\"icon-",
+			"h3",
+			"/h3",
+			"h3",
+			"$get_term = get_term('name', $taxonomy);",
+			"read",
+			"masthead",
+			"pill",
+			"objective",
+			"treeview",
+			"toolkit",
+			"tool",
+			"search",
+			"paginat",
+			"date",
+			"\"",
+			"\\",
+			"\"url\":\"http:\\/\\/",
+			" large-5\"",
+			"/placeholder.png\"",
+			" large-5",
+			"iphone-text",
+			" desktop",
+			"phone.png",
+			" id=\"phone\"",
+			"</h2>\n\n",
+			"•	",
+			"count('location_category'",
+			"class=\"marker\">",
+			"	",
+			"		",
+			"			",
+			"				",
+			"	",
+			"fixed-large",
+			"fixedWw",
+			"input",
+			"'       =>",
+			"'            =>",
+			",\n		'",
+			"container",
+			"div",
+			"arrow",
+			"addArrow",
+			"addArrows",
+			"idx",
+			"_rotateItem",
+			"._rotateItem",
+			"dot",
+			"idx",
+			"view",
+			"view gallery",
+			"view",
+			"callback",
+			"nav",
+			"prev",
+			"next",
+			"pos",
+			"nav",
+			"href=\"#\" class=\"desktop-inline\"",
+			",\n	.",
+			", \n	.",
+			" a  {",
+			"@width;\n		.padding-horiz(1em);",
+			"{\n	@width:",
+			"/ 12",
+			", .offset",
+			", .large",
+			"large-offset",
+			"62.5",
+			"repeat",
+			"id=\"",
+			">\n",
+			"js/",
+			"strtolower($name).'/'.s",
+			"'projects/'.",
+			"'project/'."
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "assets/javascripts/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4242,
+								4242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 734.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2650,
+								2650
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 578.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "assets/_less/core/_base.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3634,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1498,
+								1498
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 971.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "assets/_less/core/_responsive.less",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 2102,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								164
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "assets/_less/modules/_social.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1450,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								319,
+								435
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "assets/_less/modules/_navigation.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 975,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								727,
+								727
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "assets/_less/modules/_blog.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								141,
+								141
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "assets/_less/modules/_buttons.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "assets/_less/modules/_photography.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 458,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "nickingston.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 205.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

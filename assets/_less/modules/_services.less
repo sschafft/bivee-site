@@ -1,0 +1,56 @@
+// Services
+// --------------------------------------------------------------------------
+
+#services {
+    h1, h2{
+        color: @color1 !important;
+        text-align: left;
+        font-family: "Varela Round";
+    }
+    h3 {
+        text-align: center;
+        font-family: "Varela Round";
+        .margin-vert(1em);
+    }
+
+    figure {
+        position: relative;
+        text-align: center;
+        margin-bottom: 1em;
+        img {
+            max-width: 15em;
+            .radius(100%);
+        }
+    }
+    ul {
+        display: block;
+        list-style: none;
+        background: @color-white;
+        .radius(0.25em);
+        padding: 2em 1em;
+        margin-bottom: 2em;
+        text-align: center;
+        li {
+            position: relative;
+            line-height: 250%;
+        }
+    }
+}
+
+footer.services{
+    background: url(../images/home/brick.jpg) no-repeat center center fixed;
+    .background-size;
+    h2 {
+        font-family: "Varela Round" !important;
+    }
+    color: @color-white--light !important;
+    p {
+        color: @color-white--light !important;
+        font-weight: @bold;
+    }
+    
+    .columns {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+}

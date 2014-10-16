@@ -1,0 +1,157 @@
+// Font Helpers
+// --------------------------------------------------------------------------
+.font-import(@font-name) {
+	@font-face {
+		font-family: @font-name;
+		src:url('../fonts/@{font-name}.eot');
+		src:url('../fonts/@{font-name}.eot?#iefix') format('embedded-opentype'),
+			url('../fonts/@{font-name}.woff') format('woff'),
+			url('../fonts/@{font-name}.ttf') format('truetype'),
+			url('../fonts/@{font-name}.svg#icomoon') format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+
+// Transparency Helpers
+// --------------------------------------------------------------------------
+.opacity(@opacity: 0.5, @opacityPercentage: @opacity * 100) {
+	-webkit-opacity: @opacity;
+	   -moz-opacity: @opacity;
+          opacity: @opacity;
+       -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opacityPercentage})";
+           filter: ~"alpha(opacity=@{opacityPercentage})";
+  *zoom: 1;
+}
+
+// Border Helpers
+// --------------------------------------------------------------------------
+.rounded (@top: 0px, @left: 0px, @bottom: 0px, @right: 0px) {
+	-webkit-border-radius: @top @left @bottom @right;
+	   -moz-border-radius: @top @left @bottom @right;
+          border-radius: @top @left @bottom @right;
+	.background-clip('padding-box');
+}
+
+.radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+	   -moz-border-radius: @radius;
+          border-radius: @radius;
+  .background-clip('padding-box');
+}
+
+// Shadow Helpers
+// --------------------------------------------------------------------------
+.box-shadow (@x: 0, @y: 0, @blur: 10px, @color: #000) {
+	-webkit-box-shadow: @arguments;
+	   -moz-box-shadow: @arguments;
+	        box-shadow: @arguments;
+}
+
+.inset-box-shadow (@blur: 1px, @color: #000) {
+	-webkit-box-shadow: inset 0 0 @arguments;
+	   -moz-box-shadow: inset 0 0 @arguments;
+	        box-shadow: inset 0 0 @arguments;
+	
+}
+
+// Animations & Transitions Helpers
+// --------------------------------------------------------------------------
+.transition (@property: all, @time: 300ms, @function: ease-in-out) {
+	-webkit-transition: @property @time @function;
+	   -moz-transition: @property @time @function;
+        -ms-transition: @property @time @function;
+         -o-transition: @property @time @function;
+            transition: @property @time @function;
+}
+
+.translate (@x, @y:0) {
+	-webkit-transform: translate(@x, @y);
+	   -moz-transform: translate(@x, @y);
+        -ms-transform: translate(@x, @y);
+         -o-transform: translate(@x, @y);
+            transform: translate(@x, @y);
+}
+
+.rotate (@rotate: 0) {
+	-webkit-transform: rotate(@rotate);
+	   -moz-transform: rotate(@rotate);
+        -ms-transform: rotate(@rotate);
+         -o-transform: rotate(@rotate);
+            transform: rotate(@rotate);
+}
+
+.scale (@scale: 1.5) {
+	-webkit-transform: scale(@scale);
+	   -moz-transform: scale(@scale);
+        -ms-transform: scale(@scale);
+         -o-transform: scale(@scale);
+            transform: scale(@scale);
+}
+
+
+// Gradient Helpers
+// --------------------------------------------------------------------------
+
+.linear-gradient(@direction: top, @from, @to) {
+	.direction () when (@direction = top) {
+		background-image: linear-gradient(to bottom, @from, @to);
+	}
+	.direction () when (@direction = left) {
+		background-image: linear-gradient(to right, @from, @to);
+	}
+	background-color: @from;
+	background-image: -webkit-linear-gradient(@direction, @from, @to);
+	background-image:    -moz-linear-gradient(@direction, @from, @to);
+	background-image:     -ms-linear-gradient(@direction, @from, @to);
+	background-image:      -o-linear-gradient(@direction, @from, @to);
+	.direction;
+}
+
+#pxtoem {
+    .font-size( @target: @basefont, @context: @basefont ) {
+        font-size: (@target / @context) + 0em;
+    }
+}
+
+// Miscellaneous Helpers
+// --------------------------------------------------------------------------
+.background-size(@property: cover) {	
+	-webkit-background-size: @property;
+	   -moz-background-size: @property;
+	     -o-background-size: @property;
+	        background-size: @property;
+}
+.background-clip(@property: padding-box) {	
+	-webkit-background-clip: @property;
+	   -moz-background-clip: @property;
+	        background-clip: @property;
+}
+.size(@size) {
+  width: @size;
+  height: @size;
+}
+.size(@x, @y) {
+  width: @x;
+  height: @y;
+}
+.padding-horiz(@x) {
+  padding-left: @x;
+  padding-right: @x;
+}
+.padding-vert(@y) {
+  padding-top: @y;
+  padding-bottom: @y;
+}
+.margin-horiz(@x) {
+  margin-left: @x;
+  margin-right: @x;
+}
+.margin-vert(@y) {
+  margin-top: @y;
+  margin-bottom: @y;
+}
+.center(@x: auto) {
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -1,0 +1,81 @@
+// Social Colors
+// --------------------------------------------------------------------------
+
+@facebook:      #3B5998;
+@twitter:       #4099FF;
+@google:        #d34836;
+@pinterest:     #c92228;
+@vimeo:         #aad450;
+@youtube:       #c4302b;
+@linkedin:      #4875B4;
+@instagram:     #4E433C;
+
+
+// Social Styles
+// --------------------------------------------------------------------------
+
+.social {
+    @height: 3em;
+    height: @height;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    li {
+        display: inline-block;
+        .radius(100%);
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+        line-height: 100% !important;
+    }
+    a {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+        font-size: @height / 3;
+        padding: @height / 4;
+        text-align: center;
+        color: @color-white;
+        i {
+            font-size: @height / 2;
+        }
+    }
+}
+.social-color(@color) {
+    background-color: @color !important;
+    color: @color-white--light;
+    &:hover {
+        background-color: lighten(@color, 10%) !important;
+    }
+}
+.fb {
+    .social-color(@facebook);
+}
+.tw {
+    .social-color(@twitter);
+}
+.gp {
+    .social-color(@google);
+}
+.pn {
+    .social-color(@pinterest);
+}
+.vm {
+    .social-color(@vimeo);
+}
+.yt {
+    .social-color(@youtube);
+}
+.in {
+    .social-color(@linkedin);
+}
+.ig {
+    .social-color(@instagram);
+}
+
+.top {
+    @color: @color-black--dark;
+    background: @color;
+    &:hover {
+        background: @color-black;
+    }
+}

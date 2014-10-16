@@ -1,0 +1,183 @@
+- name: World Bank
+  logo: logo-worldbank.png
+  url: http://www.worldbank.org
+  category: ['Non-Profit', 'Banking', 'International Development']
+  team: ['bv', 'ss', 'nk']
+
+- name: UNICEF
+  logo: logo-unicef.png
+  url: http://www.unicef.org
+  category: ['Non Profit', 'International Development']
+  team: ['bv', 'ss', 'nk']
+
+- name: GAIN (Global Alliance for Improved Nutrition)
+  logo: logo-gain.png
+  url: http://www.gainhealth.org
+  category: ['Non Profit']
+  team: ['bv', 'ss', 'nk']
+
+- name: GFDRR (Global Facility for Disaster Reduction and Recovery)
+  logo: logo-gfdrr.png
+  url: http://www.gfdrr.org
+  category: ['Non Profit']
+  team: ['bv', 'ss', 'nk']
+
+- name: HFTAG (Home Fortification Technical Advisory Group)
+  logo: logo-hftag.png
+  url: http://www.hftag.org
+  category: ['Non Profit']
+  team: ['bv', 'ss', 'nk']
+
+- name: PSI (Population Services International)
+  logo: logo-psi.png
+  url: http://www.psi.org
+  category: ['Non Profit']
+  team: ['bv', 'jp', 'ss', 'nk']
+
+- name: Diversity Woman
+  logo: logo-diversitywoman.png
+  url: http://www.diversitywoman.com
+  category: ['Non Profit']
+  team: ['bv', 'ss', 'nk']
+
+- name: Population Council
+  logo: logo-popcouncil.png
+  url: http://www.popcouncil.org/
+  category: ['Non Profit']
+  team: ['bv', 'ss']
+
+- name: University of Pennsylvania (UPENN)
+  logo: logo-upenn.png
+  url: http://www.upenn.edu
+  category: ['Education']
+  team: ['bv', 'ss']
+
+- name: Response Media
+  logo: logo-responsemedia.png
+  url: http://www.responsemedia.com/
+  category: ['Marketing', 'Communications', 'Consulting']
+  team: ['bv', 'nk']
+
+- name: Cline Consulting
+  logo: logo-cline.png
+  url: http://www.clinecg.com
+  category: ['Consulting']
+  team: ['bv', 'ss']
+
+# - name: CDC (Center for Disease Control)
+#  logo: logo-cdc.png
+#  url: http://www.cdc.gov
+#  category: ['Non Profit', 'Government']
+#  team: ['bv']
+
+- name: ValetParker
+  logo: logo-valetparker.png
+  url: http://www.valetparkerapp.com
+  category: ['Startup']
+  team: ['bv', 'nk']
+
+- name: Volarre
+  logo: logo-volarre.png
+  url: http://www.volarre.com
+  category: ['Startup']
+  team: ['bv', 'jp', 'ss', 'nk']
+
+
+# Jay's clients
+
+- name: Discovery Communications
+  logo: logo-discovery.png
+  url: http://www.discovery.com
+  category: ['Entertainment']
+  team: ['jp']
+
+- name: Animal Planet
+  logo: logo-apl.png
+  url: http://www.animalplanet.com
+  category: ['Entertainment']
+  team: ['jp']
+
+- name: Science Channel
+  logo: logo-sci.png
+  url: http://www.sciencechannel.com
+  category: ['Entertainment']
+  team: ['jp']
+
+- name: Penn State University
+  logo: logo-psu.png
+  url: http://www.psu.edu
+  category: ['Education']
+  team: ['jp']
+
+
+# Nico's clients
+
+- name: IFPen
+  logo: logo-ifp.png
+  url: http://www.ifpen.fr
+  category: ['Energy', 'Oil & Gas', 'Refining', 'Petrochemicals', 'Alternative Fuels']
+  team: ['nk']
+
+- name: Axens
+  logo: logo-axens.png
+  url: http://www.axens.fr
+  category: ['Energy', 'Oil & Gas', 'Refining', 'Petrochemicals', 'Alternative Fuels']
+  team: ['nk']
+
+- name: Dynamotive
+  logo: logo-dynamotive.png
+  url: http://www.dynamotive.com
+  category: ['Energy', 'Renewable Energy', 'Oil & Gas', 'Biofuels', 'Alternative Fuels']
+  team: ['nk']
+
+- name: Virgin Australia
+  logo: logo-virginau.png
+  url: http://www.virginaustralia.com
+  category: ['Aviation', 'Travel', 'Fuels']
+  team: ['nk']
+
+- name: Rappaport
+  logo: logo-rappaport.png
+  url: http://www.rappaport.com
+  category: ['Commerical Real Estate']
+  team: ['nk']
+
+- name: Persico Oriental Rugs
+  logo: logo-persico.png
+  url: http://persicorug.com/
+  category: ['Small Business', 'Oriental Rugs']
+  team: ['nk']
+
+- name: 'Tafti &amp; Company'
+  logo: logo-taftico.png
+  url: http://www.taftico.com/
+  category: ['Small Business', 'Residential', 'Commerical', 'Flooring']
+  team: ['nk']
+
+- name: 'Creative Concepts Design Center'
+  logo: logo-ccdc.png
+  url: http://www.creativeconceptsdc.com/
+  category: ['Small Business', 'Residential', 'Commerical', 'Flooring', 'Decor']
+  team: ['nk']
+
+- name: 'Aronson Law Firm'
+  logo: logo-aronsonlawfirm.png
+  url: http://www.aronsonlawfirm.com/
+  category: ['Small Business', 'Law Firm', 'Maritime Law']
+  team: ['nk']
+
+
+
+# Scott's clients
+
+- name: Vancouver Olympic Committee (Vanoc)
+  logo: logo-vanoc.png
+  url: http://www.olympic.org/vancouver-2010-winter-olympics
+  category: ['Sports', 'Olympics']
+  team: ['ss']
+
+- name: MusAid
+  logo: logo-musaid.png
+  url: http://www.musaid.org
+  category: ['Non-Profit', 'Music']
+  team: ['ss']
