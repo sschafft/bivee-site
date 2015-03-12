@@ -412,27 +412,16 @@ footer#end p {
   color: #737469 !important;
 }
 #hero {
-  position: relative;
   background: url(../images/home/cover.jpg) no-repeat center center;
   height: 100%;
   min-height: 570px;
-  padding: 0;
-  text-align: center;
+  text-align: left;
+  position: relative;
   font-size: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
-#hero .overlay {
-  background: rgba(40, 55, 80, 0.8);
-}
-#hero #hero-logo {
-  text-align: center;
-}
-#hero #hero-logo img {
-  display: inline-block;
-  width: 160px;
 }
 #hero article,
 #hero h1,
