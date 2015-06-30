@@ -11,7 +11,7 @@ division: 		"Development"
 permalink: 		/nabil
 
 tw:				
-in:				https://www.linkedin.com/pub/nabil-ahlhauser/98/a7b/284
+in:				nabil-ahlhauser
 ig:				
 ---
 
