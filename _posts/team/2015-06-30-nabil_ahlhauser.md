@@ -5,7 +5,7 @@ layout:			team
 
 fname: 			Nabil
 lname:			Ahlhauser
-initial:        NA
+initial:        na
 rank: 			Intern
 division: 		"Development"
 permalink: 		/nabil
