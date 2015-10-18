@@ -2,7 +2,7 @@
   logo: logo-worldbank.png
   url: http://www.worldbank.org
   category: ['Non-Profit', 'Banking', 'International Development']
-  team: ['bv', 'ss', 'nk']
+  team: ['bv', 'ss', 'nk', 'hc']
 
 - name: UNICEF
   logo: logo-unicef.png
@@ -20,7 +20,7 @@
   logo: logo-gfdrr.png
   url: http://www.gfdrr.org
   category: ['Non Profit']
-  team: ['bv', 'ss', 'nk']
+  team: ['bv', 'ss', 'nk', 'hc']
 
 - name: HFTAG (Home Fortification Technical Advisory Group)
   logo: logo-hftag.png
@@ -165,7 +165,6 @@
   url: http://www.aronsonlawfirm.com/
   category: ['Small Business', 'Law Firm', 'Maritime Law']
   team: ['nk']
-
 
 
 # Scott's clients
