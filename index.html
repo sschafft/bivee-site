@@ -1,0 +1,200 @@
+---
+layout: home
+id: home
+---
+
+			<section id="services">
+
+				<header class="grid">
+					<div class="columns large-12">
+						<h1>Services</h1>
+						<p>Our team has a varied range of expertise but with one focus in mind &mdash; to achieve your business goals with intuitive design and cutting edge systems development.</p>
+						<p>We are different from other agencies in that our team has experience in <em>Finance, Marketing, Communications, Organizational Development</em> and <em>Corporate Turnaround</em> &mdash; We partner with you to achieve sustainable long term results that will help grow your business rather than just check off a box.</p>
+					</div>
+				</header>
+
+				<article class="grid">
+
+					<div class="columns large-4">
+						<figure>
+							<img src="{{ site.root_url }}/assets/images/photos/service-development.jpg" />
+						</figure>
+						<h3>Development</h3>
+						<ul>
+							<li>Systems Development</li>
+							<li>Web Development</li>
+							<li>Web Applications</li>
+							<li>Mobile App Development</li>
+							<li>Custom Systems</li>
+							<li>Server Architecture</li>
+							<li>Ruby on Rails</li>
+							<li>Node.js</li>
+							<li>Wordpress / Drupal</li>
+    					</ul>
+					</div>
+
+					<div class="columns large-4">
+						<figure>
+							<img src="{{ site.root_url }}/assets/images/photos/service-creative.jpg" />
+						</figure>
+						<h3>Creative</h3>
+						<ul>
+							<li>Identity Development</li>
+							<li>Branding / Logo Design</li>
+    						<li>Web Design UX / UI</li>
+    						<li>Art &amp; Creative Direction</li>
+    						<li>Media Planning</li>
+    						<li>Print Design</li>
+    						<li>Animation</li>
+    						<li>Photography</li>
+    						<li>Video Production</li>
+    					</ul>
+					</div>
+				
+					<div class="columns large-4">
+						<figure>
+							<img src="{{ site.root_url }}/assets/images/photos/service-advisory.jpg" />
+						</figure>
+						<h3>Advisory</h3>
+						<ul>
+							<li>eLearning Strategy</li>
+							<li>Marketing &amp; Comms</li>
+							<li>Operations Strategy</li>
+							<li>Organizational Development</li>
+							<li>Mangement Processes</li>
+							<li>Systems Implementation</li>
+							<li>Systems Adoption</li>
+							<li>Technology Audits</li>
+							<li>Resource Planning</li>
+    					</ul>
+					</div>
+				</article>
+			</section>
+
+			<section id="clients">
+
+				<header class="grid">
+					<div class="columns large-12">
+						<h1>Clients &amp; Work</h1>
+						<p>We have worked with global clients, multidisiplinary teams, and advised executive leadership in all matters of design, development and advisory. Our clients span various industries ranging from International Development, Government, Non-Profits, Energy, Learning and Local Start ups.</p>
+					</div>
+				</header>
+				
+				<article class="grid">
+					<ul class="logo-wall">
+						{% assign name = 'bv' %}
+						{% for client in site.data.clients %}
+						{% if client.team contains name %}
+						<li>
+							<a href="{{ client.url }}" target="_blank" title="{{ client.name }} -{% for cat in client.category %} {{ cat }}{% endfor %}">
+								<img src="{{ site.root_url }}/assets/images/logos/{{ client.logo }}" alt="{{ client.name }}  -{% for cat in client.category %} {{ cat }}{% endfor %}" />
+							</a>
+						</li>
+						{% endif %}
+						{% endfor %}
+					</ul>
+				</article>
+			</section>
+
+
+			<section id="team">
+
+				<header class="grid">
+					<div class="columns large-12">
+						<h1>Team</h1>
+						<p>Our team has worked with some of the world's most recognizable brands and companies as well as new startups and small businesses. </p>
+					</div>
+				</header>
+				
+				<article class="grid">
+					<ul class="team-grid four-across">
+						{% for post in site.categories.team reversed %}
+						<li>
+							<a href="{{ post.permalink }}">
+								<img src="{{ site.root_url }}/assets/images/team/{{ post.initial }}-profile.jpg" />
+								<h3>{{ post.fname }} {{ post.lname }}</h3>
+								<h4>{{ post.rank }}</h4>
+								<h5>{{ post.division }}</h5>
+							</a>
+						</li>
+						{% endfor %}
+
+					</ul>
+				</article>
+
+			</section>
+
+			<!--<footer>
+				<div class="grid">
+					<div class="columns large-12">
+						<p>We are always looking for amazing individuals to join our team</p>
+						<button>Join Our Group</button>
+					</div>
+				</div>
+			</footer>-->
+
+	<!--<section id="blog">
+
+		<header class="grid">
+			<div class="columns large-12">
+				<h1>Blog</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi hendrerit ornare dictum. Donec id volutpat lacus. Praesent feugiat ligula nec tristique tristique. Vestibulum imperdiet lorem sem, a semper justo egestas quis. Duis elementum ornare purus eget dignissim. Aliquam fermentum suscipit nisl, vel ornare quam accumsan sit amet. </p>
+			</div>
+		</header>
+
+		<article class="grid">
+			<div class="columns large-12">
+				<ul class="post-list three-across">
+					<li>
+						<a href="">
+							<figure><img src="assets/images/blog/1.jpg" /></figure>
+							<p class="date">22 Aug 2014</p>
+							<h3>This is a short title</h3>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure><img src="assets/images/blog/2.jpg" /></figure>
+							<p class="date">22 Aug 2014</p>
+							<h3>This is a short title that is slightly longer</h3>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure><img src="assets/images/blog/3.jpg" /></figure>
+							<p class="date">22 Aug 2014</p>
+							<h3>This is a short title</h3>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure><img src="assets/images/blog/4.jpg" /></figure>
+							<p class="date">22 Aug 2014</p>
+							<h3>This is a short title</h3>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure><img src="assets/images/blog/5.jpg" /></figure>
+							<p class="date">22 Aug 2014</p>
+							<h3>This is a short title</h3>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure><img src="assets/images/blog/6.jpg" /></figure>
+							<p class="date">22 Aug 2014</p>
+							<h3>This is a short title</h3>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</article>
+
+	</section>
+
+		<footer>
+			<div class="grid">
+				<a href="#" class="read-more">Learn More</a>
+			</div>
+		</footer>-->

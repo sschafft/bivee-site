@@ -1,0 +1,79 @@
+// Blog Colours
+// --------------------------------------------------------------------------
+
+
+#blog {
+    h1, h2, h3, h4, h5, h6, a, p {
+        color: @color-black;
+    }
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    width: 100%;
+    footer {
+        background: none;
+    }
+}
+
+// Blog Post List
+// --------------------------------------------------------------------------
+
+.post-list {
+    list-style: none;
+    margin-bottom: 2em;
+    margin-left: -0.9375em;
+    margin-right: -0.9375em;
+    list-style: none;
+    display: block !important;
+    li {
+        float: left;
+        vertical-align: top;
+        display: block;
+        padding: 1.5em 0.5em 0 !important;
+        margin: 1.5em 0 0 !important;
+        .transition;
+        figure {
+            width: 100%;
+        }
+
+        h3 {
+            color: @color-white--light;
+            font-size: 150%;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        p {
+            color: @color-white--dark;
+            display: block;
+            padding: 0;
+            margin: 0;
+            &.date {
+                font-size: 90%;
+                padding: 1em 0 0 !important;
+                margin: 0 !important;
+            }
+        }
+    }
+}
+
+// Pagination
+// --------------------------------------------------------------------------
+
+.pagination {
+    list-style: none;
+    text-align: center;
+    background: @color-white;
+    margin-left: -0.9375em;
+    margin-right: -0.9375em;
+    li {
+        display: inline-block;
+        padding: 0.70em;
+        &.next{
+            float: left;
+            display: block;
+        }
+        &.prev {
+            float: right;
+            display: block;
+        }
+    }
+}

@@ -1,39 +1,9 @@
-name: Bivee
-pygments: true
+name: 'Bivee Group'
+tagline: 'Business-Driven Design'
+highlighter: pygments
 markdown: kramdown
-paginate: 10
 version: 0.9
 
-seo:
-  author: Nicholas Kingston, Scott Schaffter, Arsham Skrenes - Bivee
-  description: 
-  keywords:
 
-contact:
-  phone: '+1 (202) 258 2640'
-  email: 'sayhi@bivee.co'
-  address:
-    line1: '754 Fairmont St NW'
-    line2:  'Washington, DC 20001' 
-
-url:
-permalink: /:year/:title
-  
-social:
-  facebook: 
-  twitter: 'biveeco'
-  linkedin:
-  github: 'biveeco'
-  
-google:
-  analytics : 'UA-42800055-1'
-  verification : 'SVC'
-
-facebook:
-  admins : '2188a'
-  api : 'asdfas'
-
-assets:
-  img: '/assets/images/'
-  css: '/assets/stylesheets/'
-  js: '/assets/javascripts/'
+root_url: 'http://www.bivee.co/'
+#root_url: 'http://localhost:4000'

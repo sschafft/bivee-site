@@ -1,0 +1,96 @@
+// Photo Colour Scheme
+// --------------------------------------------------------------------------
+
+#team {
+    text-align: center;
+    position: relative;
+    
+    h1 {
+        color: @color1;
+        text-align: left;
+    }
+    h3 {
+        color: @color1;
+        font-weight: 300 !important;
+        padding-bottom: 0 !important;
+        font-size: 110%;
+    }
+    h4 {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 90%;
+        padding-bottom: 0 !important;
+        color: @color-orange;
+    }
+    h5 {
+        color: @color-grey;
+        font-size: 80%;
+    }
+    p {
+        text-align: left;
+    }
+    img {
+        .radius(100%);
+        border: 0.5em solid @color-white--dark;
+        width: 11.25em;
+        height: 11.25em;
+        .transition;
+    }
+    .team-grid {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 2em;
+        list-style: none;
+        text-align: center;
+        display: block;
+        &::after {
+            .clearfix;
+        }
+        li {
+            float: left;
+            vertical-align: top;
+            display: block;
+            padding: 1.5em 0 1.5em 0;
+            margin: 1.5em 0;
+            .radius(0.25em);
+            .transition;
+            &:hover {
+                background: @color-white;
+                img {
+                    border-color: @color-green--light;
+                }
+            }
+        }
+    }
+    footer {
+        border-bottom: none !important;
+    }
+}
+
+#team-profile {
+    background: no-repeat top center;
+    .background-size;
+    color: @color-white--light;
+    min-height: 250px;
+
+    figcaption {
+        padding: 7em 1em 2em;
+        h1,h2,h3,h4,h5,h6 {
+            padding: 0.25em 0 !important;
+            margin: 0 !important;
+            line-height: 120%;
+            text-shadow: 0 0 4px @color-black--dark;
+        }
+        ul.social {
+            font-size: 120%;
+            text-align: left;
+        }
+    }
+}
+
+.team-bio {
+    padding: 3em 1em;
+}
+
+

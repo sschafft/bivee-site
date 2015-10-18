@@ -1,0 +1,136 @@
+// Display Font - Open Sans
+// --------------------------------------------------------------------------
+
+@import 'http://fonts.googleapis.com/css?family=Varela+Round|Open+Sans:300,500,300italic';
+
+.font-text {
+    font-family: 'Open Sans';
+}
+.font-text-italic, em {
+    .font-text;
+    font-style: italic;
+}
+.font-text-bold, strong, b {
+    .font-text;
+    font-weight: 500 !important;
+}
+
+
+// Font Sizes
+// --------------------------------------------------------------------------
+
+h1 {
+    font-family: "Varela Round";
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    line-height: 150%;
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+
+}
+
+h1, a h1 {
+    #pxtoem > .font-size( 68 );
+    letter-spacing: 0.1em;
+    font-weight: 100;
+}
+h2, a h2 {
+    #pxtoem > .font-size( 36 );
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+h3, a h3 {
+    #pxtoem > .font-size( 26 );
+}
+h4, a h4 {
+    #pxtoem > .font-size( 24 );
+}
+h5, a h5 {
+    #pxtoem > .font-size( 20 );
+}
+h6, a h6 {
+    #pxtoem > .font-size( 16 );
+}
+
+p, ul, ol {
+    .font-text;
+    font-size: 1.2em;
+    line-height: 200%;
+    color: @color-black--light;
+}
+
+
+// Icons - iconography font
+// --------------------------------------------------------------------------
+
+.font-import('icomoon');
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+    content: "\e600";
+}
+.icon-checkmark:before {
+    content: "\e601";
+}
+.icon-google:before {
+    content: "\e602";
+}
+.icon-facebook:before {
+    content: "\e603";
+}
+.icon-twitter:before {
+    content: "\e604";
+}
+.icon-github:before {
+    content: "\e605";
+}
+.icon-pinterest:before {
+    content: "\e606";
+}
+.icon-linkedin:before {
+    content: "\e612";
+}
+.icon-cross:before {
+    content: "\e613";
+}
+.icon-arrow-left:before {
+    content: "\e607";
+}
+.icon-arrow-down:before {
+    content: "\e608";
+}
+.icon-arrow-up:before {
+    content: "\e609";
+}
+.icon-arrow-right:before {
+    content: "\e60a";
+}
+.icon-arrow-left2:before {
+    content: "\e60b";
+}
+.icon-arrow-down2:before {
+    content: "\e60c";
+}
+.icon-arrow-up2:before {
+    content: "\e60d";
+}
+.icon-arrow-right2:before {
+    content: "\e60e";
+}
+.icon-instagram:before {
+    content: "\e60f";
+}

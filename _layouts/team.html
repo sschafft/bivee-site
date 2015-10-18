@@ -1,0 +1,36 @@
+{% include header.html %}
+{% include nav.html %}
+	<section id="content-page">
+		<figure id="team-profile" style="background-image: url({{ site.root_url }}/assets/images/team/{{ page.initial }}-page.jpg);">
+			<figcaption class="grid">
+				<div class="columns large-6">
+					<h1>{{ page.fname }}<br />{{ page.lname }}</h1>
+					<h2>{{ page.rank }}<br /> {{ page.division }}</h2>
+					<ul class="social">
+
+					{% if page.tw %} 	<li class="tw"><a href="http://www.twitter.com/{{ page.tw }}"><i class="icon-twitter"></i></a></li> {% endif %}
+					{% if page.in %}	<li class="in"><a href="http://www.linkedin.com/in/{{ page.in }}"><i class="icon-linkedin"></i></a></li> {% endif %}
+					{% if page.ig %}	<li class="ig"><a href="http://www.instagram.com/{{ page.ig }}"><i class="icon-instagram"></i></a></li> {% endif %}
+					</ul>
+				</div>
+			</figcaption>
+		</figure>
+
+		<article class="grid team-bio">
+			<div class="columns large-12">
+
+				{{ content }}
+
+				{% assign name = page.initial %}
+				<ul class="logo-wall">{% for client in site.data.clients %}{% if client.team contains name %}
+					<li>
+						<a href="{{ client.url }}" target="_blank" title="{{ client.name }} -{% for cat in client.category %} {{ cat }}{% endfor %}">
+							<img src="/assets/images/logos/{{ client.logo }}" alt="{{ client.name }}  -{% for cat in client.category %} {{ cat }}{% endfor %}" />
+						</a>
+					</li>{% endif %}{% endfor %}
+				</ul>
+    		</div>
+    	</article>
+	</section>
+
+{% include footer.html %}

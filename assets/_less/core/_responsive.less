@@ -1,0 +1,139 @@
+/* Responsive
+================================================== */
+.mobile {
+    display: none;
+}
+
+
+
+
+/*=Phone Screens (Portrait)
+==================================================== */
+
+@media only screen and (max-width: 48em) {
+    body {
+        font-size: 60%;
+    }
+    .desktop, .desktop-inline, .desktop-table {
+        display: none !important;
+    }
+    .three-across li, .four-across li, .six-across li, .eight-across li {
+        width: 100%;
+        padding-bottom: 100%;
+    }
+    ul#menu {
+        position: fixed;
+        top: top: 3.625rem;
+        width: 100%;
+        display: none;
+        li {
+            width: 100%;
+            background: fade(@color-black--dark, 80%);
+            left: 0;
+            text-align: left;
+            display: block !important;
+            width: 100% !important;
+            float: none !important;
+
+                .icon-menu {
+                    background: @color-blue !important;
+                }
+                
+        }
+    }
+}
+
+
+/*=Tablet Screens (Portrait)
+==================================================== */
+
+@media only screen and (min-width: 48em) {
+    body {
+        font-size: 100%;
+    }
+    @width: 100%;
+    .grid {
+        width: @width;
+        .large-1 {  width: (@width / 12) * 1; }
+        .large-2 {  width: (@width / 12) * 2; }
+        .large-3 {  width: (@width / 12) * 3; }
+        .large-4 {  width: (@width / 12) * 4; }
+        .large-5 {  width: (@width / 12) * 5; }
+        .large-6 {  width: (@width / 12) * 6; }
+        .large-7 {  width: (@width / 12) * 7; }
+        .large-8 {  width: (@width / 12) * 8; }
+        .large-9 {  width: (@width / 12) * 9; }
+        .large-10 { width: (@width / 12) * 10; }
+        .large-11 { width: (@width / 12) * 11; }
+        .large-12 { width: (@width / 12) * 12; }
+        .large-offset-1 {  margin-left: (@width / 12) * 1; }
+        .large-offset-2 {  margin-left: (@width / 12) * 2; }
+        .large-offset-3 {  margin-left: (@width / 12) * 3; }
+        .large-offset-4 {  margin-left: (@width / 12) * 4; }
+        .large-offset-5 {  margin-left: (@width / 12) * 5; }
+        .large-offset-6 {  margin-left: (@width / 12) * 6; }
+        .large-offset-7 {  margin-left: (@width / 12) * 7; }
+        .large-offset-8 {  margin-left: (@width / 12) * 8; }
+        .large-offset-9 {  margin-left: (@width / 12) * 9; }
+        .large-offset-10 { margin-left: (@width / 12) * 10; }
+        .large-offset-11 { margin-left: (@width / 12) * 11; }
+    }
+    .desktop {
+        display: block !important;
+    }
+    .desktop-inline {
+        display: inline-block !important;
+    }
+    .desktop-table {
+        display: table-cell !important;
+    }
+    .mobile, .mobile-inline {
+        display: none !important;
+    }
+    .three-across li {
+        width: 100% / 3 !important;
+        padding-bottom: 100% / 3;
+    }
+    .four-across li {
+        width: 25% !important;
+        padding-bottom: 25%;
+    }
+    .six-across li {
+            width: 16.6666667% !important;
+            padding-bottom: 16.6666667%;
+    }
+    .eight-across li {
+            width: 12.5% !important;
+            padding-bottom: 12.5%;
+    }
+
+     #menu {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: auto;
+            display: table !important;
+            li {
+                display: inline-block !important;
+                float: left;
+                background: none;
+                width: auto !important;
+            }
+        }
+}
+
+/*=Tablet Screens (Landscape)
+==================================================== */
+
+@media only screen and (min-width: 1024px) {
+
+}
+
+/*=Desktop Screens
+==================================================== */
+
+@media only screen and (min-width: 1200px) {
+    #team-profile {
+        min-height: 600px;
+    }
+}

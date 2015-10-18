@@ -1,0 +1,126 @@
+// Navigation - Fixed equal height
+// --------------------------------------------------------------------------
+
+    @height:            5rem;
+    @height-fixed:      3.625rem;
+    @background:        @color-black--dark;
+    @hover:             @color-white;
+    @logo:              @color-black--dark;
+
+
+#nav-spacer {
+    content: "";
+    display: block;
+    position: relative;
+    height: @height-fixed - 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+[role="navigation"] {
+    
+    top: 0;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    height: @height;
+    position: fixed;
+    .transition;
+
+    &.fixed {
+        background: fade(@color-black--dark, 80%) !important;
+        height: @height-fixed;
+        a {
+            height: @height-fixed;
+        }
+    }
+
+    ul {
+        display: table;
+        border-collapse: collapse;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        &#navbar {
+            position: relative;
+            top: 0;
+        }
+
+        a {
+            
+            margin: 0;
+            height: @height;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1rem;
+            padding: 0 2em;
+
+            letter-spacing: 2px;
+            color: @color-white--light;
+            .font-text;
+
+            &:hover {
+                .opacity(0.5);
+            }  
+        }
+
+        li {
+            vertical-align: middle;
+            text-align: right;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+
+            &.logo {
+                display: block;
+                height: inherit;
+                float: left; 
+                padding: 0;
+                margin: 0;
+
+                a {
+                    padding: 0 0 0 2em;
+                }
+
+                img {
+                    height: inherit;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    margin :0;
+                }
+            }
+
+            &#show-menu {
+                position: absolute;
+                right: 0;
+                padding: 0;
+                margin: 0;
+                a {
+                    padding :0;
+                }
+
+                i {
+                    display: inline-block;
+                    font-size: 1rem;
+                    width: @height;
+                    color: @color-white;
+                    .transition;
+                    &.icon-cross {
+                        display: none !important;
+                    }
+                }
+                &.active {
+                    i.icon-cross {
+                        display: block !important;
+                    }
+                    i.icon-menu {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

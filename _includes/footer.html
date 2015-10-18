@@ -1,38 +1,75 @@
-      </article>
-    </section>
-    <div id="push"></div>
-  </div>
-  <footer id="contact">
-    <article>
-      <div class="row">
-        <div class="columns large-6 small-12">
-            <h2>Here is how you can get in touch</h2>
-        </div>
-        <div class="columns large-6 small-12">
-          <div class="columns small-6 large-5">
-            <h3>Contact</h3>
-            <a href="tel:{{ site.contact.phone }}">{{ site.contact.phone }}</a>
-            <a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a>
-          </div>
-          <div class="columns small-5 large-6 small-offset-1">
-            <h3>Address</h3>
-            <a href="#">{{ site.contact.address.line1 }}<br />{{ site.contact.address.line2 }}</a>
-          </div>
-        </div>
-      </div>
-    </article>
-  </footer>
-  <footer id="bottom">
-    <article>
-      <div class="columns large-12">
-          <span>&copy; Copyright  {{ site.name }} {{ site.time | date:"%Y" }}</span>
-          <span>|</span>
-          <span>Made with <b class="heart">♥</b> in DC</span>
-      </div>
-    </article>
-  </footer>
+	<!--<footer class="services">
+		<div class="grid align-center">
+			<div class="columns large-6">
+				<h2>Startup?</h2>
+				<p>We provide specialized packages for new companies</p>
+				<button>Startup Packages</button>
+			</div>
+			<div class="columns large-6">
+				<h2>Organization?</h2>
+				<p>We help your team focus on the big picture</p>
+				<button>Organization Packages</button>
+			</div>
+		</div>
+	</footer>-->
 
-{% include scripts.html %}
+	<section id="contact">
+
+		<header class="grid">
+			<div class="columns large-12">
+				<h1>Work with us</h1>
+			</div>
+		</header>
+
+
+		<article class="grid">
+
+			<div class="columns large-6">
+				<h3>Bivee Group</h3>
+				<p>We are based in the Washington DC Metro Area serving clients globally. Send us a message with a your idea or business issue and we will take it from there.</p>
+				<p>1350 Beverly Road, Suite 115-197<br />Mclean, VA, 22101</p>
+
+				<ul class="social align-left">
+					<!--<li class="tw"><a href=""><i class="icon-twitter"></i></a></li>-->
+					<li class="in"><a href="https://www.linkedin.com/company/bivee-co"><i class="icon-linkedin"></i></a></li>
+					<!--<li class="ig"><a href=""><i class="icon-instagram"></i></a></li>-->
+				</ul>
+
+			</div>
+
+			<div class="columns large-6" id="send-form">
+				<h3>Send us a Message</h3>
+				<form id="contact-form" action="#">
+					<div>
+						<label>Name <span class="error name-error"><i class="icon-cross"></i>Please enter a valid name</span></label></label>
+						<input name='name' type='text' />
+					</div>
+					<div>
+						<label>Email Address <span class="error email-error"><i class="icon-cross"></i>Please enter a valid email address</span></label>
+						<input name='email' type='email' />						
+					</div>
+					<div>
+						<label>Message <span class="error message-error"><i class="icon-cross"></i>Please provide a message</span></label>
+						<textarea name='message'></textarea>						
+					</div>
+					<input type="hidden" value="Website Submission" />
+					<button type="submit">Submit</button>
+				</form>
+			</div>
+
+		</article>
+
+	</section>
+
+	<footer id="end">
+
+		<article class="grid align-center">
+			<div class="columns large-12">
+				<p>Copyright Bivee LLC 2014</p>
+			</div>
+		</article>
+	</footer>
+
 
 </body>
 </html>
