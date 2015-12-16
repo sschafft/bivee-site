@@ -3,9 +3,10 @@
 ###
 
 # Change Compass configuration
-# compass_config do |config|
+compass_config do |config|
+    require "compass/import-once/activate"
 #   config.output_style = :compact
-# end
+end
 
 ###
 # Page options, layouts, aliases and proxies
@@ -28,6 +29,19 @@
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
 
+activate :directory_indexes
+page "README.md", :directory_index => false
+page "LICENSE", :directory_index => false
+page "404.html", :directory_index => false
+
+# Use relative URLs
+activate :relative_assets
+
+# autoprefix CSS
+activate :autoprefixer do |config|
+    config.browsers = ['last 2 versions', 'Explorer >= 8']
+end
+
 ###
 # Helpers
 ###
@@ -36,9 +50,9 @@
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-# configure :development do
-#   activate :livereload
-# end
+configure :development do
+  activate :livereload
+end
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -47,19 +61,27 @@
 #   end
 # end
 
-set :css_dir, 'stylesheets'
+set :css_dir, 'assets/stylesheets'
+set :js_dir, 'assets/javascripts'
+set :images_dir, 'assets/images'
+set :fonts_dir, 'assets/fonts'
 
-set :js_dir, 'javascripts'
-
-set :images_dir, 'images'
+# Add npm's directory to sprockets asset path
+# -> use npm for front-end & sass dependencies
+after_configuration do
+    sprockets.append_path File.join root, 'node_modules'
+    sprockets.import_asset "jquery/dist/jquery.min.js"
+    # sprockets.import_asset "modernizr/modernizr.js"
+    sprockets.import_asset "picturefill/dist/picturefill.min.js"
+end
 
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
-  # activate :minify_javascript
+  activate :minify_javascript
 
   # Enable cache buster
   # activate :asset_hash
