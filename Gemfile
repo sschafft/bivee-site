@@ -2,7 +2,13 @@
 # the following line to use "http://" instead
 source 'https://rubygems.org'
 
-gem "middleman", "~>3.4.0"
+# use only middleman core with custom extensions, so we can use libsass
+# -> http://andreas.boehrnsen.de/blog/2015/11/libsass-middleman/
+gem "middleman-core", "~>3.4.0"
+gem "middleman-sprockets", ">= 3.1.2"
+gem "uglifier", "~> 2.5"
+gem "execjs", "~> 2.0"
+gem "sassc", "~> 1.8"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
