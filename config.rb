@@ -34,6 +34,10 @@ page "README.md", :directory_index => false
 page "LICENSE", :directory_index => false
 page "404.html", :directory_index => false
 
+###
+# Helpers
+###
+
 # Use relative URLs
 activate :relative_assets
 
@@ -41,10 +45,6 @@ activate :relative_assets
 activate :autoprefixer do |config|
     config.browsers = ['last 2 versions', 'Explorer >= 8']
 end
-
-###
-# Helpers
-###
 
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
@@ -71,6 +71,7 @@ set :fonts_dir, 'assets/fonts'
 after_configuration do
     sprockets.append_path File.join root, 'node_modules'
     sprockets.import_asset "jquery/dist/jquery.min.js"
+    sprockets.import_asset "normalize.css/normalize.css"
     # sprockets.import_asset "modernizr/modernizr.js"
     sprockets.import_asset "picturefill/dist/picturefill.min.js"
 end
