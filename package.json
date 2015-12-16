@@ -25,6 +25,7 @@
   "devDependencies": {
     "SassyLists": "git+https://github.com/at-import/SassyLists.git",
     "bourbon": "^4.2.6",
+    "eyeglass": "^0.8.0",
     "modernizr-mixin": "^3.0.7"
   }
 }
