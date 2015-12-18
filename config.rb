@@ -1,14 +1,4 @@
 ###
-# Compass
-###
-
-# Change Compass configuration
-# compass_config do |config|
-#     require "compass/import-once/activate"
-#   config.output_style = :compact
-# end
-
-###
 # Page options, layouts, aliases and proxies
 ###
 
@@ -52,6 +42,7 @@ end
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
+  set :no_swf, true
 end
 
 # Methods defined in the helpers block are available in templates
@@ -66,15 +57,19 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 
+set :sass_assets_paths, [File.join(root, 'node_modules')]
+
+# files.watch :source, path: File.expand_path('node_modules', app.root)
+
 # Add npm's directory to sprockets asset path
 # -> use npm for front-end & sass dependencies
-after_configuration do
-    sprockets.append_path File.join root, 'node_modules'
-    sprockets.import_asset "jquery/dist/jquery.min.js"
-    sprockets.import_asset "normalize.css/normalize.css"
-    # sprockets.import_asset "modernizr/modernizr.js"
-    sprockets.import_asset "picturefill/dist/picturefill.min.js"
-end
+# after_configuration do
+#     sprockets.append_path File.join root, 'node_modules'
+#     sprockets.import_asset "jquery/dist/jquery.min.js"
+#     sprockets.import_asset "normalize.css/normalize.css"
+#     # sprockets.import_asset "modernizr/modernizr.js"
+#     sprockets.import_asset "picturefill/dist/picturefill.min.js"
+# end
 
 # Build-specific configuration
 configure :build do
