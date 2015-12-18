@@ -1,10 +1,36 @@
 <article class="l-wrapper">
     <h1>Title</h1>
     <%= image_tag lorem.image('800x400') %>
+        <span class="reference l-inline">Client</span>
+        <span class="reference l-inline">Partner (optional)</span>
+        <time class="reference l-inline">Sept 2015 - Dec 2015</time>
+    <div class="field">
+        <p><strong>Intro</strong> <%= lorem.sentences 5 %></p>
+        <p><%= lorem.sentences 4 %></p>
+    </div>
     <aside class="reference">
-        <h2>Client</h2>
+        <%= image_tag lorem.image('100x100') %>
+        <h3>Client/partner name</h3>
+        <a href="#">Client company</a>
+        <p>"<strong>Client/partner comments</strong> <%= lorem.words 20 %>"</p>
     </aside>
-    <aside class="reference">
-        <h2>Partner (optional)</h2>
-    </aside>
+    <% (0...3).each do %>
+        <section class="reference">
+            <h2>Project phase</h2>
+            <%= image_tag lorem.image('800x400') %>
+            <p><%= lorem.sentences 5 %></p>
+        </section>
+    <% end %>
 </article>
+<nav class="l-wrapper has-border has-border--top">
+    <h1>More case studies</h1>
+    <ul>
+        <% (0...4).each do %>
+        <li class="reference">
+            <%= image_tag lorem.image('100x100') %>
+            <h2>Case study title</h2>
+            <p><%= lorem.sentences rand(2...4) %></p>
+        </li>
+        <% end %>
+    </ul>
+</nav>
