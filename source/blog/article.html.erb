@@ -1,0 +1,21 @@
+---
+title: Article
+---
+
+<article class="l-wrapper">
+    <header>
+        <h1>You shouldn't have pet sloths but I want one anyway</h1>
+        <span class="reference">By <%= link_to "[staff person]", "/staff/profile" %></span>
+        <time class="metadata">December 16, 2015</time>
+        <ul class="metadata">
+            <li>various_tags</li>
+            <li>sloths</li>
+            <li>conservation</li>
+            <li>wanton_selfishness</li>
+        </ul>
+    </header>
+    <%= image_tag lorem.image('600x300') %>
+    <% (1...6).each do %>
+        <p><%= lorem.sentences rand(3...8) %></p>
+    <% end %>
+</article>

@@ -1,0 +1,19 @@
+---
+title: Blog
+---
+
+<div class="l-wrapper">
+    <h1>Bivee's blog</h1>
+
+    <ul>
+        <% (1...4).each do %>
+        <li class="reference">
+            <h2><%= link_to "Article title", "/blog/article" %></h2>
+            <span class="reference">by <%= link_to "[person]", "/staff/profile" %></span>
+            <p><%= lorem.sentences rand(2...4) %></p>
+            <%= link_to "Read more &rsaquo;", "/blog/article" %>
+        </li>
+        <%= render_partial "photo" %>
+        <% end %>
+    </ul>
+</div>

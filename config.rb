@@ -46,16 +46,19 @@ configure :development do
 end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+    # shortcut to reference global partials folder
+    def render_partial partial_name, locals={}
+        partial "layouts/partials/#{partial_name}", locals: locals
+    end
+end
 
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
+
+set :partials_dir, 'layouts/partials'
 
 set :sass_assets_paths, [File.join(root, 'node_modules')]
 

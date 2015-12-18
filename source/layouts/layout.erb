@@ -27,8 +27,12 @@
         <%= yield %>
 
         <footer class="l-wrapper" role="contentinfo">
-            <a href="/">Bivee</a>
-            <small>&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
+            <a class="reference" href="/">Bivee</a>
+            <section class="has-border--top has-border--bottom l-has-margin--bottom">
+                <h3>Contact us</h3>
+                <a href="mailto:hi@bivee.co">hi@bivee.co</a> * 555.555.5555
+            </section>
+            <small class="l-inline l-has-margin--bottom">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
         </footer>
 
         <%= javascript_include_tag "main" %>
