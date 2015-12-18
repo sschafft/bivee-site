@@ -1,1 +1,31 @@
 
+img {
+    max-width: 100%;
+}
+
+.l-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 26px;
+}
+
+%field {
+    border: 1px solid #ccc;
+    padding: 1em;
+}
+
+.object {
+    @extend %field;
+}
+
+.field { @extend %field; }
+
+.reference {
+    @extend %field;
+    background-color: #D2ECF2;
+}
+
+.metadata {
+    @extend %field;
+    background-color: #F2D2D2;
+}
