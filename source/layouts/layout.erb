@@ -15,7 +15,16 @@
     </head>
 
     <body>
+        <header class="l-wrapper" role="banner">
+            <a href="/">Bivee</a>
+        </header>
+
         <%= yield %>
+
+        <footer class="l-wrapper" role="contentinfo">
+            <a href="/">Bivee</a>
+            <small>&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
+        </footer>
 
         <%= javascript_include_tag "main" %>
     </body>

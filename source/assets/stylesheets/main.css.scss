@@ -4,6 +4,8 @@ img {
     max-width: 100%;
 }
 
+nav > ul { padding-left: 0; }
+
 .l-wrapper {
     max-width: 400px;
     margin: 0 auto;
@@ -13,8 +15,18 @@ img {
 .l-inline { display: inline-block !important; }
 
 .has-border {
-    &--top { border-top: 1px solid #ccc; }
-    &--bottom { border-top: 1px solid #ccc; }
+    &--top {
+        border-top: 1px solid #ccc;
+        padding-top: 1em;
+    }
+    &--bottom {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 1em;
+    }
+}
+
+.l-has-margin {
+    &--top { margin-top: 1em; }
 }
 
 %field {
