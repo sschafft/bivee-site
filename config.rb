@@ -11,9 +11,6 @@
 # page "/path/to/file.html", :layout => :otherlayout
 #
 # A path which all have the same layout
-# with_layout :staff_profile do
-#   page "/staff/*"
-# end
 page '/staff/*', :layout => 'staff_profile'
 
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
