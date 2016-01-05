@@ -19,9 +19,31 @@
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
 
+###
+# Set up the blog extension
+###
+
+# case studies
+activate :blog do |blog|
+    blog.name = "work"
+    blog.prefix = "work"
+    blog.sources = "{year}/{title}.html"
+    blog.permalink = "{category}/{year}/{title}.html"
+    blog.layout = "case_study"
+end
+
+# blog (articles)
+activate :blog do |blog|
+    blog.name = "blog"
+    blog.prefix = "blog"
+    blog.sources = "{year}-{month}-{day}-{title}.html"
+    blog.permalink = "{year}/{month}/{title}.html"
+    blog.taglink = "tags/{tag}.html"
+    blog.summary_separator = /EXCERPT/
+    blog.layout = "blog"
+end
+
 activate :directory_indexes
-page "README.md", :directory_index => false
-page "LICENSE", :directory_index => false
 page "404.html", :directory_index => false
 
 ###
@@ -58,21 +80,15 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 
-set :partials_dir, 'layouts/partials'
-
 set :sass_assets_paths, [File.join(root, 'node_modules')]
 
 # files.watch :source, path: File.expand_path('node_modules', app.root)
 
-# Add npm's directory to sprockets asset path
-# -> use npm for front-end & sass dependencies
-# after_configuration do
-#     sprockets.append_path File.join root, 'node_modules'
-#     sprockets.import_asset "jquery/dist/jquery.min.js"
-#     sprockets.import_asset "normalize.css/normalize.css"
-#     # sprockets.import_asset "modernizr/modernizr.js"
-#     sprockets.import_asset "picturefill/dist/picturefill.min.js"
-# end
+# activate: External_pipeline,
+#    name: browserify,
+#    command: "cd test-App / && ember # {build?? : build  :  : serve } --Environment # {config [ : environment ]} ",
+#    source: "test-App / dist ",
+#    latency: 2
 
 # Build-specific configuration
 configure :build do
