@@ -28,8 +28,9 @@ activate :blog do |blog|
     blog.name = "work"
     blog.prefix = "work"
     blog.sources = "{year}/{title}.html"
-    blog.permalink = "{category}/{year}/{title}.html"
+    blog.permalink = "{year}/{title}.html"
     blog.layout = "case_study"
+    blog.summary_separator = /EXCERPT/
 end
 
 # blog (articles)

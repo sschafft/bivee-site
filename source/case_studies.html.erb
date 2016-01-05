@@ -14,12 +14,12 @@ title: Case Studies
     </section>
 
     <ul>
-        <% (0...5).each do %>
+        <% blog("work").articles.each do |project| %>
         <li class="reference">
-            <% link_to "/work/case_study" do %><%= image_tag lorem.image('100x100') %><% end %>
-            <h2><%= link_to "Case study title", "/work/case_study" %></h2>
-            <p><%= lorem.sentences rand(3...6) %></p>
-            <%= link_to "read more &rsaquo;", "/work/case_study" %>
+            <% link_to project do %><%= image_tag lorem.image('100x100') %><% end %>
+            <h2><%= link_to project.title, project %></h2>
+            <p><%= project.summary %></p>
+            <%= link_to "read more &rsaquo;", project %>
         </li>
         <% end %>
     </ul>
