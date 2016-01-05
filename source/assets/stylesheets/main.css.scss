@@ -1,4 +1,6 @@
 @import "bourbon/app/assets/stylesheets/bourbon";
+@import "SassyLists/dist/SassyLists";
+@import "modernizr-mixin/stylesheets/modernizr";
 
 img {
     max-width: 100%;
@@ -37,9 +39,7 @@ nav > ul { padding-left: 0; }
     margin: 1em 0;
 }
 
-.object {
-    @extend %field;
-}
+.object { @extend %field; }
 
 .field { @extend %field; }
 
