@@ -1,0 +1,19 @@
+<% wrap_layout :layout do %>
+    <article class="l-wrapper">
+        <header>
+            <h1><%= current_page.title %></h1>
+            <span class="reference">By <%= link_to current_page.data.author, "/staff/profile" %></span>
+            <time class="metadata"><%= current_page.date %></time>
+            <% if current_page.tags.present? %>
+            <ul class="metadata">
+                <% current_page.tags.each do |tag| %>
+                <li><%= tag %></li>
+                <% end %>
+            </ul>
+            <% end %>
+        </header>
+        <main>
+            <%= yield %>
+        </main>
+    </article>
+<% end %>

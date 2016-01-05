@@ -23,25 +23,23 @@
 # Set up the blog extension
 ###
 
-# case studies
 activate :blog do |blog|
     blog.name = "work"
     blog.prefix = "work"
     blog.sources = "{year}/{title}.html"
     blog.permalink = "{year}/{title}.html"
-    blog.layout = "case_study"
     blog.summary_separator = /EXCERPT/
+    blog.layout = "case_study"
 end
 
-# blog (articles)
 activate :blog do |blog|
-    blog.name = "blog"
-    blog.prefix = "blog"
+    blog.name = "writing"
+    blog.prefix = "writing"
     blog.sources = "{year}-{month}-{day}-{title}.html"
     blog.permalink = "{year}/{month}/{title}.html"
     blog.taglink = "tags/{tag}.html"
     blog.summary_separator = /EXCERPT/
-    blog.layout = "blog"
+    blog.layout = "article"
 end
 
 activate :directory_indexes
