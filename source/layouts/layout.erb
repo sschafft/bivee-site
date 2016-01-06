@@ -16,8 +16,8 @@
     </head>
 
     <body>
-        <header class="l-wrapper" role="banner">
-            <a href="/">Bivee</a>
+        <header class="l-wrapper l-has-padding--top has-border--bottom" role="banner">
+            <%= link_to "Bivee", "/", :class => "l-has-margin--bottom" %>
             <!-- <nav>
                 <ul>
                     <li><%= link_to "Case Studies", "case_studies" %></li>
@@ -27,9 +27,9 @@
 
         <%= yield %>
 
-        <footer class="l-wrapper" role="contentinfo">
-            <a class="reference" href="/">Bivee</a>
-            <section class="has-border--top has-border--bottom l-has-margin--bottom">
+        <footer class="l-wrapper l-has-margin--top has-border--top" role="contentinfo">
+            <%= link_to "Bivee", "/", :class => "l-has-margin--bottom" %>
+            <section class="has-border--bottom l-has-margin--bottom">
                 <h3>Contact us</h3>
                 <a href="mailto:hi@bivee.co">hi@bivee.co</a> * 555.555.5555
             </section>

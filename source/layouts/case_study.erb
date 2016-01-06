@@ -1,0 +1,30 @@
+<% wrap_layout :layout do %>
+    <article class="l-wrapper">
+        <header>
+            <h1><%= current_page.title %></h1>
+            <%= image_tag current_page.data.cover %>
+            <span class="reference l-inline"><%= current_page.data.client %></span>
+            <% if current_page.data.partner.present? %><span class="reference l-inline"><%= current_page.data.partner %></span><% end %>
+            <% if current_page.data.duration.present? %><time class="reference l-inline">(Duration) <%= current_page.data.duration.start %> - <%= current_page.data.duration.end %></time><% end %>
+        </header>
+        <main>
+            <%= yield %>
+        </main>
+    </article>
+    <!-- local nav -->
+    <nav class="l-wrapper has-border--top l-has-margin--top">
+        <h1>More case studies</h1>
+        <ul>
+            <% blog("work").articles[0...5].each do |project| %>
+            <% unless project.title == current_page.title %>
+            <li class="reference">
+                <% link_to project do %><%= image_tag lorem.image('100x100') %><% end %>
+                <h2><%= link_to "Case study title", project %></h2>
+                <p><%= project.summary %></p>
+                <%= link_to "read more &rsaquo;", project %>
+            </li>
+            <% end %>
+            <% end %>
+        </ul>
+    </nav>
+<% end %>

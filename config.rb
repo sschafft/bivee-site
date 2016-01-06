@@ -11,9 +11,7 @@
 # page "/path/to/file.html", :layout => :otherlayout
 #
 # A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
-# end
+page '/staff/*', :layout => 'staff_profile'
 
 # Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
@@ -23,24 +21,23 @@
 # Set up the blog extension
 ###
 
-# case studies
 activate :blog do |blog|
     blog.name = "work"
     blog.prefix = "work"
     blog.sources = "{year}/{title}.html"
-    blog.permalink = "{category}/{year}/{title}.html"
+    blog.permalink = "{year}/{title}.html"
+    blog.summary_separator = /EXCERPT/
     blog.layout = "case_study"
 end
 
-# blog (articles)
 activate :blog do |blog|
-    blog.name = "blog"
-    blog.prefix = "blog"
+    blog.name = "writing"
+    blog.prefix = "writing"
     blog.sources = "{year}-{month}-{day}-{title}.html"
     blog.permalink = "{year}/{month}/{title}.html"
     blog.taglink = "tags/{tag}.html"
     blog.summary_separator = /EXCERPT/
-    blog.layout = "blog"
+    blog.layout = "article"
 end
 
 activate :directory_indexes

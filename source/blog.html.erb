@@ -6,12 +6,12 @@ title: Blog
     <h1>Bivee's blog</h1>
 
     <ul>
-        <% (1...4).each do %>
+        <% blog("writing").articles.each do |article| %>
         <li class="reference">
-            <h2><%= link_to "Article title", "/blog/article" %></h2>
-            <span class="reference">by <%= link_to "[person]", "/staff/profile" %></span>
+            <h2><%= link_to article.title, article %></h2>
+            <span class="reference">by <%= link_to article.data.author, "/staff/profile" %></span>
             <p><%= lorem.sentences rand(2...4) %></p>
-            <%= link_to "Read more &rsaquo;", "/blog/article" %>
+            <%= link_to "Read more &rsaquo;", article %>
         </li>
         <%= render_partial "photo" %>
         <% end %>
