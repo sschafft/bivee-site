@@ -27,9 +27,30 @@ nav > ul { padding-left: 0; }
     }
 }
 
+.l-has-padding {
+    &--top { padding-top: 1em; }
+    &--bottom { padding-bottom: 1em; }
+}
+
 .l-has-margin {
     &--top { margin-top: 1em; }
     &--bottom { margin-bottom: 1em; }
+}
+
+.l-list--undecorated {
+    padding-left: 0;
+    list-style: none;
+}
+
+.l-list--inline {
+    @extend .l-list--undecorated;
+
+    li, dt, dd {
+        display: inline-block;
+        margin-right: 1em;
+
+        &:last-child { margin-right: 0; }
+    }
 }
 
 %field {

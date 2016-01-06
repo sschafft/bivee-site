@@ -25,7 +25,7 @@ title: home
     </section>
     <section class="field">
         <h1>Clients</h1>
-        <ul>
+        <ul class="l-list--undecorated">
             <% (1...5).each do %>
             <li class="reference">
                 <a href="http://www.worldbank.org"><%= image_tag lorem.image('50x50') %></a>
@@ -36,6 +36,7 @@ title: home
     </section>
     <section class="field">
         <h1>Blog</h1>
+        <ul class="l-list--undecorated">
         <% blog("writing").articles[0...5].each do |article| %>
             <li class="reference">
                 <h2><%= link_to article.title, article %></h2>
@@ -44,6 +45,7 @@ title: home
             </li>
             <%= render_partial "photo" %>
         <% end %>
+        </ul>
         <%= link_to "More blog posts &rsaquo;", "blog" %>
     </section>
 </div>

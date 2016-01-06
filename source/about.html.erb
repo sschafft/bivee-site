@@ -29,16 +29,21 @@ title: About
 
     <section class="has-border has-border--top" id="people">
         <h1>Our people</h1>
-        <p><%= lorem.sentences 3 %></p>
+        <p>Intro <%= lorem.sentences 3 %></p>
 
-        <ul>
-            <% (0...5).each do %>
+        <ul class="l-list--undecorated">
+            <% sitemap.resources.select{ |r| r.path.start_with?("staff/") }.each do |staff| %>
             <li class="reference">
-                <% link_to "/staff/profile" do %><%= image_tag lorem.image('100x100') %><% end %>
-                <h2>Staff person name</h2>
-                <span>Job title</span>
-                <p><%= lorem.sentences 3 %></p>
-                <%= link_to "More about [person] &rsaquo;", "/staff/profile" %>
+                <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
+                <h2><%= link_to staff.data.title, staff %></h2>
+                <span><%= staff.data.job_title %></span>
+                <h3>Interests</h3>
+                <ul class="l-list--inline l-has-margin--bottom">
+                    <% staff.data.interests.each do |interest| %>
+                    <li><%= interest %></li>
+                    <% end %>
+                </ul>
+                <%= link_to "More about #{staff.data.title} &rsaquo;", staff %>
             </li>
             <% end %>
         </ul>
