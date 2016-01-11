@@ -1,0 +1,216 @@
+/* =============================================================================
+// Global layout styles
+// ===========================================================================*/
+
+/*doc
+---
+title: Global layout helpers
+name: layout
+category: core
+---
+
+Global layout styles.
+
+```html_example
+<a href="#" class="button l-abs top right">Button @ top right</a>
+```
+
+*/
+
+@import "libs";
+@import "breakpoints";
+@import "fonts";
+
+
+// Config/mixins
+// -----------------------------------------------------------------------------
+
+// --- gutters & spacing -------------------------------------------------------
+// -> uses font-scale, see _fonts.scss
+
+$gutter: fs(4); // based on font scale (see _fonts.scss)
+$gutter--wide: fs(6); // based on font scale (see _fonts.scss)
+
+@function add_outside_gutters($w) {
+    // compensate with for outside margins (ie padding) and split gutters
+    @return ($w + ($gutter--wide * 2));
+}
+
+$sides: top, right, bottom, left;
+
+.l-has-padding {
+    @each $side in $sides {
+        &--#{$side} { padding-#{$side}: $gutter; }
+        &--#{$side}.&--wide { padding-#{side}: $gutter--wide; }
+    }
+
+    &--all { padding: $gutter; }
+    &--all.&--wide { padding: $gutter--wide; }
+}
+
+.l-has-margin {
+    @each $side in $sides {
+        &--#{$side} { margin-#{$side}: $gutter; }
+        &--#{$side}.&--wide { padding-#{side}: $gutter--wide; }
+    }
+
+    &--all { margin: $gutter; }
+    &--all.&--wide { margin: $gutter--wide; }
+}
+
+// --- content width -----------------------------------------------------------
+
+$layout-w: 1000px; // max width of main layout
+$layout-w--narrow: 680px; // max width of 'narrow' elements (e.g. body type)
+$layout-w--wide: 1200px;
+
+%l-base-w {
+    max-width: add_outside_gutters($layout-w);
+}
+
+%l-base-w--narrow {
+    max-width: add_outside_gutters($layout-w--narrow);
+}
+
+%l-base-w--wide {
+    max-width: add_outside_gutters($layout-w--wide);
+}
+
+// --- global z-indexes --------------------------------------------------------
+$z: (
+    bottom : -1,
+    low    : 0,
+    middle : 1,
+    top    : 2
+);
+
+@function z($index) { @return map-get($z, $index); }
+
+
+/* Layout Globals/Base Styles
+// ---------------------------------------------------------------------------*/
+
+html {
+    // set up the base font size at each breakpoint
+    // this will scale the whole layout proportionately as the screen size changes
+    // and we only have to change one thing
+    font-size: 95%;
+
+    @include media(">small") {
+        font-size: 100%;
+    }
+
+    @include media(">medium") {
+        font-size: 110%;
+    }
+
+    // set everything to roll with border-box sizing
+    // -> much easier than reg box model
+    // -> http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+/* Layout Utility Classes
+// ---------------------------------------------------------------------------*/
+
+/* ---- Wrappers and columns -------------------------------------------------*/
+
+// basic layout wrapper, for constraining at large screen sizes
+.l-wrapper, %l-wrapper {
+    @extend %l-base-w;
+    @include clearfix;
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $gutter--wide;
+    padding-right: $gutter--wide;
+
+    // & > .headline:first-child {
+    //     margin-top: $gutter;
+    // }
+
+    // narrow version of layout wrapper
+    &--narrow {
+        @extend %l-base-w--narrow;
+    }
+
+    &--wide {
+        @extend %l-base-w--wide;
+    }
+}
+
+/* https://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php */
+.l-wrapper-video {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 25px;
+    height: 0;
+
+    & > iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ---- Display ------------------------------------------------------------- */
+
+.l-inline { display: inline-block !important; }
+.l-block { display: block !important; }
+
+/* ---- Lists --------------------------------------------------------------- */
+
+.l-list-undecorated {
+    padding-left: 0;
+    list-style: none;
+}
+
+.l-list-inline {
+    @extend .l-list--undecorated;
+
+    li, dt, dd {
+        display: inline-block;
+        margin-right: 1em;
+
+        &:last-child { margin-right: 0; }
+    }
+}
+
+/* ---- Visibility ---------------------------------------------------------- */
+
+@mixin visually_hidden($focusable: false) {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    /*
+     * Extends the .visuallyhidden class to allow the element
+     * to be focusable when navigated to via the keyboard:
+     * https://www.drupal.org/node/897638
+     */
+    @if ($focusable == true) {
+        &:active,
+        &:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto;
+        }
+    }
+}
+

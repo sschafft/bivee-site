@@ -1,0 +1,63 @@
+@import "normalize-scss/sass/normalize";
+
+/* /////////////////////////////////////////////////////////////////////////////
+// Core style helpers
+// -> global settings, helpers, and utility classes
+///////////////////////////////////////////////////////////////////////////// */
+
+@import "core/settings"; // global settings
+@import "core/breakpoints"; // global breakpoints
+@import "core/animation"; // global animation/behaviors
+@import "core/fonts"; // all @font-face things and base type scale
+@import "core/borders"; // global border styles
+@import "core/color"; // global/base color schemes
+@import "core/layout"; // global layout styles/helpers
+
+/* /////////////////////////////////////////////////////////////////////////////
+// Base styles
+// -> global element styles: lists, text, images, etc.
+///////////////////////////////////////////////////////////////////////////// */
+
+@import "base/text";
+@import "base/list";
+@import "base/media";
+@import "base/form";
+
+/* /////////////////////////////////////////////////////////////////////////////
+// Components
+// -> reusable, composable, self-contained interface elements
+///////////////////////////////////////////////////////////////////////////// */
+
+/* --- Atoms ---------------------------------------------------------------- */
+
+/* --- Molecules ------------------------------------------------------------ */
+
+/* --- Regions -------------------------------------------------------------- */
+
+
+/* /////////////////////////////////////////////////////////////////////////////
+// Styles of Shame
+// -> put quick and dirty hacks here, then clean up & organize later
+///////////////////////////////////////////////////////////////////////////// */
+
+
+%field {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: 1em 0;
+}
+
+.object { @extend %field; }
+
+.field { @extend %field; }
+
+.reference {
+    @extend %field;
+    background-color: #D2ECF2;
+}
+
+.metadata {
+    @extend %field;
+    background-color: #F2D2D2;
+}

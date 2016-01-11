@@ -78,11 +78,17 @@ set :sass_assets_paths, [File.join(root, 'node_modules')]
 
 # files.watch :source, path: File.expand_path('node_modules', app.root)
 
-# activate: External_pipeline,
-#    name: browserify,
-#    command: "cd test-App / && ember # {build?? : build  :  : serve } --Environment # {config [ : environment ]} ",
-#    source: "test-App / dist ",
-#    latency: 2
+# activate :external_pipeline,
+#   name: :webpack,
+#   command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
+#   source: ".tmp/dist",
+#   latency: 1
+
+# activate :external_pipeline,
+#     name: node-sass,
+#     command: node styles.js,
+#     source: "source/assets/stylesheets"
+#     latency: 1
 
 # Build-specific configuration
 configure :build do
