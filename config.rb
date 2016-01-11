@@ -74,7 +74,7 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 
-set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
+# set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
 
 # files.watch :source, path: File.expand_path('node_modules', app.root)
 
@@ -84,11 +84,11 @@ set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modu
 #   source: ".tmp/dist",
 #   latency: 1
 
-# activate :external_pipeline,
-#     name: node-sass,
-#     command: node styles.js,
-#     source: "source/assets/stylesheets"
-#     latency: 1
+activate :external_pipeline,
+    name: :node_sass,
+    command: 'npm run watch:styles',
+    source: 'source/assets/stylesheets',
+    latency: 1
 
 # Build-specific configuration
 configure :build do

@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem "middleman", "~>4.0"
-# gem "sassc"
+gem "sassc"
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.4"

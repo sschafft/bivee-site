@@ -6,7 +6,9 @@
   "scripts": {
     "build": "bundle exec middleman build --",
     "predeploy": "npm run build",
-    "deploy": "git-directory-deploy --directory build --branch gh-pages"
+    "deploy": "git-directory-deploy --directory build --branch gh-pages",
+    "styles": "node ./node_scripts/styles.js",
+    "watch:styles": "watch 'npm run styles' ./source/assets/stylesheets"
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,8 @@
     "include-media": "^1.4.1",
     "modernizr-mixin": "^3.0.7",
     "modularscale-sass": "^2.1.1",
-    "normalize-scss": "^4.0.3"
+    "node-sass": "^3.4.2",
+    "normalize-scss": "^4.0.3",
+    "watch": "^0.17.1"
   }
 }
