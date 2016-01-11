@@ -3,7 +3,7 @@
 // -> uses include-media library (http://include-media.com)
 // ===========================================================================*/
 
-@include "libs";
+@import "libs";
 
 /*doc
 ---
@@ -30,11 +30,11 @@ To access a specific breakpoint value in Sass, use the `screen()` function, as i
 // -----------------------------------------------------------------------------
 
 $breakpoints: (
-    'xsmall' : em(480px),
-    'small'  : em(700px),
-    'medium' : em(1000px),
-    'large'  : em(1200px),
-    'huge'   : em(1600px),
+    'xsmall' : 30em,
+    'small'  : 42em,
+    'medium' : 62em,
+    'large'  : 75em,
+    'huge'   : 100em,
 );
 
 // getter/helper function to pull breakpoints from the map

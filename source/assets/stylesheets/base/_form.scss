@@ -2,7 +2,7 @@
 //  Form module
 // ========================================================================== */
 
-@import "../core/*";
+@import "../core";
 
 /*doc
 ---
@@ -21,11 +21,11 @@ form {
 }
 
 fieldset {
-	
+
 }
 
 legend {
-	
+
 }
 
 input, textarea, select {
@@ -52,7 +52,7 @@ input, textarea, select {
 input[type="search"] {
 
 	&:focus {
-		
+
 	}
 }
 
@@ -68,9 +68,9 @@ textarea {
 }
 
 select {
-	
+
 }
 
 label {
-	
+
 }

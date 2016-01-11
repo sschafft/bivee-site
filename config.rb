@@ -74,7 +74,7 @@ set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir, 'assets/fonts'
 
-set :sass_assets_paths, [File.join(root, 'node_modules')]
+set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
 
 # files.watch :source, path: File.expand_path('node_modules', app.root)
 

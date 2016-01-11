@@ -41,21 +41,21 @@ $sides: top, right, bottom, left;
 .l-has-padding {
     @each $side in $sides {
         &--#{$side} { padding-#{$side}: $gutter; }
-        &--#{$side}.&--wide { padding-#{side}: $gutter--wide; }
+        &--#{$side}.l-has-padding--wide { padding-#{side}: $gutter--wide; }
     }
 
     &--all { padding: $gutter; }
-    &--all.&--wide { padding: $gutter--wide; }
+    &--all.l-has-padding--wide { padding: $gutter--wide; }
 }
 
 .l-has-margin {
     @each $side in $sides {
         &--#{$side} { margin-#{$side}: $gutter; }
-        &--#{$side}.&--wide { padding-#{side}: $gutter--wide; }
+        &--#{$side}.l-has-margin--wide { padding-#{side}: $gutter--wide; }
     }
 
     &--all { margin: $gutter; }
-    &--all.&--wide { margin: $gutter--wide; }
+    &--all.l-has-margin--wide { margin: $gutter--wide; }
 }
 
 // --- content width -----------------------------------------------------------
@@ -174,7 +174,7 @@ html {
 }
 
 .l-list-inline {
-    @extend .l-list--undecorated;
+    @extend .l-list-undecorated;
 
     li, dt, dd {
         display: inline-block;
