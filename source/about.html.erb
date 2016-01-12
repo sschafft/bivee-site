@@ -10,7 +10,7 @@ title: About
         <a href="#approach">Approach</a> • <a href="#people">People</a>
     </nav>
 
-    <section class="border border--top l-has-margin l-has-margin--top" id="approach">
+    <section class="border border--top l-margin l-margin--top" id="approach">
         <h1>Our approach</h1>
         <p><%= lorem.sentences 3 %></p>
 
@@ -38,7 +38,7 @@ title: About
                 <h2><%= link_to staff.data.title, staff %></h2>
                 <span><%= staff.data.job_title %></span>
                 <h3>Interests</h3>
-                <ul class="l-list--inline l-has-margin--bottom">
+                <ul class="l-list--inline l-margin--bottom">
                     <% staff.data.interests.each do |interest| %>
                     <li><%= interest %></li>
                     <% end %>

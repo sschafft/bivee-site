@@ -33,6 +33,9 @@
 
 /* --- Molecules ------------------------------------------------------------ */
 
+@import "components/main_nav";
+// @import "components/hero";
+
 /* --- Regions -------------------------------------------------------------- */
 
 
@@ -41,6 +44,7 @@
 // -> put quick and dirty hacks here, then clean up & organize later
 ///////////////////////////////////////////////////////////////////////////// */
 
+// object model placeholder classes
 %field {
     display: block;
     border: 1px solid #ccc;

@@ -16,24 +16,27 @@
     </head>
 
     <body>
-        <header class="l-wrapper l-has-padding--top border--bottom" role="banner">
-            <%= link_to "Bivee", "/", :class => "l-has-margin--bottom" %>
-            <!-- <nav>
-                <ul>
-                    <li><%= link_to "Case Studies", "case_studies" %></li>
+        <header class="main_nav border--bottom" role="banner">
+            <%= link_to "Bivee", "/", :class => "l-margin--bottom" %>
+            <nav>
+                <ul class="l-inline_block">
+                    <li><%= link_to "Work", "case_studies" %></li>
+                    <li><%= link_to "About", "about" %></li>
+                    <li><%= link_to "Blog", "blog" %></li>
                 </ul>
-            </nav> -->
+            </nav>
+            <a href="">Contact</a>
         </header>
 
         <%= yield %>
 
-        <footer class="l-wrapper l-has-margin--top border--top" role="contentinfo">
-            <%= link_to "Bivee", "/", :class => "l-has-margin--bottom" %>
-            <section class="border--bottom l-has-margin--bottom">
+        <footer class="l-wrapper l-margin--top border--top" role="contentinfo">
+            <%= link_to "Bivee", "/", :class => "l-margin--bottom" %>
+            <section class="border--bottom l-margin--bottom">
                 <h3>Contact us</h3>
                 <a href="mailto:hi@bivee.co">hi@bivee.co</a> * 555.555.5555
             </section>
-            <small class="l-inline l-has-margin--bottom">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
+            <small class="l-inline l-margin--bottom">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
         </footer>
 
         <%= javascript_include_tag "main" %>
