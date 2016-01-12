@@ -3,8 +3,6 @@
 // -> uses include-media library (http://include-media.com)
 // ===========================================================================*/
 
-@import "libs";
-
 /*doc
 ---
 title: Global Breakpoints
@@ -25,6 +23,8 @@ Utility classes are available for each: `.show@[SIZE]`, e.g. `.show@small` These
 To access a specific breakpoint value in Sass, use the `screen()` function, as in `max-width: screen('large');`, which will compile to `max-width: 75em;`
 
 */
+
+// @import "libs";
 
 // Config & mixins
 // -----------------------------------------------------------------------------

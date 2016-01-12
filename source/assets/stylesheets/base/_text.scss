@@ -2,8 +2,6 @@
 //  Global type styles
 // ========================================================================== */
 
-@import "../core";
-
 /*doc
 
 Inline text is mostly styled globally and doesn't change a whole lot from one context to another. If you mark it up with relevant tags it should take care of itself. But there are a few helper classes to define special styles:
@@ -17,6 +15,8 @@ Inline text is mostly styled globally and doesn't change a whole lot from one co
 `.lead`: the first paragraph of an article, decorated with a drop cap, etc. This is usually selected via `.content > p:first-child`, but if you need to imitate those styles in another context, use this class.
 
 */
+
+// @import "../core";
 
 
 /* Globals
