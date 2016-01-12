@@ -5,7 +5,14 @@
 // -> global settings, helpers, and utility classes
 ///////////////////////////////////////////////////////////////////////////// */
 
-@import "core";
+@import "core/libs"; // external/vendor libraries
+@import "core/settings"; // global settings
+@import "core/breakpoints"; // global breakpoints
+@import "core/animation"; // global animation/behaviors
+@import "core/fonts"; // all @font-face things and base type scale
+@import "core/color"; // global/base color schemes
+@import "core/layout"; // global layout styles/helpers
+@import "core/borders"; // global border styles
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Base styles
@@ -33,7 +40,6 @@
 // Styles of Shame
 // -> put quick and dirty hacks here, then clean up & organize later
 ///////////////////////////////////////////////////////////////////////////// */
-// body { background-color: blue; }
 
 %field {
     display: block;
