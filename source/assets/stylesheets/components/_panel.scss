@@ -1,12 +1,12 @@
 /* =============================================================================
-//  Main nav component
+//  Panel component
 // ========================================================================== */
 
 /*doc
 ---
-title: Main Nav
-name: main_nav
-category: Molecules
+title: Panel
+name: panel
+category: Organisms
 ---
 
 */
@@ -16,17 +16,7 @@ category: Molecules
 /* Base
 // -------------------------------------------------------------------------- */
 
-.main_nav {
-    @include l-list-undecorated;
-    @include l-list-inline;
-
-    > ul { margin: 0; }
+.panel {
+    display: block;
+    padding: $gutter--wide;
 }
-
-/* Subcomponents
-// -------------------------------------------------------------------------- */
-
-.main_nav-item {
-
-}
-

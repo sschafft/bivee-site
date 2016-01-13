@@ -28,6 +28,7 @@
 ///////////////////////////////////////////////////////////////////////////// */
 
 @import "base/text";
+@import "base/heading";
 @import "base/list";
 @import "base/media";
 @import "base/form";
@@ -39,14 +40,18 @@
 
 /* --- Atoms ---------------------------------------------------------------- */
 
+@import "components/title";
+
 /* --- Molecules ------------------------------------------------------------ */
 
 @import "components/main_nav";
-// @import "components/hero";
+// @import "components/cover";
 
 /* --- Organisms ------------------------------------------------------------ */
 
 @import "components/main_header";
+@import "components/panel";
+@import "components/gallery";
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Styles of Shame

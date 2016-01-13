@@ -18,8 +18,9 @@ category: Organisms
 // -------------------------------------------------------------------------- */
 
 .main_header {
-    @extend .border--bottom;
+    @include border(bottom);
     display: block;
+    height: 40px;
     padding-left: $gutter--wide;
     padding-right: $gutter--wide;
 

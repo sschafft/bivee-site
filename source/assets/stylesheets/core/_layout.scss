@@ -36,17 +36,12 @@ $sides: top, right, bottom, left;
 $gutter: fs(4); // based on font scale (see _fonts.scss)
 $gutter--wide: fs(6); // based on font scale (see _fonts.scss)
 
-@function add_outside_gutters($w) {
-    // compensate with for outside margins (ie padding) and split gutters
-    @return ($w + ($gutter--wide * 2));
-}
-
 // --- utility classes ---------------------------------------------------------
 
 .l-padding {
     @each $side in $sides {
         &--#{$side} { padding-#{$side}: $gutter; }
-        &--#{$side}.l-padding--wide { padding-#{side}: $gutter--wide; }
+        &--#{$side}.l-padding--wide { padding-#{$side}: $gutter--wide; }
     }
 
     &--all { padding: $gutter; }
@@ -55,8 +50,9 @@ $gutter--wide: fs(6); // based on font scale (see _fonts.scss)
 
 .l-margin {
     @each $side in $sides {
+        // @debug($side);
         &--#{$side} { margin-#{$side}: $gutter; }
-        &--#{$side}.l-margin--wide { padding-#{side}: $gutter--wide; }
+        &--#{$side}.l-margin--wide { margin-#{$side}: $gutter--wide; }
     }
 
     &--all { margin: $gutter; }
@@ -64,7 +60,7 @@ $gutter--wide: fs(6); // based on font scale (see _fonts.scss)
 }
 
 
-/* Content width
+/* Content wrappers
 // -------------------------------------------------------------------------- */
 
 // --- config & mixins ---------------------------------------------------------
@@ -73,23 +69,26 @@ $layout-w: 1000px; // max width of main layout
 $layout-w--narrow: 680px; // max width of 'narrow' elements (e.g. body type)
 $layout-w--wide: 1200px;
 
-%l-base-w {
-    max-width: add_outside_gutters($layout-w);
+@function add_outside_gutters($w) {
+    // compensate with for outside margins (ie padding) and split gutters
+    @return ($w + ($gutter--wide * 2));
 }
 
-%l-base-w--narrow {
-    max-width: add_outside_gutters($layout-w--narrow);
-}
-
-%l-base-w--wide {
-    max-width: add_outside_gutters($layout-w--wide);
+@mixin l-base-w($w: "default") {
+    @if ($w == "wide") {
+        max-width: add_outside_gutters($layout-w--wide);
+    } @elseif ($w == "narrow") {
+        max-width: add_outside_gutters($layout-w--narrow);
+    } @else {
+        max-width: add_outside_gutters($layout-w);
+    }
 }
 
 // --- utility classes ---------------------------------------------------------
 
 // basic layout wrapper, for constraining at large screen sizes
 .l-wrapper, %l-wrapper {
-    @extend %l-base-w;
+    @include l-base-w;
     @include clearfix;
     display: block;
     position: relative;
@@ -100,11 +99,13 @@ $layout-w--wide: 1200px;
 
     // narrow version of layout wrapper
     &--narrow {
-        @extend %l-base-w--narrow;
+        @extend .l-wrapper;
+        @include l-base-w(narrow);
     }
 
     &--wide {
-        @extend %l-base-w--wide;
+        @extend .l-wrapper;
+        @include l-base-w(wide);
     }
 }
 
