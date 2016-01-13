@@ -16,16 +16,16 @@
     </head>
 
     <body>
-        <header class="main_nav border--bottom" role="banner">
-            <%= link_to "Bivee", "/", :class => "l-margin--bottom" %>
-            <nav>
-                <ul class="l-inline_block">
-                    <li><%= link_to "Work", "case_studies" %></li>
-                    <li><%= link_to "About", "about" %></li>
-                    <li><%= link_to "Blog", "blog" %></li>
+        <header class="main_header" role="banner">
+            <%= link_to "Bivee", "/", :class => "logo logo--bivee" %>
+            <nav class="main_header-nav">
+                <ul>
+                    <li><%= link_to "Work", "case_studies", :class => "main_nav-item" %></li>
+                    <li><%= link_to "About", "about", :class => "main_nav-item" %></li>
+                    <li><%= link_to "Blog", "blog", :class => "main_nav-item" %></li>
                 </ul>
             </nav>
-            <a href="">Contact</a>
+            <%= link_to "Contact", "#", :class => "main_header-utility_nav" %>
         </header>
 
         <%= yield %>
@@ -34,7 +34,7 @@
             <%= link_to "Bivee", "/", :class => "l-margin--bottom" %>
             <section class="border--bottom l-margin--bottom">
                 <h3>Contact us</h3>
-                <a href="mailto:hi@bivee.co">hi@bivee.co</a> * 555.555.5555
+                <a href="mailto:admin@bivee.co">admin@bivee.co</a> * 555.555.5555
             </section>
             <small class="l-inline l-margin--bottom">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
         </footer>

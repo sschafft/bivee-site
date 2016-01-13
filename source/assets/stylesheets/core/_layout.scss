@@ -161,19 +161,42 @@ $z: (
 /* Lists
 // -------------------------------------------------------------------------- */
 
-.l-list-undecorated {
+// --- config & mixins ---------------------------------------------------------
+
+@mixin l-list-undecorated {
     padding-left: 0;
     list-style: none;
 }
 
-.l-list-inline {
-    @extend .l-list-undecorated;
-
+@mixin l-list-inline {
     li, dt, dd {
         display: inline-block;
         margin-right: 1em;
 
         &:last-child { margin-right: 0; }
+    }
+}
+
+// --- utility classes ---------------------------------------------------------
+
+.l-list-undecorated {
+    @include l-list-undecorated;
+}
+
+.l-list-inline {
+    @include l-list-undecorated;
+    @include l-list-inline;
+
+    // make inline only above a certain breakpoint
+    @each $breakpoint, $size in $breakpoints {
+        &\@#{$breakpoint} {
+            li, dt, dd {
+                display: block;
+                margin-right: 0;
+            }
+
+            @include media(">#{$breakpoint}") { @include l-list-inline; }
+        }
     }
 }
 

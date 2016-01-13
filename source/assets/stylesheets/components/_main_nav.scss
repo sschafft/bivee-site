@@ -17,6 +17,14 @@ category: Molecules
 // -------------------------------------------------------------------------- */
 
 .main_nav {
+    @extend .l-list-undecorated;
+    @extend .l-list-inline;
+}
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.main_nav-item {
 
 }
 

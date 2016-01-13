@@ -1,4 +1,12 @@
-// @import "normalize-scss/sass/normalize";
+/*
+ * Bivee.co
+ *
+ * Designed, built, & written by Bivee.
+ * https://github.com/biveeco
+ *
+ * Nice to see you here, fellow CSS nerd. Give us a shout on Github.
+ *
+ */
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Core style helpers
@@ -36,8 +44,9 @@
 @import "components/main_nav";
 // @import "components/hero";
 
-/* --- Regions -------------------------------------------------------------- */
+/* --- Organisms ------------------------------------------------------------ */
 
+@import "components/main_header";
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Styles of Shame
