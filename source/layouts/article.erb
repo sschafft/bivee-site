@@ -1,18 +1,20 @@
 <% wrap_layout :layout do %>
     <article class="l-wrapper">
-        <header>
-            <h1><%= current_page.title %></h1>
-            <span class="reference">By <%= link_to current_page.data.author, "/staff/profile" %></span>
-            <time class="metadata"><%= current_page.date %></time>
+        <header class="l-wrapper--narrow l-margin--bottom">
+            <h1 class="title"><%= current_page.title %></h1>
+            <span class="title-sub delta">By <%= link_to current_page.data.author, "/staff/profile" %></span>
+            <time class="title-sub epsilon"><%= current_page.date %></time>
             <% if current_page.tags.present? %>
-            <ul class="metadata">
+            <span class="epsilon"></span>
+            <dl class="l-list-inline">
+                <dt>Filed under:</dt>
                 <% current_page.tags.each do |tag| %>
-                <li><%= tag %></li>
+                <dd><%= tag %></dd>
                 <% end %>
-            </ul>
+            </dl>
             <% end %>
         </header>
-        <main>
+        <main class="l-wrapper--narrow">
             <%= yield %>
         </main>
     </article>

@@ -1,58 +1,64 @@
-@import "bourbon/app/assets/stylesheets/bourbon";
-@import "SassyLists/dist/SassyLists";
-@import "modernizr-mixin/stylesheets/modernizr";
+/*
+ * Bivee.co
+ *
+ * Designed, built, & written by Bivee.
+ * https://github.com/biveeco
+ *
+ * Nice to see you here, fellow CSS nerd. Give us a shout on Github.
+ *
+ */
 
-img {
-    max-width: 100%;
-}
+/* /////////////////////////////////////////////////////////////////////////////
+// Core style helpers
+// -> global settings, helpers, and utility classes
+///////////////////////////////////////////////////////////////////////////// */
 
-nav > ul { padding-left: 0; }
+@import "core/libs"; // external/vendor libraries
+@import "core/settings"; // global settings
+@import "core/breakpoints"; // global breakpoints
+@import "core/animation"; // global animation/behaviors
+@import "core/fonts"; // all @font-face things and base type scale
+@import "core/color"; // global/base color schemes
+@import "core/layout"; // global layout styles/helpers
+@import "core/borders"; // global border styles
 
-.l-wrapper {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 26px;
-}
+/* /////////////////////////////////////////////////////////////////////////////
+// Base styles
+// -> global element styles: lists, text, images, etc.
+///////////////////////////////////////////////////////////////////////////// */
 
-.l-inline { display: inline-block !important; }
+@import "base/text";
+@import "base/heading";
+@import "base/list";
+@import "base/media";
+@import "base/form";
 
-.has-border {
-    &--top {
-        border-top: 1px solid #ccc;
-        padding-top: 1em;
-    }
-    &--bottom {
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 1em;
-    }
-}
+/* /////////////////////////////////////////////////////////////////////////////
+// Components
+// -> reusable, composable, self-contained interface elements
+///////////////////////////////////////////////////////////////////////////// */
 
-.l-has-padding {
-    &--top { padding-top: 1em; }
-    &--bottom { padding-bottom: 1em; }
-}
+/* --- Atoms ---------------------------------------------------------------- */
 
-.l-has-margin {
-    &--top { margin-top: 1em; }
-    &--bottom { margin-bottom: 1em; }
-}
+@import "components/title";
 
-.l-list--undecorated {
-    padding-left: 0;
-    list-style: none;
-}
+/* --- Molecules ------------------------------------------------------------ */
 
-.l-list--inline {
-    @extend .l-list--undecorated;
+@import "components/main_nav";
+@import "components/billboard";
 
-    li, dt, dd {
-        display: inline-block;
-        margin-right: 1em;
+/* --- Organisms ------------------------------------------------------------ */
 
-        &:last-child { margin-right: 0; }
-    }
-}
+@import "components/main_header";
+@import "components/panel";
+@import "components/gallery";
 
+/* /////////////////////////////////////////////////////////////////////////////
+// Styles of Shame
+// -> put quick and dirty hacks here, then clean up & organize later
+///////////////////////////////////////////////////////////////////////////// */
+
+// object model placeholder classes
 %field {
     display: block;
     border: 1px solid #ccc;

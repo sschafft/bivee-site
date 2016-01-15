@@ -2,50 +2,54 @@
 title: home
 ---
 
-<div class="l-wrapper">
-    <h1>Bivee's awesome new website</h1>
-    <small><strong>Note:</strong> this is color coded, for the moment, like the object model. Metadata is <span class="metadata l-inline">red</span>, references are <span class="reference l-inline">blue</span>.</small>
+<!-- Cover -->
+<section class="panel--cover panel--centered border--bottom">
+    <div class="panel-content l-wrapper--narrow">
+        <h1 class="title">A short clever blurb about us</h1>
+        <p><%= lorem.sentences rand(2...4) %></p>
+    </div>
+</section>
 
-    <!-- Featured project -->
-    <%# show one (".articles[0...2]") with "featured: true" in its frontmatter %>
-    <% blog("work").articles[0...2].select{ |a| a.data[:featured] == true }.each do |project| %>
-    <section class="reference">
-        <% link_to project do %><%= image_tag project.data.cover %><% end %>
-        <h1><%= link_to project.title, project %></h1>
-        <p><%= lorem.sentences rand(3...6) %></p>
-        <%= link_to "Read more &rsaquo;", project %> |
-        <%= link_to "More case studies &rsaquo;", "case_studies" %>
-    </section>
-    <% end %>
-
-    <section>
-        <h1>A quick intro about us</h1>
+<!-- About us/clients -->
+<section class="panel--short panel--centered border--bottom">
+    <div class="panel-content l-wrapper--narrow">
+        <h1 class="title">A quick intro</h1>
         <p><%= lorem.sentences 3 %></p>
-        <%= link_to "More about us &rsaquo;", "about", :class => "reference" %>
-    </section>
-    <section class="field">
-        <h1>Clients</h1>
-        <ul class="l-list--undecorated">
-            <% (1...5).each do %>
-            <li class="reference">
-                <a href="http://www.worldbank.org"><%= image_tag lorem.image('50x50') %></a>
-                <a href="http://www.worldbank.org">Client name</a>
+        <%= link_to "Our approach", "about" %> • <%= link_to "Meet our people", "about" %>
+        <section class="l-margin--top l-margin--bottom l-padding--top l-padding--bottom border--top">
+            <h2 class="title-sub cappa">Some of our awesome clients</h2>
+            <ul class="gallery--small">
+                <% (1...5).each do %>
+                <li class="gallery-item">
+                    <a href="http://www.worldbank.org"><%= image_tag lorem.image('50x50') %></a><br />
+                    <a href="http://www.worldbank.org">Client name</a>
+                </li>
+                <% end %>
+            </ul>
+        </section>
+    </div>
+</section>
+
+<!-- Featured projects -->
+<section class="l-padding--top l-padding-wide">
+    <div class="l-wrapper--narrow">
+        <h1 class="title beta l-centered">Recent work</h1>
+        <p>Intro <%= lorem.sentences 6 %></p>
+    </div>
+
+    <div class="l-wrapper">
+        <ul class="l-list-undecorated">
+            <% blog("work").articles[0...5].each do |project| %>
+            <li class="billboard l-margin--top" style="background-image: url('http://placehold.it/1000x400');">
+                <div class="billboard-content">
+                    <h2 class="title"><%= link_to project.title, project %></h2>
+                    <p><%= lorem.sentences rand(2...4) %></p>
+                    <%= link_to "read the case study &rsaquo;", project %>
+                </div>
             </li>
             <% end %>
         </ul>
-    </section>
-    <section class="field">
-        <h1>Blog</h1>
-        <ul class="l-list--undecorated">
-        <% blog("writing").articles[0...5].each do |article| %>
-            <li class="reference">
-                <h2><%= link_to article.title, article %></h2>
-                <p><%= lorem.sentences rand(2...4) %></p>
-                <%= link_to "Read more &rsaquo;", article %>
-            </li>
-            <%= render_partial "photo" %>
-        <% end %>
-        </ul>
-        <%= link_to "More blog posts &rsaquo;", "blog" %>
-    </section>
-</div>
+        <%= link_to "More work &rsaquo;", "/case_studies" %>
+    </div>
+
+</section>

@@ -2,50 +2,72 @@
 title: About
 ---
 
-<article class="l-wrapper">
-    <h1>About us or some thoughtful headline</h1>
-    <p><strong>Intro</strong> <%= lorem.sentences 6 %></p>
-    <p><%= lorem.sentences 3 %></p>
-    <nav>
-        <a href="#approach">Approach</a> • <a href="#people">People</a>
-    </nav>
-
-    <section class="has-border has-border--top l-has-margin l-has-margin--top" id="approach">
-        <h1>Our approach</h1>
-        <p><%= lorem.sentences 3 %></p>
-
-        <% (0...3).each do %>
-        <section class="field">
-            <h1>General Phase</h1>
-            <%= image_tag lorem.image('600x300') %>
-            <p><strong>Description</strong> <%= lorem.sentences rand(3...8) %></p>
-            <a href="/work/case_study" class="reference">Case study example</a>
-            <h2>Technique/exercise/tool</h2>
-            <p><%= lorem.sentences rand(3...8) %></p>
-            <a href="" class="reference">Side project</a>
-        </section>
-        <% end %>
+<article>
+    <section class="panel" id="intro">
+        <div class="panel-content l-wrapper--narrow">
+            <h1>About us or some thoughtful headline</h1>
+            <p><strong>Intro</strong> <%= lorem.sentences 6 %></p>
+            <p><%= lorem.sentences 3 %></p>
+            <!-- <nav>
+                <a href="#approach">Approach</a> • <a href="#people">People</a>
+            </nav> -->
+        </div>
     </section>
 
-    <section class="has-border has-border--top" id="people">
-        <h1>Our people</h1>
-        <p>Intro <%= lorem.sentences 3 %></p>
+    <section class="border--top l-margin--top" id="approach">
+        <div class="l-wrapper--narrow">
+            <h1 class="beta">Our approach</h1>
+            <p><%= lorem.sentences 3 %></p>
 
-        <ul class="l-list--undecorated">
-            <% sitemap.resources.select{ |r| r.path.start_with?("staff/") }.each do |staff| %>
-            <li class="reference">
-                <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
-                <h2><%= link_to staff.data.title, staff %></h2>
-                <span><%= staff.data.job_title %></span>
-                <h3>Interests</h3>
-                <ul class="l-list--inline l-has-margin--bottom">
-                    <% staff.data.interests.each do |interest| %>
-                    <li><%= interest %></li>
-                    <% end %>
-                </ul>
-                <%= link_to "More about #{staff.data.title} &rsaquo;", staff %>
-            </li>
+            <% (0...3).each do %>
+            <section class="border--top l-margin--top l-margin--wide">
+                <h1 class="cappa">General Phase</h1>
+                <%= image_tag lorem.image('800x300') %>
+                <p><strong>Description</strong> <%= lorem.sentences rand(3...8) %></p>
+                <a href="/work/case_study" class="reference">Case study example</a>
+                <h2 class="delta">Technique/exercise/tool</h2>
+                <p><%= lorem.sentences rand(3...8) %></p>
+                <a href="" class="reference">Side project</a>
+            </section>
             <% end %>
-        </ul>
+        </div>
+    </section>
+
+    <section class="border--top" id="people">
+        <div class="l-wrapper--narrow">
+            <h1 class="beta">Our people</h1>
+            <p>Intro <%= lorem.sentences 3 %></p>
+        </div>
+        <div class="l-wrapper l-margin--top l-margin--wide">
+            <ul class="gallery">
+                <% sitemap.resources.select{ |r| r.path.start_with?("staff/") }.each do |staff| %>
+                <li class="gallery-item">
+                    <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
+                    <h2><%= link_to staff.data.title, staff %></h2>
+                    <span><%= staff.data.job_title %></span>
+                </li>
+                <li class="gallery-item">
+                    <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
+                    <h2><%= link_to staff.data.title, staff %></h2>
+                    <span><%= staff.data.job_title %></span>
+                </li>
+                <li class="gallery-item">
+                    <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
+                    <h2><%= link_to staff.data.title, staff %></h2>
+                    <span><%= staff.data.job_title %></span>
+                </li>
+                <li class="gallery-item">
+                    <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
+                    <h2><%= link_to staff.data.title, staff %></h2>
+                    <span><%= staff.data.job_title %></span>
+                </li>
+                <li class="gallery-item">
+                    <% link_to "/staff/profile" do %><%= image_tag staff.data.portrait, :style => "max-width: 10em;" %><% end %>
+                    <h2><%= link_to staff.data.title, staff %></h2>
+                    <span><%= staff.data.job_title %></span>
+                </li>
+                <% end %>
+            </ul>
+        </div>
     </section>
 </article>

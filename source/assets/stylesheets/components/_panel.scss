@@ -1,0 +1,56 @@
+/* =============================================================================
+//  Panel component
+// -> a large section, approximately screen-sized
+// -> main idea is to add whitespace around content
+// ========================================================================== */
+
+/*doc
+---
+title: Panel
+name: panel
+category: Organisms
+---
+
+*/
+
+// @import "../core";
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.panel {
+    padding: fs(6) $gutter--wide;
+    display: block;
+    min-height: 60vh;
+}
+
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+.panel--short {
+    @extend .panel;
+    min-height: 40vh;
+}
+
+.panel--tall {
+    @extend .panel;
+    min-height: 80vh;
+}
+
+.panel--centered {
+    @extend .panel;
+    text-align: center;
+
+    @include yep(flexbox) {
+        @include display(flex);
+        @include align-items(center);
+    }
+}
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.panel-content {
+    display: block;
+    flex: 1;
+}

@@ -1,18 +1,18 @@
 <% wrap_layout :layout do %>
-    <article class="l-wrapper">
-        <header>
+    <article>
+        <header class="hero">
             <h1><%= current_page.title %></h1>
             <%= image_tag current_page.data.cover %>
-            <span class="reference l-inline"><%= current_page.data.client %></span>
-            <% if current_page.data.partner.present? %><span class="reference l-inline"><%= current_page.data.partner %></span><% end %>
-            <% if current_page.data.duration.present? %><time class="reference l-inline">(Duration) <%= current_page.data.duration.start %> - <%= current_page.data.duration.end %></time><% end %>
+            <span class="l-inline_block"><%= current_page.data.client %></span>
+            <% if current_page.data.partner.present? %><span class="reference l-inline_block"><%= current_page.data.partner %></span><% end %>
+            <% if current_page.data.duration.present? %><time class="reference l-inline_block">(Duration) <%= current_page.data.duration.start %> - <%= current_page.data.duration.end %></time><% end %>
         </header>
-        <main>
+        <main class="l-wrapper l-wrapper--narrow">
             <%= yield %>
         </main>
     </article>
     <!-- local nav -->
-    <nav class="l-wrapper has-border--top l-has-margin--top">
+    <nav class="l-wrapper border--top l-margin--top">
         <h1>More case studies</h1>
         <ul>
             <% blog("work").articles[0...5].each do |project| %>

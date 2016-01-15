@@ -24,7 +24,7 @@
             <%= yield %>
         </main>
     </section>
-    <section class="l-wrapper has-border has-border--top has-margin has-margin--top">
+    <section class="l-wrapper border border--top l-margin l-margin--top">
         <h1><%= current_page.data.title %>'s posts</h1>
         <ul>
             <% blog("writing").articles.each do |article| %>
@@ -38,7 +38,7 @@
             <% end %>
         </ul>
     </section>
-    <!-- <nav class="l-wrapper has-border has-border--top has-margin has-margin--top">
+    <!-- <nav class="l-wrapper border border--top l-margin l-margin--top">
         <h1>More people</h1>
 
     </nav> -->

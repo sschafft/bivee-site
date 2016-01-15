@@ -1,0 +1,50 @@
+/* =============================================================================
+//  Main header component
+// ========================================================================== */
+
+/*doc
+---
+title: Main Header
+name: main_header
+category: Organisms
+---
+
+*/
+
+// @import "../core";
+// @import "main_nav";
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.main_header {
+    @include border(bottom);
+    display: block;
+    height: 40px;
+    padding-left: $gutter--wide;
+    padding-right: $gutter--wide;
+
+    @include yep(flexbox) {
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(space-between);
+    }
+}
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.main_header-logo {}
+
+.main_header-nav {
+    @extend .main_nav;
+    text-align: center;
+
+    @include yep(flexbox) {
+        @include flex(1);
+    }
+}
+
+.main_header-utility_nav {
+    // @include flex(1);
+}

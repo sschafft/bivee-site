@@ -2,24 +2,20 @@
 title: Case Studies
 ---
 
+<section class="l-wrapper--narrow l-margin--top l-margin--wide">
+    <h1 class="title">Our work</h1>
+    <p>Intro <%= lorem.sentences 6 %></p>
+</section>
+
 <div class="l-wrapper">
-    <h1>Case Studies</h1>
-    <p><strong>Intro?</strong> <%= lorem.sentences 6 %></p>
-
-    <section class="reference">
-        <% link_to "/work/case_study" do %><%= image_tag lorem.image('600x300') %><% end %>
-        <h2><%= link_to "Featured case study title", "/work/case_study" %></h2>
-        <p><%= lorem.sentences rand(3...6) %></p>
-        <%= link_to "read more &rsaquo;", "/work/case_study" %>
-    </section>
-
-    <ul>
+    <ul class="l-list-undecorated">
         <% blog("work").articles.each do |project| %>
-        <li class="reference">
-            <% link_to project do %><%= image_tag lorem.image('100x100') %><% end %>
-            <h2><%= link_to project.title, project %></h2>
-            <p><%= project.summary %></p>
-            <%= link_to "read more &rsaquo;", project %>
+        <li class="billboard l-margin--top" style="background-image: url('http://placehold.it/1000x400');">
+            <div class="billboard-content">
+                <h2 class="title"><%= link_to project.title, project %></h2>
+                <p><%= lorem.sentences rand(2...4) %></p>
+                <%= link_to "read the case study &rsaquo;", project %>
+            </div>
         </li>
         <% end %>
     </ul>

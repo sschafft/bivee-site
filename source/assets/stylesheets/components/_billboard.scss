@@ -1,0 +1,42 @@
+/* =============================================================================
+//  Billboard component
+// -> a main heading for content
+// ========================================================================== */
+
+/*doc
+---
+title: Billboard
+name: billboard
+category: Molecules
+---
+
+*/
+
+// @import "../core";
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.billboard {
+    @include rem(height, 300px);
+    display: block;
+    padding: $gutter--wide;
+    background: theme(bg, reverse) no-repeat center;
+    background-size: cover;
+
+    @include media(">small") { padding-right: 40%; }
+    @include media(">medium") { padding-right: 60%; }
+
+    @include yep(flexbox) {
+        @include display(flex);
+        @include align-items(center);
+    }
+}
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.billboard-content {
+    display: block;
+    @include flex(1);
+}

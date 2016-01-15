@@ -1,0 +1,145 @@
+/* ==========================================================================
+// Gallery module
+// -> arrange child elements into even rows and columns
+// ========================================================================== */
+
+/*doc
+---
+title: Gallery
+name: gallery
+category: organisms
+---
+
+A gallery is a grid of small bits of content- usually listings or thumbnails. It breaks the content into even columns and rows. It is responsive, so the column number will change based on screen width, and column width is fluid (percentage-based).
+
+```html_example
+    <ul class='gallery'>
+        <li class="gallery-item">
+            Wow, I'm in a gallery.
+        </li>
+        <li class="gallery-item">
+            Me too.
+        </li>
+    </ul>
+```
+
+Typically, you'll mark up a gallery as an unordered list, but it will work with most block-level elements (like <nav> or <div>). Just give the container a "gallery" class and the children a "gallery-item" class.
+
+There are three (column) size variations: small, medium, and large. Medium is default, so that's the size you get with just "gallery." This only affects overall column width: a "large" gallery will have fewer columns at any given screen size than a "small" gallery. Note any size variation can be used at any screen size. The best choice mainly depends on the type of content you're displaying. If there's lots of text, it might look squished in a "small" gallery, whereas tiny icons might get blown up really huge in a "large" gallery.
+
+```html_example
+    <!-- small gallery, with narrow columns -->
+    <ul class="gallery small"></ul>
+
+    <!-- default ("medium") gallery -->
+    <ul class="gallery"></ul>
+
+    <!-- large gallery with wide columns -->
+    <ul class="gallery large"></ul>
+```
+
+*/
+
+// @import "../core/*";
+
+$gallery-gutter: $gutter;
+
+@mixin columns($number: 2, $g: $gallery-gutter) {
+    display: inline-block;
+    width: (100%/$number);
+    padding-right: $g;
+
+    @include yep(flexbox) {
+        display: block;
+        @include flex(0 0 (100%/$number));
+        width: auto;
+        min-width: 1px;
+    }
+}
+
+/* Base
+// ---------------------------------------------------------------------------*/
+
+.gallery {
+    @include l-list-undecorated;
+    @include rem(margin-top, $gutter);
+    display: block; // in case flexbox isn't supported
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include align-items(stretch);
+    position: relative;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 0;
+
+    @include media('>small') {
+        @include display(flex);
+        margin-right: -($gallery-gutter); // to prevent uneven column widths
+    }
+}
+
+/* Modifiers
+// ---------------------------------------------------------------------------*/
+
+// "small" columns
+// -> see .gallery-item submodule for styles
+.gallery--small {
+    @extend .gallery;
+    @include media('>xsmall') {
+        @include display(flex);
+        margin-right: -($gallery-gutter); // to prevent uneven column widths
+    }
+}
+
+// "large" columns
+// -> see .gallery-item submodule for styles
+.gallery--large {
+    @extend .gallery;
+    @include media('>small') {
+        @include display(flex);
+        margin-right: -($gallery-gutter); // to prevent uneven column widths
+    }
+}
+
+// align everything to the middle
+.gallery--centered {
+    @include align-items(center);
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Submodules
+// ---------------------------------------------------------------------------*/
+
+.gallery-item {
+    // $gutter: 1px;
+    // margin: 0 0 $gutter 0;
+    display: block;
+    margin-bottom: 0;
+    padding-bottom: $gutter;
+    font-size: $type-size--default;
+
+    @include media('>small') {
+        @include columns(2);
+    }
+
+    @include media('>medium') {
+        @include columns(3);
+    }
+
+    .gallery--small & {
+        @include media('>xsmall') {
+            @include columns(4);
+        }
+        @include media('>medium') {
+            @include columns(5);
+        }
+    }
+
+    .gallery--large & {
+        @include media('>small') {
+            @include columns(2);
+        }
+    }
+}
