@@ -3,17 +3,17 @@ title: Blog
 ---
 
 <div class="l-wrapper">
-    <h1>Bivee's blog</h1>
+    <h1 class="title l-margin--top l-margin--wide">Bivee's blog</h1>
 
-    <ul>
+    <ul class="l-list-undecorated">
         <% blog("writing").articles.each do |article| %>
-        <li class="reference">
-            <h2><%= link_to article.title, article %></h2>
-            <span class="reference">by <%= link_to article.data.author, "/staff/profile" %></span>
+        <li>
+            <h2 class="title"><%= link_to article.title, article %></h2>
+            <span class="title-subtitle delta">by <%= link_to article.data.author, "/staff/profile" %></span>
             <p><%= lorem.sentences rand(2...4) %></p>
             <%= link_to "Read more &rsaquo;", article %>
         </li>
-        <%= render_partial "photo" %>
+        <%= partial("layouts/partials/photo", :locals => { :classes => "border--top l-padding--top l-margin--top" }) %>
         <% end %>
     </ul>
 </div>

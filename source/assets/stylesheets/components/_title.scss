@@ -19,7 +19,7 @@ category: Atoms
 
 // a primary heading for content
 .title {
-    @extend %font-display;
+    // @extend %font-display;
     display: block;
     margin: 0.5em 0;
     color: theme(text-primary);

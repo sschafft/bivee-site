@@ -1,10 +1,12 @@
-<figure class="field">
+<% classes ||= "reference" %>
+
+<figure class="<%= classes %>">
     <%= image_tag lorem.image('800x400') %>
     <figcaption>Photo title/description</figcaption>
-    <small class="field">by [Person]</small>
-    <span class="metadata l-inline">Amazon</span>
-    <time class="metadata l-inline">December 1, 2015</time>
-    <ul class="metadata">
+    <span class="epsilon">by [Person]</span>
+    <span class="epsilon">Amazon</span>
+    <time class="epsilon">December 1, 2015</time>
+    <ul class="l-list-inline">
         <li>sloths</li>
         <li>forest</li>
         <li>travels</li>
