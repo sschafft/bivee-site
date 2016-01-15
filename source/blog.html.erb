@@ -9,7 +9,7 @@ title: Blog
         <% blog("writing").articles.each do |article| %>
         <li>
             <h2 class="title"><%= link_to article.title, article %></h2>
-            <span class="title-subtitle delta">by <%= link_to article.data.author, "/staff/profile" %></span>
+            <span class="title-sub delta">by <%= link_to article.data.author, "/staff/profile" %></span>
             <p><%= lorem.sentences rand(2...4) %></p>
             <%= link_to "Read more &rsaquo;", article %>
         </li>
