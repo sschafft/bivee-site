@@ -29,6 +29,14 @@ To access a specific breakpoint value in Sass, use the `screen()` function, as i
 // Config & mixins
 // -----------------------------------------------------------------------------
 
+// $breakpoints-px: (
+//     'xsmall' : 30em,
+//     'small'  : 42em,
+//     'medium' : 62em,
+//     'large'  : 75em,
+//     'huge'   : 100em,
+// );
+
 $breakpoints: (
     'xsmall' : 30em,
     'small'  : 42em,
