@@ -11,8 +11,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <%= javascript_include_tag "vendor/modernizr-custom.min.js", "vendor/picturefill.min.js" %>
-        <%= stylesheet_link_tag "vendor/normalize.css", "main" %>
+        <%= javascript_include_tag "bundle.critical" %>
+        <%= stylesheet_link_tag "vendor/normalize", :main %>
     </head>
 
     <body>
@@ -39,6 +39,6 @@
             <small class="l-inline l-margin--bottom">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
         </footer>
 
-        <%= javascript_include_tag "main" %>
+        <%= javascript_include_tag :bundle %>
     </body>
 </html>
