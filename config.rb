@@ -5,7 +5,9 @@
 # Per-page layout changes:
 #
 # With no layout
-# page "/path/to/file.html", :layout => false
+page '/*.xml', layout: false
+page '/*.json', layout: false
+page '/*.txt', layout: false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
@@ -40,12 +42,26 @@ activate :blog do |blog|
     blog.layout = "article"
 end
 
+###
+# General config
+###
+
+config[:css_dir] = 'assets/stylesheets'
+config[:js_dir] = 'assets/javascripts'
+config[:images_dir] = 'assets/images'
+config[:fonts_dir] = 'assets/fonts'
+
+set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
+
+# Add Webpack bundles to the sitemap/assets
+activate :external_pipeline,
+  name: :webpack,
+  command: build? ? 'npm run javascripts:deploy' : 'npm run javascripts:dev',
+  source: ".tmp/dist",
+  latency: 1
+
 activate :directory_indexes
 page "404.html", :directory_index => false
-
-###
-# Helpers
-###
 
 # Use relative URLs
 activate :relative_assets
@@ -68,27 +84,6 @@ end
 # helpers do
 
 # end
-
-set :css_dir, 'assets/stylesheets'
-set :js_dir, 'assets/javascripts'
-set :images_dir, 'assets/images'
-set :fonts_dir, 'assets/fonts'
-
-set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
-
-# files.watch :source, path: File.expand_path('node_modules', app.root)
-
-# activate :external_pipeline,
-#   name: :webpack,
-#   command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
-#   source: ".tmp/dist",
-#   latency: 1
-
-# activate :external_pipeline,
-#     name: :node_sass,
-#     command: 'npm run watch:styles',
-#     source: 'source/assets/stylesheets',
-#     latency: 1
 
 # Build-specific configuration
 configure :build do

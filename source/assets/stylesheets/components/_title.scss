@@ -45,5 +45,5 @@ category: Atoms
 .title-slug {
     @extend %font-accent--bold;
     text-transform: uppercase;
-    color: lighten(theme(text primary), 10);
+    color: lighten(theme('text' 'primary'), 10);
 }

@@ -54,7 +54,7 @@ $breakpoints: (
 /* Utility classes
 // -------------------------------------------------------------------------- */
 
-%hide { display: none; }
+@mixin hide { display: none; }
 
 // screen-size helper classes
 // usage: <span class="show@small">
