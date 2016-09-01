@@ -16,29 +16,11 @@
     </head>
 
     <body>
-        <header class="main_header" role="banner">
-            <%= link_to "Bivee", "/", :class => "logo logo--bivee" %>
-            <nav class="main_header-nav">
-                <ul>
-                    <li><%= link_to "Work", "/case_studies", :class => "main_nav-item" %></li>
-                    <li><%= link_to "About", "/about", :class => "main_nav-item" %></li>
-                    <li><%= link_to "Blog", "/blog", :class => "main_nav-item" %></li>
-                </ul>
-            </nav>
-            <%= link_to "Contact", "#", :class => "main_header-utility_nav" %>
-        </header>
+        <%= partial "components/main_header" %>
 
         <%= yield %>
 
-        <footer class="l-wrapper l-margin--top border--top" role="contentinfo">
-            <%= link_to "Bivee", "/", :class => "l-margin--bottom" %>
-            <section class="border--bottom l-margin--bottom">
-                <h3>Contact us</h3>
-                <a href="mailto:admin@bivee.co">admin@bivee.co</a> * 555.555.5555
-            </section>
-            <small class="l-inline l-margin--bottom">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
-        </footer>
-
+        <%= partial "components/main_footer" %>
         <%= javascript_include_tag :bundle %>
     </body>
 </html>

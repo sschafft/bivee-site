@@ -53,6 +53,7 @@ config[:fonts_dir] = 'assets/fonts'
 
 set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
 
+# Add Webpack bundles to the sitemap/assets
 activate :external_pipeline,
   name: :webpack,
   command: build? ? 'npm run javascripts:deploy' : 'npm run javascripts:dev',
