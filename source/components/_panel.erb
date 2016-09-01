@@ -1,0 +1,5 @@
+<% theme ||= "default" %>
+
+<section class="panel <%= theme != "default" ? "c-#{theme}" : ""%>">
+    <%= yield %>
+</section>

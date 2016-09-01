@@ -5,30 +5,13 @@ title: home
 <!-- Cover -->
 <section class="panel--cover panel--centered border--bottom">
     <div class="panel-content l-wrapper--narrow">
-        <h1 class="title">A short clever blurb about us</h1>
-        <p><%= lorem.sentences rand(2...4) %></p>
+        <h1 class="t-alpha">We change the way people and organizations work.</h1>
+        <p class="t-cappa">We’re an advisory and design firm who can help you build processes, technology, and partnerships to meet your goals.</p>
     </div>
 </section>
 
-<!-- About us/clients -->
-<section class="panel--short panel--centered border--bottom">
-    <div class="panel-content l-wrapper--narrow">
-        <h1 class="title">A quick intro</h1>
-        <p><%= lorem.sentences 3 %></p>
-        <%= link_to "Our approach", "about" %> • <%= link_to "Meet our people", "about" %>
-        <section class="l-margin--top l-margin--bottom l-padding--top l-padding--bottom border--top">
-            <h2 class="title-sub cappa">Some of our awesome clients</h2>
-            <ul class="gallery--small gallery--centered">
-                <% (1...5).each do %>
-                <li class="gallery-item">
-                    <a href="http://www.worldbank.org"><%= image_tag lorem.image('50x50') %></a><br />
-                    <a href="http://www.worldbank.org">Client name</a>
-                </li>
-                <% end %>
-            </ul>
-        </section>
-    </div>
-</section>
+<!-- Approach blurb -->
+
 
 <!-- Featured projects -->
 <section class="l-padding--top l-padding-wide">
