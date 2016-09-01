@@ -29,7 +29,7 @@ module.exports = {
         ],
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("critical", "critical.bundle.js"),
+        new webpack.optimize.CommonsChunkPlugin("critical", "bundle.critical.js"),
         new Clean(['.tmp']),
     ]
 };
