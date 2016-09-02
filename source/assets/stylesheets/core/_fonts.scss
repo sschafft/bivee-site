@@ -40,8 +40,8 @@ Please DO NOT use your own font-family attributes in any circumstance. Always us
 /* ----- Aspira ------------------------------------------------------------ */
 // -> display font
 
-@include font-face("aspira-normal", "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: eot ttf woff svg);
-@include font-face("aspira-bold", "#{$asset-path-fonts}/Aspira-Thin-webfont", bold, $file-formats: eot ttf woff svg);
+@include font-face("aspira-normal", "#{$asset-path-fonts}/Aspira-Thin-webfont", $file-formats: eot ttf woff svg);
+@include font-face("aspira-bold", "#{$asset-path-fonts}/Aspira-Demi-webfont", bold, $file-formats: eot ttf woff svg);
 
 /* ----- Galaxie Copernicus ------------------------------------------------- */
 // -> body/accent font

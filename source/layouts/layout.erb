@@ -11,16 +11,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <%= javascript_include_tag "bundle.critical" %>
-        <%= stylesheet_link_tag "vendor/normalize", :main %>
+        <%= javascript_include_tag "critical.bundle" %>
+        <%= stylesheet_link_tag :main %>
     </head>
 
     <body>
-        <%= partial "components/main_header" %>
+        <%= component "main_header" %>
 
         <%= yield %>
 
-        <%= partial "components/main_footer" %>
-        <%= javascript_include_tag :bundle %>
+        <%= component "main_footer" %>
+        <%# javascript_include_tag :bundle %>
     </body>
 </html>
