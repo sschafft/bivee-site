@@ -1,22 +1,25 @@
 /* =============================================================================
-//  Main Footer component
+//  l-Bookend layout utility
+//  -> a narrow, horizontal 'strip' appearing at the top and bottom of a page
+//  -> used as a common layout foundation for the main header and footer
 // ========================================================================== */
 
 /*doc
 ---
-title: Main Footer
-name: main_footer
-category: Molecules
+title: l-Bookend
+name: l-bookend
+category: Layout
 ---
 
 */
 
 @import "../core/all";
+@import "gutter";
 
 /* Base
 // -------------------------------------------------------------------------- */
 
-.main_footer {
+.l-bookend {
     display: block;
     padding: gutter() gutter('wide');
 
@@ -30,14 +33,14 @@ category: Molecules
 /* Subcomponents
 // -------------------------------------------------------------------------- */
 
-.main_footer-item {
+.l-bookend-item {
     @include clearfix;
     display: inline-block;
     position: relative;
     vertical-align: middle;
 }
 
-    .main_footer-item--left {
+    .l-bookend-item--left {
         float: left;
 
         @include yep(flexbox, no-ie) {
@@ -45,7 +48,7 @@ category: Molecules
             @include align-self(left);
         }
     }
-    .main_footer-item--right {
+    .l-bookend-item--right {
         float: right;
 
         @include yep(flexbox, no-ie) {

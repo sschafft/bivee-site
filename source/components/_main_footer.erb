@@ -7,11 +7,12 @@
 
     Styles:
     - base/type
-    - layout/wrapper
-    - components/cover
+    - layout/bookend
 %>
 
-<footer class="main_footer c-theme-reverse" role="contentinfo">
-    <%= link_to "Bivee", "/", :class => "logo main_footer-item main_footer-item--left" %>
-    <small class="main_footer-item main_footer-item--right">&copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.</small>
+<footer class="l-bookend c-theme-reverse" role="contentinfo">
+    <%= link_to "Bivee", "/", :class => "logo l-bookend-item l-bookend-item--left" %>
+    <small class="l-bookend-item l-bookend-item--right t-right c-text-tertiary">
+        &copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.
+    </small>
 </footer>

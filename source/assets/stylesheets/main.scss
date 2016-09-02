@@ -39,6 +39,7 @@
 @import "layout/grid";
 @import "layout/wrapper";
 // @import "layout/sidebar";
+@import "layout/bookend";
 @import "layout/visibility";
 
 /* /////////////////////////////////////////////////////////////////////////////
@@ -52,7 +53,6 @@
 /* --- Molecules ------------------------------------------------------------ */
 
 @import "components/main_header";
-@import "components/main_footer";
 @import "components/gallery";
 @import "components/cover";
 

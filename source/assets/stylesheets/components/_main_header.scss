@@ -1,5 +1,7 @@
 /* =============================================================================
-//  Main header component
+//  Main Header component
+//  -> a narrow, horizontal 'strip' appearing at the top and bottom of a page
+//  -> used as a common layout foundation for the main header and footer
 // ========================================================================== */
 
 /*doc
@@ -11,50 +13,15 @@ category: Molecules
 
 */
 
-@import "../core/all";
+// @import "../core/all";
 
 /* Base
 // -------------------------------------------------------------------------- */
 
 .main_header {
-    display: block;
     position: absolute;
     top: 0;
-    right: 0;
     left: 0;
-    padding: gutter() gutter('wide') 0;
-
-    @include yep(flexbox) {
-        @include display(flex);
-        @include align-items(center);
-        @include justify-content(space-between);
-    }
+    right: 0;
+    padding-bottom: 0;
 }
-
-/* Subcomponents
-// -------------------------------------------------------------------------- */
-
-.main_header-item {
-    @include clearfix;
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-}
-
-    .main_header-item--left {
-        float: left;
-
-        @include yep(flexbox, no-ie) {
-            float: none;
-            @include align-self(left);
-        }
-    }
-    .main_header-item--right {
-        float: right;
-
-        @include yep(flexbox, no-ie) {
-            float: none;
-            @include align-self(right);
-        }
-    }
-
