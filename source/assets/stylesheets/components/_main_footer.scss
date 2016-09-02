@@ -1,11 +1,11 @@
 /* =============================================================================
-//  Main header component
+//  Main Footer component
 // ========================================================================== */
 
 /*doc
 ---
-title: Main Header
-name: main_header
+title: Main Footer
+name: main_footer
 category: Molecules
 ---
 
@@ -16,13 +16,9 @@ category: Molecules
 /* Base
 // -------------------------------------------------------------------------- */
 
-.main_header {
+.main_footer {
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    padding: gutter() gutter('wide') 0;
+    padding: gutter() gutter('wide');
 
     @include yep(flexbox) {
         @include display(flex);
@@ -34,14 +30,14 @@ category: Molecules
 /* Subcomponents
 // -------------------------------------------------------------------------- */
 
-.main_header-item {
+.main_footer-item {
     @include clearfix;
     display: inline-block;
     position: relative;
     vertical-align: middle;
 }
 
-    .main_header-item--left {
+    .main_footer-item--left {
         float: left;
 
         @include yep(flexbox, no-ie) {
@@ -49,7 +45,7 @@ category: Molecules
             @include align-self(left);
         }
     }
-    .main_header-item--right {
+    .main_footer-item--right {
         float: right;
 
         @include yep(flexbox, no-ie) {

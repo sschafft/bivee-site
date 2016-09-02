@@ -1,0 +1,21 @@
+<%#
+    Cover component
+    - A 'hero' with a full-bleed image and headline
+
+    Locals:
+    - STRING image (optional): image for the background
+
+    Styles:
+    - base/type
+    - layout/wrapper
+    - components/cover
+%>
+
+<% image ||= false %>
+<% overlay ||= false %>
+
+<div class="cover<%= " cover--overlay" if overlay %> c-theme-reverse"<%= style="background-image: url('#{image}');" if image %>>
+    <div class="l-wrapper l-wrapper--wide t-centered">
+        <%= yield %>
+    </div>
+</div>

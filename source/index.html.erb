@@ -3,12 +3,10 @@ title: home
 ---
 
 <!-- Cover -->
-<section class="panel--cover panel--centered border--bottom">
-    <div class="panel-content l-wrapper--narrow">
+<% component "cover" do %>
         <h1 class="t-alpha">We change the way people and organizations work.</h1>
         <p class="t-cappa">We’re an advisory and design firm who can help you build processes, technology, and partnerships to meet your goals.</p>
-    </div>
-</section>
+<% end %>
 
 <!-- Approach -->
 <% component "panel", locals: { theme: "reverse" } do %>

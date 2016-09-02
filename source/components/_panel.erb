@@ -7,9 +7,10 @@
     components/_panel.scss
 %>
 <% theme ||= "default" %>
+<% classes ||= false %>
 <% slug ||= false %>
 
-<section class="panel <%= theme != "default" ? "c-#{theme}" : ""%>">
+<section class="panel<%= " c-theme-#{theme}" if theme != "default" %><%= " #{classes}" if classes %>">
     <% if slug %>
         <span class="panel-slug"><%= slug %></span>
     <% end %>

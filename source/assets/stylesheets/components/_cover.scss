@@ -1,12 +1,12 @@
 /* =============================================================================
-//  Billboard component
+//  Cover component
 // -> a main heading for content
 // ========================================================================== */
 
 /*doc
 ---
-title: Billboard
-name: billboard
+title: Cover
+name: cover
 category: Molecules
 ---
 
@@ -17,26 +17,20 @@ category: Molecules
 /* Base
 // -------------------------------------------------------------------------- */
 
-.billboard {
-    @include rem(height, 300px);
+.cover {
+    @include rem(padding-top, ms(10, $type-size-default));
     display: block;
-    padding: gutter('wide');
+    min-height: 400px;
+    min-height: 80vh;
     background: theme('bg', 'reverse') no-repeat center;
     background-size: cover;
 
-    @include media(">small") { padding-right: 40%; }
-    @include media(">medium") { padding-right: 60%; }
-
-    @include yep(flexbox) {
-        @include display(flex);
-        @include align-items(center);
-    }
+    // @include yep(flexbox) {
+    //     @include display(flex);
+    //     @include align-items(center);
+    // }
 }
 
 /* Subcomponents
 // -------------------------------------------------------------------------- */
 
-.billboard-content {
-    display: block;
-    @include flex(1);
-}
