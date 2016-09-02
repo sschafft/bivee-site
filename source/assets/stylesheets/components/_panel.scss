@@ -21,7 +21,6 @@ category: Organisms
 .panel {
     padding: fs(6) $gutter--wide;
     display: block;
-    min-height: 60vh;
 }
 
 /* Modifiers
@@ -49,6 +48,10 @@ category: Organisms
 
 /* Subcomponents
 // -------------------------------------------------------------------------- */
+
+.panel-slug {
+
+}
 
 .panel-content {
     display: block;

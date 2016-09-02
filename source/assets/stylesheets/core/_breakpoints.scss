@@ -59,7 +59,7 @@ $breakpoints: (
 // screen-size helper classes
 // usage: <span class="show@small">
 .show\@small {
-    @extend %hide;
+    @include hide;
 
     @include media(">small") {
         display: block;
@@ -67,7 +67,7 @@ $breakpoints: (
 }
 
 .show\@medium {
-    @extend %hide;
+    @include hide;
 
     @include media(">medium") {
         display: block;

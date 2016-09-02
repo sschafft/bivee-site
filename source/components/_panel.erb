@@ -1,5 +1,17 @@
+<%#
+    Panel component
+    -> For short content in scrolling sections. Meant to be full-width.
+    -> @param theme STRING (optional): name of color theme, e.g. "reverse" or "wash"
+
+    Depends on:
+    components/_panel.scss
+%>
 <% theme ||= "default" %>
+<% slug ||= false %>
 
 <section class="panel <%= theme != "default" ? "c-#{theme}" : ""%>">
+    <% if slug %>
+        <span class="panel-slug"><%= slug %></span>
+    <% end %>
     <%= yield %>
 </section>

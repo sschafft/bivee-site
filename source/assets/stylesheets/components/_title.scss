@@ -30,7 +30,7 @@ category: Atoms
 
 // a subtitle, or secondary heading
 .title-sub {
-    @extend %font-accent;
+    @extend %font-display;
     display: block;
     margin: 0.5em 0;
     color: theme(text secondary);
@@ -43,7 +43,7 @@ category: Atoms
 
 // make a heading a secondary label, a "meta header"
 .title-slug {
-    @extend %font-accent--bold;
+    @extend %font-display--bold;
     text-transform: uppercase;
     color: lighten(theme('text' 'primary'), 10);
 }

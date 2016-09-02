@@ -81,9 +81,27 @@ configure :development do
 end
 
 # Methods defined in the helpers block are available in templates
-# helpers do
+helpers do
+    # "Component" decorator for partial function
+    # -> just used to point automatically to "components" dir so you don't have to type the full path
+    def component(name, opts = {}, &block)
+        partial("components/#{name}", opts, &block)
+    end
 
-# end
+    # is this url the current page?
+    def current_page?(url)
+        if current_resource.path == url
+            return true
+        end
+    end
+
+    # is this url in the current directory (in the sitemap)?
+    def current_dir?(url)
+        if current_page.url.include? url.gsub(settings.url_root,'').gsub(".html", "/").to_s
+            return true
+        end
+    end
+end
 
 # Build-specific configuration
 configure :build do
