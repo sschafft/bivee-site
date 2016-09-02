@@ -16,7 +16,7 @@
 
 .panel {
     @include border('top');
-    padding: spacing-gutter('extra-wide') spacing-gutter('wide');
+    padding: gutter('extra-wide') gutter('wide');
     display: block;
 }
 

@@ -19,8 +19,8 @@ category: Organisms
 .main_header {
     display: block;
     position: absolute;
-    padding-left: spacing-gutter('wide');
-    padding-right: spacing-gutter('wide');
+    padding-left: gutter('wide');
+    padding-right: gutter('wide');
 
     @include yep(flexbox) {
         @include display(flex);

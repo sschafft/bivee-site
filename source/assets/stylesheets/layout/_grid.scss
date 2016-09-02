@@ -22,13 +22,8 @@ Grids
 /* Gutters
 // -------------------------------------------------------------------------- */
 
-$grid-gutter: spacing-gutter(); // local reference to global spacing -> see layout/spacing
-$grid-gutter--outside: spacing-gutter('wide'); // local reference to global spacing -> see layout/spacing
-
-@function add_outside_gutters($w) {
-    // compensate for outside margins (ie padding) and split gutters
-    @return ($w + ($grid-gutter--outside * 2));
-}
+$grid-gutter: gutter(); // local reference to global spacing -> see layout/spacing
+$grid-gutter--outside: gutter('wide'); // local reference to global spacing -> see layout/spacing
 
 /* Grid columns
 // -------------------------------------------------------------------------- */

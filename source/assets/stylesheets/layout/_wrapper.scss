@@ -55,8 +55,8 @@ $layout-widths: (
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    padding-left: spacing-gutter()--wide;
-    padding-right: spacing-gutter()--wide;
+    padding-left: gutter('wide');
+    padding-right: gutter('wide');
 }
 
     // wide version of the layout wrapper

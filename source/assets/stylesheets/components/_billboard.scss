@@ -20,7 +20,7 @@ category: Molecules
 .billboard {
     @include rem(height, 300px);
     display: block;
-    // padding: spacing-gutter()--wide;
+    padding: gutter('wide');
     background: theme('bg', 'reverse') no-repeat center;
     background-size: cover;
 
