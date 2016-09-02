@@ -6,25 +6,36 @@
 @import "../core/libs";
 
 // standard spacing for margins and padding, etc.
-$spacing-gutter: scale-type('epsilon');
-$spacing-gutter--narrow: scale-type('eta');
-$spacing-gutter--wide: scale-type('beta');
+// spacing-gutter(: scale-type('epsilon');
+// spacing-gutter('narrow'): scale-type('eta');
+// spacing-gutter('wide'): scale-type('beta');
+
+$spacing-gutters: (
+    'narrow'     : scale-type('eta'),
+    'default'    : scale-type('epsilon'),
+    'wide'       : scale-type('beta'),
+    'extra-wide' : scale-type('alpha')
+);
 
 $spacing-sides: left right top bottom;
+
+@function spacing-gutter($size: 'default') {
+    @return map-get($spacing-gutters, $size);
+}
 
 
 /* Margins
 // -------------------------------------------------------------------------- */
 
-.l-margin { @include rem(margin, $spacing-gutter); }
+.l-margin { @include rem(margin, spacing-gutter()); }
 
-.l-margin--narrow { @include rem(margin, $spacing-gutter--narrow !important); }
-.l-margin--wide { @include rem(margin, $spacing-gutter--wide !important); }
+.l-margin--narrow { @include rem(margin, spacing-gutter('narrow') !important); }
+.l-margin--wide { @include rem(margin, spacing-gutter('wide') !important); }
 
 @each $side in $spacing-sides {
-    .l-margin-#{$side} { @include rem(margin-#{$side}, $spacing-gutter !important); }
-    .l-margin-#{$side}--narrow { @include rem(margin-#{$side}, $spacing-gutter--narrow !important); }
-    .l-margin-#{$side}--wide { @include rem(margin-#{$side}, $spacing-gutter--wide !important); }
+    .l-margin-#{$side} { @include rem(margin-#{$side}, spacing-gutter() !important); }
+    .l-margin-#{$side}--narrow { @include rem(margin-#{$side}, spacing-gutter('narrow') !important); }
+    .l-margin-#{$side}--wide { @include rem(margin-#{$side}, spacing-gutter('wide') !important); }
 }
 
 .l-no-margin { @include rem(margin, 0 !important); }
@@ -36,15 +47,15 @@ $spacing-sides: left right top bottom;
 /* Padding
 // -------------------------------------------------------------------------- */
 
-.l-padding { @include rem(padding, $spacing-gutter !important); }
+.l-padding { @include rem(padding, spacing-gutter() !important); }
 
-.l-padding--narrow { @include rem(padding, $spacing-gutter--narrow !important); }
-.l-padding--wide { @include rem(padding, $spacing-gutter--wide !important); }
+.l-padding--narrow { @include rem(padding, spacing-gutter('narrow') !important); }
+.l-padding--wide { @include rem(padding, spacing-gutter('wide') !important); }
 
 @each $side in $spacing-sides {
-    .l-padding-#{$side} { @include rem(padding-#{$side}, $spacing-gutter !important); }
-    .l-padding-#{$side}--narrow { @include rem(padding-#{$side}, $spacing-gutter--narrow !important); }
-    .l-padding-#{$side}--wide { @include rem(padding-#{$side}, $spacing-gutter--wide !important); }
+    .l-padding-#{$side} { @include rem(padding-#{$side}, spacing-gutter() !important); }
+    .l-padding-#{$side}--narrow { @include rem(padding-#{$side}, spacing-gutter('narrow') !important); }
+    .l-padding-#{$side}--wide { @include rem(padding-#{$side}, spacing-gutter('wide') !important); }
 }
 
 .l-no-padding { @include rem(padding, 0 !important); }

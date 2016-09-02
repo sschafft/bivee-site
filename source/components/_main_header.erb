@@ -1,13 +1,8 @@
 <% classes ||= "" %>
 
 <header class="main_header <%= classes %>" role="banner">
-    <%= link_to "Bivee", "/", :class => "logo logo--bivee" %>
-    <nav class="main_header-nav">
-        <ul>
-            <li><%= link_to "Work", "/case_studies", :class => "main_nav-item" %></li>
-            <li><%= link_to "About", "/about", :class => "main_nav-item" %></li>
-            <li><%= link_to "Blog", "/blog", :class => "main_nav-item" %></li>
-        </ul>
-    </nav>
-    <%= link_to "Contact", "#", :class => "main_header-utility_nav" %>
+    <% link_to "/", :class => "logo main_header-item main_header-item--right" do %>
+        Bivee
+    <% end %>
+    <%= link_to "Contact", "#", :class => "main_header-item main_header-item--right" %>
 </header>

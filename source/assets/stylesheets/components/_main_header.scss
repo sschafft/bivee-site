@@ -17,11 +17,10 @@ category: Organisms
 // -------------------------------------------------------------------------- */
 
 .main_header {
-    @include border('bottom');
     display: block;
-    height: 40px;
-    padding-left: $spacing-gutter--wide;
-    padding-right: $spacing-gutter--wide;
+    position: absolute;
+    padding-left: spacing-gutter('wide');
+    padding-right: spacing-gutter('wide');
 
     @include yep(flexbox) {
         @include display(flex);
@@ -33,5 +32,7 @@ category: Organisms
 /* Subcomponents
 // -------------------------------------------------------------------------- */
 
-.main_header-logo {}
+.main_header-item {
+    display: inline-block;
+}
 
