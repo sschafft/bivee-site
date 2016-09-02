@@ -10,9 +10,24 @@ title: home
     </div>
 </section>
 
-<!-- Approach blurb -->
+<!-- Approach -->
 <% component "panel", locals: { theme: "reverse" } do %>
     <% component "blurb", locals: { heading: "Our approach" } do %>
         <%= lorem.sentences rand(6...8) %>
     <% end %>
+<% end %>
+
+<!-- Staff -->
+<% component "panel" do %>
+    <% component "blurb", locals: { heading: "Our team" } do %>
+        <% lorem.sentences rand(4...6) %>
+    <% end %>
+    <!-- list of staff photos -->
+<% end %>
+
+<% component "panel", locals: { theme: "wash" } do %>
+    <% component "blurb", locals: { heading: "Contact us" } do %>
+        <% lorem.sentences rand(4...6) %>
+    <% end %>
+    <!-- contact buttons -->
 <% end %>
