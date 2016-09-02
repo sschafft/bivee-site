@@ -37,11 +37,18 @@ Please DO NOT use your own font-family attributes in any circumstance. Always us
 // -------------------------------------------------------------------------- */
 // -> font-face mixins use Bourbon
 
-/* ----- Example ------------------------------------------------------------ */
-// -> accent font
+/* ----- Aspira ------------------------------------------------------------ */
+// -> display font
 
-// @include font-face("gibson-normal", "#{$asset-path-fonts}/gibson/Gibson-Regular-webfont", $file-formats: eot ttf woff svg);
-// @include font-face("gibson-bold", "#{$asset-path-fonts}/gibson/Gibson-SemiBold-webfont", bold, $file-formats: eot ttf woff svg);
+@include font-face("aspira-normal", "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: eot ttf woff svg);
+@include font-face("aspira-bold", "#{$asset-path-fonts}/Aspira-Thin-webfont", bold, $file-formats: eot ttf woff svg);
+
+/* ----- Galaxie Copernicus ------------------------------------------------- */
+// -> body/accent font
+
+@include font-face("copernicus-normal-normal", "#{$asset-path-fonts}/Copernicus-Book", $file-formats: eot woff);
+@include font-face("copernicus-normal-italic", "#{$asset-path-fonts}/Copernicus-BookItalic", normal, italic, $file-formats: eot woff);
+@include font-face("copernicus-bold-normal", "#{$asset-path-fonts}/Copernicus-Semibold", bold, $file-formats: eot woff);
 
 
 /* Font mixins
@@ -51,19 +58,14 @@ Please DO NOT use your own font-family attributes in any circumstance. Always us
 /* ----- Display type ------------------------------------------------------- */
 
 @mixin font-display($weight: 'normal', $style: 'normal') {
-    font-family: $helvetica;
-    font-weight: $weight;
-    font-style: $style;
-
-    // -> with custom fonts
-    // font-family: "gibson-#{$weight}", $helvetica;
-    // font-weight: #{$weight};
+    font-family: "aspira-#{$weight}", $helvetica;
+    font-weight: #{$weight};
 }
 
 /* ----- Body type ---------------------------------------------------------- */
 
 @mixin font-body($weight: 'normal', $style: 'normal') {
-    font-family: $helvetica;
+    font-family: "copernicus-#{$weight}-#{$style}", $georgia;
     font-weight: $weight;
     font-style: $style;
 }
