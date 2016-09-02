@@ -8,16 +8,20 @@
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
-#
-# With alternative layout
-# page "/path/to/file.html", :layout => :otherlayout
-#
-# A path which all have the same layout
-page '/staff/*', :layout => 'staff_profile'
 
-# Proxy pages (https://middlemanapp.com/advanced/dynamic_pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
-#  :which_fake_page => "Rendering a fake page with a local variable" }
+# General configuration
+
+config[:images_dir] = 'assets/images'
+config[:fonts_dir] = 'assets/fonts'
+config[:css_dir] = 'assets/dist/stylesheets'
+config[:js_dir] = 'assets/dist/javascripts'
+
+# # ignore css and js, b/c we're handling with external pipeline
+ignore 'assets/stylesheets/*'
+ignore 'assets/javascripts/*'
+
+# explicitly set the markdown engine to Kramdown
+set :markdown_engine, :kramdown
 
 ###
 # Set up the blog extension
@@ -40,44 +44,6 @@ activate :blog do |blog|
     blog.taglink = "tags/{tag}.html"
     blog.summary_separator = /EXCERPT/
     blog.layout = "article"
-end
-
-###
-# General config
-###
-
-config[:css_dir] = 'assets/stylesheets'
-config[:js_dir] = 'assets/javascripts'
-config[:images_dir] = 'assets/images'
-config[:fonts_dir] = 'assets/fonts'
-
-set :sass_assets_paths, ['source/assets/stylesheets', File.join(root, 'node_modules')]
-
-# Add Webpack bundles to the sitemap/assets
-activate :external_pipeline,
-  name: :webpack,
-  command: build? ? 'npm run javascripts:deploy' : 'npm run javascripts:dev',
-  source: ".tmp/dist",
-  latency: 1
-
-activate :directory_indexes
-page "404.html", :directory_index => false
-
-# Use relative URLs
-activate :relative_assets
-
-# autoprefix CSS
-activate :autoprefixer do |config|
-    config.browsers = ['last 2 versions', 'Explorer >= 8']
-end
-
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-# Reload the browser automatically whenever files change
-configure :development do
-  activate :livereload
-  set :no_swf, true
 end
 
 # Methods defined in the helpers block are available in templates
@@ -103,13 +69,39 @@ helpers do
     end
 end
 
+# Generate proxy pages from the blog articles' "chapter" frontmatter
+# data.chapters.each do |chapter|
+#     proxy "#{chapter.urlize}/index.html", "/chapter.html", :locals => {
+#         title: chapter
+#     }, :ignore => true
+# end
+
+# activate :directory_indexes
+# page "README.md", :directory_index => false
+# page "LICENSE", :directory_index => false
+# page "404.html", :directory_index => false
+
+activate :relative_assets
+
+# Reload the browser automatically whenever files change
+configure :development do
+    activate :external_pipeline,
+        name: :npm,
+        command: 'npm start',
+        source: "source/assets/dist",
+        latency: 1
+
+    activate :livereload
+end
+
+
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
-  activate :minify_css
+  # activate :minify_css
 
   # Minify Javascript on build
-  activate :minify_javascript
+  # activate :minify_javascript
 
   # Enable cache buster
   # activate :asset_hash

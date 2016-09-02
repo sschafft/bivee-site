@@ -11,14 +11,14 @@
 @import "../core/fonts";
 
 // default type sizes
-$type-size--default: 16px;
+$type-size-default: 16px;
 $type-size-amp: 1.1em; // size of ampersands relative to their context
 $type-line_height: 1.5;
 
 // set type to default body size using REMs
 // -> useful for resetting type size on a container to override parents
 @mixin type-size-default {
-    @include rem(font-size, $type-size--default);
+    @include rem(font-size, $type-size-default);
 }
 
 /* Globals
@@ -84,7 +84,7 @@ address,
 // -------------------------------------------------------------------------- */
 
 // type scale helpers
-@each $name, $size in $type-scale {
+@each $name, $size in $scale-type {
     .t-scale-#{$name} { @include scale-type($size); }
 }
 

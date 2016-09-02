@@ -1,16 +1,16 @@
-/* ==========================================================================
-// Gallery module
-// -> arrange child elements into even rows and columns
+/* =============================================================================
+//  Gallery components
+// -> arrange child elements into rows and columns
 // ========================================================================== */
 
 /*doc
 ---
 title: Gallery
 name: gallery
-category: organisms
+category: Organisms
 ---
 
-A gallery is a grid of small bits of content- usually listings or thumbnails. It breaks the content into even columns and rows. It is responsive, so the column number will change based on screen width, and column width is fluid (percentage-based).
+A gallery arranges small bits of content- usually listings or thumbnails - into rows and columns. It is responsive, so the column number will change based on screen width, and column width is fluid (percentage-based).
 
 ```html_example
     <ul class='gallery'>
@@ -20,18 +20,30 @@ A gallery is a grid of small bits of content- usually listings or thumbnails. It
         <li class="gallery-item">
             Me too.
         </li>
+        <li class="gallery-item">
+            Me too.
+        </li>
+        <li class="gallery-item">
+            Me too.
+        </li>
+        <li class="gallery-item">
+            Me too.
+        </li>
     </ul>
 ```
 
-Typically, you'll mark up a gallery as an unordered list, but it will work with most block-level elements (like <nav> or <div>). Just give the container a "gallery" class and the children a "gallery-item" class.
+Typically, you'll mark up a gallery as an unordered list, but it will work with most block-level elements (like `<nav>` or `<div>`). Just give the container a "gallery" class and the children a "gallery-item" class.
 
-There are three (column) size variations: small, medium, and large. Medium is default, so that's the size you get with just "gallery." This only affects overall column width: a "large" gallery will have fewer columns at any given screen size than a "small" gallery. Note any size variation can be used at any screen size. The best choice mainly depends on the type of content you're displaying. If there's lots of text, it might look squished in a "small" gallery, whereas tiny icons might get blown up really huge in a "large" gallery.
+## Variations
 
-```html_example
+There are three size variations: small, medium, and large. Medium is default, so that's the size you get with just "gallery." This only affects overall column width: a "large" gallery will have fewer columns at any given screen size than a "small" gallery. Note any size variation can be used at any screen size. The best choice mainly depends on the type of content you're displaying. If there's lots of text, it might look squished in a "small" gallery, whereas xsmall icons might get blown up really huge in a "large" gallery.
+
+```
     <!-- small gallery, with narrow columns -->
     <ul class="gallery small"></ul>
 
-    <!-- default ("medium") gallery -->
+    <!-- medium gallery, slightly wider columns -->
+    <!-- (default, no modifier needed) -->
     <ul class="gallery"></ul>
 
     <!-- large gallery with wide columns -->
@@ -40,106 +52,96 @@ There are three (column) size variations: small, medium, and large. Medium is de
 
 */
 
-// @import "../core/*";
+// requires Bourbon & Modernizr
+@import "../core/all";
+@import "../layout/grid";
+@import "../base/type";
 
-$gallery-gutter: $gutter;
+$gallery-gutter: $grid-gutter;
 
-@mixin columns($number: 2, $g: $gallery-gutter) {
+$gallery-sizes: 2, 3, 4;
+
+@mixin gallery-columns($number: 2, $g: $gallery-gutter) {
     display: inline-block;
     width: (100%/$number);
-    padding-right: $g;
+    padding-right: ($g/2);
+    padding-left: ($g/2);
+    vertical-align: top;
 
     @include yep(flexbox) {
-        display: block;
-        @include flex(0 0 (100%/$number));
-        width: auto;
-        min-width: 1px;
+        // use conventional width attribute instead of flexbox b/c of IE 11 box model bug
+        // http://stackoverflow.com/questions/21942183/multiline-flexbox-in-ie11-calculating-widths-incorrectly
+        // https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box
+        // http://codepen.io/philipwalton/pen/XJMWem
+        @include flex(0 0 auto);
+        display: flex;
     }
 }
 
 /* Base
-// ---------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------- */
 
 .gallery {
-    @include l-list-undecorated;
-    @include rem(margin-top, $gutter);
     display: block; // in case flexbox isn't supported
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    @include align-items(stretch);
     position: relative;
-    margin-bottom: 0;
-    padding-bottom: 0;
     font-size: 0;
+    list-style: none;
 
-    @include media('>small') {
-        @include display(flex);
-        margin-right: -($gallery-gutter); // to prevent uneven column widths
+    @include yep(flexbox, no-ie) {
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(stretch);
+    }
+
+    > ul {
+        padding-left: 0;
+        margin-left: 0;
+        list-style: none;
+    }
+
+    @include media('>xsmall') {
+        // offset for column gutters
+        margin-left: -($gallery-gutter/2);
+        margin-right: -($gallery-gutter/2);
+
+        @include yep(flexbox, no-ie) {
+            @include display(flex);
+        }
     }
 }
+
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+/* --- Gallery Items -------------------------------------------------------- */
+.gallery-item {
+    @include type-size-default;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding-bottom: $gallery-gutter;
+    vertical-align: top;
+
+    @include media('>xsmall') { @include gallery-columns(2); }
+    @include media('>small') { @include gallery-columns(3); }
+    // @include media('>medium') { @include gallery-columns(3); }
+}
+
 
 /* Modifiers
-// ---------------------------------------------------------------------------*/
+// -------------------------------------------------------------------------- */
 
-// "small" columns
-// -> see .gallery-item submodule for styles
-.gallery--small {
-    @extend .gallery;
-    @include media('>xsmall') {
-        @include display(flex);
-        margin-right: -($gallery-gutter); // to prevent uneven column widths
-    }
-}
+/* --- Column sizing -------------------------------------------------------- */
+// TODO: specificity issues in media query order -- each successive size overrides the previous ones
+// -- figure out how to make modifiers flexible without conf
 
-// "large" columns
-// -> see .gallery-item submodule for styles
-.gallery--large {
-    @extend .gallery;
-    @include media('>small') {
-        @include display(flex);
-        margin-right: -($gallery-gutter); // to prevent uneven column widths
-    }
-}
+// @each $number in $gallery-sizes {
+//     @include breakpointify('.gallery--#{$number}', $sizes: 'small' 'medium' 'large') {
+//         @include display('flex');
+//         margin-left: -($gallery-gutter/2);
+//         margin-right: -($gallery-gutter/2);
 
-// align everything to the middle
-.gallery--centered {
-    @include align-items(center);
-    justify-content: center;
-    text-align: center;
-}
-
-
-/* Submodules
-// ---------------------------------------------------------------------------*/
-
-.gallery-item {
-    // $gutter: 1px;
-    // margin: 0 0 $gutter 0;
-    display: block;
-    margin-bottom: 0;
-    padding-bottom: $gutter;
-    font-size: $type-size--default;
-
-    @include media('>small') {
-        @include columns(2);
-    }
-
-    @include media('>medium') {
-        @include columns(3);
-    }
-
-    .gallery--small & {
-        @include media('>xsmall') {
-            @include columns(4);
-        }
-        @include media('>medium') {
-            @include columns(5);
-        }
-    }
-
-    .gallery--large & {
-        @include media('>small') {
-            @include columns(2);
-        }
-    }
-}
+//         .gallery-item { @include gallery-columns($number); }
+//     }
+// }

@@ -38,11 +38,11 @@ $scale-type: (
 ) !default;
 
 @function scale-type($size) {
-    @return map-get($type-scale, $size);
+    @return map-get($scale-type, $size);
 }
 
 @mixin scale-type($size) {
-    @include rem(font-size, type-scale($size));
+    @include rem(font-size, scale-type($size));
 }
 
 // --- modular scale config ----------------------------------------------------

@@ -6,9 +6,9 @@
 @import "../core/libs";
 
 // standard spacing for margins and padding, etc.
-$spacing-gutter: type-scale('epsilon');
-$spacing-gutter--narrow: type-scale('eta');
-$spacing-gutter--wide: type-scale('beta');
+$spacing-gutter: scale-type('epsilon');
+$spacing-gutter--narrow: scale-type('eta');
+$spacing-gutter--wide: scale-type('beta');
 
 $spacing-sides: left right top bottom;
 

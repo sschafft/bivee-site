@@ -8,30 +8,38 @@
  *
  */
 
+// install via npm
+@import "normalize.css/normalize.css";
+
 /* /////////////////////////////////////////////////////////////////////////////
 // Core style helpers
 // -> global settings, helpers, and utility classes
 ///////////////////////////////////////////////////////////////////////////// */
 
-@import "core/libs"; // external/vendor libraries
-@import "core/settings"; // global settings
-@import "core/breakpoints"; // global breakpoints
-@import "core/animation"; // global animation/behaviors
-@import "core/fonts"; // all @font-face things and base type scale
-@import "core/color"; // global/base color schemes
-@import "core/layout"; // global layout styles/helpers
-@import "core/borders"; // global border styles
+@import "core/all";
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Base styles
 // -> global element styles: lists, text, images, etc.
 ///////////////////////////////////////////////////////////////////////////// */
 
-@import "base/text";
-@import "base/heading";
-@import "base/list";
+@import "base/html";
 @import "base/media";
+@import "base/type";
+@import "base/list";
 @import "base/form";
+
+/* /////////////////////////////////////////////////////////////////////////////
+// Layout styles
+// -> global utility classes for basic layout
+///////////////////////////////////////////////////////////////////////////// */
+
+@import "layout/spacing";
+@import "layout/positioning";
+@import "layout/grid";
+@import "layout/wrapper";
+@import "layout/sidebar";
+@import "layout/visibility";
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Components
@@ -40,18 +48,16 @@
 
 /* --- Atoms ---------------------------------------------------------------- */
 
-@import "components/title";
 
 /* --- Molecules ------------------------------------------------------------ */
 
-@import "components/main_nav";
 @import "components/billboard";
+@import "components/gallery";
+@import "components/main_header";
 
 /* --- Organisms ------------------------------------------------------------ */
 
-@import "components/main_header";
 @import "components/panel";
-@import "components/gallery";
 
 /* /////////////////////////////////////////////////////////////////////////////
 // Styles of Shame
@@ -59,23 +65,23 @@
 ///////////////////////////////////////////////////////////////////////////// */
 
 // object model placeholder classes
-%field {
-    display: block;
-    border: 1px solid #ccc;
-    padding: 1em;
-    margin: 1em 0;
-}
+// %field {
+//     display: block;
+//     border: 1px solid #ccc;
+//     padding: 1em;
+//     margin: 1em 0;
+// }
 
-.object { @extend %field; }
+// .object { @extend %field; }
 
-.field { @extend %field; }
+// .field { @extend %field; }
 
-.reference {
-    @extend %field;
-    background-color: #D2ECF2;
-}
+// .reference {
+//     @extend %field;
+//     background-color: #D2ECF2;
+// }
 
-.metadata {
-    @extend %field;
-    background-color: #F2D2D2;
-}
+// .metadata {
+//     @extend %field;
+//     background-color: #F2D2D2;
+// }

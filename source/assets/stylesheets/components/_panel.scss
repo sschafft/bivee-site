@@ -9,14 +9,14 @@
 //  </section>
 // ========================================================================== */
 
-// @import "../core";
+@import "../core/all";
 
 /* Base
 // -------------------------------------------------------------------------- */
 
 .panel {
     @include border('top');
-    padding: fs(6) $gutter--wide;
+    padding: fs(6) $spacing-gutter--wide;
     display: block;
 }
 

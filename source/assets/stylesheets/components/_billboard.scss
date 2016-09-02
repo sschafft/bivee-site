@@ -12,7 +12,7 @@ category: Molecules
 
 */
 
-// @import "../core";
+@import "../core/all";
 
 /* Base
 // -------------------------------------------------------------------------- */
@@ -20,8 +20,8 @@ category: Molecules
 .billboard {
     @include rem(height, 300px);
     display: block;
-    padding: $gutter--wide;
-    background: theme(bg, reverse) no-repeat center;
+    // padding: $spacing-gutter--wide;
+    background: theme('bg', 'reverse') no-repeat center;
     background-size: cover;
 
     @include media(">small") { padding-right: 40%; }
