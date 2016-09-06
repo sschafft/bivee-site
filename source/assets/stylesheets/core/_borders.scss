@@ -56,7 +56,7 @@ There are also utility classes that allow you to quickly add a border to a conta
 // Rounded corners
 // -----------------------------------------------------------------------------
 
-$border-radius: 3px !default;
+$border-radius: 0.2em !default;
 
 @mixin border-radius {
   border-radius: $border-radius;
@@ -98,7 +98,7 @@ $border-widths: (
         @include color($color, 'border-color');
     }
 }
-
+;
 // Utilities
 // -----------------------------------------------------------------------------
 
@@ -121,6 +121,8 @@ $border-widths: (
 @each $side in $border-sides {
     @include breakpointify(".no-border-#{$side}", true) { border-#{$side}: none !important; }
 }
+
+.border-round { border-radius: $border-radius; }
 
 /* --- Modifiers ------------------------------------------------------------ */
 

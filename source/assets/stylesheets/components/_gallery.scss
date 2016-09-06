@@ -68,13 +68,13 @@ $gallery-sizes: 2, 3, 4;
     padding-left: ($g/2);
     vertical-align: top;
 
-    @include yep(flexbox) {
+    @include yep(flexbox, no-ie) {
         // use conventional width attribute instead of flexbox b/c of IE 11 box model bug
         // http://stackoverflow.com/questions/21942183/multiline-flexbox-in-ie11-calculating-widths-incorrectly
         // https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box
         // http://codepen.io/philipwalton/pen/XJMWem
         @include flex(0 0 auto);
-        display: flex;
+        @include display(flex);
     }
 }
 

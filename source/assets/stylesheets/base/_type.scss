@@ -33,9 +33,12 @@ body {
 h1, h2, h3, h4, h5, h6,
 .t-heading {
     @include font-display;
+    @include color('text' 'primary');
     display: block;
     line-height: 1.2;
     margin: 0;
+
+    & + & { margin-top: 0.25em; }
 
     a { color: inherit; }
 
@@ -93,6 +96,7 @@ address,
 
     .t-heading--sub {
         @include font-body;
+        line-height: 1.5;
     }
 
     .t-heading--slug {
