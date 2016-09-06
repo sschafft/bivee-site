@@ -11,7 +11,9 @@
 %>
 
 <footer class="l-bookend c-theme-reverse" role="contentinfo">
-    <%= link_to "Bivee", "/", :class => "logo l-bookend-item l-bookend-item--left" %>
+    <% link_to "/", :class => "logo l-bookend-item l-bookend-item--left" do %>
+        <%= component "logo" %>
+    <% end %>
     <small class="l-bookend-item l-bookend-item--right t-right c-text-tertiary">
         &copy; Copyright <%= Time.now.year %> Bivee, Inc. All rights reserved.
     </small>

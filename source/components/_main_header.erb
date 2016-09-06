@@ -1,6 +1,6 @@
-<header class="main_header l-bookend" role="banner">
-    <% link_to "/", :class => "logo main_header-item main_header-item--left" do %>
-        Bivee
+<header class="main_header l-bookend c-theme-wash c-no-bg" role="banner">
+    <% link_to "/", :class => "logo l-bookend-item l-bookend-item--left" do %>
+        <%= component "logo", locals: { filename: "logo-bivee-reverse-bw" } %>
     <% end %>
-    <%= link_to "Contact", "#", :class => "main_header-item main_header-item--right" %>
+    <%= link_to "Contact", "#", :class => "button l-bookend-item l-bookend-item--right" %>
 </header>

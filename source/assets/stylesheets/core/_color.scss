@@ -211,6 +211,7 @@ body, .c-theme-default, %theme--default {
 .c-well { @include color('well', 'background-color'); }
 
 .c-bg { @include color('bg'); }
+.c-no-bg { background-color: transparent !important; }
 
 // kill background colors in print
 // -> note all elements are set to color: black in base/_print.scss
