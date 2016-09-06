@@ -1,14 +1,21 @@
 <%#
     Panel component
-    -> For short content in scrolling sections. Meant to be full-width.
-    -> @param theme STRING (optional): name of color theme, e.g. "reverse" or "wash"
+    - For short content in scrolling sections. Meant to be full-width.
 
-    Depends on:
+    Locals:
+    - STRING slug (optional): a slug header for the top of the panel, e.g. "Recent work"
+    - STRING theme (optional): name of color theme, e.g. "reverse" or "wash"
+    - STRING classes (optional): additional modifier classes for the container
+
+    Styles:
     components/_panel.scss
 %>
-<% theme ||= "default" %>
-<% classes ||= false %>
-<% slug ||= false %>
+
+<%
+  theme ||= "default"
+  classes ||= false
+  slug ||= false
+%>
 
 <section class="panel<%= " c-theme-#{theme}" if theme != "default" %><%= " #{classes}" if classes %>">
     <% if slug %>
