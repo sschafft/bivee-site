@@ -3,11 +3,9 @@ title: home
 ---
 
 <!-- Cover -->
-<% component "cover" do %>
-    <div class="l-wrapper l-wrapper--wide">
-        <h1 class="t-heading t-scale-alpha">We change the way people and organizations work.</h1>
-        <p class="t-heading t-heading--sub t-scale-delta l-margin-top">We’re an advisory and design firm who can help you build processes, technology, and partnerships to meet your goals.</p>
-    </div>
+<% component "cover", locals: { theme: "wash" } do %>
+    <h1 class="t-heading t-scale-alpha">We change the way people and organizations work.</h1>
+    <p class="t-heading t-heading--sub t-scale-delta l-margin-top">We’re an advisory and design firm who can help you build processes, technology, and partnerships to meet your goals.</p>
 <% end %>
 
 <!-- Approach -->

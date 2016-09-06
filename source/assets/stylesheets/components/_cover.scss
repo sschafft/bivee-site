@@ -22,7 +22,8 @@ category: Molecules
     display: block;
     min-height: 400px;
     min-height: 80vh;
-    background: theme('bg', 'reverse') no-repeat center;
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
 
     // @include yep(flexbox) {

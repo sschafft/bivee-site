@@ -11,10 +11,13 @@
     - components/cover
 %>
 
-<% image ||= false %>
-<% overlay ||= false %>
+<%
+    image ||= false
+    overlay ||= false
+    theme ||= "reverse"
+%>
 
-<div class="cover<%= " cover--overlay" if overlay %> c-theme-reverse"<%= style="background-image: url('#{image}');" if image %>>
+<div class="cover<%= ' cover--overlay' if overlay %> c-theme-wash"<%= "style='background-image: url('#{image}');'" if image %>>
     <div class="l-wrapper l-wrapper--wide t-centered">
         <%= yield %>
     </div>
