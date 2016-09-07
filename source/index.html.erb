@@ -16,7 +16,7 @@ title: home
 <% end %>
 
 <!-- Staff -->
-<% component "panel" do %>
+<% component "panel", locals: { borders: "none" } do %>
     <% component "blurb", locals: { heading: "Our team" } do %>
         <% lorem.sentences rand(4...6) %>
     <% end %>
@@ -27,9 +27,25 @@ title: home
     </div>
 <% end %>
 
+<!-- Contact us -->
 <% component "panel", locals: { theme: "wash" } do %>
     <% component "blurb", locals: { heading: "Contact us" } do %>
-        <% lorem.sentences rand(4...6) %>
+        We’re based in the Washington DC Metro Area but serve clients globally. We’d love to hear about your ideas and the problems you want to solve. Let’s get the conversation started.
     <% end %>
+
     <!-- contact buttons -->
+    <div class="l-wrapper t-centered l-margin-top">
+        <div class="button-group">
+            <div class="button-group button-group--flush">
+                <button class="button">hello@bivee.co</button>
+                <a class="button" href="mailto:hello@bivee.co">Send a message</a>
+            </div>
+            <a class="button" href="">
+                <% component "icon", locals: { id: "twitter", fallback: "Twitter" } %>
+            </a>
+            <a class="button" href="https://github.com/biveeco">
+                <% component "icon", locals: { id: "github", fallback: "Github" } %>
+            </a>
+        </div>
+    </div>
 <% end %>

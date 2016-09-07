@@ -1,0 +1,112 @@
+/* =============================================================================
+//  Button component
+// ========================================================================== */
+
+/*doc
+---
+title: Button
+name: button
+category: components
+---
+
+*/
+
+@import "../core/all";
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.button {
+    $c: 'highlight';
+
+    @include transition-default;
+    @include border($color: $c);
+    @include border-radius;
+    @include font-display;
+    @include scale-type('epsilon');
+    @include color($c);
+    display: inline-block;
+    padding: 0.4em 1em;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+        @include color($c, $lighten: 60);
+        @include color($c, 'border-color', $lighten: 60);
+        outline: 0;
+        outline: thin dotted \9; /* IE6-9 */
+        box-shadow: none;
+    }
+
+    &:active {
+        @include color($c, $darken: 60);
+        @include color($c, 'border-color', $darken: 60);
+        @include transition(all 0);
+    }
+}
+
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+/* --- button groups -------------------------------------------------------- */
+.button-group {
+    display: inline-block;
+    font-size: 0;
+
+    .button,
+    & > & {
+        @include rem(margin, 0 gutter('narrow') 0 0);
+        vertical-align: middle;
+    }
+}
+
+    .button-group--flush {
+
+        .button {
+            margin: 0;
+            border-radius: 0;
+            border-left-width: 0;
+
+            &:first-child {
+                border-left-width: border-w('thin');
+                border-top-left-radius: $border-radius;
+                border-bottom-left-radius: $border-radius;
+            }
+
+            &:last-child {
+                border-top-right-radius: $border-radius;
+                border-bottom-right-radius: $border-radius;
+            }
+        }
+    }
+
+
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+/* --- size ----------------------------------------------------------------- */
+.button--small { @include scale-type('zeta'); }
+.button--large { @include scale-type('delta'); }
+
+/* --- prominence ----------------------------------------------------------- */
+.button--secondary {
+    @include color('text' 'secondary');
+    @include color('text' 'secondary', 'border-color');
+}
+
+.button--tertiary {
+    @include color('text' 'tertiary');
+    @include color('text' 'tertiary', 'border-color');
+}
+
+.button--disabled { cursor: initial; }
+
+/* --- special effects ------------------------------------------------------ */
+
+// a button without a box, looks like a text link
+.button--text {
+    border: none !important;
+    padding: 0;
+}

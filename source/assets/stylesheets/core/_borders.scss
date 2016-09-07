@@ -59,7 +59,7 @@ There are also utility classes that allow you to quickly add a border to a conta
 $border-radius: 0.2em !default;
 
 @mixin border-radius {
-  border-radius: $border-radius;
+    border-radius: $border-radius;
 }
 
 // Border width & style
