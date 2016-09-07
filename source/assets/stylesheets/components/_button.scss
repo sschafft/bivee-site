@@ -13,6 +13,8 @@ category: components
 
 @import "../core/all";
 
+$button-border-w: 'mid';
+
 /* Base
 // -------------------------------------------------------------------------- */
 
@@ -20,15 +22,17 @@ category: components
     $c: 'highlight';
 
     @include transition-default;
-    @include border($color: $c);
+    @include border(all, $button-border-w, $color: $c);
     @include border-radius;
     @include font-display;
     @include scale-type('epsilon');
     @include color($c);
     display: inline-block;
-    padding: 0.4em 1em;
+    padding: 0.36em 1em 0.4em;
     background-color: transparent;
     cursor: pointer;
+    box-shadow: none;
+    text-shadow: none;
 
     &:hover,
     &:focus {
@@ -52,13 +56,28 @@ category: components
 
 /* --- button groups -------------------------------------------------------- */
 .button-group {
+    $gutter: gutter('narrow');
+
     display: inline-block;
     font-size: 0;
+    list-style: none;
 
     .button,
     & > & {
-        @include rem(margin, 0 gutter('narrow') 0 0);
+        @include rem(margin, 0 $gutter 0 0);
         vertical-align: middle;
+
+        &:last-child { margin-right: 0; }
+    }
+
+    > li {
+        @include rem(margin, 0 $gutter 0 0);
+        display: inline-block;
+        vertical-align: middle;
+
+        &:last-child { margin-right: 0; }
+
+        .button { margin: 0 };
     }
 }
 
@@ -67,15 +86,17 @@ category: components
         .button {
             margin: 0;
             border-radius: 0;
-            border-left-width: 0;
+            border-left-width: border-w('thin');
+            border-right-width: 0;
 
             &:first-child {
-                border-left-width: border-w('thin');
+                border-left-width: border-w($button-border-w);
                 border-top-left-radius: $border-radius;
                 border-bottom-left-radius: $border-radius;
             }
 
             &:last-child {
+                border-right-width: border-w($button-border-w);
                 border-top-right-radius: $border-radius;
                 border-bottom-right-radius: $border-radius;
             }
@@ -87,7 +108,10 @@ category: components
 // -------------------------------------------------------------------------- */
 
 /* --- size ----------------------------------------------------------------- */
-.button--small { @include scale-type('zeta'); }
+.button--small {
+    @include scale-type('zeta');
+    border-width: border-w('thin');
+}
 .button--large { @include scale-type('delta'); }
 
 /* --- prominence ----------------------------------------------------------- */

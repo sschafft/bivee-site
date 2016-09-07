@@ -26,6 +26,7 @@ $type-line_height: 1.5;
 
 body {
     @include font-body;
+    @include scale-type('epsilon');
     line-height: $type-line_height;
 }
 
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6,
 
 // body/inline text
 p {
-    @include scale-type('zeta');
+    @include scale-type('epsilon');
     @include color('text' 'secondary');
 }
 
@@ -112,6 +113,9 @@ address,
 }
 
 .t-caps { text-transform: uppercase !important; }
+
+.t-font-display { @include font-display; }
+.t-font-body { @include font-body; }
 
 // position text
 .t-centered { text-align: center; }
