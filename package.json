@@ -35,8 +35,9 @@
   "dependencies": {
     "SassyLists": "git+https://github.com/at-import/SassyLists.git",
     "bourbon": "^4.2.6",
-    "jquery": "^2.2.0",
+    "clipboard": "^1.5.12",
     "include-media": "^1.4.1",
+    "jquery": "^2.2.0",
     "modernizr": "^3.3.1",
     "modernizr-mixin": "^3.0.7",
     "modularscale-sass": "^2.1.1",
