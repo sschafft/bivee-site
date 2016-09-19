@@ -26,6 +26,8 @@
     <% if fallback == ".png" %>
         <image src="<%= asset_url(id + fallback) %>" xlink:href="" />
     <% else %>
-        <desc><%= fallback %></desc>
+        <% unless role == "presentation" %>
+            <desc><%= fallback %></desc>
+        <% end %>
     <% end %>
 </svg>

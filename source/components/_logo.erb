@@ -19,7 +19,7 @@
 
 <picture class="<%= classes %>">
     <!--[if IE 9]><video style="display: none;"><![endif]-->
-    <source type="image/svg+xml" srcset="<%= asset_url config[:images_dir] + '/' + filename + '.svg'%>">
+    <source type="image/svg+xml" srcset="<%= asset_url config[:images_dir] + '/logos/' + filename + '.svg'%>">
     <!--[if IE 9]></video><![endif]-->
-    <img src="<%= asset_url config[:images_dir] + '/' + filename + '.png'%>" alt="<%= alt %>" title="<%= alt %>" />
+    <img src="<%= asset_url config[:images_dir] + '/logos/' + filename + '.png'%>" alt="<%= alt %>" title="<%= alt %>" />
 </picture>

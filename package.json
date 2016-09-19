@@ -7,8 +7,8 @@
     "css_src": "source/assets/stylesheets",
     "css_bundle": "source/assets/dist/stylesheets",
     "js_src": "source/assets/dist/javascripts",
-    "icons_src": "./source/assets/images/icons/_sprites",
-    "icons_dest": "./source/layouts/partials"
+    "icons_src": "./source/assets/images/icons",
+    "icons_dest": "./source/components"
   },
   "scripts": {
     "start": "npm run build && parallelshell 'npm run javascripts:watch' 'npm run styles:watch'",
@@ -20,7 +20,7 @@
     "styles:autoprefixer": "postcss --use autoprefixer --autoprefixer.browsers '> 5%, ie >= 8' -r $npm_package_config_css_bundle/*.css",
     "styles:build": "npm run styles && npm run styles:autoprefixer",
     "styles:watch": "npm run styles -- -w",
-    "icons": "svg-sprite --symbol --symbol-dest $npm_package_config_icons_dest --symbol-sprite 'spritemap.inc' --symbol-inline --symbol-prefix 'icon-%s' $npm_package_config_icons_src/**/*.svg",
+    "icons": "svg-sprite --symbol --symbol-dest $npm_package_config_icons_dest --symbol-sprite 'spritemap.erb' --symbol-inline --symbol-prefix 'icon-%s' $npm_package_config_icons_src/**/*.svg",
     "build": "npm run styles:build && npm run javascripts:build"
   },
   "repository": {
