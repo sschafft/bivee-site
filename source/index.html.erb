@@ -37,15 +37,30 @@ title: home
     <div class="l-wrapper t-centered l-margin-top">
         <div class="button-group">
             <div class="button-group button-group--flush">
-                <a class="button" href="mailto:hello@bivee.co">Send a message</a>
-                <button class="button">hello@bivee.co</button>
+                <a class="button" href="mailto:hello@bivee.co">
+                    <%= component "icon", locals: {
+                        id: "email",
+                        size: "small",
+                        margin: "right",
+                        role: "presentation"
+                    } %>
+                    Send a message
+                </a>
+                <button class="button" id="email_to_clipboard">
+                    hello@bivee.co
+                    <%= component "icon", locals: {
+                        id: "clipboard",
+                        size: "small",
+                        margin: "left"
+                    } %>
+                </button>
             </div>
 
             <a class="button" href="">
-                <% component "icon", locals: { id: "twitter", fallback: "Twitter" } %>
+                <%= component "icon", locals: { id: "twitter", fallback: "Twitter" } %>
             </a>
             <a class="button" href="https://github.com/biveeco">
-                <% component "icon", locals: { id: "github", fallback: "Github" } %>
+                <%= component "icon", locals: { id: "github", fallback: "Github" } %>
             </a>
         </div>
     </div>

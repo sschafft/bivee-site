@@ -17,14 +17,16 @@
 
 <%
     classes ||= false
+    size ||= false
+    margin ||= "none"
     title ||= false
     role ||= "img"
     fallback ||= ".png"
 %>
-<svg class="icon <%= id %><%= " #{classes}" if classes %>"<%= " title='#{title}'" if title %> role="<%= role %>">
-    <use xlink:href="#<%= id %>"></use>
+<svg class="icon<%= " icon--#{size}" if size %><%= " icon--margin-#{margin}" unless margin == "none" %><%= " #{classes}" if classes %>"<%= " title='#{title}'" if title %> role="<%= role %>">
+    <use xlink:href="#icon-<%= id %>"></use>
     <% if fallback == ".png" %>
-        <image src="<%= asset_url(id + fallback) %>" xlink:href="" />
+        <image src="<%= asset_url("icon-" + id + fallback) %>" xlink:href="" />
     <% else %>
         <% unless role == "presentation" %>
             <desc><%= fallback %></desc>
