@@ -28,6 +28,7 @@ $button-border-w: 'mid';
     @include scale-type('epsilon');
     @include color($c);
     display: inline-block;
+    position: relative;
     padding: 0.36em 1em 0.4em;
     background-color: transparent;
     cursor: pointer;
@@ -61,6 +62,7 @@ $button-border-w: 'mid';
     $gutter: gutter('narrow');
 
     display: inline-block;
+    position: relative;
     font-size: 0;
     list-style: none;
 

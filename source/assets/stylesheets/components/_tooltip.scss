@@ -1,0 +1,134 @@
+/* =============================================================================
+//  Tooltip component
+// -> a simple flyout with descriptive text
+// ========================================================================== */
+
+
+@import "../core/all";
+
+$tooltip-sides: over under right left; // sides a tooltip can appear on
+
+// @mixin tooltip() {
+//     @include font-display;
+//     @include scale-type("eta");
+//     @include border-radius;
+//     display: block;
+//     position: absolute;
+//     overflow: visible;
+//     z-index: $z--high;
+//     padding: 0.5em 1em;
+//     min-width: 2em;
+//     max-width: 12em;
+//     text-align: center;
+//     color: theme('text' 'primary', 'reverse');
+//     background-color: theme('bg', 'reverse');
+//     // box-shadow: 0 2px rbga($blackberry, 0.2);
+
+//     strong { @include font-display('bold'); }
+// }
+
+@mixin tooltip-pointer($direction) {
+    $size: 12px;
+
+    @debug "triangle: #{$direction}";
+
+    @include triangle($size, theme('bg', 'reverse'), $direction);
+
+    @if $direction == "down" {
+        margin-left: -($size/2);
+        left: 50%;
+        bottom: -($size/2);
+    } @elseif $direction == "up" {
+        margin-left: -($size/2);
+        left: 50%;
+        top: -($size/2);
+    } @elseif $direction == "left" {
+        margin-top: -($size/2);
+        top: 50%;
+        left: -($size/2);
+    } @elseif $direction == "right" {
+        margin-top: -($size/2);
+        top: 50%;
+        right: -($size);
+    }
+}
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.tooltip {
+    @include font-display;
+    @include scale-type("eta");
+    @include border-radius;
+    display: block;
+    position: absolute;
+    overflow: visible;
+    top: -5.5em;
+    left: 50%;
+    z-index: $z--high;
+    transform: translateX(-50%);
+    padding: 0.5em 1em;
+    min-width: 2em;
+    max-width: 16em;
+    text-align: center;
+    color: theme('text' 'primary', 'reverse');
+    background-color: theme('bg', 'reverse');
+    // box-shadow: 0 2px rbga($blackberry, 0.2);
+
+    strong { @include font-display('bold'); }
+
+    &::after {
+        @include tooltip-pointer("down");
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: $z--high;
+    }
+}
+
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.has-tooltip {
+    position: relative;
+}
+
+    .has-tooltip--hover {}
+
+
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+// @each $side in $tooltip-sides {
+//     @if $side != "over" {
+//         .tooltip--#{$side} {
+//             // top:
+
+//             &::after {
+//                 @if $side == "under" {
+//                     @include tooltip-pointer("up");
+//                     border-top: none;
+//                 } @elseif $side == "left" {
+//                     @include tooltip-pointer("right");
+//                     left: auto;
+//                     bottom: auto;
+//                 } @elseif $side == "right" {
+//                     @include tooltip-pointer("left");
+//                     bottom: auto;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+/* State
+// -------------------------------------------------------------------------- */
+
+.has-tooltip.is-active {}
+
+.has-tooltip--hover:hover {
+
+}

@@ -59,7 +59,9 @@ title: home
         </div>
 
         <!-- social media channels -->
+
         <div class="button-group l-margin-top l-margin-right">
+        <span class="tooltip"><strong>Click</strong> to copy to your clipboard.</span>
             <% data.site.social.each do |channel| %>
                 <a class="button" href="<%= channel.url %>" title="Say hi on <%= channel.name %>" target="_blank">
                     <%= component "icon", locals: { id: channel.icon, fallback: channel.name } %>
