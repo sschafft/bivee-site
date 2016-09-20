@@ -23,7 +23,9 @@
     role ||= "img"
     fallback ||= ".png"
 %>
+
 <svg class="icon<%= " icon--#{size}" if size %><%= " icon--margin-#{margin}" unless margin == "none" %><%= " #{classes}" if classes %>"<%= " title='#{title}'" if title %> role="<%= role %>">
+    <!-- This excellent icon is from iconmonstr.com -->
     <use xlink:href="#icon-<%= id %>"></use>
     <% if fallback == ".png" %>
         <image src="<%= asset_url("icon-" + id + fallback) %>" xlink:href="" />

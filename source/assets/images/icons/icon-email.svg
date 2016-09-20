@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-email</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icons" transform="translate(-127.000000, -29.000000)" fill="#273750">
-            <path d="M144,29 L139.75,44.5833333 L133.991958,39.4557083 L139.518375,33.6232917 L132.110625,38.7424167 L127,37.5 L144,29 L144,29 Z M133.375,40.8065 L133.375,46 L135.68275,42.861375 L133.375,40.8065 L133.375,40.8065 Z" id="icon-email"></path>
-        </g>
-    </g>
-</svg>
+<svg width="17" height="17" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg"><title>icon-email</title><path d="M17 0l-4.25 15.583-5.758-5.127 5.526-5.833-7.407 5.12L0 8.5 17 0zM6.375 11.806V17l2.308-3.14-2.308-2.053z" fill="#273750" fill-rule="evenodd"/></svg>

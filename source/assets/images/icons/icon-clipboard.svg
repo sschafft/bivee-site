@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="20px" height="24px" viewBox="0 0 20 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
-    <title>icon-clipboard</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="icons" transform="translate(-74.000000, -199.000000)" fill="#11A9BE">
-            <path d="M79,213.729 L79.855,212.578 C80.855,213.062 81.49,213.43 82.615,214.232 C84.728,211.833 86.126,210.616 88.721,209.001 L89,209.641 C86.859,211.51 85.291,213.59 83.033,217.64 C81.64,216 80.711,215.314 79,213.729 L79,213.729 Z M94,202 L94,223 L74,223 L74,202 L78.666,202 L76,204.808 L76,221 L92,221 L92,204.808 L89.391,202 L94,202 L94,202 Z M90.354,206 L87.042,202.431 L87.042,202.021 C87.043,200.353 85.69,199 84.021,199 C82.354,199 81,200.332 81,202 L81.001,202.431 L77.703,206 L90.354,206 L90.354,206 Z M84,201 C84.553,201 85,201.448 85,202 C85,202.552 84.553,203 84,203 C83.447,203 83,202.552 83,202 C83,201.448 83.447,201 84,201 L84,201 Z" id="icon-clipboard"></path>
-        </g>
-    </g>
-</svg>
+<svg width="20" height="24" viewBox="0 0 20 24" xmlns="http://www.w3.org/2000/svg"><title>icon-clipboard</title><path d="M5 14.73l.855-1.152c1 .484 1.635.852 2.76 1.654 2.113-2.4 3.51-3.616 6.106-5.23l.28.64c-2.14 1.868-3.71 3.948-5.967 7.998C7.64 17 6.71 16.314 5 14.73zM20 3v21H0V3h4.666L2 5.808V22h16V5.808L15.39 3H20zm-3.646 4l-3.312-3.57v-.41c0-1.667-1.352-3.02-3.02-3.02S7 1.332 7 3v.43L3.704 7h12.65zM10 2c.553 0 1 .448 1 1s-.447 1-1 1c-.553 0-1-.448-1-1s.447-1 1-1z" fill="#273750" fill-rule="evenodd"/></svg>

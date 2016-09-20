@@ -18,7 +18,7 @@ category: Molecules
 // -------------------------------------------------------------------------- */
 
 .cover {
-    @include rem(padding-top, ms(10, $type-size-default));
+    @include rem(padding-top, ms(12, $type-size-default));
     display: block;
     min-height: 400px;
     min-height: 80vh;
