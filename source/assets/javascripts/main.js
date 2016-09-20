@@ -16,5 +16,3 @@ clipboard.on('error', function(e) {
     console.error('Action:', e.action);
     console.error('Trigger:', e.trigger);
 });
-
-sayhi@bivee.co
