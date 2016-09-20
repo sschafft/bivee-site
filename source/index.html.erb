@@ -61,7 +61,7 @@ title: home
         <!-- social media channels -->
         <div class="button-group l-margin-top l-margin-right">
             <% data.site.social.each do |channel| %>
-                <a class="button" href="<%= channel.url %>">
+                <a class="button" href="<%= channel.url %>" title="Say hi on <%= channel.name %>" target="_blank">
                     <%= component "icon", locals: { id: channel.icon, fallback: channel.name } %>
                 </a>
             <% end %>
