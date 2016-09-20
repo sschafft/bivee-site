@@ -38,21 +38,22 @@ title: home
 
         <!-- email -->
         <div class="button-group button-group--flush l-margin-top l-margin-right">
-            <a class="button" href="mailto:hello@bivee.co">
+            <a class="button" href="mailto:<%= data.site.email %>">
                 <%= component "icon", locals: {
                     id: "email",
                     size: "small",
                     margin: "right",
                     role: "presentation"
                 } %>
-                Send a message
+                <strong>Send us a message</strong>
             </a>
-            <button class="button" id="email_to_clipboard">
-                hello@bivee.co
+            <button class="button" id="email_to_clipboard" data-clipboard-text="<%= data.site.email %>">
+                <%= data.site.email %>
                 <%= component "icon", locals: {
                     id: "clipboard",
                     size: "small",
-                    margin: "left"
+                    margin: "left",
+                    fallback: "| <strong>&rsaquo; Copy to clipboard</strong>"
                 } %>
             </button>
         </div>

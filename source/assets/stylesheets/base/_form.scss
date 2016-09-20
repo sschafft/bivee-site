@@ -30,6 +30,9 @@ legend {}
 input, textarea, select {
 	@include font-body;
     @include transition-default;
+    @include border;
+    @include color('text' 'secondary');
+    @include color('well', 'background-color');
 	padding: 0.5em 1em;
 	border-radius: 3px;
 	box-sizing: border-box;
@@ -42,6 +45,16 @@ input, textarea, select {
 		box-shadow: none;
 	}
 }
+
+    .form-field--invisible {
+        display: inline-block;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+    }
 
 .form-checkbox,
 [type="checkbox"] {

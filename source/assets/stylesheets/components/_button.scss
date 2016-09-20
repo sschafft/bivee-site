@@ -48,6 +48,8 @@ $button-border-w: 'mid';
         @include color($c, 'border-color', $darken: 60);
         @include transition(all 0);
     }
+
+    strong { @include font-display('bold'); }
 }
 
 
@@ -102,6 +104,8 @@ $button-border-w: 'mid';
             }
         }
     }
+
+    // TODO: add button-group--vertical for tiny screens
 
 
 /* Modifiers
