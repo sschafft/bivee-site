@@ -2,5 +2,5 @@
     <% link_to "/", :class => "logo l-bookend-item l-bookend-item--left" do %>
         <%= component "logo", locals: { filename: "logo-bivee-reverse-bw" } %>
     <% end %>
-    <%= link_to "Contact us", "#", :class => "button button--small l-bookend-item l-bookend-item--right" %>
+    <%= link_to "Contact us", "mailto:#{data.site.email}", :class => "button button--small l-bookend-item l-bookend-item--right" %>
 </header>

@@ -1,1 +1,3 @@
-var jquery = require("jquery");
+// import $ from 'jquery';
+import clipboard from 'clipboard';
+

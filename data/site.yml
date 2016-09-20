@@ -1,3 +1,17 @@
 title: Bivee
 
-email: hello@bivee.co
+email: sayhi@bivee.co
+
+social:
+  - name: 'Github'
+    url: https://github.com/biveeco
+    icon: 'github'
+  - name: 'LinkedIn'
+    url: https://www.linkedin.com/company/bivee-co
+    icon: 'linkedin'
+  - name: 'Instagram'
+    url: http://instagram.com/biveeco
+    icon: 'instagram'
+  # - name: 'Twitter'
+  #   url: https://twitter.com/biveeco
+  #   icon: 'twitter'

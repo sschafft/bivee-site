@@ -1,1 +1,12 @@
-<svg width="18" height="17" viewBox="0 0 18 17" xmlns="http://www.w3.org/2000/svg"><title>icon-linkedin</title><path d="M3.735 1.848c0 1.02-.832 1.848-1.86 1.848S.015 2.87.015 1.848C.015.828.847 0 1.875 0s1.86.828 1.86 1.848zm.015 3.326H0V17h3.75V5.174zm5.987 0H6.01V17h3.727v-6.208c0-3.452 4.522-3.734 4.522 0V17H18V9.512c0-5.824-6.692-5.612-8.263-2.745V5.174z" fill="#11A9BE" fill-rule="evenodd"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-linkedin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icons" transform="translate(-127.000000, -68.000000)" fill="#273750">
+            <path d="M130.735,69.8478261 C130.735,70.8685652 129.9025,71.6956522 128.875,71.6956522 C127.8475,71.6956522 127.015,70.8685652 127.015,69.8478261 C127.015,68.8278261 127.8475,68 128.875,68 C129.9025,68 130.735,68.8278261 130.735,69.8478261 L130.735,69.8478261 Z M130.75,73.173913 L127,73.173913 L127,85 L130.75,85 L130.75,73.173913 L130.75,73.173913 Z M136.7365,73.173913 L133.0105,73.173913 L133.0105,85 L136.73725,85 L136.73725,78.7920435 C136.73725,75.3403043 141.259,75.0579565 141.259,78.7920435 L141.259,85 L145,85 L145,77.5118696 C145,71.6875217 138.3085,71.8996522 136.7365,74.7667391 L136.7365,73.173913 L136.7365,73.173913 Z" id="icon-linkedin"></path>
+        </g>
+    </g>
+</svg>
