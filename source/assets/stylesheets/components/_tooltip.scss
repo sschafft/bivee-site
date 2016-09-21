@@ -56,8 +56,8 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 /* Base
 // -------------------------------------------------------------------------- */
 
-.tooltip,
-.has-tooltip::before {
+.tooltip {
+    @include transition-default;
     @include font-display;
     @include scale-type("eta");
     @include border-radius;
@@ -69,10 +69,9 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
     top: -3.5em;
     left: 50%;
     z-index: $z--high;
-    transform: translateX(-50%);
     padding: 0.5em 1em;
-    min-width: 4em;
-    max-width: 12em;
+    margin-left: -5em;
+    width: 10em;
     text-align: center;
     color: theme('text' 'primary');
     background-color: theme('bg');
@@ -94,6 +93,11 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 
 /* Subcomponents
 // -------------------------------------------------------------------------- */
+
+.has-tooltip::before {
+    @extend .tooltip;
+    content: attr(title);
+}
 
 // .has-tooltip {
 //     position: relative;
