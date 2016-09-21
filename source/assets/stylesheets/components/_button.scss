@@ -61,53 +61,89 @@ $button-border-w: 'mid';
 .button-group {
     $gutter: gutter('narrow');
 
-    display: inline-block;
+    display: block;
     position: relative;
     font-size: 0;
     list-style: none;
 
     .button,
+    > li,
     & > & {
-        @include rem(margin, 0 $gutter 0 0);
+        @include rem(margin, gutter('narrow') 0 0 0);
+        display: block;
+        width: 100%;
         vertical-align: middle;
-
-        &:last-child { margin-right: 0; }
-    }
-
-    > li {
-        @include rem(margin, 0 $gutter 0 0);
-        display: inline-block;
-        vertical-align: middle;
-
-        &:last-child { margin-right: 0; }
-
-        .button { margin: 0 };
     }
 }
 
+    // a group with no space between the buttons
+    // -> looks like a single button with several "sections"
     .button-group--flush {
 
         .button {
             margin: 0;
             border-radius: 0;
-            border-left-width: border-w('thin');
-            border-right-width: 0;
+            border-bottom-width: 0;
+            border-top-width: border-w('thin');
 
             &:first-child {
-                border-left-width: border-w($button-border-w);
+                border-top-width: border-w($button-border-w);
                 border-top-left-radius: $border-radius;
-                border-bottom-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
             }
 
             &:last-child {
-                border-right-width: border-w($button-border-w);
-                border-top-right-radius: $border-radius;
+                border-bottom-width: border-w($button-border-w);
+                border-bottom-left-radius: $border-radius;
                 border-bottom-right-radius: $border-radius;
             }
         }
     }
 
-    // TODO: add button-group--vertical for tiny screens
+    // a vertical version for tiny screens
+    @include breakpointify('.button-group--horizontal', $default: true, $sizes: 'xsmall' 'small') {
+        display: inline-block;
+
+        .button,
+        & > & {
+            @include rem(margin, 0 gutter('narrow') 0 0);
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+
+            &:last-child { margin-right: 0; }
+        }
+
+        > li {
+            @include rem(margin, 0 gutter('narrow') 0 0);
+            display: inline-block;
+            vertical-align: middle;
+
+            &:last-child { margin-right: 0; }
+
+            .button { margin: 0 };
+        }
+
+        &.button-group--flush {
+            .button {
+                margin: 0;
+                border-width: border-w($button-border-w) 0 border-w($button-border-w) border-w('thin');
+                border-radius: 0;
+
+                &:first-child {
+                    border-left-width: border-w($button-border-w);
+                    border-top-left-radius: $border-radius;
+                    border-bottom-left-radius: $border-radius;
+                }
+
+                &:last-child {
+                    border-right-width: border-w($button-border-w);
+                    border-top-right-radius: $border-radius;
+                    border-bottom-right-radius: $border-radius;
+                }
+            }
+        }
+    }
 
 
 /* Modifiers

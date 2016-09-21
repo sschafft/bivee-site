@@ -37,7 +37,7 @@ title: home
     <div class="l-wrapper l-wrapper--wide t-centered">
 
         <!-- email -->
-        <div class="button-group button-group--flush l-margin-top l-margin-right">
+        <div class="button-group button-group--flush button-group--horizontal@xsmall l-margin-top l-margin-right">
             <a class="button" href="mailto:<%= data.site.email %>">
                 <%= component "icon", locals: {
                     id: "email",
@@ -60,10 +60,9 @@ title: home
 
         <!-- social media channels -->
 
-        <div class="button-group l-margin-top l-margin-right">
-        <span class="tooltip"><strong>Click</strong> to copy to your clipboard.</span>
+        <div class="button-group button-group--horizontal l-margin-top l-margin-right">
             <% data.site.social.each do |channel| %>
-                <a class="button" href="<%= channel.url %>" title="Say hi on <%= channel.name %>" target="_blank">
+                <a class="button has-tooltip has-tooltip--hover" href="<%= channel.url %>" title="Say hi on <%= channel.name %>" target="_blank">
                     <%= component "icon", locals: { id: channel.icon, fallback: channel.name } %>
                 </a>
             <% end %>

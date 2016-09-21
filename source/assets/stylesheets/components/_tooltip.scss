@@ -32,7 +32,7 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 
     @debug "triangle: #{$direction}";
 
-    @include triangle($size, theme('bg', 'reverse'), $direction);
+    @include triangle($size, theme('bg'), $direction);
 
     @if $direction == "down" {
         margin-left: -($size/2);
@@ -56,45 +56,52 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 /* Base
 // -------------------------------------------------------------------------- */
 
-.tooltip {
+.tooltip,
+.has-tooltip::before {
     @include font-display;
     @include scale-type("eta");
     @include border-radius;
+    @include border;
     display: block;
+    opacity: 0;
     position: absolute;
     overflow: visible;
-    top: -5.5em;
+    top: -3.5em;
     left: 50%;
     z-index: $z--high;
     transform: translateX(-50%);
     padding: 0.5em 1em;
-    min-width: 2em;
-    max-width: 16em;
+    min-width: 4em;
+    max-width: 12em;
     text-align: center;
-    color: theme('text' 'primary', 'reverse');
-    background-color: theme('bg', 'reverse');
+    color: theme('text' 'primary');
+    background-color: theme('bg');
     // box-shadow: 0 2px rbga($blackberry, 0.2);
 
     strong { @include font-display('bold'); }
-
-    &::after {
-        @include tooltip-pointer("down");
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: $z--high;
-    }
 }
+
+// .tooltip::after,
+// .has-tooltip::after {
+//     @include tooltip-pointer("down");
+//     content: '';
+//     display: block;
+//     opacity: 0;
+//     position: absolute;
+//     z-index: $z--high;
+// }
 
 
 /* Subcomponents
 // -------------------------------------------------------------------------- */
 
-.has-tooltip {
-    position: relative;
-}
+// .has-tooltip {
+//     position: relative;
 
-    .has-tooltip--hover {}
+//     &::before { @extend .tooltip; }
+// }
+
+//     .has-tooltip--hover {}
 
 
 /* Modifiers
@@ -127,8 +134,5 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 /* State
 // -------------------------------------------------------------------------- */
 
-.has-tooltip.is-active {}
-
-.has-tooltip--hover:hover {
-
-}
+.has-tooltip.is-active,
+.has-tooltip--hover:hover::before { opacity: 1; }
