@@ -40,7 +40,7 @@ $gutter-sides: left right top bottom;
     .l-margin-#{$side}-wide { @include rem(margin-#{$side}, gutter('wide') !important); }
 }
 
-.l-no-margin { @include rem(margin, 0 !important); }
+@include breakpointify('.l-no-margin', true) { @include rem(margin, 0 !important); }
 
 @each $side in $gutter-sides {
     .l-no-margin-#{$side} { @include rem(margin-#{$side}, 0 !important); }
@@ -60,7 +60,7 @@ $gutter-sides: left right top bottom;
     .l-padding-#{$side}-wide { @include rem(padding-#{$side}, gutter('wide') !important); }
 }
 
-.l-no-padding { @include rem(padding, 0 !important); }
+@include breakpointify('.l-no-padding', true) { @include rem(padding, 0 !important); }
 
 @each $side in $gutter-sides {
     .l-no-padding-#{$side} { @include rem(padding-#{$side}, 0 !important); }

@@ -118,9 +118,9 @@ address,
 .t-font-body { @include font-body; }
 
 // position text
-.t-centered { text-align: center; }
-.t-left { text-align: left; }
-.t-right { text-align: right; }
+@include breakpointify('.t-centered', true) { text-align: center; }
+@include breakpointify('.t-left', true) { text-align: left; }
+@include breakpointify('.t-right', true) { text-align: right; }
 
 /* use the best ampersands from common system fonts... */
 // .t-amp {

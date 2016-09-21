@@ -22,11 +22,36 @@ category: Layout
 .l-bookend {
     display: block;
     padding: gutter() gutter('wide');
+}
 
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+@include breakpointify('.l-bookend--horizontal', true, 'xsmall' 'small') {
     @include yep(flexbox) {
         @include display(flex);
         @include align-items(center);
         @include justify-content(space-between);
+    }
+
+    .l-bookend-item--left {
+        display: inline-block;
+        float: left;
+
+        @include yep(flexbox, no-ie) {
+            float: none;
+            @include align-self(left);
+        }
+    }
+
+    .l-bookend-item--right {
+        display: inline-block;
+        float: right;
+
+        @include yep(flexbox, no-ie) {
+            float: none;
+            @include align-self(right);
+        }
     }
 }
 
@@ -35,25 +60,29 @@ category: Layout
 
 .l-bookend-item {
     @include clearfix;
-    display: inline-block;
+    display: block;
     position: relative;
     vertical-align: middle;
+    float: none;
+    clear: both;
 }
 
-    .l-bookend-item--left {
-        float: left;
+    // @include breakpointify('.l-bookend-item--left', true, 'xsmall' 'small') {
+    //     display: inline-block;
+    //     float: left;
 
-        @include yep(flexbox, no-ie) {
-            float: none;
-            @include align-self(left);
-        }
-    }
-    .l-bookend-item--right {
-        float: right;
+    //     @include yep(flexbox, no-ie) {
+    //         float: none;
+    //         @include align-self(left);
+    //     }
+    // }
+    // @include breakpointify('.l-bookend-item--right', true, 'xsmall' 'small') {
+    //     display: inline-block;
+    //     float: right;
 
-        @include yep(flexbox, no-ie) {
-            float: none;
-            @include align-self(right);
-        }
-    }
+    //     @include yep(flexbox, no-ie) {
+    //         float: none;
+    //         @include align-self(right);
+    //     }
+    // }
 
