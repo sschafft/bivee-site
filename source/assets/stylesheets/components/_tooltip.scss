@@ -130,7 +130,8 @@ $tooltip-marginY: 0;
 // -------------------------------------------------------------------------- */
 
 .tooltip.is-active,
-.has-tooltip.is-active,
+.has-tooltip.is-active::before,
+.has-tooltip.is-active::after,
 .has-tooltip--hover:hover::before,
 .has-tooltip--hover:hover::after {
     visibility: visible;
