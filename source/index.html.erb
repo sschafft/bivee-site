@@ -48,7 +48,7 @@ title: home
                 <strong>Send us a message</strong>
             </a>
             <div class="button">
-                <input class="form-field form-field--invisible c-text-primary" id="email_field" type="text" value="<%= data.site.email %>" size="<%= data.site.email.length %>">
+                <input class="form-field form-field--invisible c-text-primary" id="email_field" type="text" value="<%= data.site.email %>" size="<%= data.site.email.length %>" readonly>
                 <button class="button button--text" id="email_to_clipboard" title="Copy to your clipboard" data-clipboard-target="#email_field" data-clipboard-action="copy">
                     <%= component "icon", locals: {
                         id: "clipboard",
