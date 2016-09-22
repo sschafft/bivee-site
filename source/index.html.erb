@@ -47,19 +47,20 @@ title: home
                 } %>
                 <strong>Send us a message</strong>
             </a>
-            <button class="button has-tooltip has-tooltip--hover" id="email_to_clipboard" data-clipboard-text="<%= data.site.email %>" title="Copy to your clipboard">
-                <%= data.site.email %>
-                <%= component "icon", locals: {
-                    id: "clipboard",
-                    size: "small",
-                    margin: "left",
-                    fallback: "| <strong>&rsaquo; Copy to clipboard</strong>"
-                } %>
-            </button>
+            <div class="button">
+                <input class="form-field form-field--invisible c-text-primary" id="email_field" type="text" value="<%= data.site.email %>" size="<%= data.site.email.length %>">
+                <button class="button button--text" id="email_to_clipboard" title="Copy to your clipboard" data-clipboard-target="#email_field" data-clipboard-action="copy">
+                    <%= component "icon", locals: {
+                        id: "clipboard",
+                        size: "small",
+                        margin: "left",
+                        fallback: "&rsaquo; Copy to clipboard"
+                    } %>
+                </button>
+            </div>
         </div>
 
         <!-- social media channels -->
-
         <div class="button-group button-group--horizontal l-margin-top l-margin-right">
             <% data.site.social.each do |channel| %>
                 <a class="button has-tooltip has-tooltip--hover" href="<%= channel.url %>" title="Say hi on <%= channel.name %>" target="_blank">
