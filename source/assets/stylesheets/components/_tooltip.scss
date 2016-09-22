@@ -7,49 +7,28 @@
 @import "../core/all";
 
 $tooltip-sides: over under right left; // sides a tooltip can appear on
+$tooltip-arrow-size: 12px;
+$tooltip-marginY: 0;
 
-// @mixin tooltip() {
-//     @include font-display;
-//     @include scale-type("eta");
-//     @include border-radius;
-//     display: block;
-//     position: absolute;
-//     overflow: visible;
-//     z-index: $z--high;
-//     padding: 0.5em 1em;
-//     min-width: 2em;
-//     max-width: 12em;
-//     text-align: center;
-//     color: theme('text' 'primary', 'reverse');
-//     background-color: theme('bg', 'reverse');
-//     // box-shadow: 0 2px rbga($blackberry, 0.2);
-
-//     strong { @include font-display('bold'); }
-// }
-
-@mixin tooltip-pointer($direction) {
-    $size: 12px;
-
-    @debug "triangle: #{$direction}";
-
-    @include triangle($size, theme('bg'), $direction);
+@mixin tooltip-arrow($direction) {
+    @include triangle($tooltip-arrow-size, theme('bg'), $direction);
 
     @if $direction == "down" {
-        margin-left: -($size/2);
-        left: 50%;
-        bottom: -($size/2);
+        // margin-left: -($tooltip-arrow-size/2);
+        // left: 50%;
+        // bottom: -($tooltip-arrow-size/2);
     } @elseif $direction == "up" {
-        margin-left: -($size/2);
-        left: 50%;
-        top: -($size/2);
+        // margin-left: -($tooltip-arrow-size/2);
+        // left: 50%;
+        // top: -($tooltip-arrow-size/2);
     } @elseif $direction == "left" {
-        margin-top: -($size/2);
-        top: 50%;
-        left: -($size/2);
+        // margin-top: -($tooltip-arrow-size/2);
+        // top: 50%;
+        // left: -($tooltip-arrow-size/2);
     } @elseif $direction == "right" {
-        margin-top: -($size/2);
-        top: 50%;
-        right: -($size);
+        // margin-top: -($tooltip-arrow-size/2);
+        // top: 50%;
+        // right: -($tooltip-arrow-size);
     }
 }
 
@@ -57,38 +36,58 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 // -------------------------------------------------------------------------- */
 
 .tooltip {
+    $line_height: 16px;
+    $paddingY: 6px;
+    $w: 14em;
+    $h: ($line_height + ($paddingY * 2));
+
     @include transition-default;
     @include font-display;
     @include scale-type("eta");
     @include border-radius;
     @include border;
-    display: block;
+    display: inline-block;
+    visibility: none;
     opacity: 0;
+    pointer-events: none;
     position: absolute;
     overflow: visible;
-    top: -3.5em;
+    // bottom: 150%;
+    top: -($h + $tooltip-arrow-size + $tooltip-marginY);
     left: 50%;
+    transform: translateX(-50%);
     z-index: $z--high;
-    padding: 0.5em 1em;
-    margin-left: -5em;
-    width: 10em;
+    padding: $paddingY 1em;
+    // margin-left: -($w/2);
+    width: $w;
+    // width: $w;
+    height: $h;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
     color: theme('text' 'primary');
     background-color: theme('bg');
-    // box-shadow: 0 2px rbga($blackberry, 0.2);
+    box-shadow: 0 2px rbga(#ff0000, 0.2);
 
     strong { @include font-display('bold'); }
 }
 
-// .tooltip::after,
-// .has-tooltip::after {
-//     @include tooltip-pointer("down");
-//     content: '';
-//     display: block;
-//     opacity: 0;
-//     position: absolute;
-//     z-index: $z--high;
-// }
+.tooltip::after,
+.has-tooltip::after {
+    @include transition-default;
+    @include tooltip-arrow("down");
+    content: ' ';
+    display: block;
+    visibility: none;
+    opacity: 0;
+    position: absolute;
+    top: -($tooltip-arrow-size + $tooltip-marginY);
+    left: 50%;
+    margin-left: -($tooltip-arrow-size/2);
+    z-index: $z--high;
+}
 
 
 /* Subcomponents
@@ -98,14 +97,6 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
     @extend .tooltip;
     content: attr(title);
 }
-
-// .has-tooltip {
-//     position: relative;
-
-//     &::before { @extend .tooltip; }
-// }
-
-//     .has-tooltip--hover {}
 
 
 /* Modifiers
@@ -118,14 +109,14 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 
 //             &::after {
 //                 @if $side == "under" {
-//                     @include tooltip-pointer("up");
+//                     @include tooltip-arrow("up");
 //                     border-top: none;
 //                 } @elseif $side == "left" {
-//                     @include tooltip-pointer("right");
+//                     @include tooltip-arrow("right");
 //                     left: auto;
 //                     bottom: auto;
 //                 } @elseif $side == "right" {
-//                     @include tooltip-pointer("left");
+//                     @include tooltip-arrow("left");
 //                     bottom: auto;
 //                 }
 //             }
@@ -138,5 +129,10 @@ $tooltip-sides: over under right left; // sides a tooltip can appear on
 /* State
 // -------------------------------------------------------------------------- */
 
+.tooltip.is-active,
 .has-tooltip.is-active,
-.has-tooltip--hover:hover::before { opacity: 1; }
+.has-tooltip--hover:hover::before,
+.has-tooltip--hover:hover::after {
+    visibility: visible;
+    opacity: 1;
+}
