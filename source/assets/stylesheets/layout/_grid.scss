@@ -36,10 +36,10 @@ $grid-gutter--outside: gutter('wide'); // local reference to global spacing -> s
 //     @return nth($grid-scale, $n);
 // }
 
-$ms-base: 1;
-$ms-ratio: 1.2;
+// $ms-base: 1;
+// $ms-ratio: 1.2;
 
-@debug ms-list(1, 10, $ms-base, $ms-ratio);
+// @debug ms-list(1, 10, $ms-base, $ms-ratio);
 
 $grid-default: ms(1) ms(4);
 

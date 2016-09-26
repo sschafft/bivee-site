@@ -39,7 +39,6 @@
 @import "layout/grid";
 @import "layout/wrapper";
 // @import "layout/sidebar";
-@import "layout/bookend";
 @import "layout/visibility";
 
 /* /////////////////////////////////////////////////////////////////////////////
@@ -49,15 +48,16 @@
 
 /* --- Atoms ---------------------------------------------------------------- */
 
-@import "components/icon";
-@import "components/button";
-@import "components/tooltip";
+@import "modules/icon";
+@import "modules/button";
+@import "modules/tooltip";
 
 /* --- Molecules ------------------------------------------------------------ */
 
-@import "components/main_header";
-@import "components/gallery";
-@import "components/cover";
+@import "modules/bookend";
+@import "modules/main_header";
+@import "modules/gallery";
+@import "modules/cover";
 
 /* --- Organisms ------------------------------------------------------------ */
 
@@ -67,24 +67,3 @@
 // -> put quick and dirty hacks here, then clean up & organize later
 ///////////////////////////////////////////////////////////////////////////// */
 
-// object model placeholder classes
-// %field {
-//     display: block;
-//     border: 1px solid #ccc;
-//     padding: 1em;
-//     margin: 1em 0;
-// }
-
-// .object { @extend %field; }
-
-// .field { @extend %field; }
-
-// .reference {
-//     @extend %field;
-//     background-color: #D2ECF2;
-// }
-
-// .metadata {
-//     @extend %field;
-//     background-color: #F2D2D2;
-// }

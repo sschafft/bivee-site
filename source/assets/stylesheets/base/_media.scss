@@ -100,6 +100,8 @@ figure { margin: 0; }
 // .media-aspect-1-1 { @include media-aspect(1, 1); }
 .media-aspect-1-2 { @include media-aspect(ms(1), ms(2)); }
 
+@debug("scale: #{$ms-ratio}, aspect: ms(1): #{ms(1)} | ms(2): #{ms(2)}");
+
 // fit the entire content in the frame instead of filling it
 .media-aspect-content.media-aspect-content--contain {
     background-size: contain;
