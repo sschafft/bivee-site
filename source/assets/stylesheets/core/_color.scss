@@ -57,12 +57,20 @@ $gray--dark : #464C56;
 $gray       : #9FA0AE;
 
 // highlights
-// -> 5 flavors of Bivee. hat tip to Christie.
+// -> 5 flavors of Bivee. Hat tip to Christie.
 $blueberry  : #11A9BE;
 $raspberry  : #EF4759;
 $orange     : #EABF32;
 $kiwi       : #9BC73F;
 $blackberry : #263750;
+
+// setting up a map so we can traverse highlights
+$highlights: (
+    $blueberry  : #11A9BE,
+    $raspberry  : #EF4759,
+    $orange     : #EABF32,
+    $kiwi       : #9BC73F
+);
 
 // Themes
 // -----------------------------------------------------------------------------
@@ -199,11 +207,13 @@ $themes: (
     }
 }
 
-/* Themes
-// -> use the helper class to apply a theme to a module
+/* Utility classes
 // -------------------------------------------------------------------------- */
 
-body, .c-theme-default, %theme--default {
+/* --- Themes --------------------------------------------------------------- */
+// -> use the class to apply a theme to a container
+
+body, .c-theme-default {
     @include theme('default');
 }
 
@@ -216,9 +226,8 @@ body, .c-theme-default, %theme--default {
 }
 
 
-/* Helper classes
-// -> use on individual elements to apply special color treatment
-// -------------------------------------------------------------------------- */
+/* --- Individual colors ---------------------------------------------------- */
+// -> use on any element to apply special color treatment
 
 .c-text-primary { @include color('text' 'primary', $important: true); }
 .c-text-secondary { @include color('text' 'secondary', $important: true); }
