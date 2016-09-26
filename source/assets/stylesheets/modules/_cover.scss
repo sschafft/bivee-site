@@ -1,5 +1,5 @@
 /* =============================================================================
-//  Cover component
+//  Cover module
 // -> a main heading for content
 // ========================================================================== */
 
@@ -20,8 +20,9 @@ category: Molecules
 .cover {
     @include rem(padding-top, ms(12, $type-size-default));
     display: block;
+    position: relative;
     min-height: 400px;
-    min-height: 80vh;
+    min-height: 85vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -32,6 +33,35 @@ category: Molecules
     // }
 }
 
-/* Subcomponents
+/* Modifiers
 // -------------------------------------------------------------------------- */
 
+.cover--overlay::before {
+    $bg: theme('accent');
+
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $z--low;
+    opacity: 0.8;
+    background-color: $bg;
+
+    @include yep(cssgradients, rgba) {
+        background-color: transparent;
+        // @include linear-gradient(to bottom, rgba(theme('accent'), 0.9) 0%, rgba(theme('accent'), 0.1) 20%);
+
+        background-image: linear-gradient(
+            $bg 40%,
+            transparent
+        );
+    }
+}
+
+/* Submodules
+// -------------------------------------------------------------------------- */
+
+.cover-content { z-index: $z--middle; }

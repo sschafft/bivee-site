@@ -14,11 +14,11 @@
 <%
     image ||= false
     overlay ||= false
-    theme ||= "reverse"
+    theme ||= "wash"
 %>
 
-<div class="cover<%= ' cover--overlay' if overlay %> c-theme-wash"<%= "style='background-image: url('#{image}');'" if image %>>
-    <div class="l-wrapper l-wrapper--wide t-centered">
+<div class="cover<%= ' cover--overlay' if overlay %> c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
+    <div class="cover-content l-wrapper l-wrapper--wide t-centered">
         <%= yield %>
     </div>
 </div>

@@ -13,7 +13,7 @@
 // default type sizes
 $type-size-default: 16px;
 $type-size-amp: 1.1em; // size of ampersands relative to their context
-$type-line_height: 1.5;
+$type-line_height: 1.6;
 
 // set type to default body size using REMs
 // -> useful for resetting type size on a container to override parents
@@ -53,7 +53,7 @@ h1, h2, h3, h4, h5, h6,
 
 // body/inline text
 p {
-    @include scale-type('epsilon');
+    @include scale-type('zeta');
     @include color('text' 'secondary');
 }
 
@@ -109,7 +109,7 @@ address,
 // the first paragraph, often set slightly bigger
 .t-lead {
     @include scale-type('epsilon');
-    @include color('text' 'primary');
+    @include color('text' 'secondary');
 }
 
 .t-caps { text-transform: uppercase !important; }

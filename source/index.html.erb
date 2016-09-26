@@ -3,7 +3,10 @@ title: home
 ---
 
 <!-- Cover -->
-<% component "cover", locals: { theme: "wash" } do %>
+<% component "cover", locals: {
+    image: "assets/images/covers/cover-drawing.jpg",
+    overlay: true
+} do %>
     <h1 class="t-heading t-scale-alpha">We change the way people and organizations work.</h1>
     <p class="t-heading t-heading--sub t-scale-delta c-text-secondary l-margin-top">We’re an advisory and design firm who can help you build processes, technology, and partnerships to meet your goals.</p>
 <% end %>
@@ -48,15 +51,16 @@ title: home
                 <strong>Send us a message</strong>
             </a>
             <div class="button">
+                <%# data.site.email %>
                 <input class="form-field form-field--invisible c-text-primary" id="email_field" type="text" value="<%= data.site.email %>" size="<%= data.site.email.length %>" readonly>
-                <button class="button button--text" id="email_to_clipboard" title="Copy to your clipboard" data-clipboard-target="#email_field" data-clipboard-action="copy">
-                    <%= component "icon", locals: {
+                <!-- <button class="button button--text" id="email_to_clipboard" title="Copy to your clipboard" data-clipboard-target="#email_field" data-clipboard-action="copy">
+                    <%# component "icon", locals: {
                         id: "clipboard",
                         size: "small",
                         margin: "left",
                         fallback: "&rsaquo; Copy to clipboard"
                     } %>
-                </button>
+                </button> -->
             </div>
         </div>
 

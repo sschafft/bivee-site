@@ -80,17 +80,17 @@ $themes: (
         'well'           : lighten($gray, 31),
         'border'         : lighten($gray, 20),
         'highlight'      : $blueberry,
-        'accent'         : $raspberry
+        'accent'         : $kiwi
     ),
     'reverse': (
         'text': (
             'primary'    : #fff,
-            'secondary'  : lighten($blackberry, 70),
+            'secondary'  : lighten($blackberry, 65),
             'tertiary'   : lighten($blackberry, 20)
         ),
         'bg'             : $blackberry,
         'well'           : darken($blackberry, 7),
-        'border'         : lighten($blackberry, 20),
+        'border'         : darken($blackberry, 15),
         'highlight'      : $blueberry,
         'accent'         : $raspberry
     ),
