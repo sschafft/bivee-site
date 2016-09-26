@@ -10,11 +10,11 @@
     - layout/bookend
 %>
 
-<footer class="l-bookend l-bookend--horizontal@xsmall c-theme-reverse" role="contentinfo">
-    <% link_to "/", class: "l-bookend-item l-bookend-item--left", style: "max-width: 70px;" do %>
+<footer class="bookend bookend--horizontal@xsmall c-theme-reverse" role="contentinfo">
+    <% link_to "/", class: "bookend-item bookend-item--left", style: "max-width: 70px;" do %>
         <%= component "logo" %>
     <% end %>
-    <small class="l-bookend-item l-bookend-item--right l-margin-top-narrow l-no-margin@xsmall t-right@xsmall t-font-display c-text-tertiary">
+    <small class="bookend-item bookend-item--right l-margin-top-narrow l-no-margin@xsmall t-right@xsmall t-font-display c-text-tertiary">
         &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
     </small>
 </footer>
