@@ -12,6 +12,9 @@ gem "middleman-google-analytics"
 # gem "middleman-imageoptim"
 gem "middleman-blog"
 
+# Middleman Deployment
+gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
+
 # Markdown engine
 gem 'kramdown'
 
