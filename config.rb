@@ -30,6 +30,7 @@ set :markdown_engine, :kramdown
 activate :deploy do |deploy|
   deploy.deploy_method = :git
   # Optional Settings
+  deploy.build_before = true # default: false
   deploy.remote   = 'deploy-repo' # remote name or git url, default: origin
   deploy.branch   = 'master' # default: gh-pages
   deploy.commit_message = 'Deployed to master'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`

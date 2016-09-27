@@ -16,5 +16,4 @@
 
 - Add remote to main bivee site: `git remote add deploy-repo git@github.com:biveeco/biveeco.github.io.git`
 - https://github.com/biveeco/biveeco.github.io
-- Run `middleman build`
 - Run `middleman deploy`
