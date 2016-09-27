@@ -8,10 +8,9 @@
 // =============================================================================
 
 // --- NPM libs ----------------------------------------------------------------
-// -> in /node_modules
+// -> in /node_modules via $ npm install
 
 @import "bourbon/app/assets/stylesheets/bourbon";
-@import "SassyLists/dist/SassyLists";
 @import "modernizr-mixin/stylesheets/modernizr";
 @import "modularscale-sass/stylesheets/modular-scale";
 @import "include-media/dist/include-media";
@@ -19,5 +18,4 @@
 // --- vendor libs -------------------------------------------------------------
 // -> in assets/stylesheets/vendor
 
-@import "vendor/sass-units";
-@import "vendor/sass-type-helpers";
+@import "../vendor/sass-units";

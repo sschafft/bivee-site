@@ -1,0 +1,39 @@
+/* =============================================================================
+//  SVG styles
+// -> for icon sprites, vector graphics, etc.
+// ========================================================================== */
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.icon {
+    display: inline-block;
+    height: 1.4em;
+    width: 1.4em;
+    max-height: 100%;
+    max-width: 100%;
+    margin-top: -0.15em; // scooch up a little on the baseline
+    vertical-align: middle;
+    color: inherit;
+    fill: currentColor !important;
+
+    svg {
+        margin: 0;
+        width: 100%;
+        max-height: 100%;
+        fill: currentColor !important;
+    }
+}
+
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+.icon--small {
+    height: 1em;
+    width: 1em;
+}
+
+// add a small margin, e.g. when an icon sits beside text
+.icon--margin-left { margin-left: 0.3em; }
+.icon--margin-right { margin-right: 0.3em; }
+

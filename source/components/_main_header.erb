@@ -1,13 +1,6 @@
-<% classes ||= "" %>
-
-<header class="main_header <%= classes %>" role="banner">
-    <%= link_to "Bivee", "/", :class => "logo logo--bivee" %>
-    <nav class="main_header-nav">
-        <ul>
-            <li><%= link_to "Work", "/case_studies", :class => "main_nav-item" %></li>
-            <li><%= link_to "About", "/about", :class => "main_nav-item" %></li>
-            <li><%= link_to "Blog", "/blog", :class => "main_nav-item" %></li>
-        </ul>
-    </nav>
-    <%= link_to "Contact", "#", :class => "main_header-utility_nav" %>
+<header class="main_header bookend bookend--horizontal l-padding-top-wide c-theme-wash c-no-bg" role="banner">
+    <% link_to "/", :class => "logo bookend-item bookend-item--left" do %>
+        <%= component "logo", locals: { filename: "logo-bivee-reverse-bw" } %>
+    <% end %>
+    <%= link_to "Contact us", "mailto:#{data.site.email}", :class => "button button--small bookend-item bookend-item--right" %>
 </header>

@@ -1,26 +1,30 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <!-- Use title if it's in the page frontmatter -->
+        <%# Use title if it's in the page frontmatter %>
         <title><%= data.site.title %><% if current_resource.data.title.present? && current_resource.data.title != "home" %> | <%= current_resource.data.title %><% end %></title>
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-        <%= javascript_include_tag "bundle.critical" %>
-        <%= stylesheet_link_tag "vendor/normalize", :main %>
+        <%# critical JS (modernizr, picturefill, etc.) %>
+        <%= javascript_include_tag "critical.bundle" %>
+        <%= stylesheet_link_tag :main %>
     </head>
 
     <body>
-        <%= partial "components/main_header" %>
+        <%= component "spritemap" %>
+        <%= component "main_header" %>
 
         <%= yield %>
 
-        <%= partial "components/main_footer" %>
+        <%= component "main_footer" %>
+
+        <%# not using any serious JS right now; save this for later %>
         <%= javascript_include_tag :bundle %>
     </body>
 </html>

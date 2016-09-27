@@ -46,50 +46,73 @@ The second parameter is optional, and theme() will default to the 'default' them
 
 */
 
-// @import "libs";
+@import "libs";
 
 // Base Palette
 // ----------------------------------------------------------------------
 // -> PRIVATE, do not use outside this settings file
 
 // neutrals
-$black      : #333;
-$gray       : #666;
+$gray--dark : #464C56;
+$gray       : #9FA0AE;
 
 // highlights
-$blue       : #418FBF;
-$red        : #EF4759;
+// -> 5 flavors of Bivee. Hat tip to Christie.
+$blueberry  : #11A9BE;
+$raspberry  : #EF4759;
 $orange     : #EABF32;
-$green      : #9BC73F;
-$blue--dark : #263750;
+$kiwi       : #9BC73F;
+$blackberry : #263750;
+
+// setting up a map so we can traverse highlights
+$highlights: (
+    $blueberry  : #11A9BE,
+    $raspberry  : #EF4759,
+    $orange     : #EABF32,
+    $kiwi       : #9BC73F
+);
 
 // Themes
-// ----------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // -> PUBLIC, use these for color references
 
 // note: highlight is default; variations are assigned in local styles
 $themes: (
     'default': (
         'text': (
-            'primary'    : $black,
-            'secondary'  : darken($gray, 10),
+            'primary'    : $blackberry,
+            'secondary'  : $gray--dark,
             'tertiary'   : $gray
         ),
         'bg'             : #fff,
-        'well'           : lighten($gray, 20),
+        'well'           : lighten($gray, 31),
         'border'         : lighten($gray, 20),
-        'highlight'      : $blue
+        'highlight'      : $blueberry,
+        'accent'         : $kiwi
     ),
     'reverse': (
         'text': (
             'primary'    : #fff,
-            'secondary'  : lighten($gray, 20),
-            'tertiary'   : lighten($black, 20)
+            'secondary'  : lighten($blackberry, 65),
+            'tertiary'   : lighten($blackberry, 20)
         ),
-        'bg'             : $black,
-        'well'           : darken($black, 20),
-        'border'         : lighten($black, 20),
-        'highlight'      : $blue
+        'bg'             : $blackberry,
+        'well'           : darken($blackberry, 7),
+        'border'         : darken($blackberry, 15),
+        'highlight'      : $blueberry,
+        'accent'         : $raspberry
+    ),
+    'wash': (
+        'text': (
+            'primary'    : #fff,
+            'secondary'  : $blackberry,
+            'tertiary'   : $blackberry
+        ),
+        'bg'             : $blueberry,
+        'well'           : darken($blueberry, 5),
+        'border'         : #fff,
+        'highlight'      : #fff,
+        'accent'         : $blackberry
     )
 );
 
@@ -99,17 +122,66 @@ $themes: (
 //      color: theme('text' 'primary');
 //      color: theme('highlight', 'reverse');
 @function theme($colors, $name: 'default') {
-    $map: map-get($themes, $name);
+    // first extract the 'theme' nested map
+    $theme: map-get($themes, $name);
 
-    @each $color in $colors {
-        $map: map-get($map, $color);
+    // now get the nested map for the first color value
+    $color: map-get($theme, nth($colors, 1));
+    // @debug "#{$name}: #{$colors} - #{map-get($theme, nth($colors, 1))}";
+
+    // if there's more than one color string in the $colors list, dig deeper
+    @if length($colors) > 1 {
+        @for $i from 2 through length($colors) {
+            // keep updating $color with the next nested map until we've reached the end of the list
+            $color: map-get($color, nth($colors, $i));
+            // @debug(nth($colors, 1), $i);
+        }
     }
-
-    @return $map;
-
+    // @debug(type-of($color));
+    @return $color;
 }
 
-// @debug theme('text' 'primary', 'reverse');
+// better lighten/darken functions
+// -> https://gist.github.com/triple-j/065cc9002ae4f8645457
+@function tint($color, $percent) {
+    @return mix(white, $color, $percent * 1%);
+}
+
+@function shade($color, $percent) {
+    @return mix(black, $color, $percent * 1%);
+}
+
+// darken or lighten a given color
+// -> used by color mixin below
+@function modify_color($hex, $lighten: 0, $darken: 0) {
+    @if $lighten > 0 & $hex != #fff {
+        @return tint($hex, $lighten);
+    } @elseif $darken > 0 {
+        @return shade($hex, $darken);
+    } @else {
+        @return $hex;
+    }
+}
+
+// add colors for each theme
+// -> PUBLIC
+// -> USAGE:
+//      @include color(text primary, background-color);
+@mixin color($color, $attr: color, $important: false, $lighten: 0, $darken: 0) {
+    // set color for default theme
+    #{$attr}: modify_color(theme($color), $lighten, $darken)#{if($important != false, " !important", "")};
+
+    // set the color of this element to match the theme of this context
+    @each $theme, $colors in $themes {
+        // @debug($theme);
+        @if $theme != "default" {
+            // set color to theme of either this element or its parent
+            &.c-theme-#{$theme}, .c-theme-#{$theme} & {
+                #{$attr}: modify_color(theme($color, $theme), $darken, $lighten)#{if($important != false, " !important", "")};
+            }
+        }
+    }
+}
 
 // Theme Globals
 // ----------------------------------------------------------------------
@@ -118,42 +190,62 @@ $themes: (
 @mixin theme($theme) {
     color: theme('text' 'secondary', $theme);
     background-color: theme('bg', $theme);
-    border-color: theme('border', $theme);
+    border-color: theme('border', $theme) !important;
 
     // highlight color when you select something
     ::selection {
-        color: theme(bg, $theme);
-        background: theme('highlight', $theme);
-        text-shadow: none;
+      background: theme('highlight', $theme);
+      color: #fff;
+      text-shadow: none;
     }
 
     // ditto, for mozilla engine
     ::-moz-selection {
-        color: theme(bg, $theme);
-        background: theme('highlight', $theme);
-        text-shadow: none;
+      background: theme('highlight', $theme);
+      color: #fff;
+      text-shadow: none;
     }
-
-    // helper classes
-    .well { background: theme('well', $theme); }
-
-    .highlight { color: theme('highlight', $theme); }
 }
 
-/* Themes
-// -> @extend these to apply a theme to a module
+/* Utility classes
 // -------------------------------------------------------------------------- */
-body {
+
+/* --- Themes --------------------------------------------------------------- */
+// -> use the class to apply a theme to a container
+
+body, .c-theme-default {
     @include theme('default');
 }
 
-%theme--reverse {
-    @include theme('reverse');
+// create utility classes for each color theme from the $themes map
+// e.g. ".c-theme-reverse" and ".c-theme-wash"
+@each $theme, $colors in $themes {
+    @if $theme != "default" {
+        .c-theme-#{$theme} { @include theme('#{$theme}'); }
+    }
 }
 
-// make an element the highlight color
-.highlight {
-    color: theme(highlight);
 
-    > a { color: inherit; }
+/* --- Individual colors ---------------------------------------------------- */
+// -> use on any element to apply special color treatment
+
+.c-text-primary { @include color('text' 'primary', $important: true); }
+.c-text-secondary { @include color('text' 'secondary', $important: true); }
+.c-text-tertiary { @include color('text' 'tertiary', $important: true); }
+
+.c-highlight { @include color('highlight', $important: true); }
+.c-highlight-bg { @include color('highlight', 'background-color'); }
+
+.c-accent { @include color('accent', $important: true); }
+.c-accent-bg { @include color('accent', 'background-color'); }
+
+.c-well { @include color('well', 'background-color'); }
+
+.c-bg { @include color('bg'); }
+.c-no-bg { background-color: transparent !important; }
+
+// kill background colors in print
+// -> note all elements are set to color: black in base/_print.scss
+@media print {
+    [class^="c-"] { background-color: transparent !important; }
 }

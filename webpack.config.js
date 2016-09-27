@@ -7,13 +7,13 @@ var modulePath = "/source/assets/javascripts";
 module.exports = {
     entry: {
         critical: ["vendor/modernizr.js", "picturefill"],
-        app: "." + modulePath + "/main.js",
+        main: "." + modulePath + "/main.js",
     },
     resolve: {
         root: __dirname + modulePath,
     },
     output: {
-        path: __dirname + '/.tmp/dist',
+        path: __dirname + '/source/assets/dist/javascripts',
         filename: "bundle.js",
     },
     module: {
@@ -30,6 +30,6 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin("critical", "critical.bundle.js"),
-        new Clean(['.tmp']),
+        new Clean(['source/assets/dist/javascripts']),
     ]
 };

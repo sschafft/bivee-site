@@ -23,3 +23,6 @@
 # Ignore node modules
 /node_modules/
 **/npm-debug.log
+
+# Ignore generated assets
+/source/assets/dist/
