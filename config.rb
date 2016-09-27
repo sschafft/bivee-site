@@ -37,6 +37,8 @@ activate :deploy do |deploy|
   # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
 end
 
+ignore '/README.md' # Ignores the main build repo README
+
 
 ###
 # Set up the blog extension
