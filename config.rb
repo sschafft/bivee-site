@@ -27,6 +27,7 @@ set :markdown_engine, :kramdown
 # Middleman Deployment
 ###
 
+# @scott TODO update deploy settings for new repository branch
 activate :deploy do |deploy|
   deploy.deploy_method = :git
   # Optional Settings
@@ -90,10 +91,10 @@ end
 #     }, :ignore => true
 # end
 
-# activate :directory_indexes
-# page "README.md", :directory_index => false
-# page "LICENSE", :directory_index => false
-# page "404.html", :directory_index => false
+activate :directory_indexes
+page "README.md", :directory_index => false
+page "LICENSE", :directory_index => false
+page "404.html", :directory_index => false
 
 activate :relative_assets
 
