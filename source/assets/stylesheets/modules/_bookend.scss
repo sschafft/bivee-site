@@ -1,0 +1,88 @@
+/* =============================================================================
+//  l-Bookend layout utility
+//  -> a narrow, horizontal 'strip' appearing at the top and bottom of a page
+//  -> used as a common layout foundation for the main header and footer
+// ========================================================================== */
+
+/*doc
+---
+title: l-Bookend
+name: l-bookend
+category: Layout
+---
+
+*/
+
+@import "../core/all";
+@import "../layout/gutter";
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.bookend {
+    display: block;
+    padding: gutter() gutter('wide');
+}
+
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+@include breakpointify('.bookend--horizontal', true, 'xsmall' 'small') {
+    @include yep(flexbox) {
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(space-between);
+    }
+
+    .bookend-item--left {
+        display: inline-block;
+        float: left;
+
+        @include yep(flexbox, no-ie) {
+            float: none;
+            @include align-self(left);
+        }
+    }
+
+    .bookend-item--right {
+        display: inline-block;
+        float: right;
+
+        @include yep(flexbox, no-ie) {
+            float: none;
+            @include align-self(right);
+        }
+    }
+}
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.bookend-item {
+    @include clearfix;
+    display: block;
+    position: relative;
+    vertical-align: middle;
+    float: none;
+    clear: both;
+}
+
+    // @include breakpointify('.bookend-item--left', true, 'xsmall' 'small') {
+    //     display: inline-block;
+    //     float: left;
+
+    //     @include yep(flexbox, no-ie) {
+    //         float: none;
+    //         @include align-self(left);
+    //     }
+    // }
+    // @include breakpointify('.bookend-item--right', true, 'xsmall' 'small') {
+    //     display: inline-block;
+    //     float: right;
+
+    //     @include yep(flexbox, no-ie) {
+    //         float: none;
+    //         @include align-self(right);
+    //     }
+    // }
+

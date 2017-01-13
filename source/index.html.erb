@@ -1,0 +1,86 @@
+---
+title: home
+---
+
+<!-- Cover -->
+<% component "cover", locals: {
+    image: "assets/images/covers/cover-drawing.jpg",
+    overlay: true
+} do %>
+    <h1 class="t-heading t-scale-alpha">We change the way people and organizations work.</h1>
+    <p class="t-heading t-heading--sub t-scale-delta c-text-secondary l-margin-top">
+        We’re an advisory and design firm who can help you build processes, technology, and partnerships to meet your goals.
+    </p>
+<% end %>
+
+<!-- Approach -->
+<% component "panel", locals: { theme: "reverse" } do %>
+    <% component "blurb", locals: { heading: "Our approach" } do %>
+        People are at the heart of our work. Our human-centered design approach builds momentum around collaborative problem-solving to find innovative solutions, empower teams, and create champions for change. We look at new challenges through three lenses: building the capacity of people and organizations, discovering new opportunities through partnerships, and approaching technology as a tool to inspire growth.
+    <% end %>
+<% end %>
+
+<!-- Staff -->
+<% component "panel", locals: { borders: "none" } do %>
+    <% component "blurb", locals: { heading: "Our team" } do %>
+        We’re an advisory firm with experience in strategy, technology, and design development for organizations of all kinds – private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+    <% end %>
+    <!-- list of staff photos -->
+    <div class="l-wrapper l-wrapper--wide">
+        <% find_staff = sitemap.resources.select {|r| r.path.include?("staff") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>
+    </div>
+<% end %>
+
+<!-- Contact us -->
+<% component "panel", locals: { theme: "wash" } do %>
+    <% component "blurb", locals: { heading: "Contact us" } do %>
+        We’re based in the Washington DC Metro Area but serve clients globally. We’d love to hear about your ideas and the problems you want to solve. Let’s get the conversation started.
+    <% end %>
+
+    <div class="l-wrapper">
+        <h3>Mclean:</h3>
+        <p>1350 Beverly Road, Suite 115-197 Mclean, VA, 22101</p>
+
+        <h3>Washington, DC:</h3>
+        <p>1875 Connecticut Ave NW, Washington, DC 20009</p>
+    </div>
+
+    <!-- contact buttons -->
+    <div class="l-wrapper l-wrapper--wide t-centered">
+
+        <!-- email -->
+        <div class="button-group button-group--flush button-group--horizontal@xsmall l-margin-top l-margin-right">
+            <a class="button" href="mailto:<%= data.site.email %>">
+                <%= component "icon", locals: {
+                    id: "email",
+                    size: "small",
+                    margin: "right",
+                    role: "presentation"
+                } %>
+                <strong>Send us a message</strong>
+            </a>
+            <div class="button">
+                <%# data.site.email %>
+                <input class="form-field form-field--invisible c-text-primary" id="email_field" type="text" value="<%= data.site.email %>" size="<%= data.site.email.length %>" readonly>
+                <!-- <button class="button button--text" id="email_to_clipboard" title="Copy to your clipboard" data-clipboard-target="#email_field" data-clipboard-action="copy">
+                    <%# component "icon", locals: {
+                        id: "clipboard",
+                        size: "small",
+                        margin: "left",
+                        fallback: "&rsaquo; Copy to clipboard"
+                    } %>
+                </button> -->
+            </div>
+        </div>
+
+        <!-- social media channels -->
+        <div class="button-group button-group--horizontal l-margin-top l-margin-right">
+            <% data.site.social.each do |channel| %>
+                <a class="button has-tooltip has-tooltip--hover" href="<%= channel.url %>" title="Say hi on <%= channel.name %>" target="_blank">
+                    <%= component "icon", locals: { id: channel.icon, fallback: channel.name } %>
+                </a>
+            <% end %>
+        </div>
+    </div>
+<% end %>
