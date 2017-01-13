@@ -1,0 +1,17 @@
+<%#
+    Staff Portrait component
+    - A scaled photo of a team member
+
+    Locals:
+    - STRING image: the photo to display
+    - STRING classes (optional): additional modifier classes, if needed
+
+    Styles:
+    - components/gallery
+%>
+
+<% classes ||= false %>
+
+<div class="media-aspect-1-2 l-margin-bottom-narrow border-round<%= " #{classes}" if classes %>">
+    <span class="media-aspect-content c-well" style="background-image: url('assets/images/portraits/<%= image %>');"></span>
+</div>

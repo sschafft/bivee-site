@@ -2,7 +2,7 @@
     Gallery component
     - An even grid of content references (e.g. staff, blog posts, etc.) or images
 
-    Locals:
+Locals:
     - ARRAY staff: the staff to display
     - STRING classes (optional): additional modifier classes, if needed
 
@@ -15,14 +15,11 @@
 <ul class="gallery<%= " #{classes}" if classes %>">
     <% staff.each do |profile| %>
         <li class="gallery-item t-centered">
-             <%# link_to profile.url, class: "media-aspect-1-2 l-margin-bottom-narrow border-round" do %>
-            <div class="media-aspect-1-2 l-margin-bottom-narrow border-round">
-                <span class="media-aspect-content c-well" style="background-image: url('assets/images/portraits/<%= profile.data.portrait %>');"></span>
-            </div>
-            <%# end %>
-            <h3 class="t-heading t-heading--sub t-scale-epsilon"><%= profile.data.name %><%# link_to profile.data.name, profile.url %></h3>
-            <%# link_to profile.data.job_title, profile.url, class: "t-heading t-heading--slug t-scale-eta c-accent" %>
-            <span class="t-heading t-heading--slug t-scale-eta c-highlight"><%= profile.data.job_title %></span>
+            <% link_to profile.url do %>
+                <%= component "staff_portrait", locals: { image: profile.data.portrait } %>
+            <% end %>
+            <h3 class="t-heading t-heading--sub t-scale-epsilon"><%= link_to profile.data.name, profile.url %></h3>
+            <%= link_to profile.data.job_title, profile.url, class: "t-heading t-heading--slug t-scale-eta c-highlight" %>
         </li>
     <% end %>
 </ul>
