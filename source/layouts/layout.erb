@@ -18,7 +18,8 @@
 
     <body>
         <%= component "spritemap" %>
-        <%= component "main_header" %>
+        <% header_theme = current_resource.data.title == "home" ? 'wash' : 'default' %>
+        <%= component "main_header", locals: { theme: header_theme } %>
 
         <%= yield %>
 
