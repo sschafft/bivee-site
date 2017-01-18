@@ -17,10 +17,14 @@ category: Molecules
 // -------------------------------------------------------------------------- */
 
 .main_header {
+    @include rem(padding-bottom, 42px);
+    position: relative;
+}
+
+.main_header--overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     padding-bottom: 0;
-    z-index: $z--high;
 }

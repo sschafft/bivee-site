@@ -1,3 +1,13 @@
+<%#
+    Staff Profile layout
+    - a bio & details of each staff person
+%>
+
 <% wrap_layout :layout do %>
     <%= component "staff_portrait", locals: { image: current_page.data.portrait } %>
+    <h1><%= current_page.data.name %></h1>
+    <span><%= current_page.data.job_title %></span>
+    <%= yield %>
+    <% find_staff = sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == current_page.data.name }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+    <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>
 <% end %>

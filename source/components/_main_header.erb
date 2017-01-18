@@ -12,7 +12,7 @@
 
 <% theme ||= "default" %>
 
-<header class="main_header bookend bookend--horizontal l-padding-top-wide c-theme-<%= theme %> c-no-bg" role="banner">
+<header class="main_header bookend bookend--horizontal l-padding-top-wide c-theme-<%= theme %> c-no-bg border-bottom" role="banner">
     <% link_to "/", :class => "logo bookend-item bookend-item--left" do %>
         <%= component "logo", locals: { filename: "logo-bivee#{'-reverse-bw' unless theme == "default" }" } %>
     <% end %>

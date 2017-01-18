@@ -9,6 +9,8 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
+page '/staff/*', layout: 'staff_profile'
+
 # General configuration
 
 config[:images_dir] = 'assets/images'
