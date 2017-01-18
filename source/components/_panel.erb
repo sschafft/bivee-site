@@ -16,6 +16,7 @@
 %>
 
 <%
+    container ||= "section"
     slug ||= false
     theme ||= "default"
     classes ||= false
@@ -31,9 +32,9 @@
     end
 %>
 
-<section class="l-padding-top-wide l-padding-bottom-wide<%= border_list %><%= " c-theme-#{theme}" if theme != "default" %><%= " #{classes}" if classes %>">
+<<%= container %> class="l-padding-top-wide l-padding-bottom-wide<%= border_list %><%= " c-theme-#{theme}" if theme != "default" %><%= " #{classes}" if classes %>">
     <% if slug %>
         <span class="t-heading t-heading--slug t-scale-zeta t-centered"><%= slug %></span>
     <% end %>
     <%= yield %>
-</section>
+</<%= container %>>
