@@ -4,10 +4,24 @@
 %>
 
 <% wrap_layout :layout do %>
-    <%= component "staff_portrait", locals: { image: current_page.data.portrait } %>
-    <h1><%= current_page.data.name %></h1>
-    <span><%= current_page.data.job_title %></span>
-    <%= yield %>
-    <% find_staff = sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == current_page.data.name }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-    <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>
+
+	<!-- Staff profile -->
+    <article class = "l-wrapper l-margin-top-wide l-margin-bottom-wide">
+	    <%= component "staff_portrait", locals: { image: current_page.data.portrait } %>
+	    <header class = "l-margin-top-wide l-margin-bottom-wide t-centered">
+		    <h1 class = "t-heading t-scale-alpha"><%= current_page.data.name %></h1>
+		    <span class = "t-heading t-heading--slug c-highlight"><%= current_page.data.job_title %></span>
+		</header>
+	    <%= yield %>
+    </article>
+
+    <!-- List of other staff -->
+    <% component "panel", locals: { theme: "reverse" } do %>
+		<div class = "l-wrapper l-wrapper--wide">
+			<h1 class = "t-heading t-scale-beta t-centered">Meet the rest of the team</h1>
+			<% find_staff = sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == current_page.data.name }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+			<%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>
+		</div>
+    <% end %>
+    
 <% end %>
