@@ -114,6 +114,7 @@ end
 
 # Build-specific configuration
 configure :build do
+  config[:host] = "http://www.bivee.co"
   # For example, change the Compass output style for deployment
   # activate :minify_css
 
