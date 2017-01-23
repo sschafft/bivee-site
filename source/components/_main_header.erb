@@ -10,9 +10,12 @@
     - layout/bookend
 %>
 
-<% theme ||= "default" %>
+<%
+    overlay ||= false
+    theme ||= "default"
+%>
 
-<header class="main_header bookend bookend--horizontal l-padding-top-wide c-theme-<%= theme %> c-no-bg border-bottom" role="banner">
+<header class="main_header <%= "main_header--overlay" if overlay == true %> bookend bookend--horizontal l-padding-top-wide c-theme-<%= theme %> c-no-bg" role="banner">
     <% link_to "/", :class => "logo bookend-item bookend-item--left" do %>
         <%= component "logo", locals: { filename: "logo-bivee#{'-reverse-bw' unless theme == "default" }" } %>
     <% end %>
