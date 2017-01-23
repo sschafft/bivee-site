@@ -42,7 +42,15 @@ h1, h2, h3, h4, h5, h6,
 
     & + & { margin-top: 0.25em; }
 
-    a { color: inherit; }
+    a { 
+        color: inherit !important; 
+       
+        // @Jay TODO: specificity issue here
+       // &:hover, &:active {
+       //     @include color("highlight");
+       // }
+
+    }
 
     strong {
         font-family: inherit;
