@@ -104,7 +104,7 @@ activate :relative_assets
 configure :development do
     activate :external_pipeline,
         name: :npm,
-        command: 'npm start',
+        command: build? ? 'npm run build' : 'npm start',
         source: "source/assets/dist",
         latency: 1
 
