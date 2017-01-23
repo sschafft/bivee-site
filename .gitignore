@@ -25,4 +25,5 @@
 **/npm-debug.log
 
 # Ignore generated assets
-/source/assets/dist/
+# -> Need to keep these, apparently
+# /source/assets/dist/
