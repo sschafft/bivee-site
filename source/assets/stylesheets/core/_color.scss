@@ -55,22 +55,20 @@ The second parameter is optional, and theme() will default to the 'default' them
 // neutrals
 $gray--dark : #464C56;
 $gray       : #9FA0AE;
-
-// highlights
-// -> 5 flavors of Bivee. Hat tip to Christie.
-$blueberry  : #11A9BE;
-$raspberry  : #EF4759;
-$orange     : #EABF32;
-$kiwi       : #9BC73F;
 $blackberry : #263750;
 
-// setting up a map so we can traverse highlights
+// highlights
+// -> 4 flavors of Bivee. Hat tip to Christie.
 $highlights: (
-    $blueberry  : #11A9BE,
-    $raspberry  : #EF4759,
-    $orange     : #EABF32,
-    $kiwi       : #9BC73F
+    'blueberry'  : #11A9BE,
+    'raspberry'  : #EF4759,
+    'orange'    : #EABF32,
+    'kiwi'       : #9BC73F
 );
+
+@function highlight($name) {
+    @return map-get($highlights, $name);
+}
 
 // Themes
 // -----------------------------------------------------------------------------
@@ -87,8 +85,8 @@ $themes: (
         'bg'             : #fff,
         'well'           : lighten($gray, 31),
         'border'         : lighten($gray, 20),
-        'highlight'      : $blueberry,
-        'accent'         : $kiwi
+        'highlight'      : highlight('blueberry'),
+        'accent'         : highlight('raspberry')
     ),
     'reverse': (
         'text': (
@@ -99,8 +97,8 @@ $themes: (
         'bg'             : $blackberry,
         'well'           : darken($blackberry, 7),
         'border'         : darken($blackberry, 15),
-        'highlight'      : $blueberry,
-        'accent'         : $raspberry
+        'highlight'      : highlight('blueberry'),
+        'accent'         : highlight('raspberry')
     ),
     'wash': (
         'text': (
@@ -108,13 +106,14 @@ $themes: (
             'secondary'  : $blackberry,
             'tertiary'   : $blackberry
         ),
-        'bg'             : $blueberry,
-        'well'           : darken($blueberry, 5),
+        'bg'             : highlight('blueberry'),
+        'well'           : darken(highlight('blueberry'), 5),
         'border'         : #fff,
         'highlight'      : #fff,
         'accent'         : $blackberry
     )
 );
+
 
 // "get" function to access theme map values
 // -> PUBLIC
@@ -222,6 +221,17 @@ body, .c-theme-default {
 @each $theme, $colors in $themes {
     @if $theme != "default" {
         .c-theme-#{$theme} { @include theme('#{$theme}'); }
+    }
+}
+
+//
+@each $color, $hex in $highlights {
+    @if $color != "blueberry" {
+        .c-theme-wash--#{$color} {
+            background-color: $hex !important;
+
+            .c-well { background-color: darken($hex, 5) !important; }
+        }
     }
 }
 
