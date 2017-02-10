@@ -42,9 +42,9 @@ h1, h2, h3, h4, h5, h6,
 
     & + & { margin-top: 0.5em; }
 
-    a { 
-        color: inherit !important; 
-       
+    a {
+        color: inherit !important;
+
         // @Jay TODO: specificity issue here
        // &:hover, &:active {
        //     @include color("highlight");
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6,
 
 // body/inline text
 p {
-    @include scale-type('zeta');
+    @include scale-type('epsilon');
     @include color('text' 'secondary');
 }
 

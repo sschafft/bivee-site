@@ -9,8 +9,8 @@
 $gutters: (
     'narrow'     : scale-type('eta'),
     'default'    : scale-type('epsilon'),
-    'wide'       : scale-type('beta'),
-    'extra-wide' : scale-type('alpha')
+    'wide'       : scale-type('cappa'),
+    'extra_wide' : scale-type('alpha')
 );
 
 $gutter-outside: map-get($gutters, 'wide');
@@ -26,42 +26,33 @@ $gutter-sides: left right top bottom;
 }
 
 
-/* Margins
+/* Utilities
 // -------------------------------------------------------------------------- */
 
-.l-margin { @include rem(margin, gutter()); }
+/* --- margin/padding classes ----------------------------------------------- */
+// Create a bunch of utility classes for margins and padding
+// -> e.g. "l-margin", "l-margin-right", "l-padding@small", "l-no-padding"
+@each $prop in margin, padding {
+  .l-#{$prop} { @include rem(#{$prop}, gutter() !important); }
 
-.l-margin-narrow { @include rem(margin, gutter('narrow') !important); }
-.l-margin-wide { @include rem(margin, gutter('wide') !important); }
+  @each $name, $length in $gutters {
+    @if $name != 'default' {
+      .l-#{$prop}-#{$name} { @include rem(#{$prop}, gutter($name) !important); }
+    }
+  }
 
-@each $side in $gutter-sides {
-    .l-margin-#{$side} { @include rem(margin-#{$side}, gutter() !important); }
-    .l-margin-#{$side}-narrow { @include rem(margin-#{$side}, gutter('narrow') !important); }
-    .l-margin-#{$side}-wide { @include rem(margin-#{$side}, gutter('wide') !important); }
-}
+  @each $side in top, right, bottom, left {
+    .l-#{$prop}-#{$side} { @include rem(#{$prop}-#{$side}, gutter() !important); }
 
-@include breakpointify('.l-no-margin', true) { @include rem(margin, 0 !important); }
+    .l-no-#{$prop} { @include rem(#{$prop}, 0 !important); }
 
-@each $side in $gutter-sides {
-    .l-no-margin-#{$side} { @include rem(margin-#{$side}, 0 !important); }
-}
+    @each $name, $length in $gutters {
+      @if $name != 'default' {
+        .l-#{$prop}-#{$side}-#{$name} { @include rem(#{$prop}-#{$side}, gutter($name) !important); }
 
-/* Padding
-// -------------------------------------------------------------------------- */
+        .l-no-#{$prop}-#{$side} { @include rem(#{$prop}-#{$side}, 0 !important); }
 
-.l-padding { @include rem(padding, gutter() !important); }
-
-.l-padding-narrow { @include rem(padding, gutter('narrow') !important); }
-.l-padding-wide { @include rem(padding, gutter('wide') !important); }
-
-@each $side in $gutter-sides {
-    .l-padding-#{$side} { @include rem(padding-#{$side}, gutter() !important); }
-    .l-padding-#{$side}-narrow { @include rem(padding-#{$side}, gutter('narrow') !important); }
-    .l-padding-#{$side}-wide { @include rem(padding-#{$side}, gutter('wide') !important); }
-}
-
-@include breakpointify('.l-no-padding', true) { @include rem(padding, 0 !important); }
-
-@each $side in $gutter-sides {
-    .l-no-padding-#{$side} { @include rem(padding-#{$side}, 0 !important); }
+      }
+    }
+  }
 }
