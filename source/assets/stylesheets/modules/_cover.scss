@@ -37,7 +37,7 @@ category: Molecules
 // -------------------------------------------------------------------------- */
 
 .cover--overlay::before {
-    $bg: theme('accent');
+    $bg: highlight('kiwi');
 
     content: " ";
     display: block;
@@ -60,6 +60,16 @@ category: Molecules
         );
     }
 }
+
+    // @each $color, $hex in $highlights {
+    //     .cover--overlay.cover--#{$color}::before {
+    //         background-color: $hex;
+    //         background-image: linear-gradient(
+    //             $hex 40%,
+    //             transparent
+    //         );
+    //     }
+    // }
 
 /* Submodules
 // -------------------------------------------------------------------------- */
