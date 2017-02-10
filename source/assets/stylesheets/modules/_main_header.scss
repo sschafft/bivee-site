@@ -16,10 +16,7 @@ category: Molecules
 /* Base
 // -------------------------------------------------------------------------- */
 
-.main_header {
-    @include rem(padding-bottom, 42px);
-    position: relative;
-}
+.main_header { position: relative; }
 
 .main_header--overlay {
     position: absolute;
