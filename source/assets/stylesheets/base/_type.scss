@@ -21,6 +21,9 @@ $type-line_height: 1.6;
     @include rem(font-size, $type-size-default);
 }
 
+// set up viewport-sized fluid type scaling, with minimum and maximum sizes
+// -> a modified version of Eduardo Boucas' mixin: https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html
+// -> also props to this: https://madebymike.com.au/writing/precise-control-responsive-typography/
 @mixin type-fluid($size, $min: 'zeta', $max: false, $media-min: 'xsmall', $media-max: 'huge') {
     @if (type-of($min) != 'number') {
         @include scale-type($min);
