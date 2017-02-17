@@ -1498,6 +1498,28 @@ address,
   font-weight: bold;
   text-transform: uppercase; }
 
+.t-heading--fluid.t-scale-alpha {
+  font-size: 23px;
+  font-size: 1.4375rem; }
+  @media (min-width: 30.01em) {
+    .t-heading--fluid.t-scale-alpha {
+      font-size: 5vw; } }
+  @media (min-width: 100.01em) {
+    .t-heading--fluid.t-scale-alpha {
+      font-size: 83px;
+      font-size: 5.1875rem; } }
+
+.t-heading--fluid.t-scale-delta {
+  font-size: 13px;
+  font-size: 0.8125rem; }
+  @media (min-width: 42.01em) {
+    .t-heading--fluid.t-scale-delta {
+      font-size: 2.2vw; } }
+  @media (min-width: 100.01em) {
+    .t-heading--fluid.t-scale-delta {
+      font-size: 28px;
+      font-size: 1.75rem; } }
+
 .t-lead {
   font-size: 16px;
   font-size: 1rem;
@@ -2102,7 +2124,7 @@ Wrappers
     display: table; }
 
 .l-wrapper--wide {
-  max-width: 1080px; }
+  max-width: 1256px; }
 
 .l-wrapper-outcrop {
   margin-left: -4em;

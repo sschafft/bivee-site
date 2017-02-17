@@ -21,6 +21,28 @@ $type-line_height: 1.6;
     @include rem(font-size, $type-size-default);
 }
 
+@mixin type-fluid($size, $min: 'zeta', $max: false, $media-min: 'xsmall', $media-max: 'huge') {
+    @if (type-of($min) != 'number') {
+        @include scale-type($min);
+    } @else {
+        @include rem(font-size, $min);
+    }
+
+    @include media(">#{$media-min}") {
+        font-size: $size;
+    }
+
+    @if $max != false {
+        @include media(">#{$media-max}") {
+            @if (type-of($max) != 'number') {
+                @include scale-type($max);
+            } @else {
+                @include rem(font-size, $max);
+            }
+        }
+    }
+}
+
 /* Globals
 // -------------------------------------------------------------------------- */
 
@@ -112,6 +134,15 @@ address,
     .t-heading--slug {
         @include font-display("bold");
         text-transform: uppercase;
+    }
+
+    .t-heading--fluid {
+        &.t-scale-alpha {
+            @include type-fluid(5vw, 'delta', 83px);
+        }
+        &.t-scale-delta {
+            @include type-fluid(2.2vw, 'zeta', 'cappa', $media-min: 'small');
+        }
     }
 
 // the first paragraph, often set slightly bigger
