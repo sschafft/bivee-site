@@ -1,17 +1,12 @@
-<!doctype html>
-<html lang="en">
-  <body>
-  	<article>
+  	<article class = "l-wrapper l-margin-top-wide l-margin-bottom-wide">
 
       <!-- Header, hero image, and title-->
-    	<header>
-            <img src="#">
-            <a href="#">Contact Us</a>
+    	<header class = "l-margin-top-wide l-margin-bottom-wide t-centered">
             <p>Case study: Systems development</p>
     	</header>
 
         <div>
-            <h1>PPP Knowledge Lab</h1>
+            <h1 class = "t-heading t-scale-alpha">PPP Knowledge Lab</h1>
             <img src="#">
         </div>
 
@@ -30,8 +25,8 @@
             <img src="#">
            <h2>Strategy</h2>  
            <p>
-                One of the critical initial considerations of this project was the multiplicity of organizations and contributing teams involved in the PPP knowledge-development process. To make sure everyone’s voice was heard and informed, we developed communications tools and materials to keep all teams engaged and updated on progress.  This communication network also served as a feedback loop to build stakeholder buy-in and incorporate ideas from a variety of perspectives. 
-                From these preliminary communications, we developed a revised strategy that shifted the direction from the PPP CCSA’s original conceptual track.  This strategy better met the needs of the stakeholders and refocused the project from a strictly systems-oriented perspective toward a solution that showcased the collaboration between the different stakeholders.  
+                One of the critical initial considerations of this project was the multiplicity of organizations and contributing teams involved in the PPP knowledge-development process. To make sure everyone’s voice was heard and informed, we developed communications tools and materials to keep all teams engaged and updated on progress.  This communication network also served as a feedback loop to build stakeholder buy-in and incorporate ideas from a variety of perspectives. <br>
+                From these preliminary communications, we developed a revised strategy that shifted the direction from the PPP CCSA’s original conceptual track.  This strategy better met the needs of the stakeholders and refocused the project from a strictly systems-oriented perspective toward a solution that showcased the collaboration between the different stakeholders.  <br>
                 This initial revision included the implementation of three technologies:
                   <ul>
                     <li>The Central API is a repository that provides a single area for knowledge documents to be managed, curated, and delivered to third-party websites.</li>
@@ -77,13 +72,19 @@
          </div>
 
          <div>
-             <h2>The team</h2>
-             <ul>
-                <li><img src="#"><p>Scott Schaffter<br>Technology Lead</p></li>
-                <li><img src="#"><p>Nicholas Kingston<br>Strategy Lead</p></li>
-                <li><img src="#"><p>Jay Perry<br>Design Lead</p></li>
-                <li><img src="#"><p>Helly Stoyanova<br>Project Manager</p></li>
-            </ul>
+             <h2 class="t-heading t-scale-beta">The team</h2>
+
+              <% [
+                  "Scott Schaffter", 
+                  "Nicholas Kingston", 
+                  "Jay Perry", 
+                  "Helly Stoyanova"
+              ].each do |person| %>
+
+                  <% find_staff = sitemap.resources.select {|r| r.path.include?("staff") if r.data.name == person } %>
+                  <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>
+
+              <% end %>
          </div>
        </section>
 	  </article> 
@@ -97,9 +98,3 @@
             <li>Case study<br>The road to Senda<br>Global Facility for Disaster Risk Reduction</li>
         </ul>
       </aside>
-      <footer>
-          <a href="bivee.co"><img src="#"></a>
-          <p>© Copyright 2017 Bivee, Inc.</p>
-      </footer>
-  </body>
-</html>
