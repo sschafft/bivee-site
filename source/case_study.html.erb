@@ -1,5 +1,5 @@
 <article>
-  <%= component "main_header" %>
+  <%= component "main_header", locals: { theme: 'wash', overlay: true } %>
 
   <!-- Header, hero image, and title-->
 	<header class="l-padding-top-extra_wide t-centered c-theme-wash">
@@ -29,11 +29,11 @@
       <p>From these preliminary communications, we developed a revised strategy that shifted the direction from the PPP CCSA’s original conceptual track.  This strategy better met the needs of the stakeholders and refocused the project from a strictly systems-oriented perspective toward a solution that showcased the collaboration between the different stakeholders.</p>
       <p>This initial revision included the implementation of three technologies:</p>
       <ul>
-        <li>The Central API is a repository that provides a single area for knowledge documents to be managed, curated, and delivered to third-party websites.</li>
-        <li>The Knowledge Lab is the central hub where knowledge around PPPs is surfaced and shared across institutions and with the general public. It provides context and metadata for the resources pulled from the Central API.</li>
-        <li>The Handshake Journal is a magazine publication with contributors from a variety of private- and public-sector institutions that encourages conversation around issues in PPPs. The Handshake website was developed to provide easy access and readability to audiences in developing countries with low-bandwidth situations.</li>
+        <li>The <a href="https://library.pppknowledgelab.org/">Knowledge Library</a> is a repository that provides a single area for knowledge documents to be managed, curated, and delivered to third-party websites.</li>
+        <li>The <a href="https://pppknowledgelab.org/">Knowledge Lab</a> is the central hub where knowledge around PPPs is surfaced and shared across institutions and with the general public. It provides context and metadata for the resources pulled from the Central API.</li>
+        <li>The <a href="https://www.handshakejournal.org/">Handshake Journal</a> is a magazine publication with contributors from a variety of private- and public-sector institutions that encourages conversation around issues in PPPs. The Handshake website was developed to provide easy access and readability to audiences in developing countries with low-bandwidth situations.</li>
       </ul>
-      <p><em>Brief intro about how PPIAF and Cycle pages came into existence and how they relate to the above elements</em></p>
+      <p>Brief intro about how PPIAF and Cycle pages came into existence and how they relate to the above elements</p>
     </div>
   <% end %>
 
@@ -90,12 +90,22 @@
 
 </article>
 
-<!-- See more and footer -->
-<aside>
-  <h2>See more of our work</h2>
-  <ul>
-    <li>Case study<br>An architecture for public-private partnership knowledge<br>World Bank | PPP CCSA</li>
-    <li>Case study<br>Development Data Hub<br>World Bank | Development Data Group</li>
-    <li>Case study<br>The road to Sendai<br>Global Facility for Disaster Risk Reduction</li>
-  </ul>
-</aside>
+<% component "panel", locals: { theme: "wash" } do %>
+  <div class="l-wrapper">
+    <h2 class="t-heading t-scale-beta">See more of our work</h2>
+    <ul class="gallery">
+      <li class="gallery-item">
+        <span class="t-heading t-heading--slug">Case study</span>
+        <p>An architecture for public-private partnership knowledge</p>
+        <p>World Bank | PPP CCSA</p></li>
+      <li class="gallery-item">
+      <span class="t-heading t-heading--slug">Case study</span>
+      <p>Development Data Hub</p>
+      <p>World Bank | Development Data Group</li>
+      <li class="gallery-item">
+      <span class="t-heading t-heading--slug">Case study</span>
+      <p>The road to Sendai</p>     
+      <p>Global Facility for Disaster Risk Reduction</li>
+    </ul>
+  </div>
+<% end %>
