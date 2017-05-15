@@ -4,38 +4,33 @@
   <!-- Header, hero image, and title-->
 	<header class="l-padding-top-extra_wide t-centered c-theme-wash">
     <div class="l-wrapper l-padding-bottom-wide">
-      <span class="t-heading t-heading--slug t-scale-epsilon"><strong>Case study:</strong> Systems development</span>
-      <h1 class="t-heading t-scale-alpha">PPP Knowledge Lab</h1>
+      <span class="t-heading t-heading--slug t-scale-epsilon"><strong>Case study:</strong> <%= type %></span>
+      <h1 class="t-heading t-scale-alpha"><%= title %></h1>
     </div>
     <div class="l-wrapper l-wrapper--wide">
-      <img src="http://placehold.it/1000x600?text=Cover+image">
+      <img src="<%= cover %>">
     </div>
 	</header>
 
-  <!-- Main content -->
+  <!-- Main content: sections -->
   <main>
-    <% sections = sitemap.resources.select {|r| r.data.case_study == locals[:title] || r.data.case_study == locals[:id] }.sort_by {|r| r.data.weight }.sort_by {|r| r.data.date } %>
+    <% sections = sitemap.resources.select {|r| r.data.project == locals[:slug] || r.data.project == locals[:title] }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
-      <% component "panel" do %>
+      <% component "panel", locals: { slug: false } do %>
         <div class="l-wrapper">
-          <h2 class="t-heading t-scale-beta t-centered"><%= section.title %></h2>
-          <%= section.render %>
+          <h2 class="t-heading t-scale-beta t-centered"><%= section.data.title %></h2>
+          <%= section.render layout: false %>
         </div>
       <% end %>
     <% end %>
   </main>
 
   <!-- Staff -->
-  <% component "panel" do %>
+  <% component "panel", locals: { slug: false } do %>
     <div class="l-wrapper">
       <h2 class="t-heading t-scale-beta">The team</h2>
 
-        <% [
-          "Scott Schaffter",
-          "Nicholas Kingston",
-          "Jay Perry",
-          "Helly Stoyanova"
-            ].each do |person| %>
+        <% team.each do |person| %>
 
         <% find_staff = sitemap.resources.select {|r| r.path.include?("staff") if r.data.name == person } %>
         <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>

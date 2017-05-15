@@ -25,6 +25,21 @@ ignore 'assets/javascripts/*'
 # explicitly set the markdown engine to Kramdown
 set :markdown_engine, :kramdown
 
+# Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
+# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
+#  which_fake_page: "Rendering a fake page with a local variable" }
+
+data.case_studies.each_with_index do |project, index|
+  proxy "work/#{project.slug.urlize}/index.html", "/project.html", locals: {
+    title: project.title,
+    slug: project.slug,
+    date: project.date,
+    type: project.type,
+    cover: project.cover,
+    team: project.team
+  }, ignore: true
+end
+
 ###
 # Middleman Deployment
 ###
@@ -44,24 +59,24 @@ end
 # Set up the blog extension
 ###
 
-activate :blog do |blog|
-    blog.name = "work"
-    blog.prefix = "work"
-    blog.sources = "{year}/{title}.html"
-    blog.permalink = "{year}/{title}.html"
-    blog.summary_separator = /EXCERPT/
-    blog.layout = "case_study"
-end
+# activate :blog do |blog|
+#     blog.name = "work"
+#     blog.prefix = "work"
+#     blog.sources = "{year}/{title}.html"
+#     blog.permalink = "{year}/{title}.html"
+#     blog.summary_separator = /EXCERPT/
+#     blog.layout = "case_study"
+# end
 
-activate :blog do |blog|
-    blog.name = "writing"
-    blog.prefix = "writing"
-    blog.sources = "{year}-{month}-{day}-{title}.html"
-    blog.permalink = "{year}/{month}/{title}.html"
-    blog.taglink = "tags/{tag}.html"
-    blog.summary_separator = /EXCERPT/
-    blog.layout = "article"
-end
+# activate :blog do |blog|
+#     blog.name = "writing"
+#     blog.prefix = "writing"
+#     blog.sources = "{year}-{month}-{day}-{title}.html"
+#     blog.permalink = "{year}/{month}/{title}.html"
+#     blog.taglink = "tags/{tag}.html"
+#     blog.summary_separator = /EXCERPT/
+#     blog.layout = "article"
+# end
 
 # Methods defined in the helpers block are available in templates
 helpers do
@@ -102,13 +117,13 @@ activate :relative_assets
 
 # Reload the browser automatically whenever files change
 configure :development do
-    activate :external_pipeline,
-        name: :npm,
-        command: build? ? 'npm run build' : 'npm start',
-        source: "source/assets/dist",
-        latency: 1
+  activate :external_pipeline,
+    name: :yarn,
+    command: build? ? 'yarn run build' : 'yarn run dev',
+    source: "source/assets/dist",
+    latency: 1
 
-    activate :livereload
+  activate :livereload
 end
 
 
