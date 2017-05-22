@@ -100,19 +100,17 @@ helpers do
     end
   end
 
+  # return a list of site resouces for staff from a list of names
+  # @param names ARRAY or STRING (optional): the names of the staff you need. use "all" to get everybody.
+  # @param exclude ARRAY (optional): the names of staff you want to exclude. use only when names is "all".
   def get_staff_profiles(names: "all", exclude: false)
     if names == "all"
-      profiles = sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == exclude }.sort_by {|r| r.data.tribal_dominance }.sort_by {|r| r.data.name }
+      return sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == exclude }.sort_by {|r| r.data.tribal_dominance }
     else
-      profiles = []
-      names.each do |name|
-        profile = sitemap.resources.select {|r| r.path.include?("staff") if r.data.name == name }
-        profiles.push(profile[0])
-      end
-      profiles.sort_by {|p| p.data.tribal_dominance }.sort_by {|p| p.data.name }
+      return names.collect {|name| sitemap.resources.select {|r| r.path.include?("staff") if r.data.name == name }[0] }.sort_by {|r| r.data.tribal_dominance }
     end
-    return profiles
   end
+
 end
 
 activate :directory_indexes
