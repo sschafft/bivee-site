@@ -80,33 +80,40 @@ end
 
 # Methods defined in the helpers block are available in templates
 helpers do
-    # "Component" decorator for partial function
-    # -> just used to point automatically to "components" dir so you don't have to type the full path
-    def component(name, opts = {}, &block)
-        partial("components/#{name}", opts, &block)
-    end
+  # "Component" decorator for partial function
+  # -> just used to point automatically to "components" dir so you don't have to type the full path
+  def component(name, opts = {}, &block)
+    partial("components/#{name}", opts, &block)
+  end
 
-    # is this url the current page?
-    def current_page?(url)
-        if current_resource.path == url
-            return true
-        end
+  # is this url the current page?
+  def current_page?(url)
+    if current_resource.path == url
+      return true
     end
+  end
 
-    # is this url in the current directory (in the sitemap)?
-    def current_dir?(url)
-        if current_page.url.include? url.gsub(settings.url_root,'').gsub(".html", "/").to_s
-            return true
-        end
+  # is this url in the current directory (in the sitemap)?
+  def current_dir?(url)
+    if current_page.url.include? url.gsub(settings.url_root,'').gsub(".html", "/").to_s
+      return true
     end
+  end
+
+  def get_staff_profiles(names: "all", exclude: false)
+    if names == "all"
+      profiles = sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == exclude }.sort_by {|r| r.data.tribal_dominance }.sort_by {|r| r.data.name }
+    else
+      profiles = []
+      names.each do |name|
+        profile = sitemap.resources.select {|r| r.path.include?("staff") if r.data.name == name }
+        profiles.push(profile[0])
+      end
+      profiles.sort_by {|p| p.data.tribal_dominance }.sort_by {|p| p.data.name }
+    end
+    return profiles
+  end
 end
-
-# Generate proxy pages from the blog articles' "chapter" frontmatter
-# data.chapters.each do |chapter|
-#     proxy "#{chapter.urlize}/index.html", "/chapter.html", :locals => {
-#         title: chapter
-#     }, :ignore => true
-# end
 
 activate :directory_indexes
 page "README.md", :directory_index => false
