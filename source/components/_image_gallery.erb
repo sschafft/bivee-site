@@ -6,12 +6,10 @@
   - components/gallery
 %>
 
-<% classes ||= false %>
+<% classes ||= "" %>
 
 <ul class="gallery<%= " #{classes}" if classes %>">
-    <%# staff.each do |profile| %>
         <li class="gallery-item">
             <%= component "feature_image", locals: { source: "http://placehold.it/200x200" } %>
-    <%# end %>
         </li>
 </ul>
