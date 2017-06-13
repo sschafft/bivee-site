@@ -2,6 +2,6 @@
 	An image occuring within a panel of text
 %>
 
-<% source ||= "" %>
+<% alt ||= "" %>
 
-<%= image_tag "#{source}" %>
+<%= image_tag source, alt: alt %>
