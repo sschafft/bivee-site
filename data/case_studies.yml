@@ -2,7 +2,7 @@
   slug: PPP
   date: 2014
   type: Systems development
-  cover: http://placehold.it/1000x600?text=Cover+image
+  cover: /assets/images/case-studies/ppp/ppp-cover.png
   team:
     - Helly Stoyanova
     - Scott Schaffter
