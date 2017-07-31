@@ -1659,7 +1659,6 @@ input, textarea, select {
   font-weight: "normal";
   font-style: "normal";
   -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
   transition: all 0.25s;
   border: 1px solid #d6d7dd;
   border-color: #d6d7dd;
@@ -2053,7 +2052,9 @@ textarea {
   text-align: center; }
   .csstransforms .l-centered {
     left: 50%;
-    transform: translateX(-50%); }
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%); }
 
 .l-centered-block {
   display: block;
@@ -2178,7 +2179,8 @@ Wrappers
      * https://www.drupal.org/node/897638
      */ }
     .is-visually_hidden.focusable:active, .is-visually_hidden.focusable:focus {
-      clip-path: auto;
+      -webkit-clip-path: auto;
+              clip-path: auto;
       height: auto;
       overflow: visible;
       position: static;
@@ -2241,7 +2243,6 @@ category: components
 // -------------------------------------------------------------------------- */
 .button {
   -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
   transition: all 0.25s;
   border: 2px solid #11A9BE;
   border-color: #11a9be;
@@ -2285,7 +2286,6 @@ category: components
     color: #11a9be;
     border-color: #11a9be;
     -webkit-transition: all 0;
-    -moz-transition: all 0;
     transition: all 0; }
     .button:active.c-theme-reverse, .c-theme-reverse .button:active {
       color: #a0dde5; }
@@ -2487,7 +2487,6 @@ category: components
 // -------------------------------------------------------------------------- */
 .tooltip, .has-tooltip::before {
   -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
   transition: all 0.25s;
   font-family: "aspira-normal", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-weight: normal;
@@ -2504,7 +2503,9 @@ category: components
   overflow: visible;
   top: -40px;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   z-index: 2;
   padding: 6px 1em;
   width: 14em;
@@ -2528,7 +2529,6 @@ category: components
 .tooltip::after,
 .has-tooltip::after {
   -webkit-transition: all 0.25s;
-  -moz-transition: all 0.25s;
   transition: all 0.25s;
   height: 0;
   width: 0;
@@ -2588,23 +2588,18 @@ category: Layout
   display: -webkit-box;
   display: -moz-box;
   display: box;
-  display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -moz-box-align: center;
   box-align: center;
-  -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
   -webkit-box-pack: justify;
-  -moz-box-pack: justify;
   box-pack: justify;
-  -webkit-justify-content: space-between;
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
@@ -2617,8 +2612,8 @@ category: Layout
   .flexbox.no-ie .bookend--horizontal .bookend-item--left {
     float: none;
     -webkit-align-self: left;
-    -moz-align-self: left;
-    align-self: left;
+    -ms-grid-row-align: left;
+        align-self: left;
     -ms-flex-item-align: left; }
 
 .bookend--horizontal .bookend-item--right {
@@ -2627,8 +2622,8 @@ category: Layout
   .flexbox.no-ie .bookend--horizontal .bookend-item--right {
     float: none;
     -webkit-align-self: right;
-    -moz-align-self: right;
-    align-self: right;
+    -ms-grid-row-align: right;
+        align-self: right;
     -ms-flex-item-align: right; }
 
 @media (min-width: 30.01em) {
@@ -2636,23 +2631,18 @@ category: Layout
     display: -webkit-box;
     display: -moz-box;
     display: box;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -moz-box-align: center;
     box-align: center;
-    -webkit-align-items: center;
     -moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center;
     -webkit-box-pack: justify;
-    -moz-box-pack: justify;
     box-pack: justify;
-    -webkit-justify-content: space-between;
     -moz-justify-content: space-between;
     -ms-justify-content: space-between;
     -o-justify-content: space-between;
@@ -2664,8 +2654,8 @@ category: Layout
     .flexbox.no-ie .bookend--horizontal\@xsmall .bookend-item--left {
       float: none;
       -webkit-align-self: left;
-      -moz-align-self: left;
-      align-self: left;
+      -ms-grid-row-align: left;
+          align-self: left;
       -ms-flex-item-align: left; }
   .bookend--horizontal\@xsmall .bookend-item--right {
     display: inline-block;
@@ -2673,8 +2663,8 @@ category: Layout
     .flexbox.no-ie .bookend--horizontal\@xsmall .bookend-item--right {
       float: none;
       -webkit-align-self: right;
-      -moz-align-self: right;
-      align-self: right;
+      -ms-grid-row-align: right;
+          align-self: right;
       -ms-flex-item-align: right; } }
 
 @media (min-width: 42.01em) {
@@ -2682,23 +2672,18 @@ category: Layout
     display: -webkit-box;
     display: -moz-box;
     display: box;
-    display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-    -moz-box-align: center;
     box-align: center;
-    -webkit-align-items: center;
     -moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center;
     -webkit-box-pack: justify;
-    -moz-box-pack: justify;
     box-pack: justify;
-    -webkit-justify-content: space-between;
     -moz-justify-content: space-between;
     -ms-justify-content: space-between;
     -o-justify-content: space-between;
@@ -2710,8 +2695,8 @@ category: Layout
     .flexbox.no-ie .bookend--horizontal\@small .bookend-item--left {
       float: none;
       -webkit-align-self: left;
-      -moz-align-self: left;
-      align-self: left;
+      -ms-grid-row-align: left;
+          align-self: left;
       -ms-flex-item-align: left; }
   .bookend--horizontal\@small .bookend-item--right {
     display: inline-block;
@@ -2719,8 +2704,8 @@ category: Layout
     .flexbox.no-ie .bookend--horizontal\@small .bookend-item--right {
       float: none;
       -webkit-align-self: right;
-      -moz-align-self: right;
-      align-self: right;
+      -ms-grid-row-align: right;
+          align-self: right;
       -ms-flex-item-align: right; } }
 
 /* Subcomponents
@@ -2808,26 +2793,19 @@ There are three size variations: small, medium, and large. Medium is default, so
   list-style: none; }
   .flexbox.no-ie .gallery {
     -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
     box-orient: horizontal;
     -webkit-box-direction: normal;
-    -moz-box-direction: normal;
     box-direction: normal;
-    -webkit-flex-direction: row;
     -moz-flex-direction: row;
     flex-direction: row;
     -ms-flex-direction: row;
     -webkit-box-lines: multiple;
     -moz-box-lines: multiple;
     box-lines: multiple;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     -webkit-box-align: stretch;
-    -moz-box-align: stretch;
     box-align: stretch;
-    -webkit-align-items: stretch;
     -moz-align-items: stretch;
     -ms-align-items: stretch;
     -o-align-items: stretch;
@@ -2845,7 +2823,6 @@ There are three size variations: small, medium, and large. Medium is default, so
         display: -webkit-box;
         display: -moz-box;
         display: box;
-        display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flexbox;
         display: flex; } }
@@ -2870,16 +2847,13 @@ There are three size variations: small, medium, and large. Medium is default, so
       vertical-align: top; }
       .flexbox.no-ie .gallery-item {
         -webkit-box-flex: 0;
-        -moz-box-flex: 0;
         box-flex: 0;
-        -webkit-flex: 0 0 auto;
         -moz-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         display: -webkit-box;
         display: -moz-box;
         display: box;
-        display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flexbox;
         display: flex; } }
@@ -2892,16 +2866,13 @@ There are three size variations: small, medium, and large. Medium is default, so
       vertical-align: top; }
       .flexbox.no-ie .gallery-item {
         -webkit-box-flex: 0;
-        -moz-box-flex: 0;
         box-flex: 0;
-        -webkit-flex: 0 0 auto;
         -moz-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         display: -webkit-box;
         display: -moz-box;
         display: box;
-        display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flexbox;
         display: flex; } }
@@ -2949,6 +2920,7 @@ category: Molecules
   background-color: #9BC73F; }
   .cssgradients.rgba .cover--overlay::before {
     background-color: transparent;
+    background-image: -webkit-linear-gradient(#9BC73F 40%, transparent);
     background-image: linear-gradient(#9BC73F 40%, transparent); }
 
 /* Submodules
