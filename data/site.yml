@@ -1,0 +1,22 @@
+title: Bivee
+
+# General email for potential clients/visitors to contact us
+email: sayhi@bivee.co
+
+# Add social channels for the whole company
+# -> current icons available: github, linkedin, instagram, pinterest, facebook
+# -> icons are from iconmonstr.com
+social:
+  - name: 'Github'
+    url: https://github.com/biveeco
+    icon: 'github'
+  - name: 'LinkedIn'
+    url: https://www.linkedin.com/company/bivee-co
+    icon: 'linkedin'
+  - name: 'Instagram'
+    url: http://instagram.com/biveeco
+    icon: 'instagram'
+  # Let's add Twitter after we've built up some Tweets
+  # - name: 'Twitter'
+  #   url: https://twitter.com/biveeco
+  #   icon: 'twitter'
