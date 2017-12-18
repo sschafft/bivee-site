@@ -7,24 +7,21 @@
  * Nice to see you here, fellow CSS nerd. Give us a shout on Github.
  *
  */
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
 html {
-  font-family: sans-serif;
-  /* 1 */
   line-height: 1.15;
-  /* 2 */
+  /* 1 */
   -ms-text-size-adjust: 100%;
-  /* 3 */
+  /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 3 */ }
+  /* 2 */ }
 
 /* Sections
    ========================================================================== */
@@ -106,15 +103,7 @@ a {
   /* 2 */ }
 
 /**
- * Remove the outline on focused links when they are also active or hovered
- * in all browsers (opinionated).
- */
-a:active,
-a:hover {
-  outline-width: 0; }
-
-/**
- * 1. Remove the bottom border in Firefox 39-.
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
@@ -285,12 +274,10 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText; }
 
 /**
- * Change the border, margin, and padding in all browsers (opinionated).
+ * Correct the padding in Firefox.
  */
 fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em; }
+  padding: 0.35em 0.75em 0.625em; }
 
 /**
  * 1. Correct the text wrapping in Edge and IE.
@@ -1655,7 +1642,6 @@ input, textarea, select {
   font-family: "copernicus-normal-normal", "Georgia", "Cambria", "Times New Roman", "Times", serif;
   font-weight: "normal";
   font-style: "normal";
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   border: 1px solid #d6d7dd;
   border-color: #d6d7dd;
@@ -2239,7 +2225,6 @@ category: components
 /* Base
 // -------------------------------------------------------------------------- */
 .button {
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   border: 2px solid #11A9BE;
   border-color: #11a9be;
@@ -2282,7 +2267,6 @@ category: components
   .button:active {
     color: #11a9be;
     border-color: #11a9be;
-    -webkit-transition: all 0;
     transition: all 0; }
     .button:active.c-theme-reverse, .c-theme-reverse .button:active {
       color: #a0dde5; }
@@ -2483,7 +2467,6 @@ category: components
 /* Base
 // -------------------------------------------------------------------------- */
 .tooltip, .has-tooltip::before {
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   font-family: "aspira-normal", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-weight: normal;
@@ -2525,7 +2508,6 @@ category: components
 
 .tooltip::after,
 .has-tooltip::after {
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   height: 0;
   width: 0;
@@ -2930,7 +2912,6 @@ category: Molecules
   background-color: #9BC73F; }
   .cssgradients.rgba .cover--overlay::before {
     background-color: transparent;
-    background-image: -webkit-linear-gradient(#9BC73F 40%, transparent);
     background-image: linear-gradient(#9BC73F 40%, transparent); }
 
 /* Submodules
