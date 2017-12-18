@@ -103,8 +103,8 @@ activate :relative_assets
 # Reload the browser automatically whenever files change
 configure :development do
     activate :external_pipeline,
-        name: :npm,
-        command: build? ? 'npm run build' : 'npm start',
+        name: :yarn,
+        command: build? ? 'yarn run build' : 'yarn run dev',
         source: "source/assets/dist",
         latency: 1
 
