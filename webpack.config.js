@@ -7,7 +7,7 @@ var modulePath = "/source/assets/javascripts";
 module.exports = {
     entry: {
         critical: ["vendor/modernizr.js", "picturefill"],
-        main: "." + modulePath + "/main.js",
+        // main: "." + modulePath + "/main.js",
     },
     resolve: {
         root: __dirname + modulePath,
@@ -31,5 +31,10 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin("critical", "critical.bundle.js"),
         new Clean(['source/assets/dist/javascripts']),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ]
 };

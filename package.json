@@ -45,7 +45,7 @@
     "modernizr-mixin": "^3.0.7",
     "modularscale-sass": "^2.1.1",
     "normalize.css": "^7.0.0",
-    "picturefill": "latest",
+    "picturefill": "^3.0.2",
     "sassy-lists": "git+https://github.com/at-import/SassyLists.git"
   },
   "devDependencies": {
