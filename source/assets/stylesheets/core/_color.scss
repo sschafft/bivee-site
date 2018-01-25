@@ -4,48 +4,6 @@
 // -> refer to colors ONLY via the $theme maps
 // ========================================================================== */
 
-/*doc
----
-title: Color
-name: color
-category: core
----
-
-Some functions and globals to keep the color scheme DRY and easy to manage in one place. Color for the entire site is handled through structured SASS maps, assigning each color a role:
-
-```
-$theme--default: (
-    text--primary   : $black,
-    text--secondary : #706F6F,
-    text--tertiary  : darken($gray, 10),
-    bg              : #fff,
-    well            : $gray--superlight,
-    border          : $gray--light,
-    highlight       : $highlight--default,
-    accent          : $blue--dark
-);
-
-```
-You can easily access these colors by "role" with the `theme()` function, like so:
-
-```
-.your-module {
-    color: theme(highlight);
-    background-color: theme(bg);
-
-}
-```
-
-If the site has multiple color schemes (say, "default" and "reverse" themes), you can specify the theme by passing in a second parameter:
-
-```
-background-color: theme(bg, reverse);
-```
-
-The second parameter is optional, and theme() will default to the 'default' theme map.
-
-*/
-
 @import "libs";
 
 // Base Palette
@@ -53,8 +11,8 @@ The second parameter is optional, and theme() will default to the 'default' them
 // -> PRIVATE, do not use outside this settings file
 
 // neutrals
-$gray--dark : #464C56;
-$gray       : #9FA0AE;
+$blue_kuri--dark : #464C56;
+$blue_kuri       : #9FA0AE;
 $blackberry : #263750;
 
 // highlights
@@ -79,12 +37,12 @@ $themes: (
     'default': (
         'text': (
             'primary'    : $blackberry,
-            'secondary'  : $gray--dark,
-            'tertiary'   : $gray
+            'secondary'  : $blue_kuri--dark,
+            'tertiary'   : $blue_kuri
         ),
         'bg'             : #fff,
-        'well'           : lighten($gray, 31),
-        'border'         : lighten($gray, 20),
+        'well'           : lighten($blue_kuri, 31),
+        'border'         : lighten($blue_kuri, 20),
         'highlight'      : highlight('blueberry'),
         'accent'         : highlight('raspberry')
     ),
