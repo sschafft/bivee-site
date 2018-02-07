@@ -1,0 +1,17 @@
+<%#
+  Gallery component
+  - An even grid of images
+
+  Styles:
+  - components/gallery
+%>
+
+<% classes ||= false %>
+
+<ul class="gallery<%= " #{classes}" if classes %>">
+  <% images.each do |alt, source| %>
+    <li class="gallery-item">
+      <%= image_tag source, alt: alt || "" %>
+    </li>
+  <% end %>
+</ul>

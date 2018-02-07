@@ -1377,11 +1377,14 @@ h1, h2, h3, h4, h5, h6,
 p {
   font-size: 16px;
   font-size: 1rem;
-  color: #464c56; }
+  color: #464c56;
+  margin: 0; }
   p.c-theme-reverse, .c-theme-reverse p {
     color: #d6dfec; }
   p.c-theme-wash, .c-theme-wash p {
     color: #263750; }
+  p + p {
+    margin-top: 1em; }
 
 a {
   color: #ef4759;
@@ -2700,19 +2703,6 @@ category: Layout
     content: "";
     display: table; }
 
-/* =============================================================================
-//  Main Header component
-// ========================================================================== */
-/*doc
----
-title: Main Header
-name: main_header
-category: Molecules
----
-
-*/
-/* Base
-// -------------------------------------------------------------------------- */
 .main_header {
   position: relative; }
 

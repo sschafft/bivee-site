@@ -88,6 +88,11 @@ h1, h2, h3, h4, h5, h6,
 p {
     @include scale-type('epsilon');
     @include color('text' 'secondary');
+    margin: 0;
+
+    &+& {
+        margin-top: 1em;
+    }
 }
 
 a {
