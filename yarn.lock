@@ -2169,6 +2169,10 @@ neo-async@^1.0.0:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-1.8.2.tgz#31795888b79dd04357a7c52113a65183e93b6735"
 
+netlify-identity-widget@^1.4.9:
+  version "1.4.9"
+  resolved "https://registry.yarnpkg.com/netlify-identity-widget/-/netlify-identity-widget-1.4.9.tgz#1c0cabaeafebae7ff86cf26de270e542af18ad0d"
+
 node-gyp@^3.3.1:
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/node-gyp/-/node-gyp-3.6.2.tgz#9bfbe54562286284838e750eac05295853fa1c60"
