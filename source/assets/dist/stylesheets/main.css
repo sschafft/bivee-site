@@ -617,47 +617,6 @@ Please DO NOT use your own font-family attributes in any circumstance. Always us
 // -> base colors are set here on global elements, but modules apply their own
 // -> refer to colors ONLY via the $theme maps
 // ========================================================================== */
-/*doc
----
-title: Color
-name: color
-category: core
----
-
-Some functions and globals to keep the color scheme DRY and easy to manage in one place. Color for the entire site is handled through structured SASS maps, assigning each color a role:
-
-```
-$theme--default: (
-    text--primary   : $black,
-    text--secondary : #706F6F,
-    text--tertiary  : darken($gray, 10),
-    bg              : #fff,
-    well            : $gray--superlight,
-    border          : $gray--light,
-    highlight       : $highlight--default,
-    accent          : $blue--dark
-);
-
-```
-You can easily access these colors by "role" with the `theme()` function, like so:
-
-```
-.your-module {
-    color: theme(highlight);
-    background-color: theme(bg);
-
-}
-```
-
-If the site has multiple color schemes (say, "default" and "reverse" themes), you can specify the theme by passing in a second parameter:
-
-```
-background-color: theme(bg, reverse);
-```
-
-The second parameter is optional, and theme() will default to the 'default' theme map.
-
-*/
 /* Utility classes
 // -------------------------------------------------------------------------- */
 /* --- Themes --------------------------------------------------------------- */
@@ -2038,9 +1997,8 @@ textarea {
   text-align: center; }
   .csstransforms .l-centered {
     left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%); }
+    -ms-transform: translateX(-50%);
+        transform: translateX(-50%); }
 
 .l-centered-block {
   display: block;
@@ -2486,9 +2444,8 @@ category: components
   overflow: visible;
   top: -40px;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+      transform: translateX(-50%);
   z-index: 2;
   padding: 6px 1em;
   width: 14em;
@@ -2573,14 +2530,12 @@ category: Layout
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
   box-align: center;
   -moz-align-items: center;
   -ms-align-items: center;
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
-  -webkit-box-pack: justify;
   box-pack: justify;
   -moz-justify-content: space-between;
   -ms-justify-content: space-between;
@@ -2593,7 +2548,6 @@ category: Layout
   float: left; }
   .flexbox.no-ie .bookend--horizontal .bookend-item--left {
     float: none;
-    -webkit-align-self: left;
     -ms-grid-row-align: left;
         align-self: left;
     -ms-flex-item-align: left; }
@@ -2603,7 +2557,6 @@ category: Layout
   float: right; }
   .flexbox.no-ie .bookend--horizontal .bookend-item--right {
     float: none;
-    -webkit-align-self: right;
     -ms-grid-row-align: right;
         align-self: right;
     -ms-flex-item-align: right; }
@@ -2616,14 +2569,12 @@ category: Layout
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     box-align: center;
     -moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center;
-    -webkit-box-pack: justify;
     box-pack: justify;
     -moz-justify-content: space-between;
     -ms-justify-content: space-between;
@@ -2635,7 +2586,6 @@ category: Layout
     float: left; }
     .flexbox.no-ie .bookend--horizontal\@xsmall .bookend-item--left {
       float: none;
-      -webkit-align-self: left;
       -ms-grid-row-align: left;
           align-self: left;
       -ms-flex-item-align: left; }
@@ -2644,7 +2594,6 @@ category: Layout
     float: right; }
     .flexbox.no-ie .bookend--horizontal\@xsmall .bookend-item--right {
       float: none;
-      -webkit-align-self: right;
       -ms-grid-row-align: right;
           align-self: right;
       -ms-flex-item-align: right; } }
@@ -2657,14 +2606,12 @@ category: Layout
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     box-align: center;
     -moz-align-items: center;
     -ms-align-items: center;
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center;
-    -webkit-box-pack: justify;
     box-pack: justify;
     -moz-justify-content: space-between;
     -ms-justify-content: space-between;
@@ -2676,7 +2623,6 @@ category: Layout
     float: left; }
     .flexbox.no-ie .bookend--horizontal\@small .bookend-item--left {
       float: none;
-      -webkit-align-self: left;
       -ms-grid-row-align: left;
           align-self: left;
       -ms-flex-item-align: left; }
@@ -2685,7 +2631,6 @@ category: Layout
     float: right; }
     .flexbox.no-ie .bookend--horizontal\@small .bookend-item--right {
       float: none;
-      -webkit-align-self: right;
       -ms-grid-row-align: right;
           align-self: right;
       -ms-flex-item-align: right; } }
@@ -2774,9 +2719,7 @@ There are three size variations: small, medium, and large. Medium is default, so
   font-size: 0;
   list-style: none; }
   .flexbox.no-ie .gallery {
-    -webkit-box-orient: horizontal;
     box-orient: horizontal;
-    -webkit-box-direction: normal;
     box-direction: normal;
     -moz-flex-direction: row;
     flex-direction: row;
@@ -2786,7 +2729,6 @@ There are three size variations: small, medium, and large. Medium is default, so
     box-lines: multiple;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-align: stretch;
     box-align: stretch;
     -moz-align-items: stretch;
     -ms-align-items: stretch;
@@ -2828,7 +2770,6 @@ There are three size variations: small, medium, and large. Medium is default, so
       padding-left: 8px;
       vertical-align: top; }
       .flexbox.no-ie .gallery-item {
-        -webkit-box-flex: 0;
         box-flex: 0;
         -moz-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
@@ -2847,7 +2788,6 @@ There are three size variations: small, medium, and large. Medium is default, so
       padding-left: 8px;
       vertical-align: top; }
       .flexbox.no-ie .gallery-item {
-        -webkit-box-flex: 0;
         box-flex: 0;
         -moz-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
