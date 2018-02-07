@@ -28,10 +28,26 @@ title: home
         We’re an advisory firm with experience in strategy, technology, and design development for organizations of all kinds – private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
     <% end %>
     <!-- list of staff photos -->
-    <div class="l-wrapper l-wrapper--wide">
-        <% find_staff = sitemap.resources.select {|r| r.path.include?("staff") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide" } %>
-    </div>
+    <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Founders</h3>
+        <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/founders") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+    </section>
+    <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Directors</h3>
+        <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/directors") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+    </section>
+    <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Team</h3>
+        <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/team") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+    </section>
+    <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Subject Matter Experts</h3>
+        <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/smes") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+    </section>
 <% end %>
 
 <!-- Contact us -->
@@ -41,11 +57,10 @@ title: home
     <% end %>
 
     <div class="l-wrapper">
-        <h3>Mclean:</h3>
-        <p>1350 Beverly Road, Suite 115-197 Mclean, VA, 22101</p>
-
         <h3>Washington, DC:</h3>
         <p>1875 Connecticut Ave NW, Washington, DC 20009</p>
+        <h3>Denver, CO:</h3>
+        <p>2420 17th St, Denver, CO 80202</p>
     </div>
 
     <!-- contact buttons -->

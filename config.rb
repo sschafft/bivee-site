@@ -127,7 +127,6 @@ configure :development do
     command: build? ? 'yarn run build' : 'yarn run dev',
     source: "source/assets/dist",
     latency: 1
-
   activate :livereload
 end
 
