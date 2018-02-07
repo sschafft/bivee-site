@@ -21,7 +21,7 @@
     "styles:watch": "yarn run styles -- -w",
     "icons": "svg-sprite --symbol --symbol-dest $npm_package_config_icons_dest --symbol-sprite 'spritemap.erb' --symbol-inline --symbol-prefix 'icon-%s' $npm_package_config_icons_src/**/*.svg",
     "middleman": "bundle exec middleman build --",
-    "dev": "yarn run build && javascripts:watch & styles:watch",
+    "dev": "yarn run build && yarn run javascripts:watch & yarn run styles:watch",
     "build": "yarn run styles:build && yarn run javascripts:build",
     "predeploy": "yarn run middleman",
     "deploy": "git-directory-deploy --directory build --branch master"
