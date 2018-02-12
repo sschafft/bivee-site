@@ -18,8 +18,8 @@ config[:fonts_dir] = 'assets/fonts'
 config[:css_dir] = 'assets/dist/stylesheets'
 config[:js_dir] = 'assets/dist/javascripts'
 
-# # ignore css and js, b/c we're handling with external pipeline
-ignore 'assets/stylesheets/*'
+# # ignore js, b/c we're handling with external pipeline
+# ignore 'assets/stylesheets/*'
 ignore 'assets/javascripts/*'
 
 # explicitly set the markdown engine to Kramdown
@@ -39,44 +39,6 @@ data.case_studies.each_with_index do |project, index|
     team: project.team
   }, ignore: true
 end
-
-###
-# Middleman Deployment
-###
-
-# @scott TODO update deploy settings for new repository branch
-activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  # Optional Settings
-  deploy.build_before = true # default: false
-  deploy.remote   = 'git@github.com:biveeco/biveeco.github.io.git' # remote name or git url, default: origin
-  deploy.branch   = 'master' # default: gh-pages
-  deploy.commit_message = 'Deployed to master'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
-  # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
-end
-
-###
-# Set up the blog extension
-###
-
-# activate :blog do |blog|
-#     blog.name = "work"
-#     blog.prefix = "work"
-#     blog.sources = "{year}/{title}.html"
-#     blog.permalink = "{year}/{title}.html"
-#     blog.summary_separator = /EXCERPT/
-#     blog.layout = "case_study"
-# end
-
-# activate :blog do |blog|
-#     blog.name = "writing"
-#     blog.prefix = "writing"
-#     blog.sources = "{year}-{month}-{day}-{title}.html"
-#     blog.permalink = "{year}/{month}/{title}.html"
-#     blog.taglink = "tags/{tag}.html"
-#     blog.summary_separator = /EXCERPT/
-#     blog.layout = "article"
-# end
 
 # Methods defined in the helpers block are available in templates
 helpers do
@@ -135,16 +97,13 @@ end
 configure :build do
   config[:host] = "http://www.bivee.co"
   # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
 
   # Minify Javascript on build
   # activate :minify_javascript
 
   # Enable cache buster
   # activate :asset_hash
-
-  # Use relative URLs
-  # activate :relative_assets
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"

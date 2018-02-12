@@ -1,8 +1,17 @@
 {
   "name": "bivee.co",
   "version": "0.1.0",
-  "description": "Refresh of the Bivee website",
   "main": "index.js",
+  "author": "Bivee, Inc.",
+  "bugs": {
+    "url": "https://github.com/biveeco/bvSite/issues"
+  },
+  "description": "Refresh of the Bivee website",
+  "homepage": "https://github.com/biveeco/bvSite#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biveeco/bvSite.git"
+  },
   "config": {
     "css_src": "source/assets/stylesheets",
     "css_bundle": "source/assets/dist/stylesheets",
@@ -11,38 +20,19 @@
     "icons_dest": "./source/components"
   },
   "scripts": {
-    "modernizr": "cd $npm_package_config_js_src/vendor && modernizr -c modernizr.config.json",
-    "postmodernizr": "yarn run javascripts:build",
     "javascripts:build": "webpack -p --bail --",
     "javascripts:watch": "webpack --watch -d --",
-    "styles": "node-sass --include-path node_modules --importer ./node_modules/node-sass-import-once/index.js --output $npm_package_config_css_bundle $npm_package_config_css_src",
-    "styles:autoprefixer": "postcss --use autoprefixer --autoprefixer.browsers '> 5%, ie >= 8' -r $npm_package_config_css_bundle/*.css",
-    "styles:build": "yarn run styles && yarn run styles:autoprefixer",
-    "styles:watch": "yarn run styles -- -w",
     "icons": "svg-sprite --symbol --symbol-dest $npm_package_config_icons_dest --symbol-sprite 'spritemap.erb' --symbol-inline --symbol-prefix 'icon-%s' $npm_package_config_icons_src/**/*.svg",
     "middleman": "bundle exec middleman build --",
-    "dev": "yarn run build && yarn run javascripts:watch & yarn run styles:watch",
-    "build": "yarn run styles:build && yarn run javascripts:build",
-    "predeploy": "yarn run middleman",
-    "deploy": "git-directory-deploy --directory build --branch master"
+    "dev": "yarn run build && yarn run javascripts:watch",
+    "build": "yarn run javascripts:build",
+    "predeploy": "yarn run middleman"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/biveeco/bvSite.git"
-  },
-  "author": "Bivee, Inc.",
-  "bugs": {
-    "url": "https://github.com/biveeco/bvSite/issues"
-  },
-  "homepage": "https://github.com/biveeco/bvSite#readme",
   "dependencies": {
     "SassyLists": "git+https://github.com/at-import/SassyLists.git",
     "bourbon": "^4.2.6",
     "clipboard": "^1.5.12",
     "include-media": "^1.4.1",
-    "jquery": "^2.2.0",
-    "modernizr": "^3.3.1",
-    "modernizr-mixin": "^3.0.7",
     "modularscale-sass": "^2.1.1",
     "normalize.css": "^7.0.0",
     "picturefill": "^3.0.2",
@@ -55,13 +45,8 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "clean-webpack-plugin": "^0.1.6",
-    "git-directory-deploy": "^1.3.0",
-    "node-sass": "^3.7.0",
-    "node-sass-import-once": "^1.2.0",
-    "postcss-cli": "^2.5.1",
     "svg-sprite": "^1.3.1",
     "svgo": "^0.6.6",
-    "uglifycss": "0.0.20",
     "webpack": "^1.12.10"
   }
 }

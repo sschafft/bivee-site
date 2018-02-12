@@ -3,20 +3,17 @@
 source 'https://rubygems.org'
 
 # Middleman
-gem "middleman", "~>4.0"
+gem "middleman", "> 4.0"
 
 # Middleman extensions
-gem "middleman-livereload", "~> 3.4"
+gem "middleman-livereload"
 gem "middleman-minify-html"
 gem "middleman-google-analytics"
-# gem "middleman-imageoptim"
-gem "middleman-blog"
+gem "middleman-imageoptim"
 
-# Middleman Deployment
-gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
-
-# Markdown engine
-gem 'kramdown'
+# Content/asset compilers
+gem 'kramdown' # markdown engine
+gem 'sassc' # use faster LibSass engine
 
 # Ruby/rails utilities
 gem "string-urlize"
