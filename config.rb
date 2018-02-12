@@ -95,12 +95,16 @@ end
 # Build-specific configuration
 configure :build do
   config[:host] = "http://www.bivee.co"
-  # For example, change the Compass output style for deployment
   activate :minify_css
-  # activate :imageoptim
+  activate :minify_html
 
   # Enable cache buster
   activate :asset_hash
+
+  # autoprefix CSS for older browsers
+  activate :autoprefixer do |config|
+    config.browsers = ['last 2 versions', 'Explorer >= 9']
+  end
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"

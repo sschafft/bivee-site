@@ -1,6 +1,6 @@
 # If you do not have OpenSSL installed, update
 # the following line to use "http://" instead
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 # Middleman
 gem "middleman", "> 4.0"
@@ -9,11 +9,11 @@ gem "middleman", "> 4.0"
 gem "middleman-livereload"
 gem "middleman-minify-html"
 gem "middleman-google-analytics"
-gem "middleman-imageoptim"
+gem "middleman-autoprefixer"
 
 # Content/asset compilers
-gem 'kramdown' # markdown engine
-gem 'sassc' # use faster LibSass engine
+gem "kramdown" # markdown engine
+gem "sassc" # use faster LibSass engine
 
 # Ruby/rails utilities
 gem "string-urlize"
