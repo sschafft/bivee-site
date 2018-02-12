@@ -1,19 +1,11 @@
-<%#
-  Main Header component
-  - the header appearing at the top of every page
-
-  Locals:
-  - STRING theme (optional): color theme
-
-  Styles:
-  - modules/main_header
-  - layout/bookend
-%>
-
 <%
-  overlay ||= false
-  theme ||= "default"
-  bgcolor ||= "none"
+  # Main Header component
+  # -> the header appearing at the top of every page
+
+  # Locals:
+  overlay ||= false # BOOLEAN: turn on 'overlay' styles for the header
+  theme ||= "default" # STRING: color theme
+  bgcolor ||= "none" # STRING: background color - pass in a theme name
 %>
 
 <header data-ui-main-header="<%= "overlay" if overlay %>" data-ui-bookend="horizontal" class="l-padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">

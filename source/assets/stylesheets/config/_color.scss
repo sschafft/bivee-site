@@ -1,0 +1,197 @@
+// =============================================================================
+//  Global color styles
+// -> base colors are set here on global elements, but modules apply their own
+// -> refer to colors ONLY via the $theme maps
+// =============================================================================
+
+@import "libs";
+
+// Base Palette
+// ----------------------------------------------------------------------
+// -> PRIVATE, do not use outside this settings file
+
+// neutrals
+$blue_kuri: #9FA0AE;
+$blue_kuri-dark: #464C56;
+$blackberry: #263750;
+
+// highlights
+// -> 4 flavors of Bivee. Hat tip to Christie.
+$highlights: (
+  'blueberry': #11A9BE,
+  'raspberry': #EF4759,
+  'orange': #EABF32,
+  'kiwi': #9BC73F
+);
+
+// getter function for highlight colors
+// -> PRIVATE
+@function highlight($name) {
+  @return map-get($highlights, $name);
+}
+
+// Themes
+// -----------------------------------------------------------------------------
+
+$themes: (
+  'default': (
+    'text': (
+      'primary': $blackberry,
+      'secondary': $blue_kuri-dark,
+      'tertiary': $blue_kuri
+    ),
+    'bg': #fff,
+    'well': lighten($blue_kuri, 31),
+    'shadow': shade($blue_kuri, 15),
+    'border': lighten($blue_kuri, 20),
+    'highlight': highlight('blueberry'),
+    'accent': highlight('raspberry')
+  ),
+  'dark': (
+    'text': (
+      'primary': #fff,
+      'secondary': lighten($blackberry, 65),
+      'tertiary': lighten($blackberry, 20)
+    ),
+    'bg': $blackberry,
+    'well': darken($blackberry, 7),
+    'shadow': shade($blackberry, 15),
+    'border': darken($blackberry, 15),
+    'highlight': highlight('blueberry'),
+    'accent': highlight('raspberry')
+  ),
+  'midtone': (
+    'text': (
+      'primary': #fff,
+      'secondary': $blackberry,
+      'tertiary': $blackberry
+    ),
+    'bg': highlight('blueberry'),
+    'well': darken(highlight('blueberry'), 5),
+    'shadow': shade($blackberry, 15),
+    'border': #fff,
+    'highlight': #fff,
+    'accent': $blackberry
+  )
+);
+
+
+// getter function to access color map values
+// -> PUBLIC
+// -> USAGE:
+//      color: color('text' 'primary');
+//      color: color('highlight' 'primary', 'reverse');
+@function color($colors, $name: 'default', $important: false) {
+  // first extract the 'theme' nested map
+  $theme: map-get($themes, $name);
+
+  // now get the nested map for the first color value
+  $color: map-get($theme, nth($colors, 1));
+
+  // if there's more than one color string in the $colors list, dig deeper
+  @if length($colors) > 1 {
+    @for $i from 2 through length($colors) {
+      // keep updating $color with the next nested map until we've reached the end of the list
+      $color: map-get($color, nth($colors, $i));
+    }
+  }
+  @return #{$color}#{unquote(if($important != false, " !important", ""))};
+}
+
+// darken or lighten a given color
+// -> PRIVATE
+// -> used by color mixin below
+@function _grade-color($hex, $lighten: 0, $darken: 0) {
+  @if $lighten > 0 {
+    @return tint($hex, $lighten);
+  } @elseif $darken > 0 {
+    @return shade($hex, $darken);
+  } @else {
+    // just return the original color if it's not modified
+    @return $hex;
+  }
+}
+
+// print out the color styles (and state, if needed) for a given attribute
+// -> PRIVATE
+@mixin _color-props($color, $attr: color, $hover: false, $active: false, $focus: false) {
+  // set color for default theme
+  #{$attr}: color($color);
+
+  // default states
+  @if $hover == true {
+    &:hover {
+      #{$attr}:_grade-color(color($color), $lighten: 10);
+    }
+  }
+
+  @if $active == true {
+    &:active {
+      #{$attr}:_grade-color(color($color), $darken: 10);
+    }
+  }
+
+  @if $focus == true {
+    &:focus {
+      #{$attr}:_grade-color(color($color), $lighten: 10);
+    }
+  }
+}
+
+// add colors for each theme
+// -> PUBLIC
+// -> USAGE:
+//      @include color(text primary, background-color);
+@mixin color(
+  $color,
+  $attr: color,
+  $hover: false,
+  $active: false,
+  $focus: false,
+  $important: false
+) {
+  @include _color-props($color, $attr, $hover, $active, $focus);
+
+  // set the color of this element to match the theme of this context
+  @each $theme, $colors in $themes {
+    @if $theme != "default" {
+      // set color to theme of either this element or its parent
+      &.c-theme-#{$theme}, .c-theme-#{$theme} & {
+        @include _color-props($color, $attr, $hover, $active, $focus);
+      }
+    }
+  }
+}
+
+// shortcut decorators for the above, using specific attributes
+@mixin background-color($color, $props...) {
+  @include color($color, $attr: 'background-color', $props...);
+}
+
+@mixin border-color($color, $props...) {
+  @include color($color, $attr: 'border-color', $props...);
+}
+
+// Theme Globals
+// -----------------------------------------------------------------------------
+// -> set up helper classes and base colors
+
+@mixin theme($theme) {
+  color: color('text' 'secondary', $theme);
+  background-color: color('bg', $theme);
+  border-color: color('border', $theme) !important;
+
+  // highlight color when you select something
+  ::selection {
+    background: color('highlight', $theme);
+    color: #fff;
+    text-shadow: none;
+  }
+
+  // ditto, for mozilla engine
+  ::-moz-selection {
+    background: color('highlight', $theme);
+    color: #fff;
+    text-shadow: none;
+  }
+}
