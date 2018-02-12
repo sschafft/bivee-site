@@ -17,6 +17,8 @@ config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
 config[:css_dir] = 'assets/stylesheets'
 
+config[:sass_assets_paths] = ['node_modules']
+
 # # ignore js, b/c we're handling with external pipeline
 ignore 'assets/javascripts/*'
 
@@ -27,7 +29,7 @@ activate :external_pipeline,
   latency: 1
 
 # explicitly set the markdown engine to Kramdown
-set :markdown_engine, :kramdown
+config[:markdown_engine] = :kramdown
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 data.case_studies.each_with_index do |project, index|

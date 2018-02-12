@@ -1,5 +1,9 @@
+@import "normalize.css/normalize";
+@import "modularscale-sass/stylesheets/modular-scale";
+
 $bgcolor: blue;
 
 body {
   background-color: $bgcolor;
+  font-size: ms(1);
 }
