@@ -88,7 +88,7 @@ activate :relative_assets
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload,
-    livereload_css_target: "stylesheets/main.css"
+    livereload_css_target: "assets/stylesheets/main.css"
 end
 
 

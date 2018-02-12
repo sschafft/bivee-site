@@ -30,12 +30,12 @@
   },
   "dependencies": {
     "SassyLists": "git+https://github.com/at-import/SassyLists.git",
-    "bourbon": "^4.2.6",
+    "bourbon": "*",
     "clipboard": "^1.5.12",
-    "include-media": "^1.4.1",
-    "modularscale-sass": "^2.1.1",
-    "normalize.css": "^7.0.0",
-    "picturefill": "^3.0.2",
+    "include-media": "*",
+    "modularscale-sass": "*",
+    "normalize.css": "*",
+    "picturefill": "*",
     "sassy-lists": "git+https://github.com/at-import/SassyLists.git"
   },
   "devDependencies": {
