@@ -6,14 +6,14 @@ var modulePath = "/source/assets/javascripts";
 // split output JS into "critical" (above-the-fold) scripts and the rest (which can be loaded on-demand)
 module.exports = {
     entry: {
-        critical: ["vendor/modernizr.js", "picturefill"],
-        // main: "." + modulePath + "/main.js",
+        critical: ["picturefill"],
+        main: "." + modulePath + "/main.js",
     },
     resolve: {
         root: __dirname + modulePath,
     },
     output: {
-        path: __dirname + '/source/assets/dist/javascripts',
+        path: __dirname + '/.tmp/dist/javascripts',
         filename: "bundle.js",
     },
     module: {

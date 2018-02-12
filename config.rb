@@ -15,20 +15,21 @@ page '/staff/*', layout: 'staff_profile'
 
 config[:images_dir] = 'assets/images'
 config[:fonts_dir] = 'assets/fonts'
-config[:css_dir] = 'assets/dist/stylesheets'
-config[:js_dir] = 'assets/dist/javascripts'
+config[:css_dir] = 'assets/stylesheets'
 
 # # ignore js, b/c we're handling with external pipeline
-# ignore 'assets/stylesheets/*'
 ignore 'assets/javascripts/*'
+
+activate :external_pipeline,
+  name: :yarn,
+  command: build? ? 'yarn run build' : 'yarn run dev',
+  source: ".tmp/dist",
+  latency: 1
 
 # explicitly set the markdown engine to Kramdown
 set :markdown_engine, :kramdown
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-# proxy "/this-page-has-no-template.html", "/template-file.html", locals: {
-#  which_fake_page: "Rendering a fake page with a local variable" }
-
 data.case_studies.each_with_index do |project, index|
   proxy "work/#{project.slug.urlize}/index.html", "/project.html", locals: {
     title: project.title,
@@ -40,7 +41,7 @@ data.case_studies.each_with_index do |project, index|
   }, ignore: true
 end
 
-# Methods defined in the helpers block are available in templates
+# Helpers
 helpers do
   # "Component" decorator for partial function
   # -> just used to point automatically to "components" dir so you don't have to type the full path
@@ -84,12 +85,8 @@ activate :relative_assets
 
 # Reload the browser automatically whenever files change
 configure :development do
-  activate :external_pipeline,
-    name: :yarn,
-    command: build? ? 'yarn run build' : 'yarn run dev',
-    source: "source/assets/dist",
-    latency: 1
-  activate :livereload
+  activate :livereload,
+    livereload_css_target: "stylesheets/main.css"
 end
 
 
@@ -98,12 +95,10 @@ configure :build do
   config[:host] = "http://www.bivee.co"
   # For example, change the Compass output style for deployment
   activate :minify_css
-
-  # Minify Javascript on build
-  # activate :minify_javascript
+  # activate :imageoptim
 
   # Enable cache buster
-  # activate :asset_hash
+  activate :asset_hash
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"

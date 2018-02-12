@@ -17,16 +17,13 @@
     </head>
 
     <body>
-        <%= component "spritemap" %>
-        <% is_home = current_resource.data.title == "home" ? true : false %>
-        <%# header_theme = is_home ? 'wash' : 'default' %>
+      <%= component "spritemap" %>
+      <% is_home = current_resource.data.title == "home" ? true : false %>
 
+      <%= yield %>
 
-        <%= yield %>
+      <%= component "main_footer" %>
 
-        <%= component "main_footer" %>
-
-        <%# not using any serious JS right now; save this for later %>
-        <%# javascript_include_tag :bundle %>
+      <%= javascript_include_tag :bundle %>
     </body>
 </html>
