@@ -8,9 +8,9 @@
 
 <% classes ||= false %>
 
-<ul class="gallery<%= " #{classes}" if classes %>">
+<ul data-ui-gallery<%= " class='#{classes}'" if classes %>>
   <% images.each do |alt, source| %>
-    <li class="gallery-item">
+    <li data-ui-gallery-item>
       <%= image_tag source, alt: alt || "" %>
     </li>
   <% end %>

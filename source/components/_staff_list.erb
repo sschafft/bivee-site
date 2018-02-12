@@ -12,9 +12,9 @@ Locals:
 
 <% classes ||= false %>
 
-<ul class="gallery<%= " #{classes}" if classes %>">
+<ul data-ui-gallery <%= " class='#{classes}'" if classes %>>
   <% staff.each do |profile| %>
-    <li class="gallery-item t-centered">
+    <li data-ui-gallery-item class="t-centered">
       <% link_to profile.url do %>
         <%= component "staff_portrait", locals: { image: profile.data.portrait } %>
       <% end %>

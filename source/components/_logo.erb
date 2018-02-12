@@ -13,11 +13,11 @@
 
 <%
     filename ||= "logo-bivee-reverse"
-    classes ||= "logo"
+    classes ||= ""
     alt ||= "Bivee"
 %>
 
-<picture class="<%= classes %>">
+<picture data-ui-logo class="<%= classes %>">
     <!--[if IE 9]><video style="display: none;"><![endif]-->
     <source type="image/svg+xml" srcset="<%= asset_url config[:images_dir] + '/logos/' + filename + '.svg'%>">
     <!--[if IE 9]></video><![endif]-->

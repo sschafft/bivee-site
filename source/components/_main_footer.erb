@@ -7,11 +7,11 @@
     - layout/bookend
 %>
 
-<footer class="bookend bookend--horizontal@xsmall c-theme-reverse c-well border-top" role="contentinfo">
-    <% link_to "/", class: "bookend-item bookend-item--left", style: "max-width: 70px;" do %>
-        <%= component "logo" %>
-    <% end %>
-    <small class="bookend-item bookend-item--right l-margin-top-narrow l-no-margin@xsmall t-right@xsmall t-font-display c-text-tertiary">
-        &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
-    </small>
+<footer data-ui-bookend="horizontal@xsmall" class="c-theme-reverse c-well border-top" role="contentinfo">
+  <% link_to "/", data: { "ui-bookend-item": "left" }, style: "max-width: 70px;" do %>
+    <%= component "logo" %>
+  <% end %>
+  <small data-ui-bookend-item="right" class="l-margin-top-narrow l-no-margin@xsmall t-right@xsmall t-font-display c-text-tertiary">
+    &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
+  </small>
 </footer>

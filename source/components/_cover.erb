@@ -17,8 +17,8 @@
     theme ||= "wash"
 %>
 
-<div class="cover<%= ' cover--overlay' if overlay %> c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
-    <div class="cover-content l-wrapper l-wrapper--wide t-centered">
+<div data-ui-cover<%= "='overlay'" if overlay %> class="c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
+    <div data-ui-cover-content class="l-wrapper l-wrapper--wide t-centered">
         <%= yield %>
     </div>
 </div>
