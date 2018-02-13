@@ -1,7 +1,9 @@
 @import "normalize.css/normalize";
 @import "config/libs";
 @import "config/color";
+@import "config/type";
 
 p {
   @include color('text' 'secondary', $hover: 40%, $active: true, $important: true);
+  font-size: scale-type('zeta');
 }

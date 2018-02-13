@@ -11,29 +11,30 @@
 // -> http://www.modularscale.com/?16&&1.2&sass&text
 // $font-scale: 11px 13px 16px 19px 23px 28px 33px 39px 48px 57px 69px 99px 119px;
 $scale-global: 1.2 !default;
+$scale-base-type: 16px;
 
 // --- type scale & sizing -----------------------------------------------------
+
+@function convert-to-rem($px) {
+  @return ($px/16px * 1rem);
+}
 
 // global type scale
 // -> we could compute this via the modular scale mixins,
 // -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
 // -> also, even numbers probably work better in old browsers when using px units
 $scale-type: (
-  'alpha'   : 57px,
-  'beta'    : 39px,
-  'cappa'   : 28px,
-  'delta'   : 23px,
-  'epsilon' : 16px,
-  'zeta'    : 13px,
-  'eta'     : 11px,
+  'alpha'   : convert-to-rem(57px),
+  'beta'    : convert-to-rem(39px),
+  'cappa'   : convert-to-rem(28px),
+  'delta'   : convert-to-rem(23px),
+  'epsilon' : convert-to-rem(16px),
+  'zeta'    : convert-to-rem(13px),
+  'eta'     : convert-to-rem(11px),
 ) !default;
 
 @function scale-type($size) {
   @return map-get($scale-type, $size);
-}
-
-@mixin scale-type($size) {
-  @include rem(font-size, scale-type($size));
 }
 
 // --- modular scale config ----------------------------------------------------

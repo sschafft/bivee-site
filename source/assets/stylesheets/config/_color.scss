@@ -113,6 +113,7 @@ $focus-default: 10;
 }
 
 // print out the color styles (and state, if needed) for a given attribute
+// -> uses same arguments as color mixin below
 // -> PRIVATE
 @mixin _color-props(
   $color,
