@@ -43,19 +43,3 @@ if($('#email_to_clipboard').length > 0) {
         }, 2000);
     }
 }
-
-$(function() {
-  netlifyIdentity.open("login");
-});
-
-// Netlify Identity
-// -----------------------------------------------------------------------------
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-}
