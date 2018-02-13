@@ -1,24 +1,15 @@
-<%#
-    Cover component
-    - A 'hero' with a full-bleed image and headline
-
-    Locals:
-    - STRING image (optional): image for the background
-
-    Styles:
-    - base/type
-    - layout/wrapper
-    - components/cover
-%>
-
 <%
-    image ||= false
-    overlay ||= false
-    theme ||= "wash"
+  # Cover component
+  # - A 'hero' with a full-bleed image and headline
+
+  # Locals:
+  image ||= false # STRING: image for the background
+  overlay ||= false # BOOLEAN: add an overlay
+  theme ||= "wash" # STRING: color theme
 %>
 
 <div data-ui-cover<%= "='overlay'" if overlay %> class="c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
-    <div data-ui-cover-content class="l-wrapper l-wrapper--wide t-centered">
-        <%= yield %>
-    </div>
+  <div data-ui-cover-content data-ui-wrapper="wide" class="t-centered">
+    <%= yield %>
+  </div>
 </div>

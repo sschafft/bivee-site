@@ -1,25 +1,11 @@
-<%#
-    Panel component
-    - For short content in scrolling sections. Meant to be full-width.
-
-    Locals:
-    - STRING slug (optional): a slug header for the top of the panel, e.g. "Recent work"
-    - STRING theme (optional): name of color theme, e.g. "reverse" or "wash"
-    - ARRAY borders (optional): sides you want borders on. Pass "none" for no borders.
-    - STRING classes (optional): additional modifier classes for the container
-
-    Styles:
-    core/borders
-    core/color
-    base/type
-    layout/gutter
-%>
-
 <%
-  slug ||= false
-  theme ||= "default"
-  classes ||= false
-  borders ||= [ "top" ]
+  # Panel component
+  # -> For short content in scrolling sections. Meant to be full-width.
+
+  slug ||= false # STRING: a slug header for the top of the panel, e.g. "Recent work"
+  theme ||= "default" # STRING: name of color theme, e.g. "reverse" or "wash"
+  classes ||= false # STRING: additional modifier classes for the container
+  borders ||= [ "top" ] # ARRAY: sides you want borders on. Pass "none" for no borders.
 
   # make a list of border classes from the borders array
   border_list = ""

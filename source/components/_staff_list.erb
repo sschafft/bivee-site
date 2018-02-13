@@ -1,16 +1,11 @@
-<%#
-  Gallery component
-  - An even grid of content references (e.g. staff, blog posts, etc.) or images
+<%
+  # Staff list
+  # -> A grid of staff listings
 
-Locals:
-  - ARRAY staff: the staff to display
-  - STRING classes (optional): additional modifier classes, if needed
-
-  Styles:
-  - components/gallery
+  # Locals:
+  # staff - ARRAY: the staff to display
+  classes ||= false # STRING: additional modifier classes, if needed
 %>
-
-<% classes ||= false %>
 
 <ul data-ui-gallery <%= " class='#{classes}'" if classes %>>
   <% staff.each do |profile| %>

@@ -29,10 +29,10 @@ legend {}
 .form-field,
 input, textarea, select {
 	@include font-body;
-    @include transition-default;
-    @include border;
-    @include color('text' 'secondary');
-    @include color('well', 'background-color');
+  @include transition-default;
+  @include border;
+  @include color('text' 'secondary');
+  @include color('well', 'background-color');
 	padding: 0.5em 1em;
 	border-radius: 3px;
 	box-sizing: border-box;
