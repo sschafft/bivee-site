@@ -1,0 +1,342 @@
+// =============================================================================
+//  Global type styles
+// =============================================================================
+
+@import '../config/libs';
+@import '../config/scale';
+@import '../config/type';
+@import '../config/color';
+@import '../config/animation';
+@import '../config/spacing';
+@import '../config/borders';
+@import '../config/breakpoints';
+
+// Scale utilities & defaults
+// -----------------------------------------------------------------------------
+
+// --- headings ----------------------------------------------------------------
+
+// shared heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.t-heading {
+  @include color('text' 'primary');
+  @include font-display('light');
+  display: block;
+  letter-spacing: 0;
+  line-height: type-leading('tight');
+  margin: 0;
+  position: relative;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      @include color('highlight' 'secondary');
+    }
+  }
+}
+
+h1,
+.t-scale-alpha {
+  @include type-fluid(font-size, 'gamma', 'alpha');
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+
+  @media print {
+    page-break-after: avoid;
+  }
+}
+
+h2,
+.t-scale-beta {
+  @include type-fluid(font-size, 'gamma', 'beta');
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+  }
+}
+
+h3,
+.t-scale-gamma {
+  @include type-fluid(font-size, 'delta', 'gamma');
+  letter-spacing: -0.02em;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+  }
+}
+
+h4,
+.t-scale-delta {
+  @include type-fluid(font-size, 'epsilon', 'delta');
+}
+
+h5,
+.t-scale-epsilon {
+  @include font-display;
+  font-size: scale-type('epsilon');
+}
+
+h6,
+.t-scale-zeta {
+  @include font-display;
+  font-size: scale-type('zeta');
+}
+
+.t-scale-eta {
+  @include font-display;
+  font-size: scale-type('eta');
+}
+
+// Globals
+// -----------------------------------------------------------------------------
+
+body {
+  @include font;
+  font-style: normal;
+  line-height: type-leading();
+}
+
+// --- body/inline text --------------------------------------------------------
+
+p {
+  @include color('text' 'secondary');
+  font-size: scale-type('epsilon');
+
+  margin: 0;
+
+  & + & {
+    margin-top: 1em;
+  }
+
+  @media print {
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+a {
+  @include color('accent' 'primary');
+  @include transition-default;
+  text-decoration: none;
+
+  // 'active' state
+  &.is-active,
+  .is-active & {
+    @include color('highlight' 'secondary');
+  }
+}
+
+// see t-weight-* and t-style-* classes below for equivalent utilies
+strong {
+  @extend .t-weight-bold;
+
+  em {
+    @extend .t-weight-bold;
+    @extend .t-style-italic;
+  }
+}
+
+em {
+  @extend .t-style-italic;
+
+  strong {
+    @extend .t-weight-bold;
+    @extend .t-style-italic;
+  }
+}
+
+small,
+.t-small {
+  @include color('text' 'tertiary');
+  font-size: scale-type('zeta');
+}
+
+figcaption,
+.t-caption {
+  @include color('text' 'secondary');
+  font-size: scale-type('eta');
+}
+
+address,
+.t-address {
+  @include color('text' 'secondary');
+  font-size: scale-type('eta');
+}
+
+blockquote,
+.t-blockquote {
+  @include color('well', background-color);
+  @include border('left', $w: 'medium');
+  margin: gutter('xxnarrow') 0;
+  padding: gutter('narrow') gutter();
+
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    margin-bottom: gutter('xxnarrow');
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
+}
+
+// this is a default for this element
+// -> to style with classes use t-scale-*, t-italic, etc.
+cite {
+  @include font-body($style: 'italic');
+  font-size: 0.6em;
+  line-height: type-leading('tight');
+}
+
+// Rendered content (markdown)
+// -> a container with running text content
+// -> use old school selectors to target generated elements with sane defaults
+// -> create automatic margins between all child elements, assume that everything stacks vertically
+// -----------------------------------------------------------------------------
+
+.t-content {
+
+  // add a line of whitespace between everything
+  > * + * {
+    margin-top: 1em;
+  }
+
+  li {
+    font-size: 0.8em;
+
+    + li {
+      margin-top: 0.6em;
+    }
+  }
+
+  // add more space before some elements
+  > * + blockquote,
+  > * + ul,
+  > * + ol {
+    margin-top: ms(1);
+  }
+
+  // add more space after some elements
+  > ul + *,
+  > ol + * {
+    margin-top: ms(1);
+  }
+
+  // force some default type styles on blockquotes, since we can't add utilities
+  blockquote > * {
+    font-size: scale-type('delta');
+    line-height: type-leading();
+  }
+
+  p {
+    color: inherit;
+  }
+}
+
+// Utilities
+// -----------------------------------------------------------------------------
+
+.t-font-display {
+  @include font-display;
+}
+
+.t-font-body {
+  @include font-body;
+}
+
+// type weight
+.t-weight-light {
+  // light weight is only available for display font
+  @include font-display('light');
+}
+
+.t-weight-normal {
+  @include font-body;
+
+  .t-heading &,
+  &.t-heading,
+  .t-font-display &,
+  &.t-font-display {
+    @include font-display;
+  }
+}
+
+.t-weight-bold {
+  @include font-body('bold');
+
+  .t-heading &,
+  &.t-heading,
+  .t-font-display &,
+  &.t-font-display {
+    @include font-display('bold');
+  }
+}
+
+.t-style-italic {
+  // italic style is only available for the body font
+  @include font-body($style: 'italic');
+}
+
+.t-case-upper {
+  // Need important here
+  // scss-lint:disable ImportantRule
+  text-transform: uppercase !important;
+}
+
+.t-case-lower {
+  // Need important here
+  // scss-lint:disable ImportantRule
+  text-transform: lowercase !important;
+}
+
+.t-case-none {
+  // Need important here
+  // scss-lint:disable ImportantRule
+  text-transform: none !important;
+}
+
+.t-decoration-none {
+  // Need important here because this should always override the default
+  // scss-lint:disable ImportantRule
+  text-decoration: none !important;
+}
+
+// position text
+.t-align-center {
+  text-align: center;
+}
+
+.t-align-left {
+  text-align: left;
+}
+
+.t-align-right {
+  text-align: right;
+}
+
+// leading utilities to set line height from global config
+@each $name, $height in $type-leading {
+  .t-leading-#{unquote($name)} {
+    // Need important here because this should override default line heights
+    // scss-lint:disable ImportantRule
+    line-height: type-leading($name) !important;
+  }
+}

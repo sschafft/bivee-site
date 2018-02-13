@@ -58,29 +58,46 @@ $type-leading: (
 // -----------------------------------------------------------------------------
 // -> font-face mixins use Bourbon
 
+// in supporting browsers, specify the font-loading strategy
+@mixin font-display {
+  // swap in the webfont once it loads
+  font-display: swap;
+}
+
 // ----- Source Sans -----------------------------------------------------------
 // -> body font
 
-@include font-face("source-sans-normal-normal", $file-path: "#{$asset-path-fonts}/Aspira-Thin-webfont", $file-formats: woff woff2);
-@include font-face("source-sans-bold-normal", $file-path: "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: woff woff2) {
-  font-weight: bold;
-}
-@include font-face("source-sans-italic", $file-path: "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: woff woff2) {
-  font-style: italic;
-}
-@include font-face("source-sans-bold-italic", $file-path: "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: woff woff2) {
-  font-weight: bold;
-  font-style: italic;
-}
+// use @import for the moment, having trouble creating webfonts with Source Sans
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i');
+// @include font-face("source-sans-normal-normal", $file-path: "#{$asset-path-fonts}/Aspira-Thin-webfont", $file-formats: woff woff2) {
+//   @include font-display;
+// }
+// @include font-face("source-sans-bold-normal", $file-path: "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: woff woff2) {
+//   @include font-display;
+//   font-weight: bold;
+// }
+// @include font-face("source-sans-italic", $file-path: "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: woff woff2) {
+//   @include font-display;
+//   font-style: italic;
+// }
+// @include font-face("source-sans-bold-italic", $file-path: "#{$asset-path-fonts}/Aspira-Demi-webfont", $file-formats: woff woff2) {
+//   @include font-display;
+//   font-style: italic;
+//   font-weight: bold;
+// }
 
 // ----- Cairo -----------------------------------------------------------------
 // -> display font
 
-@include font-face("cairo-normal", $file-path: "#{$asset-path-fonts}/Copernicus-Book", $file-formats: eot woff);
-@include font-face("cairo-light", $file-path: "#{$asset-path-fonts}/Copernicus-BookItalic", $file-formats: eot woff) {
+@include font-face("cairo-normal", $file-path: "#{$asset-path-fonts}/cairo/cairo-regular-webfont", $file-formats: eot woff) {
+  @include font-display;
+}
+@include font-face("cairo-light", $file-path: "#{$asset-path-fonts}/cairo/cairo-light-webfont", $file-formats: eot woff) {
+  @include font-display;
   font-weight: light;
 }
-@include font-face("cairo-bold", $file-path: "#{$asset-path-fonts}/Copernicus-Semibold", $file-formats: eot woff) {
+@include font-face("cairo-bold", $file-path: "#{$asset-path-fonts}/cairo/cairo-bold-webfont", $file-formats: eot woff) {
+  @include font-display;
   font-weight: bold;
 }
 
@@ -94,5 +111,8 @@ $type-leading: (
 }
 
 @mixin font-body($weight: 'normal', $style: 'normal') {
-  font-family: "source-sans-#{$weight}-#{$style}", $verdana;
+  font-family: 'Source Sans Pro', $verdana;
+  // font-family: "source-sans-#{$weight}-#{$style}", $verdana;
+  font-weight: if($weight == 'normal', 400, 700);
+  font-style: $style;
 }
