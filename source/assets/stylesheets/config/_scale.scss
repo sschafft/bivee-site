@@ -22,7 +22,6 @@ $scale-base-type: 16px;
 // global type scale
 // -> we could compute this via the modular scale mixins,
 // -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
-// -> also, even numbers probably work better in old browsers when using px units
 $scale-type: (
   'alpha'   : convert-to-rem(57px),
   'beta'    : convert-to-rem(39px),
@@ -42,5 +41,3 @@ $scale-type: (
 
 $ms-base: 1;
 $ms-ratio: $scale-global;
-
-// @debug ms-list(1, 10, $ms-base, $ms-ratio);
