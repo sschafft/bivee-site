@@ -44,6 +44,7 @@
     "modernizr": "^3.3.1",
     "modernizr-mixin": "^3.0.7",
     "modularscale-sass": "^2.1.1",
+    "netlify-identity-widget": "^1.4.9",
     "normalize.css": "^7.0.0",
     "picturefill": "^3.0.2",
     "sassy-lists": "git+https://github.com/at-import/SassyLists.git"

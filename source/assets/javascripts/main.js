@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Clipboard from 'clipboard';
 
+
 // Copy-to-clipboard script
 // -----------------------------------------------------------------------------
 if($('#email_to_clipboard').length > 0) {
@@ -41,4 +42,20 @@ if($('#email_to_clipboard').length > 0) {
             }, 1000);
         }, 2000);
     }
+}
+
+$(function() {
+  netlifyIdentity.open("login");
+});
+
+// Netlify Identity
+// -----------------------------------------------------------------------------
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
 }
