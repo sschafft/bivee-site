@@ -7,7 +7,7 @@ var modulePath = "/source/assets/javascripts";
 module.exports = {
     entry: {
         critical: ["vendor/modernizr.js", "picturefill"],
-        // main: "." + modulePath + "/main.js",
+        main: "." + modulePath + "/main.js",
     },
     resolve: {
         root: __dirname + modulePath,
