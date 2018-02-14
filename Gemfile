@@ -19,6 +19,9 @@ gem "sassc" # use faster LibSass engine
 gem "string-urlize"
 gem "titleize"
 
+# Rubocop for linting
+gem 'rubocop', '~> 0.52.1', require: false
+
 # For faster file watcher updates on Windows:
 gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 

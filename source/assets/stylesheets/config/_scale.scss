@@ -2,7 +2,7 @@
 //  Type & layout scale
 // =============================================================================
 
-@import "libs";
+@import 'libs';
 
 // Config & mixins
 // -----------------------------------------------------------------------------
@@ -16,20 +16,20 @@ $scale-base-type: 16px;
 // --- type scale & sizing -----------------------------------------------------
 
 @function convert-to-rem($px) {
-  @return ($px/16px * 1rem);
+  @return ($px / $scale-base-type * 1rem);
 }
 
 // global type scale
 // -> we could compute this via the modular scale mixins,
 // -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
 $scale-type: (
-  'alpha'   : convert-to-rem(57px),
-  'beta'    : convert-to-rem(39px),
-  'gamma'   : convert-to-rem(28px),
-  'delta'   : convert-to-rem(23px),
-  'epsilon' : convert-to-rem(16px),
-  'zeta'    : convert-to-rem(13px),
-  'eta'     : convert-to-rem(11px),
+  'alpha': convert-to-rem(57px),
+  'beta': convert-to-rem(39px),
+  'gamma': convert-to-rem(28px),
+  'delta': convert-to-rem(23px),
+  'epsilon': convert-to-rem(16px),
+  'zeta': convert-to-rem(13px),
+  'eta': convert-to-rem(11px)
 ) !default;
 
 @function scale-type($size) {

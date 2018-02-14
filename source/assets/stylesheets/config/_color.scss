@@ -4,25 +4,25 @@
 // -> refer to colors ONLY via the $theme maps
 // =============================================================================
 
-@import "libs";
-@import "animation";
+@import 'libs';
+@import 'animation';
 
 // Base Palette
-// ----------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // -> PRIVATE, do not use outside this settings file
 
 // neutrals
-$blue_kuri: #9FA0AE;
-$blue_kuri-dark: #464C56;
+$blue-kuri: #9fa0ae;
+$blue-kuri-dark: #464c56;
 $blackberry: #263750;
 
 // highlights
 // -> 4 flavors of Bivee. Hat tip to Christie.
 $highlights: (
-  'blueberry': #11A9BE,
-  'raspberry': #EF4759,
-  'orange': #EABF32,
-  'kiwi': #9BC73F
+  'blueberry': #11a9be,
+  'raspberry': #ef4759,
+  'orange': #eabf32,
+  'kiwi': #9bc73f
 );
 
 // getter function for highlight colors
@@ -38,13 +38,13 @@ $themes: (
   'default': (
     'text': (
       'primary': $blackberry,
-      'secondary': $blue_kuri-dark,
-      'tertiary': $blue_kuri
+      'secondary': $blue-kuri-dark,
+      'tertiary': $blue-kuri
     ),
     'bg': #fff,
-    'well': lighten($blue_kuri, 31),
-    'shadow': shade($blue_kuri, 15),
-    'border': lighten($blue_kuri, 20),
+    'well': lighten($blue-kuri, 31),
+    'shadow': shade($blue-kuri, 15),
+    'border': lighten($blue-kuri, 20),
     'highlight': highlight('blueberry'),
     'accent': highlight('raspberry')
   ),
@@ -103,10 +103,10 @@ $focus-default: 10;
   @return $color;
 }
 
-// add "!important" to the end of a property
+// add '!important' to the end of a property
 @function _important($prop, $add: false) {
   @if $add == true {
-    @return append($prop, unquote(" !important"));
+    @return append($prop, unquote(' !important'));
   } @else {
     @return $prop;
   }
@@ -157,13 +157,13 @@ $focus-default: 10;
 // add colors for each theme
 // -> PUBLIC
 // -> PARAMS:
-//    - STRING/LIST $color: the name of the color you want to use, e.g. "highlight"
-//    - STRING $attr (optional): the attribute this will apply to, e.g. "background-color"
+//    - STRING/LIST $color: the name of the color you want to use, e.g. 'highlight'
+//    - STRING $attr (optional): the attribute this will apply to, e.g. 'background-color'
 //    - BOOLEAN/NUMBER $hover, $active, $focus (optional): include state?
-//      -> pass in "true" for each to pick up the default hover, active, and focus colors
+//      -> pass in 'true' for each to pick up the default hover, active, and focus colors
 //      -> pass in a number to change the color gradation (e.g. $hover: 12 will lighten
 //         hover state color by 12%)
-//    - BOOLEAN $important (optional): add the "!important" prop?
+//    - BOOLEAN $important (optional): add the '!important' prop?
 // -> USAGE:
 //      @include color(text primary, background-color, true, false, 12, true);
 @mixin color(
@@ -178,9 +178,10 @@ $focus-default: 10;
 
   // set the color of this element to match the theme of this context
   @each $theme, $colors in $themes {
-    @if $theme != "default" {
+    @if $theme != 'default' {
       // set color to theme of either this element or its parent
-      &.c-theme-#{$theme}, .c-theme-#{$theme} & {
+      &.c-theme-#{$theme},
+      .c-theme-#{$theme} & {
         @include _color-props($color, $prop, $hover, $active, $focus, $important);
       }
     }
@@ -201,21 +202,14 @@ $focus-default: 10;
 // -> set up helper classes and base colors
 
 @mixin theme($theme) {
-  color: color('text' 'secondary', $theme);
   background-color: color('bg', $theme);
-  border-color: color('border', $theme) !important;
+  border-color: color('border', $theme);
+  color: color('text' 'secondary', $theme);
 
   // highlight color when you select something
   ::selection {
     background: color('highlight', $theme);
-    color: #fff;
-    text-shadow: none;
-  }
-
-  // ditto, for mozilla engine
-  ::-moz-selection {
-    background: color('highlight', $theme);
-    color: #fff;
+    color: color('bg', $theme);
     text-shadow: none;
   }
 }
