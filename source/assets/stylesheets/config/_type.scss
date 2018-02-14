@@ -109,7 +109,7 @@ $type-leading: (
 }
 @include font-face("cairo-light", $file-path: "#{$asset-path-fonts}/cairo/cairo-light-webfont", $file-formats: eot woff) {
   @include font-display;
-  font-weight: light;
+  font-weight: normal;
 }
 @include font-face("cairo-bold", $file-path: "#{$asset-path-fonts}/cairo/cairo-bold-webfont", $file-formats: eot woff) {
   @include font-display;
@@ -121,13 +121,16 @@ $type-leading: (
 // -----------------------------------------------------------------------------
 // -> PUBLIC, use these to style type globally & in modules
 
-@mixin font-display($weight: "normal") {
+@mixin font-display($weight: normal) {
   font-family: "cairo-#{$weight}", $font-stack-verdana;
+  font-weight: unquote(if($weight == light, normal, $weight));
 }
 
-@mixin font-body($weight: "normal", $style: "normal") {
+@mixin font-body($weight: normal, $style: normal) {
   font-family: "Source Sans Pro", $font-stack-verdana;
   // font-family: "source-sans-#{$weight}-#{$style}", $verdana;
-  font-weight: if($weight == "normal", 400, 700);
-  font-style: $style;
+  font-weight: if($weight == normal, 400, 700);
+  @if $style != normal {
+    font-style: unquote($style);
+  }
 }
