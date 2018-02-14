@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ###
 # Page options, layouts, aliases and proxies
 ###
@@ -23,17 +25,17 @@ config[:sass_assets_paths] = ['node_modules']
 ignore 'assets/javascripts/*'
 
 activate :external_pipeline,
-  name: :yarn,
-  command: build? ? 'yarn run build' : 'yarn run dev',
-  source: ".tmp/dist",
-  latency: 1
+         name: :yarn,
+         command: build? ? 'yarn run build' : 'yarn run dev',
+         source: '.tmp/dist',
+         latency: 1
 
 # explicitly set the markdown engine to Kramdown
 config[:markdown_engine] = :kramdown
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-data.case_studies.each_with_index do |project, index|
-  proxy "work/#{project.slug.urlize}/index.html", "/project.html", locals: {
+data.case_studies.each do |project|
+  proxy "work/#{project.slug.urlize}/index.html", '/project.html', locals: {
     title: project.title,
     slug: project.slug,
     date: project.date,
@@ -44,57 +46,74 @@ data.case_studies.each_with_index do |project, index|
 end
 
 # Helpers
+# rubocop:disable Metrics/BlockLength
 helpers do
-  # "Component" decorator for partial function
-  # -> just used to point automatically to "components" dir so you don't have to type the full path
+  # 'Component' decorator for partial function
+  # -> just used to point automatically to 'components' dir so you don't have
+  #    to type the full path
   def component(name, opts = {}, &block)
     partial("components/#{name}", opts, &block)
   end
 
   # is this url the current page?
   def current_page?(url)
-    if current_resource.path == url
-      return true
-    end
+    return true if current_resource.path == url
   end
 
   # is this url in the current directory (in the sitemap)?
   def current_dir?(url)
-    if current_page.url.include? url.gsub(settings.url_root,'').gsub(".html", "/").to_s
-      return true
+    current_dir = url.gsub(settings.url_root, '').gsub('.html', '/').to_s
+    return true if current_page.url.include? current_dir
+  end
+
+  def find_all_staff
+    sitemap.resources.select do |r|
+      r.path.include?('staff') unless r.data.name == exclude
+    end
+  end
+
+  def find_staff(names)
+    names.collect do |name|
+      sitemap.resources.select do |r|
+        r.path.include?('staff') if r.data.name == name
+      end[0]
     end
   end
 
   # return a list of site resouces for staff from a list of names
-  # @param names ARRAY or STRING (optional): the names of the staff you need. use "all" to get everybody.
-  # @param exclude ARRAY (optional): the names of staff you want to exclude. use only when names is "all".
-  def get_staff_profiles(names: "all", exclude: false)
-    if names == "all"
-      return sitemap.resources.select {|r| r.path.include?("staff") unless r.data.name == exclude }.sort_by {|r| r.data.tribal_dominance }
-    else
-      return names.collect {|name| sitemap.resources.select {|r| r.path.include?("staff") if r.data.name == name }[0] }.sort_by {|r| r.data.tribal_dominance }
+  # @param names ARRAY or STRING (optional): the names of the staff you need.
+  #        use 'all' to get everybody.
+  # @param exclude ARRAY (optional): the names of staff you want to exclude.
+  #        use only when names is 'all'.
+  def find_staff_profiles(names: 'all')
+    if names == 'all'
+      return find_all_staff.sort_by do |r|
+        r.data.tribal_dominance
+      end
+    end
+    find_staff(names).sort_by do |r|
+      r.data.tribal_dominance
     end
   end
-
 end
+# rubocop:enable Metrics/BlockLength
 
 activate :directory_indexes
-page "README.md", :directory_index => false
-page "LICENSE", :directory_index => false
-page "404.html", :directory_index => false
+page 'README.md', directory_index: false
+page 'LICENSE', directory_index: false
+page '404.html', directory_index: false
 
 activate :relative_assets
 
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload,
-    livereload_css_target: "assets/stylesheets/main.css"
+           livereload_css_target: 'assets/stylesheets/main.css'
 end
-
 
 # Build-specific configuration
 configure :build do
-  config[:host] = "http://www.bivee.co"
+  config[:host] = 'http://www.bivee.co'
   activate :minify_css
   activate :minify_html
 
@@ -107,5 +126,5 @@ configure :build do
   end
 
   # Or use a different image path
-  # set :http_prefix, "/Content/images/"
+  # set :http_prefix, '/Content/images/'
 end

@@ -29,7 +29,7 @@
   <% component "panel", locals: { slug: false } do %>
     <div class="l-wrapper l-wrapper--wide">
       <h2 class="t-heading t-scale-beta t-centered">The team</h2>
-      <%= component "staff_list", locals: { staff: get_staff_profiles(names: team), classes: "l-margin-top-wide" } %>
+      <%= component "staff_list", locals: { staff: find_staff_profiles(names: team), classes: "l-margin-top-wide" } %>
     </div>
   <% end %>
 

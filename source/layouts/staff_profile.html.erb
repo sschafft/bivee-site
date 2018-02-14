@@ -20,7 +20,7 @@
   <% component "panel", locals: { theme: "reverse" } do %>
 	<div class = "l-wrapper l-wrapper--wide">
 		<h1 class = "t-heading t-scale-cappa t-centered">Meet the rest of the team</h1>
-		<%= component "staff_list", locals: { staff: get_staff_profiles(exclude: current_page.data.name), classes: "l-margin-top-wide" } %>
+		<%= component "staff_list", locals: { staff: find_staff_profiles(exclude: current_page.data.name), classes: "l-margin-top-wide" } %>
 	</div>
   <% end %>
 <% end %>
