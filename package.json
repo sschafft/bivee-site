@@ -34,9 +34,9 @@
     "clipboard": "^1.5.12",
     "include-media": "*",
     "modularscale-sass": "*",
+    "netlify-identity-widget": "^1.4.9",
     "normalize.css": "*",
-    "picturefill": "*",
-    "sassy-lists": "git+https://github.com/at-import/SassyLists.git"
+    "picturefill": "*"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
