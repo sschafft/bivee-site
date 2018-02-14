@@ -1,9 +1,17 @@
-@import "normalize.css/normalize";
-@import "config/libs";
-@import "config/color";
-@import "config/type";
+//
+// Styles for Project Carmine
+// https://github.com/Paradem/carmine
+//
+////////////////////////////////////////////////////////////////////////////////
+// Vendor CSS and overrides
+// -> for external libs that output css and thier overrides
+////////////////////////////////////////////////////////////////////////////////
 
-p {
-  @include color('text' 'secondary', $hover: 40%, $active: true, $important: true);
-  font-size: scale-type('zeta');
-}
+@import "normalize.css/normalize";
+
+////////////////////////////////////////////////////////////////////////////////
+// Base styles
+// -> global element styles: lists, text, images, etc.
+////////////////////////////////////////////////////////////////////////////////
+
+@import "base/type";

@@ -1,5 +1,6 @@
 // import $ from 'jquery';
 // import Clipboard from 'clipboard';
+// import netlifyIdentity from 'netlify-identity-widget';
 
 // // Copy-to-clipboard script
 // // -----------------------------------------------------------------------------

@@ -34,7 +34,6 @@
     "clipboard": "^1.5.12",
     "include-media": "*",
     "modularscale-sass": "*",
-    "netlify-identity-widget": "^1.4.9",
     "normalize.css": "*",
     "picturefill": "*"
   },
