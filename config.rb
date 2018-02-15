@@ -46,7 +46,6 @@ data.case_studies.each do |project|
 end
 
 # Helpers
-# rubocop:disable Metrics/BlockLength
 helpers do
   # 'Component' decorator for partial function
   # -> just used to point automatically to 'components' dir so you don't have
@@ -66,37 +65,20 @@ helpers do
     return true if current_page.url.include? current_dir
   end
 
-  def find_all_staff
-    sitemap.resources.select do |r|
-      r.path.include?('staff') unless r.data.name == exclude
-    end
-  end
-
-  def find_staff(names)
-    names.collect do |name|
-      sitemap.resources.select do |r|
-        r.path.include?('staff') if r.data.name == name
-      end[0]
-    end
-  end
-
   # return a list of site resouces for staff from a list of names
   # @param names ARRAY or STRING (optional): the names of the staff you need.
   #        use 'all' to get everybody.
   # @param exclude ARRAY (optional): the names of staff you want to exclude.
   #        use only when names is 'all'.
-  def find_staff_profiles(names: 'all')
-    if names == 'all'
-      return find_all_staff.sort_by do |r|
-        r.data.tribal_dominance
-      end
+  def find_staff_profiles(exclude: false)
+    profiles = sitemap.resources.select do |r|
+      r.path.include?('staff') unless r.data.name == exclude
     end
-    find_staff(names).sort_by do |r|
+    profiles.sort_by do |r|
       r.data.tribal_dominance
     end
   end
 end
-# rubocop:enable Metrics/BlockLength
 
 activate :directory_indexes
 page 'README.md', directory_index: false
