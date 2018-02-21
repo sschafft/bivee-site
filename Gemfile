@@ -12,8 +12,8 @@ gem 'middleman-livereload'
 gem 'middleman-minify-html'
 
 # Content/asset compilers
-gem 'rake' # required for SassC (below)
 gem 'kramdown' # markdown engine
+gem 'rake' # required for SassC (below)
 gem 'sassc' # use faster LibSass engine
 
 # Ruby/rails utilities
