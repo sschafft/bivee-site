@@ -29,7 +29,7 @@
     "lint:watch": "onchange $npm_package_config_css_src -- yarn run lint:styles",
     "dev": "yarn run javascripts:watch & yarn run lint:watch",
     "build": "yarn run lint:ruby && yarn run lint:styles && yarn run javascripts:build",
-    "test": "yarn run lint:styles"
+    "test": "yarn run lint:styles && yarn run javascripts:build && yarn run lint:ruby"
   },
   "dependencies": {
     "SassyLists": "git+https://github.com/at-import/SassyLists.git",
