@@ -1,0 +1,25 @@
+// =============================================================================
+// Breakpoint utilities
+// ==========================================================================
+
+// Allow 'important!' here because we want the styles to always apply in small utility classes
+// sass-lint:disable no-important
+
+@import '../config/breakpoints';
+
+// screen-size helper classes
+// -> hide content until screen reaches specified breakpoint size
+// usage: <span class='hidden-[below|above]@small'>
+@each $name, $size in $breakpoints {
+  .hidden-below\@#{$name} {
+    @include media('<#{$size}') {
+      display: none !important;
+    }
+  }
+
+  .hidden-above\@#{$name} {
+    @include media('>#{$size}') {
+      display: none !important;
+    }
+  }
+}

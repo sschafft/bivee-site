@@ -1,25 +1,19 @@
-/* =============================================================================
+// =============================================================================
 //  Global list styles
-// ========================================================================== */
+// =============================================================================
 
-@import "type";
+@import '../config/scale';
 
-/* Globals
-// -------------------------------------------------------------------------- */
+// Base styles
+// -----------------------------------------------------------------------------
 
-li {
-    @include scale-type('eta');
-
-    strong {
-        font-weight: bold;
-    }
+ul,
+ol {
+  padding-left: 1.5em; // bump to the right a little @ mobile sizes so the numbers/bullets don't run off
 }
 
 li {
-    margin-bottom: 0.5em;
-}
-
-ol, ul {
-    margin-left: 1.5em; /* bump to the right a little @ mobile sizes so the numbers/bullets don't run off */
-    padding-left: 0;
+  & + & {
+    margin-top: 0.5em;
+  }
 }

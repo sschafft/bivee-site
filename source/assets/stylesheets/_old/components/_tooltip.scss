@@ -1,0 +1,139 @@
+/* =============================================================================
+//  Tooltip component
+// -> a simple flyout with descriptive text
+// ========================================================================== */
+
+
+@import "../core/all";
+
+$tooltip-sides: over under right left; // sides a tooltip can appear on
+$tooltip-arrow-size: 12px;
+$tooltip-marginY: 0;
+
+@mixin tooltip-arrow($direction) {
+    @include triangle($tooltip-arrow-size, theme('bg'), $direction);
+
+    @if $direction == "down" {
+        // margin-left: -($tooltip-arrow-size/2);
+        // left: 50%;
+        // bottom: -($tooltip-arrow-size/2);
+    } @elseif $direction == "up" {
+        // margin-left: -($tooltip-arrow-size/2);
+        // left: 50%;
+        // top: -($tooltip-arrow-size/2);
+    } @elseif $direction == "left" {
+        // margin-top: -($tooltip-arrow-size/2);
+        // top: 50%;
+        // left: -($tooltip-arrow-size/2);
+    } @elseif $direction == "right" {
+        // margin-top: -($tooltip-arrow-size/2);
+        // top: 50%;
+        // right: -($tooltip-arrow-size);
+    }
+}
+
+/* Base
+// -------------------------------------------------------------------------- */
+
+.tooltip {
+    $line_height: 16px;
+    $paddingY: 6px;
+    $w: 14em;
+    $h: ($line_height + ($paddingY * 2));
+
+    @include transtion;
+    @include font-display;
+    @include scale-type("eta");
+    @include border-radius;
+    @include border;
+    display: inline-block;
+    visibility: none;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    overflow: visible;
+    // bottom: 150%;
+    top: -($h + $tooltip-arrow-size + $tooltip-marginY);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: $z--high;
+    padding: $paddingY 1em;
+    // margin-left: -($w/2);
+    width: $w;
+    // width: $w;
+    height: $h;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    color: theme('text' 'primary');
+    background-color: theme('bg');
+    box-shadow: 0 2px rbga(#ff0000, 0.2);
+
+    strong { @include font-display('bold'); }
+}
+
+.tooltip::after,
+.has-tooltip::after {
+    @include transtion;
+    @include tooltip-arrow("down");
+    content: ' ';
+    display: block;
+    visibility: none;
+    opacity: 0;
+    position: absolute;
+    top: -($tooltip-arrow-size + $tooltip-marginY);
+    left: 50%;
+    margin-left: -($tooltip-arrow-size/2);
+    z-index: $z--high;
+}
+
+
+/* Subcomponents
+// -------------------------------------------------------------------------- */
+
+.has-tooltip::before {
+    @extend .tooltip;
+    content: attr(title);
+}
+
+
+/* Modifiers
+// -------------------------------------------------------------------------- */
+
+// @each $side in $tooltip-sides {
+//     @if $side != "over" {
+//         .tooltip--#{$side} {
+//             // top:
+
+//             &::after {
+//                 @if $side == "under" {
+//                     @include tooltip-arrow("up");
+//                     border-top: none;
+//                 } @elseif $side == "left" {
+//                     @include tooltip-arrow("right");
+//                     left: auto;
+//                     bottom: auto;
+//                 } @elseif $side == "right" {
+//                     @include tooltip-arrow("left");
+//                     bottom: auto;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
+/* State
+// -------------------------------------------------------------------------- */
+
+.tooltip.is-active,
+.has-tooltip.is-active::before,
+.has-tooltip.is-active::after,
+.has-tooltip--hover:hover::before,
+.has-tooltip--hover:hover::after {
+    visibility: visible;
+    opacity: 1;
+}

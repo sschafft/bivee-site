@@ -1,24 +1,16 @@
-<%#
-  Main Header component
-  - the header appearing at the top of every page
-
-  Locals:
-  - STRING theme (optional): color theme
-
-  Styles:
-  - modules/main_header
-  - layout/bookend
-%>
-
 <%
-  overlay ||= false
-  theme ||= "default"
-  bgcolor ||= "none"
+  # Main Header component
+  # -> the header appearing at the top of every page
+
+  # Locals:
+  overlay ||= false # BOOLEAN: turn on 'overlay' styles for the header
+  theme ||= "default" # STRING: color theme
+  bgcolor ||= "none" # STRING: background color - pass in a theme name
 %>
 
-<header class="main_header<%= " main_header--overlay" if overlay == true %> bookend bookend--horizontal l-padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
-  <% link_to "/", :class => "logo bookend-item bookend-item--left" do %>
-      <%= component "logo", locals: { filename: "logo-bivee#{'-reverse-bw' unless theme == "default" }" } %>
+<header data-ui-main-header="<%= "overlay" if overlay %>" data-ui-bookend="horizontal" class="l-padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
+  <% link_to "/", data: { "ui-bookend-item": "left" } do %>
+    <%= component "logo", locals: { filename: "logo-bivee#{"-reverse-bw" unless theme == "default" }" } %>
   <% end %>
-  <%= link_to "Contact us", "mailto:#{data.site.email}", :class => "button button--small bookend-item bookend-item--right" %>
+  <%= link_to "Contact us", "mailto:#{data.site.email}", data: {"ui-bookend-item": "right", button:"small" }, class: "button button--small" %>
 </header>

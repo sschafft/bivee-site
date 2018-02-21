@@ -1,177 +1,343 @@
-/* =============================================================================
+// =============================================================================
 //  Global type styles
-// ========================================================================== */
+// =============================================================================
 
-/*doc
+@import '../config/libs';
+@import '../config/scale';
+@import '../config/type';
+@import '../config/color';
+@import '../config/animation';
+@import '../config/spacing';
+@import '../config/borders';
+@import '../config/breakpoints';
 
-*/
+// Base styles & defaults
+// -----------------------------------------------------------------------------
 
-@import "../core/libs";
-@import "../core/scale";
-@import "../core/fonts";
+// --- headings ----------------------------------------------------------------
 
-// default type sizes
-$type-size-default: 16px;
-$type-size-amp: 1.1em; // size of ampersands relative to their context
-$type-line_height: 1.6;
+// shared heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.t-heading {
+  @include color('text' 'primary');
+  @include font-display('light');
+  display: block;
+  letter-spacing: 0;
+  line-height: type-leading('tight');
+  margin: 0;
+  position: relative;
 
-// set type to default body size using REMs
-// -> useful for resetting type size on a container to override parents
-@mixin type-size-default {
-    @include rem(font-size, $type-size-default);
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      @include color('highlight');
+    }
+  }
 }
 
-// set up viewport-sized fluid type scaling, with minimum and maximum sizes
-// -> a modified version of Eduardo Boucas' mixin: https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html
-// -> also props to this: https://madebymike.com.au/writing/precise-control-responsive-typography/
-@mixin type-fluid($size, $min: 'zeta', $max: false, $media-min: 'xsmall', $media-max: 'huge') {
-    @if (type-of($min) != 'number') {
-        @include scale-type($min);
-    } @else {
-        @include rem(font-size, $min);
-    }
+h1,
+.t-scale-alpha {
+  @include type-fluid($size-min: 'gamma', $size-max: 'alpha');
+  letter-spacing: -0.035em;
+  line-height: 1.1;
 
-    @include media(">#{$media-min}") {
-        font-size: $size;
-    }
-
-    @if $max != false {
-        @include media(">#{$media-max}") {
-            @if (type-of($max) != 'number') {
-                @include scale-type($max);
-            } @else {
-                @include rem(font-size, $max);
-            }
-        }
-    }
+  @media print {
+    page-break-after: avoid;
+  }
 }
 
-/* Globals
-// -------------------------------------------------------------------------- */
+h2,
+.t-scale-beta {
+  @include type-fluid($size-min: 'gamma', $size-max: 'beta');
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+  }
+}
+
+h3,
+.t-scale-gamma {
+  @include type-fluid($size-min: 'delta', $size-max: 'gamma');
+  letter-spacing: -0.02em;
+
+  @media print {
+    orphans: 3;
+    page-break-after: avoid;
+    widows: 3;
+  }
+}
+
+h4,
+.t-scale-delta {
+  @include type-fluid($size-min: 'epsilon', $size-max: 'delta');
+}
+
+h5,
+.t-scale-epsilon {
+  @include font-display;
+  font-size: scale-type('epsilon');
+}
+
+h6,
+.t-scale-zeta {
+  @include font-display;
+  font-size: scale-type('zeta');
+}
+
+.t-scale-eta {
+  @include font-display;
+  font-size: scale-type('eta');
+}
+
+// --- body/inline text --------------------------------------------------------
 
 body {
-    @include font-body;
-    @include scale-type('epsilon');
-    line-height: $type-line_height;
+  @include font-body;
+  font-style: normal;
+  line-height: type-leading();
 }
 
-// headings
-h1, h2, h3, h4, h5, h6,
-.t-heading {
-    @include font-display;
-    @include color('text' 'primary');
-    display: block;
-    line-height: 1.2;
-    margin: 0;
-    letter-spacing: -0.008em;
-
-    & + & { margin-top: 0.5em; }
-
-    a {
-        color: inherit !important;
-
-        // @Jay TODO: specificity issue here
-       // &:hover, &:active {
-       //     @include color("highlight");
-       // }
-
-    }
-
-    strong {
-        font-family: inherit;
-        font-style: normal;
-        font-weight: bold;
-    }
-}
-
-// body/inline text
 p {
-    @include scale-type('epsilon');
-    @include color('text' 'secondary');
-    margin: 0;
+  @include color('text' 'secondary');
+  font-size: scale-type('epsilon');
 
-    &+& {
-        margin-top: 1em;
-    }
+  margin: 0;
+
+  & + & {
+    margin-top: 1em;
+  }
+
+  @media print {
+    orphans: 3;
+    widows: 3;
+  }
 }
 
 a {
-    @include color('accent');
-    text-decoration: none;
+  @include color('accent');
+  @include transition;
+  text-decoration: none;
+
+  // 'active' state
+  &.is-active,
+  .is-active & {
+    @include color('highlight');
+  }
 }
 
-strong,
-.t-strong { @include font-body('bold'); }
+// see t-weight-* and t-style-* classes below for equivalent utilies
+strong {
+  @extend %t-weight-bold;
 
-em,
-.t-em { @include font-body('normal', 'italic'); }
+  em {
+    @extend %t-weight-bold;
+    @extend %t-style-italic;
+  }
+}
+
+em {
+  @extend %t-style-italic;
+
+  strong {
+    @extend %t-weight-bold;
+    @extend %t-style-italic;
+  }
+}
 
 small,
 .t-small {
-    @include scale-type('theta');
-    @include color('text' 'tertiary');
+  @include color('text' 'tertiary');
+  font-size: scale-type('zeta');
 }
 
 figcaption,
 .t-caption {
-    @include scale-type('theta');
-    @include color('text' 'secondary');
+  @include color('text' 'secondary');
+  font-size: scale-type('eta');
 }
 
 address,
 .t-address {
-    @include scale-type('eta');
-    @include color('text' 'secondary');
+  @include color('text' 'secondary');
+  font-size: scale-type('eta');
 }
 
-/* Utilities
-// -------------------------------------------------------------------------- */
+blockquote,
+.t-blockquote {
+  @include color('well', background-color);
+  @include border('left', $w: 'medium');
+  margin: gutter('xxnarrow') 0;
+  padding: gutter('narrow') gutter();
 
-// type scale helpers
-@each $name, $size in $scale-type {
-    .t-scale-#{$name} { @include scale-type($name); }
+  > * {
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    margin-bottom: gutter('xxnarrow');
+  }
+
+  @media print {
+    page-break-inside: avoid;
+  }
 }
 
-.t-heading { /* see h1, h2, etc. above */ }
-
-    .t-heading--sub {
-        @include font-body;
-        line-height: 1.5;
-    }
-
-    .t-heading--slug {
-        @include font-display("bold");
-        text-transform: uppercase;
-    }
-
-    .t-heading--fluid {
-        &.t-scale-alpha {
-            @include type-fluid(5vw, 'delta', 83px);
-        }
-        &.t-scale-delta {
-            @include type-fluid(2.2vw, 'zeta', 'cappa', $media-min: 'small');
-        }
-    }
-
-// the first paragraph, often set slightly bigger
-.t-lead {
-    @include scale-type('epsilon');
-    @include color('text' 'secondary');
+// this is a default for this element
+// -> to style with classes use t-scale-*, t-italic, etc.
+cite {
+  @include font-body($style: 'italic');
+  font-size: 0.6em;
+  line-height: type-leading('tight');
 }
 
-.t-caps { text-transform: uppercase !important; }
+// Rendered content (markdown)
+// -> a container with running text content
+// -> use old school selectors to target generated elements with sane defaults
+// -> create automatic margins between all child elements, assume that everything stacks vertically
+// -----------------------------------------------------------------------------
 
-.t-font-display { @include font-display; }
-.t-font-body { @include font-body; }
+.t-content {
+
+  // add a line of whitespace between everything
+  > * + * {
+    margin-top: 1em;
+  }
+
+  li {
+    font-size: 0.8em;
+
+    + li {
+      margin-top: 0.6em;
+    }
+  }
+
+  // add more space before some elements
+  > * + blockquote,
+  > * + ul,
+  > * + ol {
+    margin-top: ms(1);
+  }
+
+  // add more space after some elements
+  > ul + *,
+  > ol + * {
+    margin-top: ms(1);
+  }
+
+  // force some default type styles on blockquotes, since we can't add utilities
+  blockquote > * {
+    font-size: scale-type('delta');
+    line-height: type-leading();
+  }
+
+  p {
+    color: inherit;
+  }
+}
+
+// Utilities
+// -----------------------------------------------------------------------------
+
+.t-font-display {
+  @include font-display;
+}
+
+.t-font-body {
+  @include font-body;
+}
+
+// type weight
+.t-weight-light {
+  // light weight is only available for display font
+  @include font-display('light');
+}
+
+.t-weight-normal {
+  @include font-body;
+
+  .t-heading &,
+  &.t-heading,
+  .t-font-display &,
+  &.t-font-display {
+    @include font-display;
+  }
+}
+
+// extended by strong base style above
+%t-weight-bold,
+.t-weight-bold {
+  @include font-body('bold');
+
+  .t-heading &,
+  &.t-heading,
+  .t-font-display &,
+  &.t-font-display {
+    @include font-display('bold');
+  }
+}
+
+// extended by em base style above
+%t-style-italic,
+.t-style-italic {
+  // italic style is only available for the body font
+  @include font-body($style: 'italic');
+}
+
+.t-case-upper {
+  // Need important here because this should always override the default
+  // sass-lint:disable no-important
+  text-transform: uppercase !important;
+}
+
+.t-case-lower {
+  // Need important here because this should always override the default
+  // sass-lint:disable no-important
+  text-transform: lowercase !important;
+}
+
+.t-case-none {
+  // Need important here because this should always override the default
+  // sass-lint:disable no-important
+  text-transform: none !important;
+}
+
+.t-decoration-none {
+  // Need important here because this should always override the default
+  // sass-lint:disable no-important
+  text-decoration: none !important;
+}
 
 // position text
-@include breakpointify('.t-centered', true) { text-align: center; }
-@include breakpointify('.t-left', true) { text-align: left; }
-@include breakpointify('.t-right', true) { text-align: right; }
+.t-align-center {
+  text-align: center;
+}
 
-/* use the best ampersands from common system fonts... */
-// .t-amp {
-//     @include font-ampersand;
-//     font-size: $type-size-amp; /* relative to whatever type surrounds it -- it renders slightly bigger */
-//     color: inherit;
-// }
+.t-align-left {
+  text-align: left;
+}
+
+.t-align-right {
+  text-align: right;
+}
+
+// leading utilities to set line height from global config
+@each $name, $height in $type-leading {
+  .t-leading-#{unquote($name)} {
+    // Need important here because this should override default line heights
+    // sass-lint:disable no-important
+    line-height: type-leading($name) !important;
+  }
+}

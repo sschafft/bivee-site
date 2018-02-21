@@ -1,0 +1,9 @@
+// =============================================================================
+// Frameworks & vendor stuff
+// -> all dependencies should be imported here, then imported
+//    as-needed in modules
+// =============================================================================
+
+@import 'bourbon/core/bourbon';
+@import 'modularscale-sass/stylesheets/modularscale';
+@import 'include-media/dist/include-media';

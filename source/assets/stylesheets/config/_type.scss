@@ -1,0 +1,139 @@
+// =============================================================================
+//  Type config & scale
+// =============================================================================
+
+@import 'libs';
+@import 'scale';
+@import 'breakpoints';
+@import 'paths';
+
+// default type sizes
+$type-size-default: 1rem !default;
+
+// global line heights
+$type-leading: (
+  'xtight': 1,
+  'tight': ms(1),
+  'default': ms(2)
+);
+
+@function type-leading($height: 'default') {
+  @return map-get($type-leading, $height);
+}
+
+// set up viewport-sized fluid type scaling, with minimum and maximum sizes
+// -> a modified version of Indrek Paas' fluid type mixin: https://www.sassmeister.com/gist/7f22e44ace49b5124eec
+// -> which is based on Mike Riethmuller's formula: https://madebymike.com.au/writing/fluid-type-calc-examples/
+// -> also inspired by Eduardo Boucas' mixin: https://eduardoboucas.com/blog/2015/06/18/viewport-sized-typography-with-minimum-and-maximum-sizes.html
+@mixin type-fluid($properties: font-size, $size-min: 'eta', $size-max: 'alpha', $screen-min: 'xsmall', $screen-max: 'huge') {
+
+  // set base (min) size as default
+  @each $property in $properties {
+    #{$property}: scale-type($size-min);
+  }
+
+  // start to scale up at the minimum screen size
+  @include media('>#{$screen-min}') {
+    @each $property in $properties {
+      // sass-lint:disable no-duplicate-properties
+      // -> using redundant props as fallback here
+
+      // use an in-between value as the fallback where vw units or calc aren't supported
+      #{$property}: ((scale-type($size-min) + scale-type($size-max)) / 2);
+
+      // use calc and vw units to make the type scale fluidly between two sizes
+      #{$property}: calc(#{scale-type($size-min)} + #{strip-unit(scale-type($size-max) - scale-type($size-min))} * (100vw - #{screen($screen-min)}) / #{strip-unit(screen($screen-max) - screen($screen-min))});
+    }
+  }
+
+  // stop scaling at the maximum screen size
+  @include media('>#{$screen-max}') {
+    @each $property in $properties {
+      #{$property}: scale-type($size-max);
+    }
+  }
+}
+
+// @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
+//   @each $property in $properties {
+//     #{$property}: $min-value;
+//   }
+
+//   @media screen and (min-width: $min-vw) {
+//     @each $property in $properties {
+//       #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
+//     }
+//   }
+
+//   @media screen and (min-width: $max-vw) {
+//     @each $property in $properties {
+//       #{$property}: $max-value;
+//     }
+//   }
+// }
+
+// Fonts
+// -----------------------------------------------------------------------------
+// -> font-face mixins use Bourbon
+
+// in supporting browsers, specify the font-loading strategy
+@mixin font-display {
+  // swap in the webfont once it loads
+  font-display: swap;
+}
+
+// ----- Source Sans -----------------------------------------------------------
+// -> body font
+
+// use @import for the moment, having trouble creating webfonts with Source Sans
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i');
+// @include font-face('source-sans-normal-normal', $file-path: '#{$asset-path-fonts}/Aspira-Thin-webfont', $file-formats: woff woff2) {
+//   @include font-display;
+// }
+// @include font-face('source-sans-bold-normal', $file-path: '#{$asset-path-fonts}/Aspira-Demi-webfont', $file-formats: woff woff2) {
+//   @include font-display;
+//   font-weight: bold;
+// }
+// @include font-face('source-sans-italic', $file-path: '#{$asset-path-fonts}/Aspira-Demi-webfont', $file-formats: woff woff2) {
+//   @include font-display;
+//   font-style: italic;
+// }
+// @include font-face('source-sans-bold-italic', $file-path: '#{$asset-path-fonts}/Aspira-Demi-webfont', $file-formats: woff woff2) {
+//   @include font-display;
+//   font-style: italic;
+//   font-weight: bold;
+// }
+
+// ----- Cairo -----------------------------------------------------------------
+// -> display font
+
+@include font-face('cairo-normal', $file-path: '#{$asset-path-fonts}/cairo/cairo-regular-webfont', $file-formats: eot woff) {
+  @include font-display;
+}
+@include font-face('cairo-light', $file-path: '#{$asset-path-fonts}/cairo/cairo-light-webfont', $file-formats: eot woff) {
+  @include font-display;
+  font-weight: normal;
+}
+@include font-face('cairo-bold', $file-path: '#{$asset-path-fonts}/cairo/cairo-bold-webfont', $file-formats: eot woff) {
+  @include font-display;
+  font-weight: bold;
+}
+
+
+// Font mixins
+// -----------------------------------------------------------------------------
+// -> PUBLIC, use these to style type globally & in modules
+
+@mixin font-display($weight: normal) {
+  font-family: 'cairo-#{$weight}', $font-stack-verdana;
+  font-weight: unquote(if($weight == light, normal, $weight));
+}
+
+@mixin font-body($weight: normal, $style: normal) {
+  font-family: 'Source Sans Pro', $font-stack-verdana;
+  // font-family: 'source-sans-#{$weight}-#{$style}', $verdana;
+  font-weight: if($weight == normal, 400, 700);
+  @if $style != normal {
+    font-style: unquote($style);
+  }
+}
