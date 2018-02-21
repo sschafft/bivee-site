@@ -5,13 +5,13 @@
   "author": "Bivee, Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/biveeco/bvSite/issues"
+    "url": "https://github.com/biveeco/biveeco.github.io/issues"
   },
   "description": "Refresh of the Bivee website",
-  "homepage": "https://github.com/biveeco/bvSite#readme",
+  "homepage": "https://github.com/biveeco/biveeco.github.io#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/biveeco/bvSite.git"
+    "url": "git+https://github.com/biveeco/biveeco.github.io.git"
   },
   "config": {
     "css_src": "source/assets/stylesheets",
