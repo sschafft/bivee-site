@@ -1,0 +1,82 @@
+// =============================================================================
+//  Base form styles
+// =============================================================================
+
+@import '../config/animation';
+@import '../config/type';
+
+%form-field {
+  @include border;
+  @include color('text' 'secondary');
+  @include color('well', 'background-color');
+  @include font-body;
+  @include transition;
+  border-radius: 3px;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  text-shadow: none;
+
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+// Base
+// -----------------------------------------------------------------------------
+
+.form,
+form {
+  @include font-body;
+}
+
+// .form-fieldset,
+// fieldset {}
+
+// .form-legend,
+// legend {}
+
+.form-field,
+input,
+textarea,
+select {
+  @extend %form-field;
+}
+
+.form-field--invisible {
+  // sass-lint:disable no-important
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+  display: inline-block;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
+
+.form-checkbox,
+[type='checkbox'] {
+  height: 1em;
+  width: 1em;
+}
+
+// .form-search,
+// input[type='search'] {
+
+// 	&:focus {}
+// }
+
+// Allow only vertical resizing of textareas.
+.form-textarea,
+textarea {
+  @extend %form-field;
+  resize: vertical;
+}
+
+// .form-select,
+// select {}
+
+// .form-label,
+// label {}

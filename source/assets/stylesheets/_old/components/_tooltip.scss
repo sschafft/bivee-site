@@ -41,7 +41,7 @@ $tooltip-marginY: 0;
     $w: 14em;
     $h: ($line_height + ($paddingY * 2));
 
-    @include transition-default;
+    @include transtion;
     @include font-display;
     @include scale-type("eta");
     @include border-radius;
@@ -76,7 +76,7 @@ $tooltip-marginY: 0;
 
 .tooltip::after,
 .has-tooltip::after {
-    @include transition-default;
+    @include transtion;
     @include tooltip-arrow("down");
     content: ' ';
     display: block;

@@ -1,0 +1,19 @@
+// =============================================================================
+//  Global list styles
+// =============================================================================
+
+@import '../config/scale';
+
+// Base styles
+// -----------------------------------------------------------------------------
+
+ul,
+ol {
+  padding-left: 1.5em; // bump to the right a little @ mobile sizes so the numbers/bullets don't run off
+}
+
+li {
+  & + & {
+    margin-top: 0.5em;
+  }
+}

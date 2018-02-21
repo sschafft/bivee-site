@@ -21,7 +21,7 @@ $button-border-w: 'mid';
 .button {
     $c: 'highlight';
 
-    @include transition-default;
+    @include transtion;
     @include border(all, $button-border-w, $color: $c);
     @include border-radius;
     @include font-display;

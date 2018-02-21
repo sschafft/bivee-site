@@ -117,8 +117,9 @@ $focus-default: 10;
 }
 
 // set print color overrides
-@mixin print-colors() {
+@mixin print-colors {
   @media print {
+    // sass-lint:disable no-important
     background: transparent !important;
     border-color: $gray !important;
     color: $black !important;
