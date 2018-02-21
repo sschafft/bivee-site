@@ -3,7 +3,7 @@
 // =============================================================================
 
 // Allow 'important!' here in the mixins, which are used for small utility classes
-// scss-lint:disable ImportantRule
+// sass-lint:disable no-important
 
 @import 'libs';
 @import 'color';
