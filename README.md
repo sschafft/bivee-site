@@ -1,6 +1,10 @@
 # Bivee's website
 http://bivee.co
 
+## About this site:
+
+This site is built primarily on Middleman, a static site generator. It uses [Sass](http://sass-lang.com) for its styling (via [LibSass](https://github.com/sass/sassc-ruby)) and a variant of [AMCSS](https://amcss.github.io) for its CSS naming conventions and architecture. Javascript is handled with [Webpack](https://webpack.js.org), and front-end dependencies are managed with Yarn. It's hosted on [Netlify](http://netlify.com).
+
 ## Local setup:
 
 1. Clone this repository
