@@ -4,7 +4,7 @@ const webpack = require('webpack')
 
 const buildPath = '.tmp/assets/javascripts'
 
-// split output JS into 'critical' (above-the-fold) scripts and the rest (which can be loaded on-demand)
+// split output JS into 'critical' (above-the-fold/blocking) scripts and the rest (which can be loaded on-demand)
 module.exports = env => {
   return {
     entry: {

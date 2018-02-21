@@ -5,7 +5,6 @@
 // =============================================================================
 
 @import 'libs';
-@import 'animation';
 
 // Base Palette
 // -----------------------------------------------------------------------------
@@ -82,11 +81,17 @@ $active-default: 10;
 $focus-default: 10;
 
 // getter function to access color map values
+// -> PARAMS
+//    - STRING/LIST $colors: the name(s) of the color roles, e.g. 'highlight'
+//    - STRING $name (optional): the name of the theme, e.g. 'default', 'dark'
+//    - NUMBER $grade (optional): 'grade' (as in 'gradation') the color to be darker or lighter
+//      -> pass in a negative number to darken the color
+//      -> pass in a positive number to lighten the color
 // -> PUBLIC
 // -> USAGE:
-//      color: color('text' 'primary');
-//      color: color('highlight' 'primary', 'reverse');
-@function color($colors, $name: 'default') {
+//    - color: color('text' 'primary');
+//    - color: color('highlight' 'primary', 'reverse');
+@function color($colors, $name: 'default', $grade: 0) {
   // first extract the 'theme' nested map
   $theme: map-get($themes, $name);
 
@@ -100,7 +105,24 @@ $focus-default: 10;
       $color: map-get($color, nth($colors, $i));
     }
   }
+
+  // lighten or darken the color
+  @if ($grade < 0) {
+    $color: shade($color, abs($grade));
+  } @elseif ($grade > 0) {
+    $color: tint($color, abs($grade));
+  }
+
   @return $color;
+}
+
+// set print color overrides
+@mixin print-colors() {
+  @media print {
+    background: transparent !important;
+    border-color: $gray !important;
+    color: $black !important;
+  }
 }
 
 // add '!important' to the end of a property
@@ -118,38 +140,42 @@ $focus-default: 10;
 @mixin _color-props(
   $color,
   $prop: color,
+  $theme: 'default',
+  $grade: 0,
   $hover: false,
   $active: false,
   $focus: false,
-  $animate: true,
   $important: false
 ) {
-  // set color for default theme
-  #{$prop}: _important(color($color), $important);
 
-  @if ($animate == true) {
-    @include transition($prop);
-  }
+  // default values for states
+  $hover-default: 10;
+  $active-default: -10;
+  $focus-default: 10;
+
+
+  // set color for default theme
+  #{$prop}: _important(color($color, $theme, $grade), $important);
 
   // hover/active/focus states
   @if $hover != false {
     &:hover {
       $percentage: if(type-of($hover) == 'number', $hover, $hover-default);
-      #{$prop}: _important(tint(color($color), $percentage), $important);
+      #{$prop}: _important(color($color, $theme, $percentage + $grade), $important);
     }
   }
 
   @if $active != false {
     &:active {
       $percentage: if(type-of($active) == 'number', $active, $active-default);
-      #{$prop}: _important(shade(color($color), $percentage), $important);
+      #{$prop}: _important(color($color, $theme, $percentage + $grade), $important);
     }
   }
 
   @if $focus != false {
     &:focus {
       $percentage: if(type-of($focus) == 'number', $focus, $focus-default);
-      #{$prop}: _important(tint(color($color), $percentage), $important);
+      #{$prop}: _important(color($color, $theme, $percentage + $grade), $important);
     }
   }
 }
@@ -158,43 +184,45 @@ $focus-default: 10;
 // -> PUBLIC
 // -> PARAMS:
 //    - STRING/LIST $color: the name of the color you want to use, e.g. 'highlight'
-//    - STRING $attr (optional): the attribute this will apply to, e.g. 'background-color'
+//    - STRING $prop (optional): the property this will apply to, e.g. 'background-color'
+//    - STRING $grade (optional): 'grade' the color darker or lighter (as in 'gradation').
+//      -> pass in a negative number to darken the color
+//      -> pass in a positive number to lighten the color
 //    - BOOLEAN/NUMBER $hover, $active, $focus (optional): include state?
 //      -> pass in 'true' for each to pick up the default hover, active, and focus colors
 //      -> pass in a number to change the color gradation (e.g. $hover: 12 will lighten
-//         hover state color by 12%)
+//         hover state color by 12%; $hover: -15, however, will darken it.)
 //    - BOOLEAN $important (optional): add the '!important' prop?
 // -> USAGE:
 //      @include color(text primary, background-color, true, false, 12, true);
 @mixin color(
   $color,
   $prop: color,
+  $grade: 0,
   $hover: false,
   $active: false,
   $focus: false,
   $important: false
 ) {
-  @include _color-props($color, $prop, $hover, $active, $focus, $important);
+  @include _color-props($color, $prop, 'default', $grade, $hover, $active, $focus, $important);
 
   // set the color of this element to match the theme of this context
   @each $theme, $colors in $themes {
-    @if $theme != 'default' {
-      // set color to theme of either this element or its parent
-      &.c-theme-#{$theme},
-      .c-theme-#{$theme} & {
-        @include _color-props($color, $prop, $hover, $active, $focus, $important);
-      }
+    // set color to theme of either this element or its parent
+    &.c-theme-#{$theme},
+    .c-theme-#{$theme} & {
+      @include _color-props($color, $prop, $theme, $grade, $hover, $active, $focus, $important);
     }
   }
 }
 
 // shortcut decorators for the above, using specific attributes
-@mixin background-color($color, $props...) {
-  @include color($color, $prop: 'background-color', $props...);
+@mixin color-background($color, $arguments...) {
+  @include color($color, 'background-color', $arguments...);
 }
 
-@mixin border-color($color, $props...) {
-  @include color($color, $prop: 'border-color', $props...);
+@mixin color-border($color, $arguments...) {
+  @include color($color, 'border-color', $arguments...);
 }
 
 // Theme Globals
