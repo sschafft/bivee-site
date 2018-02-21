@@ -1,4 +1,4 @@
-# Bivee website
+# Bivee's website
 http://bivee.co
 
 ## Local setup:
@@ -17,4 +17,9 @@ http://bivee.co
 ## Deploy:
 
 - Merge your pull request into the `dev` branch.
-- Run `yarn run deploy`; this will build the site, commit the compiled files to the `master` branch, then push up to remote. The updates should be live shortly after running this command.
+- The site will automatically build and go live on the host (Netlify) when the PR is merged via Git hook. Branch "previews" are available for PRs.
+- To manually build: run `bundle exec middleman build`; this will build the site. This will build the site, compile assets (CSS, JS), and run linters.
+
+## Test:
+
+- `yarn test` will run linters.
