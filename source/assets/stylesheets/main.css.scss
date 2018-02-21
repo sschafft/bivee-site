@@ -20,3 +20,13 @@
 @import 'base/type';
 @import 'base/form';
 @import 'base/list';
+
+////////////////////////////////////////////////////////////////////////////////
+// Utility classes
+// -> global element styles: lists, text, images, etc.
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'utilities/borders';
+@import 'utilities/spacing';
+@import 'utilities/color';
+@import 'utilities/visibility';

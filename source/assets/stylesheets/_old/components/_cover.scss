@@ -1,77 +1,48 @@
 /* =============================================================================
-//  Cover module
+//  Cover
 // -> a main heading for content
 // ========================================================================== */
 
-/*doc
----
-title: Cover
-name: cover
-category: Molecules
----
-
-*/
-
-@import "../core/all";
+@import '../config/spacing';
 
 /* Base
 // -------------------------------------------------------------------------- */
 
-.cover {
-    @include rem(padding-top, ms(12, $type-size-default));
-    display: block;
-    position: relative;
-    min-height: 400px;
-    min-height: 85vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-
-    // @include yep(flexbox) {
-    //     @include display(flex);
-    //     @include align-items(center);
-    // }
+[data-ui-cover] {
+  display: block;
+  padding-top: space('xxlarge');
+  position: relative;
+  min-height: 400px;
+  min-height: 85vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* Modifiers
 // -------------------------------------------------------------------------- */
 
-.cover--overlay::before {
-    $bg: highlight('kiwi');
+[data-ui-cover~='overlay'] {
+  &::before {
+  $bg: highlight('kiwi');
 
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: $z--low;
-    opacity: 0.8;
-    background-color: $bg;
-
-    @include yep(cssgradients, rgba) {
-        background-color: transparent;
-        // @include linear-gradient(to bottom, rgba(theme('accent'), 0.9) 0%, rgba(theme('accent'), 0.1) 20%);
-
-        background-image: linear-gradient(
-            $bg 40%,
-            transparent
-        );
-    }
+  background-color: $bg;
+  background-color: transparent;
+  background-image: linear-gradient($bg 40%, transparent);
+  bottom: 0;
+  content: ' ';
+  display: block;
+  left: 0;
+  opacity: 0.8;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $z--low;
 }
-
-    // @each $color, $hex in $highlights {
-    //     .cover--overlay.cover--#{$color}::before {
-    //         background-color: $hex;
-    //         background-image: linear-gradient(
-    //             $hex 40%,
-    //             transparent
-    //         );
-    //     }
-    // }
 
 /* Submodules
 // -------------------------------------------------------------------------- */
 
-.cover-content { z-index: $z--middle; }
+[data-ui-cover-content] {
+  z-index: $z--middle;
+}

@@ -1,0 +1,63 @@
+// =============================================================================
+//  Bookend
+//  -> a narrow, horizontal 'strip' appearing at the top and bottom of a page
+//  -> used as a common layout foundation for the main header and footer
+// =============================================================================
+
+
+@import '../config/breakpoints';
+@import '../config/spacing';
+
+// Base
+// -----------------------------------------------------------------------------
+
+[data-ui-bookend] {
+  display: block;
+  padding: space() space('wide');
+}
+
+// Modifiers
+// -----------------------------------------------------------------------------
+
+// sass-lint:disable quotes
+// -> need double quotes here to pass in attr selector as a string
+@include breakpointify("[data-ui-bookend~='horizontal']", true, 'xsmall' 'small') {
+  @supports (display: flex) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  [data-ui-bookend-item~='left'] {
+    display: inline-block;
+    float: left;
+
+    @supports (display: flex) {
+      align-self: left;
+      float: none;
+    }
+  }
+
+  [data-ui-bookend-item~='right'] {
+    display: inline-block;
+    float: right;
+
+    @supports (display: flex) {
+      align-self: right;
+      float: none;
+    }
+  }
+}
+// sass-lint:enable quotes
+
+// Subcomponents
+// -----------------------------------------------------------------------------
+
+.bookend-item {
+  @include clearfix;
+  clear: both;
+  display: block;
+  float: none;
+  position: relative;
+  vertical-align: middle;
+}

@@ -12,7 +12,7 @@
 @each $theme, $colors in $themes {
   @if $theme != 'default' {
     .c-theme-#{$theme} {
-      @include theme('#{$theme}');
+      @include theme($theme);
     }
   }
 }
@@ -44,11 +44,11 @@ body,
 }
 
 .c-highlight {
-  @include color('highlight' 'primary', $important: true);
+  @include color('highlight', $important: true);
 }
 
 .c-accent {
-  @include color('accent' 'primary', $important: true);
+  @include color('accent', $important: true);
 }
 
 .c-well {
