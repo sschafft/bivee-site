@@ -19,9 +19,7 @@
 // Modifiers
 // -----------------------------------------------------------------------------
 
-// sass-lint:disable quotes
-// -> need double quotes here to pass in attr selector as a string
-@include breakpointify("[data-ui-bookend~='horizontal']", true, 'xsmall' 'small') {
+@mixin bookend-horizontal {
   @supports (display: flex) {
     align-items: center;
     display: flex;
@@ -48,7 +46,16 @@
     }
   }
 }
-// sass-lint:enable quotes
+
+[data-ui-bookend~='horizontal'] {
+  @include bookend-horizontal;
+}
+
+@each $name in ('xsmall' 'small') {
+  [data-ui-bookend~='horizontal@#{$name}'] {
+    @include bookend-horizontal;
+  }
+}
 
 // Subcomponents
 // -----------------------------------------------------------------------------
