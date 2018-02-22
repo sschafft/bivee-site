@@ -5,7 +5,7 @@
 
 @import '../config/spacing';
 
-/* Base
+/* Block
 // -------------------------------------------------------------------------- */
 
 [data-ui-cover] {
@@ -19,26 +19,9 @@
   background-size: cover;
 }
 
-/* Modifiers
+/* Traits
 // -------------------------------------------------------------------------- */
 
-[data-ui-cover~='overlay'] {
-  &::before {
-  $bg: highlight('kiwi');
-
-  background-color: $bg;
-  background-color: transparent;
-  background-image: linear-gradient($bg 40%, transparent);
-  bottom: 0;
-  content: ' ';
-  display: block;
-  left: 0;
-  opacity: 0.8;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: $z--low;
-}
 
 /* Submodules
 // -------------------------------------------------------------------------- */

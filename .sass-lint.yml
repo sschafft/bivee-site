@@ -3,6 +3,7 @@ options:
 files:
   include: 'source/assets/stylesheets/**/*.s+(a|c)ss'
   ignore:
+    - 'source/assets/stylesheets/_TEMPLATE.scss'
     - 'source/assets/stylesheets/_old/**/*.s+(a|c)ss'
     - 'node_modules/**/*.s+(a|c)ss'
 rules:

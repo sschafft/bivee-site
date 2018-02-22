@@ -29,24 +29,24 @@ title: home
     <% end %>
     <!-- list of staff photos -->
     <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
-        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Founders</h3>
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-align-center l-padding-bottom l-padding-top border-top">Founders</h3>
         <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/founders") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-align-center" } %>
     </section>
     <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
-        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Directors</h3>
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-align-center l-padding-bottom l-padding-top border-top">Directors</h3>
         <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/directors") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-align-center" } %>
     </section>
     <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
-        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Team</h3>
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-align-center l-padding-bottom l-padding-top border-top">Team</h3>
         <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/team") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-align-center" } %>
     </section>
     <section class="l-wrapper l-wrapper--wide l-padding-top-wide">
-        <h3 class="t-heading t-heading--slug t-scale-epsilon t-centered l-padding-bottom l-padding-top border-top">Subject Matter Experts</h3>
+        <h3 class="t-heading t-heading--slug t-scale-epsilon t-align-center l-padding-bottom l-padding-top border-top">Subject Matter Experts</h3>
         <% find_staff = sitemap.resources.select {|r| r.path.include?("staff/smes") }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-centered" } %>
+        <%= component "staff_list", locals: { staff: find_staff, classes: "l-margin-top-wide t-align-center" } %>
     </section>
 <% end %>
 
@@ -64,7 +64,7 @@ title: home
     </div>
 
     <!-- contact buttons -->
-    <div class="l-wrapper l-wrapper--wide t-centered">
+    <div class="l-wrapper l-wrapper--wide t-align-center">
 
         <!-- email -->
         <div class="button-group button-group--flush button-group--horizontal@xsmall l-margin-top l-margin-right">

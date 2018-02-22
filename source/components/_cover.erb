@@ -3,13 +3,12 @@
   # - A 'hero' with a full-bleed image and headline
 
   # Locals:
-  image ||= false # STRING: image for the background
-  overlay ||= false # BOOLEAN: add an overlay
+  bg_image ||= false # STRING: image for the background
   theme ||= "wash" # STRING: color theme
 %>
 
-<div data-ui-cover<%= "='overlay'" if overlay %> class="c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
-  <div data-ui-cover-content data-ui-wrapper="wide" class="t-centered">
+<div data-ui-cover class="c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
+  <div data-ui-cover-content data-ui-wrapper="wide" class="t-align-center">
     <%= yield %>
   </div>
 </div>

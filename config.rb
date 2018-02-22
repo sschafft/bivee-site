@@ -35,7 +35,7 @@ config[:markdown_engine] = :kramdown
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 data.case_studies.each do |project|
-  proxy "work/#{project.slug.urlize}/index.html", '/project.html', locals: {
+  proxy "work/#{project.slug.urlize}/index.html", '/case_study.html', locals: {
     title: project.title,
     slug: project.slug,
     date: project.date,

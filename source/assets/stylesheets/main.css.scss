@@ -30,3 +30,11 @@
 @import 'utilities/spacing';
 @import 'utilities/color';
 @import 'utilities/visibility';
+
+////////////////////////////////////////////////////////////////////////////////
+// Component styles
+// -> self-contained, namespaced, opinionated UI elements
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'components/wrapper';
+@import 'components/fluid_ratio';

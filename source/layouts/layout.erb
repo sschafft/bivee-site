@@ -15,7 +15,7 @@
     <%= javascript_include_tag "critical.bundle" %>
     <%= stylesheet_link_tag :main %>
     <%# netlify identity script - yarn install is being wonky %>
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <%# <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> %>
   </head>
 
   <body>
@@ -27,6 +27,6 @@
     <%= yield %>
 
     <%= component "main_footer" %>
-    <%= javascript_include_tag :bundle %>
+    <%#= javascript_include_tag :bundle %>
   </body>
 </html>

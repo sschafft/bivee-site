@@ -1,0 +1,17 @@
+// =============================================================================
+// Layout width config
+// -> global settings for the width of the content area (running text, etc.)
+// =============================================================================
+
+// width of main layout
+$layout-widths: (
+  'xnarrow': 480px,
+  'narrow': 600px,
+  'default': 750px,
+  'wide': 1200px
+);
+
+// Getter function for layout widths
+@function layout-w($w: 'default') {
+  @return map-get($layout-widths, $w);
+}
