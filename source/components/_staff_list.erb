@@ -7,7 +7,7 @@
   classes ||= false # STRING: additional modifier classes, if needed
 %>
 
-<ul data-ui-gallery <%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery<%= " class='#{classes}'" if classes %>>
   <% staff.each do |profile| %>
     <li data-ui-gallery-item class="t-align-center">
       <% link_to profile.url do %>

@@ -1,0 +1,37 @@
+// =============================================================================
+// Positioning config
+// -> place an element relative to its parent
+// =============================================================================
+
+// z-indexes
+// -----------------------------------------------------------------------------
+
+$z-indexes: (
+  'low': 0,
+  'middle': 1,
+  'high': 2,
+  'top': 3
+);
+
+// getter function for z-index map
+// USAGE: z-index: z('low');
+@function z($name) {
+  @return map-get($z-indexes, $name);
+}
+
+// vertical centering
+// -----------------------------------------------------------------------------
+
+// vertically center the children of an inline block element
+@mixin inline-block-centered($h: 100%) {
+  display: inline-block;
+  height: $h;
+  vertical-align: middle;
+
+  &::before {
+    content: ' ';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}

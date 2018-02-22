@@ -4,6 +4,8 @@
 
 // Allow 'important!' here because we want the styles to always apply in small utility classes
 // sass-lint:disable no-important
+// sass-lint:disable class-name-format
+// -> allow '@[state]' suffixes
 
 @import '../config/breakpoints';
 
@@ -41,8 +43,9 @@
   display: none !important;
 }
 
-// screen-size helper classes
+// --- show/hide at screen sizes -----------------------------------------------
 // -> hide content until screen reaches specified breakpoint size
+
 // usage: <span class='hide-[below|above]@small'>
 @each $name, $size in $breakpoints {
   .hide-below\@#{$name} {
@@ -58,8 +61,7 @@
   }
 }
 
-// sass-lint:disable class-name-format
-// -> allow '@js' suffixes
+// --- show/hide for JS --------------------------------------------------------
 .hide\@js {
   .js & {
     display: none !important;
@@ -78,10 +80,24 @@
   }
 }
 
+// --- show/hide for print -----------------------------------------------------
+
 .show\@print {
   display: none !important;
 
   @media print {
     display: block !important;
   }
+}
+
+// --- show/hide for touch -----------------------------------------------------
+
+.touch .show\@touch,
+.no-touch .hide\@no-touch {
+  display: block !important;
+}
+
+.touch .hide\@no-touch,
+.no-touch .show\@touch {
+  display: none !important;
 }

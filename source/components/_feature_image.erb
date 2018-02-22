@@ -1,7 +1,9 @@
-<%# 
-	An image occuring within a panel of text
-%>
+<%
+  # Feature image
+	# -> An image occuring within a panel of text
 
-<% alt ||= "" %>
+  # Locals:
+  alt ||= "" # alt tag
+%>
 
 <%= image_tag source, alt: alt %>
