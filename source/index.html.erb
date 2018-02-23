@@ -4,26 +4,41 @@ title: home
 
 <%= component 'main_header', locals: { theme: 'wash', overlay: true } %>
 
-<!-- Cover -->
-<% component 'cover', locals: {
-  image: 'assets/images/covers/cover-drawing.jpg',
-  overlay: true
-} do %>
-  <h1 class='l-margin-top-wide'>Together we can do great things.</h1>
-<% end %>
+<section>
+  <!-- Cover -->
+  <% component 'cover', locals: {
+    theme: 'dark',
+    padding: { y: 'xxwide', x: 'wide' },
+    classes: 't-align-center'
+  } do %>
+    <% component 'wrapper' do %>
+      <h1 class='l-margin-top-wide'>Together we can do great things.</h1>
+    <% end %>
+  <% end %>
+
+  <!-- Intro blurb -->
+  <div class="c-theme-dark border-top padding-x-wide padding-y-xwide">
+    <% component 'wrapper', locals: {
+      width: 'narrow'
+    } do %>
+      <p class="t-scale-delta">Short blurb explaining/reinforcing the tagline. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui, inquit, si Stoicis concedis ut virtus sola, si adsit vitam efficiat beatam, concedis etiam Peripateticis. Nam, ut sint illa vendibiliora, haec uberiora certe sunt.</p>
+    <% end %>
+  </div>
+</section>
 
 <!-- Approach -->
-<% component 'panel', locals: { theme: 'reverse' } do %>
-  <% component 'blurb', locals: { heading: 'Our work' } do %>
+<% component 'panel', locals: { classes: 'c-well' } do %>
+  <% component 'blurb', locals: { heading: 'Our work', borders: 'none' } do %>
     We’re an advisory ﬁrm with experience in strategy, technology, and design development for organizations of all kinds - private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
   <% end %>
-  <% component 'wrapper', locals: { padding: { top: 'xwide' }, classes: 't-align-center' } do %>
-    <%= component 'button_link', locals: { label: 'More work', url: '#' } %>
+  <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+    <!-- Gallery of case studies here -->
+    <%= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top' } %>
   <% end %>
 <% end %>
 
 <!-- Staff -->
-<% component 'panel', locals: { borders: 'none' } do %>
+<% component 'panel', locals: { theme: 'midtone' } do %>
   <% component 'blurb', locals: { heading: 'Our team' } do %>
     We’re an advisory firm with experience in strategy, technology, and design development for organizations of all kinds – private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
   <% end %>
@@ -51,7 +66,7 @@ title: home
 <% end %>
 
 <!-- Contact us -->
-<% component 'panel', locals: { theme: 'wash' } do %>
+<% component 'panel', locals: { theme: 'dark' } do %>
   <% component 'blurb', locals: { heading: 'Contact us' } do %>
     We’re based in the Washington DC Metro Area but serve clients globally. We’d love to hear about your ideas and the problems you want to solve. Let’s get the conversation started.
   <% end %>

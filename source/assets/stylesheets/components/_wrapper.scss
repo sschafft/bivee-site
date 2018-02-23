@@ -19,7 +19,7 @@
 // -----------------------------------------------------------------------------
 
 @each $name, $width in $layout-widths {
-  [data-ui-wrapper~='wide'] {
+  [data-ui-wrapper~='#{$name}'] {
     max-width: layout-w($name);
   }
 }

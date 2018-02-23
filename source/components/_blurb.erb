@@ -4,16 +4,19 @@
     # - NOTE: should only be used once inside a sectioning element (ie header, section, article, aside), as it contains an h1
 
     # Locals:
-    width ||= "default" # STRING: how wide the wrapper should be, e.g. "wide" or "default"
+    width ||= 'narrow' # STRING: how wide the wrapper should be, e.g. 'wide' or 'default'
     heading ||= false # STRING: header
-    heading_size ||= "alpha" # STRING: how big/prominent the header is, e.g. "alpha", "beta", etc.
+    heading_size ||= 'alpha' # STRING: how big/prominent the header is, e.g. 'alpha', 'beta', etc.
+    text_size ||= 'epsilon'
 %>
 
-<section data-ui-wrapper<%= "='#{width}'" if width != "default" %>>
-  <% if heading %>
-    <h1 class="t-scale-<%= heading_size %> t-align-center"><%= heading %></h1>
+<section>
+  <% component 'wrapper', locals: { width: width } do %>
+    <% if heading %>
+      <h1 class="t-scale-<%= heading_size %> t-align-center padding-bottom-narrow"><%= heading %></h1>
+    <% end %>
+    <div class="t-content t-scale-<%= text_size %>">
+      <%= yield %>
+    </div>
   <% end %>
-  <div class="t-content t-scale-delta c-text-primary">
-    <%= yield %>
-  </div>
 </section>
