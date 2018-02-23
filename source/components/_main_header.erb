@@ -8,7 +8,7 @@
   bgcolor ||= "none" # STRING: background color - pass in a theme name
 %>
 
-<header data-ui-main-header="<%= "overlay" if overlay %>" data-ui-bookend="horizontal" class="l-padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
+<header data-ui-main-header="<%= "overlay" if overlay %>" data-ui-bookend="horizontal" class="padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
   <% link_to "/", data: { "ui-bookend-item": "left" } do %>
     <%= component "logo", locals: { filename: "logo-bivee#{"-reverse-bw" unless theme == "default" }" } %>
   <% end %>
