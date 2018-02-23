@@ -3,6 +3,8 @@
 //  -> a big splashy 'book cover' for a page of content
 // =============================================================================
 
+@import '../config/spacing';
+
 // Block
 // -----------------------------------------------------------------------------
 
@@ -14,16 +16,23 @@
   background-size: cover;
   display: block;
   min-height: 400px;
-  min-height: 85vh;
+  min-height: 80vh;
   position: relative;
+
+  @supports (display: flex) {
+    display: flex;
+  }
 }
 
 // Elements
 // -----------------------------------------------------------------------------
 
-// [data-ui-cover-ELEMENT] {
-
-// }
+[data-ui-cover-headline] {
+  display: block;
+  bottom: space('xwide');
+  margin-top: auto;
+  width: 100%;
+}
 
 // Traits
 // -----------------------------------------------------------------------------

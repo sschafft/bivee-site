@@ -28,6 +28,7 @@
 
 @import 'utilities/borders';
 @import 'utilities/color';
+@import 'utilities/positioning';
 @import 'utilities/spacing';
 @import 'utilities/visibility';
 
@@ -36,7 +37,9 @@
 // -> self-contained, namespaced, opinionated UI elements
 ////////////////////////////////////////////////////////////////////////////////
 
+@import 'components/bookend';
 @import 'components/button';
+@import 'components/cover';
 @import 'components/fluid_ratio';
 @import 'components/gallery';
 @import 'components/icon';

@@ -13,7 +13,6 @@
 
 [data-ui-bookend] {
   display: block;
-  padding: space() space('wide');
 }
 
 // Modifiers
@@ -26,8 +25,11 @@
     justify-content: space-between;
   }
 
-  [data-ui-bookend-item~='left'] {
+  [data-ui-bookend-item] {
     display: inline-block;
+  }
+
+  [data-ui-bookend-item~='left'] {
     float: left;
 
     @supports (display: flex) {
@@ -36,8 +38,15 @@
     }
   }
 
+  [data-ui-bookend-item~='center'] {
+    text-align: center;
+
+    @supports (display: flex) {
+      align-self: center;
+    }
+  }
+
   [data-ui-bookend-item~='right'] {
-    display: inline-block;
     float: right;
 
     @supports (display: flex) {

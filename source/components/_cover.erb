@@ -3,6 +3,7 @@
   # - A 'hero' with a full-bleed image and headline
 
   # Locals:
+  headline ||= false # STRING: a headline, if you'd like one
   bg_image ||= false # STRING: image for the background
   theme ||= "wash" # STRING: color theme
   classes ||= false # STRING: additional utilitiy classes you'd like to pass in
@@ -10,12 +11,11 @@
   borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
 
   utils = [
-    padding_classes(padding),
     "c-theme-#{theme}",
     classes
   ]
 %>
 
 <div data-ui-cover <%= class_list(utils) %><%= " style='background-image: url(#{bg_image});'" if bg_image %>>
-  <%= yield %>
+  <div data-ui-cover-headline class="<%= padding_classes(padding) %>"><%= yield %></div>
 </div>

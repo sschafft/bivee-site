@@ -3,14 +3,34 @@
   # -> the header appearing at the top of every page
 
   # Locals:
+  back ||= '/' # STRING: where the back button should point
+  hide_contact ||= false # BOOLEAN: show a contact button?
   overlay ||= false # BOOLEAN: turn on 'overlay' styles for the header
-  theme ||= "default" # STRING: color theme
-  bgcolor ||= "none" # STRING: background color - pass in a theme name
+  size ||= 'default' # STRING: 'large' (for homepage) or 'default'
+  theme ||= false # STRING: color theme
+  padding ||= 'wide'
+
+  props = [
+    ("overlay" if overlay),
+    (size unless size == 'default')
+  ]
+
+  utils = [
+    padding_classes(padding),
+    ("c-theme-#{theme}" if theme)
+  ]
 %>
 
-<header data-ui-main-header="<%= "overlay" if overlay %>" data-ui-bookend="horizontal" class="padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
-  <% link_to "/", data: { "ui-bookend-item": "left" } do %>
-  <%= image_tag 'images/logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
-  <% end %>
-  <%= link_to "Contact us", "mailto:#{data.site.email}", data: {"ui-bookend-item": "right", button:"small" }, class: "button button--small" %>
+<header data-ui-main-header<%= props_list(props) %> <%= class_list(utils) %> role="banner">
+  <div data-ui-bookend="horizontal">
+    <% unless current_page.data.title == "home" %>
+      <% link_to back, data: { 'ui-bookend-item': 'left' } do %>
+        <%= component icon, locals: { id: 'arrow-left' } %>
+      <% end %>
+    <% end %>
+    <% link_to '/', data: { 'ui-bookend-item': 'center' } do %>
+      <%= image_tag 'logos/logo-bivee-reverse-bw.svg', style: 'display: inline-block;', alt: 'Bivee' %>
+    <% end %>
+    <%= link_to "Contact us", "mailto:#{data.site.email}", data: {"ui-bookend-item": "right", button:"small" }, class: "button button--small" unless hide_contact %>
+  </div>
 </header>
