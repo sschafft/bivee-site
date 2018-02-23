@@ -9,13 +9,13 @@
   padding ||= 'wide' # STRING/HASH: outside padding - see padding_classes in config.rb
   borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
 
-  class_list = [
+  utils = [
     padding_classes(padding),
     "c-theme-#{theme}",
     classes
-  ].join(' ')
+  ]
 %>
 
-<div data-ui-cover class="<%= class_list %>"<%= " style='background-image: url(#{bg_image});'" if bg_image %>>
+<div data-ui-cover <%= class_list(utils) %><%= " style='background-image: url(#{bg_image});'" if bg_image %>>
   <%= yield %>
 </div>

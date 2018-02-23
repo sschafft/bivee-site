@@ -55,6 +55,14 @@ helpers do
     partial("components/#{name}", opts, &block)
   end
 
+  def class_list(classes)
+    return "class='#{classes.join(' ')}'"
+  end
+
+  def props_list(props)
+    return "='#{props.join(' ')}'"
+  end
+
   # figure out the utility padding classes to use
   # arguments:
   # STRING/HASH values (required): size of padding

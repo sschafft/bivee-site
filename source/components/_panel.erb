@@ -8,15 +8,15 @@
   slug ||= false # STRING: a slug header for the top of the panel, e.g. "Recent work"
   theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
 
-  class_list = [
+  utils = [
     padding_classes(padding),
     border_classes(borders),
     ("c-theme-#{theme}" if theme != 'default'),
     (classes if classes)
-  ].join(' ')
+  ]
 %>
 
-<section class="<%= class_list %>">
+<section <%= class_list(utils) %>>
   <% if slug %>
     <p class="t-heading t-scale-zeta t-align-center"><%= slug %></p>
   <% end %>
