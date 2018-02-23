@@ -10,7 +10,7 @@
 
 <header data-ui-main-header="<%= "overlay" if overlay %>" data-ui-bookend="horizontal" class="padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
   <% link_to "/", data: { "ui-bookend-item": "left" } do %>
-    <%= component "logo", locals: { filename: "logo-bivee#{"-reverse-bw" unless theme == "default" }" } %>
+  <%= image_tag 'images/logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
   <% end %>
   <%= link_to "Contact us", "mailto:#{data.site.email}", data: {"ui-bookend-item": "right", button:"small" }, class: "button button--small" %>
 </header>

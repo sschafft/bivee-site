@@ -73,7 +73,9 @@ helpers do
     if values.is_a?(String)
       "padding-#{values}" unless values == 'none'
     else
-      values.collect { |side, width| "padding-#{side}-#{width}" }.join(' ')
+      values.collect do |side, width|
+        width == 'medium' ? "padding-#{side}" : "padding-#{side}-#{width}"
+      end.join(' ')
     end
   end
 

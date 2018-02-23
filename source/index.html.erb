@@ -2,17 +2,15 @@
 title: home
 ---
 
-<%= component 'main_header', locals: { theme: 'wash', overlay: true } %>
-
-<section>
+<header class="t-align-center">
   <!-- Cover -->
   <% component 'cover', locals: {
     theme: 'dark',
-    padding: { y: 'xxwide', x: 'wide' },
-    classes: 't-align-center'
+    padding: { top: 'medium', bottom: 'xxwide', x: 'wide' }
   } do %>
     <% component 'wrapper' do %>
-      <h1 class='l-margin-top-wide'>Together we can do great things.</h1>
+      <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
+      <h1 class='padding-top-xxwide'>Together we can do great things.</h1>
     <% end %>
   <% end %>
 
@@ -24,7 +22,7 @@ title: home
       <p class="t-scale-delta">Short blurb explaining/reinforcing the tagline. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui, inquit, si Stoicis concedis ut virtus sola, si adsit vitam efficiat beatam, concedis etiam Peripateticis. Nam, ut sint illa vendibiliora, haec uberiora certe sunt.</p>
     <% end %>
   </div>
-</section>
+</header>
 
 <!-- Approach -->
 <% component 'panel', locals: { classes: 'c-well' } do %>
