@@ -23,7 +23,7 @@
   cursor: pointer;
   display: inline-block;
   font-size: scale-type('epsilon');
-  padding: ms(2, 1em);
+  padding: ms(-2, 1em) ms(3, 1em);
   position: relative;
   text-shadow: none;
 }
@@ -31,13 +31,37 @@
 // Elements
 // -----------------------------------------------------------------------------
 
-// [data-ui-button-ELEMENT] {
+// use repeat selector to increase specifity, to ensure this overrides the icon component
+[data-ui-button-icon][data-ui-button-icon] {
+  $size: 1.4em;
 
-// }
+  @include color('highlight');
+  height: $size;
+  width: $size;
+
+  [data-ui-button~='icon'] & {
+    margin-top: -(($size / 2) + 0.05em);
+    position: absolute;
+    right: ms(1, 1em);
+    top: 50%;
+  }
+
+  [data-ui-button~='icon'][data-ui-button~='left'] & {
+    left: ms(0, 1em);
+    right: auto;
+  }
+}
+
 
 // Traits
 // -----------------------------------------------------------------------------
 
-// [data-ui-button~='TRAIT'] {
+[data-ui-button~='icon'] {
+  $icon-margin: ms(6, 1em);
+  padding-right: $icon-margin;
 
-// }
+  &[data-ui-button~='left'] {
+    padding-left: $icon-margin;
+    padding-right: ms(3, 1em);
+  }
+}
