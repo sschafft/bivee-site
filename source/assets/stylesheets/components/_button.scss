@@ -9,6 +9,9 @@
 @import '../config/type';
 @import '../config/borders';
 
+$button-icon-size: 1.2em;
+$button-icon-margin: ms(1, 1em);
+
 // Block
 // -----------------------------------------------------------------------------
 
@@ -33,21 +36,22 @@
 
 // use repeat selector to increase specifity, to ensure this overrides the icon component
 [data-ui-button-icon][data-ui-button-icon] {
-  $size: 1.4em;
+  $size: 1.2em;
+  $position: ms(1, 1em);
 
   @include color('highlight');
-  height: $size;
-  width: $size;
+  height: $button-icon-size;
+  width: $button-icon-size;
 
   [data-ui-button~='icon'] & {
-    margin-top: -(($size / 2) + 0.05em);
+    margin-top: -(($button-icon-size / 2) + 0.05em);
     position: absolute;
     right: ms(1, 1em);
     top: 50%;
   }
 
   [data-ui-button~='icon'][data-ui-button~='left'] & {
-    left: ms(0, 1em);
+    left: ms(1, 1em);
     right: auto;
   }
 }
@@ -57,11 +61,19 @@
 // -----------------------------------------------------------------------------
 
 [data-ui-button~='icon'] {
-  $icon-margin: ms(6, 1em);
-  padding-right: $icon-margin;
+  $icon-space: ($button-icon-margin + $button-icon-size + 0.8em);
+  padding-right: $icon-space;
 
   &[data-ui-button~='left'] {
-    padding-left: $icon-margin;
+    padding-left: $icon-space;
     padding-right: ms(3, 1em);
   }
+}
+
+[data-ui-button~='small'] {
+  font-size: scale-type('eta');
+}
+
+[data-ui-button~='large'] {
+  font-size: scale-type('delta');
 }
