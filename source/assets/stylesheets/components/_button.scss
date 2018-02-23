@@ -1,0 +1,43 @@
+// =============================================================================
+//  Button
+//  -> brief description
+// =============================================================================
+
+@import '../config/color';
+@import '../config/animation';
+@import '../config/scale';
+@import '../config/type';
+@import '../config/borders';
+
+// Block
+// -----------------------------------------------------------------------------
+
+[data-ui-button] {
+  @include border-radius;
+  @include border($color: 'highlight');
+  @include color('text' 'primary');
+  @include font-display('bold');
+  @include transition;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: scale-type('epsilon');
+  padding: ms(2, 1em);
+  position: relative;
+  text-shadow: none;
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+// [data-ui-button-ELEMENT] {
+
+// }
+
+// Traits
+// -----------------------------------------------------------------------------
+
+// [data-ui-button~='TRAIT'] {
+
+// }

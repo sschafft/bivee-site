@@ -11,7 +11,7 @@
 // Rounded corners
 // -----------------------------------------------------------------------------
 
-$border-radius: 3px !default;
+$border-radius: 0.375em !default;
 
 // set a standard border radius for a given side
 // usage: @include border-radius('top-left' 'bottom-right');
@@ -57,10 +57,10 @@ $border-widths: (
 // make a standard border/hairline that works with the parent color theme
 @mixin border($sides: all, $w: $border-w-default, $color: 'border', $style: 'default', $important: false) {
   @if $sides == all {
-    border: #{border-width($w)} #{border-style($style)} #{theme($color)}#{if($important == true, ' !important', '')};
+    border: #{border-width($w)} #{border-style($style)} #{color($color)}#{if($important == true, ' !important', '')};
   } @else {
     @each $side in $sides {
-      border-#{$side}: #{border-width($w)} #{border-style($style)} #{theme($color)}#{if($important == true, ' !important', '')};
+      border-#{$side}: #{border-width($w)} #{border-style($style)} #{color($color)}#{if($important == true, ' !important', '')};
     }
   }
 

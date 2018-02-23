@@ -10,51 +10,51 @@
 // -----------------------------------------------------------------------------
 
 @each $prop in (padding, margin) {
-  // add space on all sides, e.g. l-padding or l-margin
-  .l-#{$prop} {
+  // add space on all sides, e.g. padding or margin
+  .#{$prop} {
     #{$prop}: space();
   }
 
   // remove space from all sides
-  .l-no-#{$prop} {
+  .no-#{$prop} {
     #{$prop}: 0 !important;
   }
 
-  // add space on x and y axes, e.g. l-padding-y, l-margin-x
-  .l-#{$prop}-x {
+  // add space on x and y axes, e.g. padding-y, margin-x
+  .#{$prop}-x {
     #{$prop}-left: space();
     #{$prop}-right: space();
   }
 
-  .l-#{$prop}-y {
+  .#{$prop}-y {
     #{$prop}-bottom: space();
     #{$prop}-top: space();
   }
 
   // remove space on x and y axes
-  .l-no-#{$prop}-x {
+  .no-#{$prop}-x {
     #{$prop}-left: 0 !important;
     #{$prop}-right: 0 !important;
   }
 
-  .l-no-#{$prop}-y {
+  .no-#{$prop}-y {
     #{$prop}-bottom: 0 !important;
     #{$prop}-top: 0 !important;
   }
 
   // spacing variations
   @each $name, $length in $spacing {
-    @if $name != 'default' {
-      .l-#{$prop}-#{$name} {
+    @if $name != 'medium' {
+      .#{$prop}-#{$name} {
         #{$prop}: space($name) !important;
       }
 
-      .l-#{$prop}-x-#{$name} {
+      .#{$prop}-x-#{$name} {
         #{$prop}-left: space($name) !important;
         #{$prop}-right: space($name) !important;
       }
 
-      .l-#{$prop}-y-#{$name} {
+      .#{$prop}-y-#{$name} {
         #{$prop}-bottom: space($name) !important;
         #{$prop}-top: space($name) !important;
       }
@@ -63,18 +63,18 @@
 
   // add or remove space from a specific side
   @each $side in (top, right, bottom, left) {
-    .l-#{$prop}-#{$side} {
+    .#{$prop}-#{$side} {
       #{$prop}-#{$side}: space() !important;
     }
 
-    .l-no-#{$prop}-#{$side} {
+    .no-#{$prop}-#{$side} {
       #{$prop}-#{$side}: 0 !important;
     }
 
     // variations
     @each $name, $length in $spacing {
-      @if $name != 'default' {
-        .l-#{$prop}-#{$side}-#{$name} {
+      @if $name != 'medium' {
+        .#{$prop}-#{$side}-#{$name} {
           #{$prop}-#{$side}: space($name) !important;
         }
       }
@@ -87,37 +87,37 @@
 // TODO @jay figure out how to treat these classes - make a component?
 
 // add uniform gutters to a group of elements
-// .l-gutter-wrapper {
+// .gutter-wrapper {
 //   padding: space($split: true);
 
-//   .l-gutter {
+//   .gutter {
 //     padding: space($split: true);
 //   }
 // }
 
 // @each $name, $size in $spacing {
-//   @if $name != 'default' {
-//     .l-gutter-wrapper.l-gutter--#{$name} {
+//   @if $name != 'medium' {
+//     .gutter-wrapper.gutter--#{$name} {
 //       padding: space($name, $split: true);
 
-//       .l-gutter {
+//       .gutter {
 //         padding: space($name, $split: true);
 //       }
 //     }
-//     .l-gutter-wrapper.l-gutter--#{$name}-y {
+//     .gutter-wrapper.gutter--#{$name}-y {
 //       padding-top: space($name, $split: true);
 //       padding-bottom: space($name, $split: true);
 
-//       .l-gutter {
+//       .gutter {
 //         padding-top: space($name, $split: true);
 //         padding-bottom: space($name, $split: true);
 //       }
 //     }
-//     .l-gutter-wrapper.l-gutter--#{$name}-x {
+//     .gutter-wrapper.gutter--#{$name}-x {
 //       padding-left: space($name, $split: true);
 //       padding-right: space($name, $split: true);
 
-//       .l-gutter {
+//       .gutter {
 //         padding-left: space($name, $split: true);
 //         padding-right: space($name, $split: true);
 //       }

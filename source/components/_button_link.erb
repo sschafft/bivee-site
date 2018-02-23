@@ -1,0 +1,19 @@
+<%
+  # Button link
+  # -> an anchor tag styled like a button
+
+  # Locals:
+  # STRING url (required): the address or anchor the button points to
+  # STRING label (required): the button's label, e.g. "Read more"
+  icon ||= false # STRING (optional): include an icon? if so, pass in the icon id
+  icon_position ||= "right" # STRING (optional): which side should the icon be on?
+
+  # Private vars
+  data_attr = icon ? { 'ui-button' => "icon-#{icon_position}" } : { 'ui-button' => '' }
+%>
+
+<% link_to url, data: data_attr do %>
+  <%= component("icon", locals: { id: icon }) if icon && icon_position == 'left' %>
+  <%= label %>
+  <%= component("icon", locals: { id: icon }) if icon && icon_position == 'right' %>
+<% end %>

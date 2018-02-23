@@ -1,0 +1,24 @@
+<%
+  # Wrapper
+  # -> a container that constrains the layout width, centers content on
+  #    larger screens, and adds outside padding
+
+  # Locals:
+  width ||= 'default' # STRING (optional): make the wrapper wider or narrower
+  padding ||= 'wide' # STRING/HASH (optional): size of horizontal padding
+  # -> Pass in a string to apply the same padding to all sides, e.g. 'wide'
+  # -> Pass in a hash to apply different padding to each side, e.g. { top: 'narrow' }.
+  #    Any sides you leave out will have no padding.
+  classes ||= ''
+
+  # figure out the utility classes to use based on padding locals
+  def padding_classes(values)
+    return '' if values == 'none'
+    return "padding-#{values}" if values.is_a?(String)
+    return values.collect {|side, width| "padding-#{side}-#{width}" }.join(" ")
+  end
+%>
+
+<div data-ui-wrapper<%= "=#{width}" if width != 'default' %> class="<%= padding_classes(padding) %><%= " #{classes}" unless classes == '' %>">
+  <%= yield %>
+</div>

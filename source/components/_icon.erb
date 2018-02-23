@@ -10,10 +10,10 @@
   size ||= false # STRING: how big it is
   space ||= false # STRING: how much space (margin) around it
   title ||= false # STRING: title attribute
-  role ||= "img" # STRING: ARIA role. use either 'img' (default) or 'presentation'.
+  role ||= "presentation" # STRING: ARIA role. use either 'img' (default) or 'presentation'.
 %>
 
-<svg data-ui-icon="<%= size if size %><%= " space-#{space}" unless space == false %>" class="<%= " #{classes}" if classes %>"<%= " title='#{title}'" if title %> role="<%= role %>">
+<svg data-ui-icon="<%= size if size %><%= " space-#{space}" unless space == false %>"<%= "class='#{classes}'" if classes %><%= " title='#{title}'" if title %> role="<%= role %>">
   <!-- This excellent icon is from iconmonstr.com -->
   <use xlink:href="#icon-<%= id %>"></use>
   <% unless role == "presentation" %>
