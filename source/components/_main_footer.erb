@@ -22,9 +22,10 @@
       <div data-ui-bookend="horizontal">
         <div data-ui-bookend-item="left">
           <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.email}" } %>
+          <p class="display-inline-block padding-left"><%= data.site.email %></p>
         </div>
         <div data-ui-bookend-item="right">
-          <h2 class="t-scale-zeta t-weight-bold c-text-tertiary display-inline-block padding-x-between-xxnarrow">Say hi:</h2>
+          <h2 class="t-font-body t-scale-epsilon c-text-tertiary display-inline-block padding-x-between-xxnarrow">Say hi:</h2>
           <ul class="list-inline display-inline-block padding-x-between-xxnarrow">
             <% data.site.social.each do |channel| %>
             <li class="list-inline-item padding-x-between-xxnarrow">

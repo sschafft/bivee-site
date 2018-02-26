@@ -35,4 +35,8 @@ li {
 .list-inline-item {
   display: inline-block;
   list-style: none;
+
+  & + & {
+    margin-top: 0;
+  }
 }
