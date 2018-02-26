@@ -13,6 +13,7 @@
 
 [data-ui-bookend] {
   display: block;
+  position: relative;
 }
 
 // Modifiers
@@ -22,6 +23,7 @@
   @supports (display: flex) {
     align-items: center;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
   }
 
@@ -33,16 +35,16 @@
     float: left;
 
     @supports (display: flex) {
-      align-self: left;
       float: none;
     }
   }
 
   [data-ui-bookend-item~='center'] {
-    text-align: center;
 
     @supports (display: flex) {
-      align-self: center;
+      margin-left: auto;
+      margin-right: auto;
+      flex: 1;
     }
   }
 
@@ -50,7 +52,6 @@
     float: right;
 
     @supports (display: flex) {
-      align-self: right;
       float: none;
     }
   }
@@ -69,7 +70,7 @@
 // Subcomponents
 // -----------------------------------------------------------------------------
 
-.bookend-item {
+[data-ui-bookend-item] {
   @include clearfix;
   clear: both;
   display: block;

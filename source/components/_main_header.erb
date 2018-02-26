@@ -23,14 +23,27 @@
 
 <header data-ui-main-header<%= props_list(props) %> <%= class_list(utils) %> role="banner">
   <div data-ui-bookend="horizontal">
+    <!-- back button -->
     <% unless current_page.data.title == "home" %>
-      <% link_to back, data: { 'ui-bookend-item': 'left' } do %>
-        <%= component icon, locals: { id: 'arrow-left' } %>
+      <div data-ui-bookend-item="left">
+        <% link_to back, class: 'display-inline-block' do %>
+          <%= component icon, locals: { id: 'arrow-left' } %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <!-- logo -->
+    <div data-ui-bookend-item="center" class="t-align-center">
+      <% link_to '/', class: 'display-inline-block' do %>
+        <%= image_tag 'logos/logo-bivee-reverse-bw.svg', class: 'display-inline-block', alt: 'Bivee' %>
       <% end %>
+    </div>
+
+    <!-- contact button -->
+    <% unless hide_contact %>
+      <div data-ui-bookend-item="right">
+        <%= link_to "Contact us", "mailto:#{data.site.email}", data: { 'ui-button': 'small' } %>
+      </div>
     <% end %>
-    <% link_to '/', data: { 'ui-bookend-item': 'center' } do %>
-      <%= image_tag 'logos/logo-bivee-reverse-bw.svg', style: 'display: inline-block;', alt: 'Bivee' %>
-    <% end %>
-    <%= link_to "Contact us", "mailto:#{data.site.email}", data: {"ui-bookend-item": "right", button:"small" }, class: "button button--small" unless hide_contact %>
   </div>
 </header>
