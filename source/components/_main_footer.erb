@@ -9,12 +9,14 @@
     <h1 class="t-align-center padding-bottom">Contact us</h1>
      <p>We’re based in the Washington DC Metro Area but serve clients globally. We’d love to hear about your ideas and the problems you want to solve. Let’s get the conversation started.</p>
 
-    <div class="padding-top">
-      <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight">Washington, DC:</h2>
-      <p>1875 Connecticut Ave NW, Washington, DC 20009</p>
-      <h2 class="t-scale-delta padding-top-narrow padding-bottom-xxnarrow c-highlight">Denver, CO:</h2>
-      <p>2420 17th St, Denver, CO 80202</p>
-    </div>
+    <ul class="list-undecorated padding-top">
+      <% data.site.locations.each_with_index do |location, index| %>
+        <li class="margin-y-between">
+          <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
+          <p><%= location.address %></p>
+        </li>
+      <% end %>
+    </ul>
 
     <div class="margin-top padding-top border-top">
       <div data-ui-bookend="horizontal">
@@ -22,10 +24,10 @@
           <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.email}" } %>
         </div>
         <div data-ui-bookend-item="right">
-          <h2 class="t-scale-zeta t-weight-bold c-text-tertiary display-inline-block">Say hi:</h2>
-          <ul class="list-inline display-inline-block padding-left-xxnarrow">
+          <h2 class="t-scale-zeta t-weight-bold c-text-tertiary display-inline-block padding-x-between-xxnarrow">Say hi:</h2>
+          <ul class="list-inline display-inline-block padding-x-between-xxnarrow">
             <% data.site.social.each do |channel| %>
-            <li class="list-inline-item">
+            <li class="list-inline-item padding-x-between-xxnarrow">
               <% link_to channel.url, target: '_blank', title: "Say hi on #{channel.name}" do %>
                 <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
               <% end %>
