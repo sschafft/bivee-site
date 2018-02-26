@@ -36,6 +36,7 @@
 
     @supports (display: flex) {
       float: none;
+      flex: 1;
     }
   }
 
@@ -43,9 +44,7 @@
     text-align: center;
 
     @supports (display: flex) {
-      margin-left: auto;
-      margin-right: auto;
-      // flex: 1;
+      flex: 1;
     }
   }
 
@@ -56,6 +55,7 @@
     @supports (display: flex) {
       float: none;
       margin-left: auto;
+      flex: 1;
     }
   }
 }
@@ -65,8 +65,10 @@
 }
 
 @each $name in ('xsmall' 'small') {
-  [data-ui-bookend~='horizontal@#{$name}'] {
-    @include bookend-horizontal;
+  @include media('>#{$name}') {
+    [data-ui-bookend~='horizontal@#{$name}'] {
+      @include bookend-horizontal;
+    }
   }
 }
 

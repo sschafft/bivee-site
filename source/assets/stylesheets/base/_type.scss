@@ -318,15 +318,15 @@ cite {
 }
 
 // position text
-.t-align-center {
+@include breakpointify('.t-align-center', true) {
   text-align: center;
 }
 
-.t-align-left {
+@include breakpointify('.t-align-left', true) {
   text-align: left;
 }
 
-.t-align-right {
+@include breakpointify('.t-align-right', true) {
   text-align: right;
 }
 

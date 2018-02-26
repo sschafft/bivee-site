@@ -19,33 +19,41 @@
     </ul>
 
     <div class="margin-top padding-top border-top">
-      <div data-ui-bookend="horizontal">
-        <div data-ui-bookend-item="left">
-          <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.email}" } %>
-          <p class="display-inline-block padding-left"><%= data.site.email %></p>
+      <div data-ui-bookend="horizontal@small" data-ui-gutter="flush">
+        <div data-ui-bookend-item="left" data-ui-gutter-item>
+          <div data-ui-gutter="flush narrow">
+            <div data-ui-gutter-item class="display-inline-block"><%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.email}" } %></div>
+            <p data-ui-gutter-item class="display-inline-block"><%= data.site.email %></p>
+          </div>
         </div>
-        <div data-ui-bookend-item="right">
-          <h2 class="t-font-body t-scale-epsilon c-text-tertiary display-inline-block padding-x-between-xxnarrow">Say hi:</h2>
-          <ul class="list-inline display-inline-block padding-x-between-xxnarrow">
-            <% data.site.social.each do |channel| %>
-            <li class="list-inline-item padding-x-between-xxnarrow">
-              <% link_to channel.url, target: '_blank', title: "Say hi on #{channel.name}" do %>
-                <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
+        <div data-ui-bookend-item="right" data-ui-gutter-item>
+          <div data-ui-gutter="flush xxnarrow">
+            <h2 data-ui-gutter-item class="t-font-body t-scale-epsilon c-text-tertiary display-inline-block">Say hi:</h2>
+            <ul data-ui-gutter-item class="list-inline display-inline-block">
+              <% data.site.social.each do |channel| %>
+              <li class="list-inline-item padding-x-between-xxnarrow">
+                <% link_to channel.url, target: '_blank', title: "Say hi on #{channel.name}" do %>
+                  <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
+                <% end %>
+              </li>
               <% end %>
-            </li>
-            <% end %>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
 <% end %>
 
-<footer data-ui-bookend="horizontal@xsmall" class="padding padding-y-narrow c-theme-dark c-well border-top" role="contentinfo">
-  <% link_to "/", data: { "ui-bookend-item": "left" }, style: "max-width: 3.5rem;" do %>
-    <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
-  <% end %>
-  <small data-ui-bookend-item="right" class="l-margin-top-narrow l-no-margin@xsmall t-right@xsmall t-scale-eta c-text-tertiary">
-    &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
-  </small>
+<footer data-ui-gutter class="c-theme-dark c-well border-top" role="contentinfo">
+  <div data-ui-bookend="horizontal@xsmall">
+    <div data-ui-bookend-item="left">
+      <% link_to '/', data: { 'ui-gutter-item': '' }, class: 't-align-center t-align-left@xsmall', style: 'max-width: 4rem;' do %>
+        <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
+      <% end %>
+    </div>
+    <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-tertiary">
+      &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
+    </small>
+  </div>
 </footer>
