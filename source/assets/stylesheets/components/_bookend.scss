@@ -40,19 +40,22 @@
   }
 
   [data-ui-bookend-item~='center'] {
+    text-align: center;
 
     @supports (display: flex) {
       margin-left: auto;
       margin-right: auto;
-      flex: 1;
+      // flex: 1;
     }
   }
 
   [data-ui-bookend-item~='right'] {
     float: right;
+    text-align: right;
 
     @supports (display: flex) {
       float: none;
+      margin-left: auto;
     }
   }
 }

@@ -3,6 +3,41 @@
   # -> the footer appearing at the bottom of every page
 %>
 
+<!-- Contact us -->
+<% component 'panel', locals: { theme: 'dark' } do %>
+  <% component 'wrapper', locals: { width: 'narrow' } do %>
+    <h1 class="t-align-center padding-bottom">Contact us</h1>
+     <p>We’re based in the Washington DC Metro Area but serve clients globally. We’d love to hear about your ideas and the problems you want to solve. Let’s get the conversation started.</p>
+
+    <div class="padding-top">
+      <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight">Washington, DC:</h2>
+      <p>1875 Connecticut Ave NW, Washington, DC 20009</p>
+      <h2 class="t-scale-delta padding-top-narrow padding-bottom-xxnarrow c-highlight">Denver, CO:</h2>
+      <p>2420 17th St, Denver, CO 80202</p>
+    </div>
+
+    <div class="margin-top padding-top border-top">
+      <div data-ui-bookend="horizontal">
+        <div data-ui-bookend-item="left">
+          <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.email}" } %>
+        </div>
+        <div data-ui-bookend-item="right">
+          <h2 class="t-scale-zeta t-weight-bold c-text-tertiary display-inline-block">Say hi:</h2>
+          <ul class="list-inline display-inline-block padding-left-xxnarrow">
+            <% data.site.social.each do |channel| %>
+            <li class="list-inline-item">
+              <% link_to channel.url, target: '_blank', title: "Say hi on #{channel.name}" do %>
+                <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
+              <% end %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
 <footer data-ui-bookend="horizontal@xsmall" class="padding padding-y-narrow c-theme-dark c-well border-top" role="contentinfo">
   <% link_to "/", data: { "ui-bookend-item": "left" }, style: "max-width: 3.5rem;" do %>
     <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>

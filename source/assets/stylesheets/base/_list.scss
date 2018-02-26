@@ -17,3 +17,15 @@ li {
     margin-top: 0.5em;
   }
 }
+
+.list-inline {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-inline-item {
+  display: inline-block;
+  list-style: none;
+}

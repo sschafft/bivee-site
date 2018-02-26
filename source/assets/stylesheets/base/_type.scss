@@ -86,18 +86,15 @@ h4,
 
 h5,
 .t-scale-epsilon {
-  @include font-display;
   font-size: scale-type('epsilon');
 }
 
 h6,
 .t-scale-zeta {
-  @include font-display;
   font-size: scale-type('zeta');
 }
 
 .t-scale-eta {
-  @include font-display;
   font-size: scale-type('eta');
 }
 

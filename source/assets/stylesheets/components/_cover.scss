@@ -16,7 +16,7 @@
   background-size: cover;
   display: block;
   min-height: 400px;
-  min-height: 80vh;
+  min-height: 90vh;
   position: relative;
 
   @supports (display: flex) {
@@ -28,8 +28,8 @@
 // -----------------------------------------------------------------------------
 
 [data-ui-cover-headline] {
-  display: block;
   bottom: space('xwide');
+  display: block;
   margin-top: auto;
   width: 100%;
 }
