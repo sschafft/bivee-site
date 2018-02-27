@@ -36,7 +36,6 @@
 
     @supports (display: flex) {
       float: none;
-      flex: 1;
     }
   }
 
@@ -55,7 +54,6 @@
     @supports (display: flex) {
       float: none;
       margin-left: auto;
-      flex: 1;
     }
   }
 }

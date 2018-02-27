@@ -18,7 +18,8 @@
       <% end %>
     </ul>
 
-    <div class="margin-top padding-top border-top">
+    <!-- message & social buttons -->
+    <div class="margin-top padding-top border-top t-align-center t-align-left@xsmall">
       <div data-ui-bookend="horizontal@small" data-ui-gutter="flush">
         <div data-ui-bookend-item="left" data-ui-gutter-item>
           <div data-ui-gutter="flush narrow">
@@ -45,15 +46,17 @@
   <% end %>
 <% end %>
 
-<footer data-ui-gutter class="c-theme-dark c-well border-top" role="contentinfo">
-  <div data-ui-bookend="horizontal@xsmall">
-    <div data-ui-bookend-item="left">
-      <% link_to '/', data: { 'ui-gutter-item': '' }, class: 't-align-center t-align-left@xsmall', style: 'max-width: 4rem;' do %>
-        <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
-      <% end %>
+<footer class="c-theme-dark c-well border-top padding-x padding-y-narrow" role="contentinfo">
+  <div data-ui-gutter="flush narrow">
+    <div data-ui-bookend="horizontal@xsmall">
+      <div data-ui-bookend-item="left" class="t-align-center t-align-left@xsmall">
+        <% link_to '/', data: { 'ui-gutter-item': '' }, class: 'display-inline-block', style: 'max-width: 5rem;' do %>
+          <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
+        <% end %>
+      </div>
+      <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-tertiary">
+        &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
+      </small>
     </div>
-    <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-tertiary">
-      &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
-    </small>
   </div>
 </footer>
