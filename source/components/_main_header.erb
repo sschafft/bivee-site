@@ -27,7 +27,7 @@
     <% unless current_page.data.title == "home" %>
       <div data-ui-bookend-item="left">
         <% link_to back, class: 'display-inline-block' do %>
-          <%= component icon, locals: { id: 'arrow-left' } %>
+          <%= component 'icon', locals: { id: 'arrow-left' } %>
         <% end %>
       </div>
     <% end %>

@@ -103,16 +103,16 @@ helpers do
 
   # return a list of site resouces for staff from a list of names
   # arguments:
-  # ARRAY/STRING names (optional): the names of the staff you need.
+  # ARRAY/STRING include (optional): the names of the staff you need.
   #        use 'all' to get everybody.
   # ARRAY exclude (optional): the names of staff you want to exclude.
   #        use only when names is 'all'.
-  def find_staff_profiles(exclude: false)
+  def find_staff_profiles(exclude: [])
     profiles = sitemap.resources.select do |r|
-      r.path.include?('staff') unless r.data.name == exclude
+      r.path.include?('staff') unless exclude.include?(r.data.name)
     end
     profiles.sort_by do |r|
-      r.data.tribal_dominance
+      r.data.name.split(' ').last
     end
   end
 end

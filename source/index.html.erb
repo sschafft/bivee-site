@@ -27,12 +27,12 @@ title: home
 
 <!-- Work -->
 <% component 'panel', locals: { classes: 'c-well' } do %>
-  <% component 'blurb', locals: { heading: data.case_studies.headline, borders: 'none' } do %>
+  <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %>
     <%= data.case_studies.intro %>
   <% end %>
   <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
     <!-- Gallery of case studies here -->
-    <%= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top' } %>
+    <%= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top-wide' } %>
   <% end %>
 <% end %>
 
@@ -43,23 +43,6 @@ title: home
   <% end %>
   <!-- list of staff photos -->
   <section class='l-wrapper l-wrapper--wide padding-top-wide'>
-    <h3 class='t-heading t-heading--slug t-scale-epsilon t-align-center padding-bottom padding-top border-top'>Founders</h3>
-    <% find_staff = sitemap.resources.select {|r| r.path.include?('staff/founders') }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-    <%= component 'staff_list', locals: { staff: find_staff, classes: 'l-margin-top-wide t-align-center' } %>
-  </section>
-  <section class='l-wrapper l-wrapper--wide padding-top-wide'>
-    <h3 class='t-heading t-heading--slug t-scale-epsilon t-align-center padding-bottom padding-top border-top'>Directors</h3>
-    <% find_staff = sitemap.resources.select {|r| r.path.include?('staff/directors') }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-    <%= component 'staff_list', locals: { staff: find_staff, classes: 'l-margin-top-wide t-align-center' } %>
-  </section>
-  <section class='l-wrapper l-wrapper--wide padding-top-wide'>
-    <h3 class='t-heading t-heading--slug t-scale-epsilon t-align-center padding-bottom padding-top border-top'>Team</h3>
-    <% find_staff = sitemap.resources.select {|r| r.path.include?('staff/team') }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-    <%= component 'staff_list', locals: { staff: find_staff, classes: 'l-margin-top-wide t-align-center' } %>
-  </section>
-  <section class='l-wrapper l-wrapper--wide padding-top-wide'>
-    <h3 class='t-heading t-heading--slug t-scale-epsilon t-align-center padding-bottom padding-top border-top'>Subject Matter Experts</h3>
-    <% find_staff = sitemap.resources.select {|r| r.path.include?('staff/smes') }.sort_by {|r| r.data.name }.sort_by {|r| r.data.tribal_dominance } %>
-    <%= component 'staff_list', locals: { staff: find_staff, classes: 'l-margin-top-wide t-align-center' } %>
+    <%= component 'staff_list', locals: { staff: find_staff_profiles, classes: 'l-margin-top-wide t-align-center' } %>
   </section>
 <% end %>
