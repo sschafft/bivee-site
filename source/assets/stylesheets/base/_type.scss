@@ -33,12 +33,12 @@ h6,
   position: relative;
 
   a {
-    color: inherit;
+    @include color('text' 'primary');
     text-decoration: none;
 
     &:hover,
     &:active {
-      @include color('highlight');
+      // @include color('highlight');
     }
   }
 }
