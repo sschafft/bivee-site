@@ -11,7 +11,7 @@ title: home
     padding: { top: 'narrow', bottom: 'xxwide', x: 'wide' }
   } do %>
     <% component 'wrapper' do %>
-      <h1 class='padding-top-xxwide'>Together we can do great things.</h1>
+      <h1 class='padding-top-xxwide'><%= data.site.cover.headline %></h1>
     <% end %>
   <% end %>
 
@@ -20,15 +20,15 @@ title: home
     <% component 'wrapper', locals: {
       width: 'narrow'
     } do %>
-      <p class="t-scale-delta">Short blurb explaining/reinforcing the tagline. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui, inquit, si Stoicis concedis ut virtus sola, si adsit vitam efficiat beatam, concedis etiam Peripateticis. Nam, ut sint illa vendibiliora, haec uberiora certe sunt.</p>
+      <p class="t-scale-delta"><%= data.site.cover.intro %></p>
     <% end %>
   </div>
 </section>
 
-<!-- Approach -->
+<!-- Work -->
 <% component 'panel', locals: { classes: 'c-well' } do %>
-  <% component 'blurb', locals: { heading: 'Our work', borders: 'none' } do %>
-    We’re an advisory ﬁrm with experience in strategy, technology, and design development for organizations of all kinds - private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+  <% component 'blurb', locals: { heading: data.case_studies.headline, borders: 'none' } do %>
+    <%= data.case_studies.intro %>
   <% end %>
   <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
     <!-- Gallery of case studies here -->
@@ -38,8 +38,8 @@ title: home
 
 <!-- Staff -->
 <% component 'panel', locals: { theme: 'midtone' } do %>
-  <% component 'blurb', locals: { heading: 'Our team' } do %>
-    We’re an advisory firm with experience in strategy, technology, and design development for organizations of all kinds – private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+  <% component 'blurb', locals: { heading: data.site.staff.headline.home } do %>
+    <%= data.site.staff.intro %>
   <% end %>
   <!-- list of staff photos -->
   <section class='l-wrapper l-wrapper--wide padding-top-wide'>

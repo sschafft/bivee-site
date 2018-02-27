@@ -1,3 +1,14 @@
+headline:
+  # the headline for the work section on the homepage
+  home: Our work
+  # the headline for the 'more work' nav at the bottom of each case study
+  nav: More work
+# an intro blurb describing our work
+intro: We’re an advisory ﬁrm with experience in strategy, technology, and design development for organizations of all kinds - private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+
+# the list of projects and their metadata
+# -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
+projects:
 - title: PPP Knowledge Lab
   slug: PPP
   date: 2014
