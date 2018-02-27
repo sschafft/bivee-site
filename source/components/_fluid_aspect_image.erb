@@ -1,0 +1,15 @@
+<%
+  # Fluid aspect ratio container
+  # -> constrain content (image, video, etc.) to a certain aspect ratio but allow it to scale fluidly inside its parent
+
+  # Locals:
+  # STRING source: if you want to use an image, pass in a path
+  alt ||= '' # STRING (optional): alt tag if you're using an image
+  ratio ||= '1:2' # STRING (optional): the aspect ratio
+%>
+
+<div data-ui-aspect="1:2">
+  <div data-ui-aspect-content style="background-image: url('<%= asset_url(source) %>');">
+    <%= image_tag source, data: { 'ui-aspect-image': '' }, alt: alt %>
+  </div>
+</div>
