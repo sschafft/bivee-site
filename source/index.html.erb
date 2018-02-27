@@ -7,11 +7,12 @@ title: home
 <section class="t-align-center">
   <!-- Cover -->
   <% component 'cover', locals: {
+    bg_image: 'assets/images/covers/cover-drawing.jpg',
     theme: 'dark',
     padding: { top: 'narrow', bottom: 'xxwide', x: 'wide' }
   } do %>
     <% component 'wrapper' do %>
-      <h1 class='padding-top-xxwide'><%= data.site.cover.headline %></h1>
+      <h1 class='padding-top-xxwide c-text-reverse'><%= data.site.cover.headline %></h1>
     <% end %>
   <% end %>
 

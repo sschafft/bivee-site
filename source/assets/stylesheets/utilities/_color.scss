@@ -39,7 +39,7 @@ body,
   @include color('text' 'tertiary', $important: true);
 }
 
-.c-text-bg {
+.c-text-reverse {
   @include color('bg');
 }
 
