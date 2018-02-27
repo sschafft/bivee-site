@@ -103,15 +103,14 @@ helpers do
 
   # return a list of site resouces for staff from a list of names
   # arguments:
-  # ARRAY/STRING include (optional): the names of the staff you need.
-  #        use 'all' to get everybody.
   # ARRAY exclude (optional): the names of staff you want to exclude.
-  #        use only when names is 'all'.
   def find_staff_profiles(exclude: [])
     profiles = sitemap.resources.select do |r|
       r.path.include?('staff') unless exclude.include?(r.data.name)
     end
     profiles.sort_by do |r|
+      # order alphbetically by last name
+      # -> use split to find the last word in the string
       r.data.name.split(' ').last
     end
   end
