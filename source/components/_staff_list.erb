@@ -11,7 +11,10 @@
   <% staff.each do |profile| %>
     <li data-ui-gallery-item class="t-align-center">
       <% link_to profile.url, class: 'display-block padding-x padding-top border-bottom' do %>
-        <%= image_tag "portraits/#{profile.data.portrait.thumb}", alt: profile.data.name %>
+        <%= component 'fluid_aspect_image', locals: {
+          source: "portraits/#{profile.data.portrait.thumb}",
+          alt: profile.data.name
+        } %>
       <% end %>
       <div class="padding">
         <h3 class="t-scale-delta padding-bottom-xnarrow"><%= link_to profile.data.name, profile.url %></h3>

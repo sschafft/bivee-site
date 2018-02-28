@@ -5,11 +5,11 @@
   # Locals:
   # STRING source: if you want to use an image, pass in a path
   alt ||= '' # STRING (optional): alt tag if you're using an image
-  ratio ||= '1:2' # STRING (optional): the aspect ratio
+  ratio ||= '3x1' # STRING (optional): the aspect ratio
 %>
 
-<div data-ui-aspect="1:2">
-  <div data-ui-aspect-content style="background-image: url('<%= asset_url(source) %>');">
+<div data-ui-aspect="<%= ratio %>">
+  <div data-ui-aspect-content="bg" style="background-image: url('<%= asset_url("#{config[:images_dir]}/#{source}") %>');">
     <%= image_tag source, data: { 'ui-aspect-image': '' }, alt: alt %>
   </div>
 </div>
