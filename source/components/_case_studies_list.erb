@@ -7,7 +7,7 @@
   classes ||= false # STRING (optional): additional modifier classes, if needed
 %>
 
-<ul data-ui-gallery<%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="large centered" <%= " class='#{classes}'" if classes %>>
   <% projects.each do |project| %>
     <li data-ui-gallery-item>
       <% link_to "work/#{project.slug.urlize}/", class: 'display-block border border-round' do %>

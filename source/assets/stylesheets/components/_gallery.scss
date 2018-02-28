@@ -9,6 +9,20 @@
 
 $gallery-gutter: space();
 
+@function col-width-percentage($target-width, $screen-size) {
+  $em-width: ($target-width / 16px * 1em);
+  @return (100% / round($screen-size / $em-width));
+}
+
+@mixin gallery-item($width) {
+  @each $name, $screen-size in $breakpoints {
+    @include media('>#{$name}') {
+      display: inline-block;
+      width: col-width-percentage($width, $screen-size);
+    }
+  }
+}
+
 // Block
 // -----------------------------------------------------------------------------
 
@@ -17,7 +31,7 @@ $gallery-gutter: space();
   font-size: 0;
   list-style: none;
   margin: -($gallery-gutter / 2); // offset for column gutters
-  position: relative; // in case flexbox isn't supported
+  position: relative;
   text-align: left;
 
   > ul {
@@ -30,17 +44,6 @@ $gallery-gutter: space();
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: none;
-    min-width: auto;
-    width: auto;
-  }
-
-  @supports (display: grid) {
-    display: grid;
-    grid-column-gap: $gallery-gutter;
-    grid-row-gap: $gallery-gutter;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    margin: 0;
   }
 }
 
@@ -48,110 +51,50 @@ $gallery-gutter: space();
 // -----------------------------------------------------------------------------
 
 [data-ui-gallery-item] {
-  // Need to break the alphabetical rule order here so it's easier to see how the fallbacks work
-  // sass-lint:disable property-sort-order
-
-  $min-width: 240px;
-  $max-width: 600px;
-
-  display: inline-block;
+  display: block;
   font-size: $type-size-default;
   margin: 0;
   padding: ($gallery-gutter / 2);
   position: relative;
   vertical-align: top;
 
-  // fallback fluid sizing method using a calc() hack
-  // -> allows grid to be somewhat responsive without media queries
-  // -> mainly for IE and old browsers
-  // https://www.sitepoint.com/responsive-css-patterns-without-media-queries/
-  max-width: 100%;
-  min-width: (100% / 3);
-  width: calc((#{$max-width} - 100%) * 1000);
-
-  // flex-wrap version
-  // -> allows grid to be a bit more responsive without media queries
-  // -> for Opera Mini and browsers that support flexbox but not grid
-  @supports (flex: 1 0 $min-width) {
-    display: block;
-    flex: 1 0 $min-width;
-    min-width: auto;
-    width: auto;
-
-    [data-ui-gallery~='stretch'] & {
-      display: flex;
-    }
-
-    [data-ui-gallery~='centered'] & {
-      justify-self: center;
-    }
+  @supports (display: flex) {
+    display: flex;
   }
 
-  // CSS grid version
-  // -> all the responsive things, all the time, all the glory
-  // -> for modern browsers
-  @supports (display: grid) {
-    flex: none;
-    padding: 0;
-  }
+  @include gallery-item(300px);
 }
 
-// Modifiers
+// Traits
 // -----------------------------------------------------------------------------
 
-// create a variation of [data-ui-gallery] with these overrides
-// -> example: [data-ui-gallery~='small'] { @include gallery-variation(200px); }
-// -> @param NUMBER $min-width: the minimum width of the col, in pixels
-// -> @param NUMBER $breakpoint: the point at which the legacy grid will switch to its large view
-// -> @param NUMBER $min-percentage: the smallest pecentage width the col can be
-// -> @param NUMBER $max-percentage: the largest percentage width the col can be
-@mixin gallery-variation(
-  $min-width: 240px,
-  $breakpoint: 600px,
-  $min-percentage: 33%,
-  $max-percentage: 100%
-) {
-  @supports (display: grid) {
-    // Disable 'spelling' linter b/c it doesn't recognize grid properties
-    // scss-lint:disable PropertySpelling
-    grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+[data-ui-gallery~='xsmall'] [data-ui-gallery-item] {
+  display: inline-block;
+  width: 50%;
+
+  @include gallery-item(200px);
+}
+
+[data-ui-gallery~='small'] [data-ui-gallery-item] {
+  @include gallery-item(200px);
+}
+
+[data-ui-gallery~='large'] [data-ui-gallery-item] {
+  @include gallery-item(400px);
+}
+
+[data-ui-gallery~='flush'] [data-ui-gallery-item] {
+  padding: 0;
+}
+
+[data-ui-gallery~='centered'] {
+  text-align: center;
+
+  @supports (justify-content: center) {
+    justify-content: center;
   }
 
   [data-ui-gallery-item] {
-    max-width: $max-percentage;
-    min-width: $min-percentage;
-    width: calc((#{$breakpoint} - 100%) * 1000);
-
-    @supports(flex: 1 0 $min-width) {
-      flex: 1 0 $min-width;
-      max-width: none;
-      min-width: auto;
-      width: auto;
-    }
+    text-align: left;
   }
-}
-
-[data-ui-gallery~='tiny'] {
-  @include gallery-variation(
-    $min-width: 100px,
-    $breakpoint: 600px,
-    $min-percentage: 12.5%,
-    $max-percentage: 50%
-  );
-}
-
-[data-ui-gallery~='small'] {
-  @include gallery-variation(
-    $min-width: 200px,
-    $breakpoint: 480px,
-    $min-percentage: 25%
-  );
-}
-
-[data-ui-gallery~='large'] {
-  @include gallery-variation(
-    $min-width: 300px,
-    $breakpoint: 800px,
-    $min-percentage: 33%
-  );
 }
