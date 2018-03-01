@@ -3,12 +3,7 @@
 #   website: URL (required)
 #   industry: STRING or LIST (optional)
 #   country: STRING or LIST (optional)
-- name: Aten
-  logo: http://placehold.it/400x400
-  website: http://atendesigngroup.com
-  industry: web development
-  country: USA
-- name: Second Muse
+- name: SecondMuse
   logo: http://placehold.it/400x400
   website: http://secondmuse.com
   industry: data consulting
