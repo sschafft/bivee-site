@@ -137,17 +137,17 @@ configure :build do
   # For example, change the Compass output style for deployment
   # activate :minify_css
 
-  if ENV["CONTEXT"] == "staging"
-    activate :robots, 
-      rules: [
-        { user_agent: '*', disallow: %w[/] }
-      ]
-  else
+  if ENV["CONTEXT"] == "production"
     activate :robots, 
       rules: [
         { user_agent: '*', allow: %w[/] }
       ],
       sitemap: 'https://www.bivee.co/sitemap.xml'
+  else
+    activate :robots, 
+      rules: [
+        { user_agent: '*', disallow: %w[/] }
+      ]
   end
 
   # Minify Javascript on build
