@@ -27,5 +27,5 @@
 # an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
   command = "middleman build"
-  [context.deploy-preview.environment]
+  [context.branch-deploy.environment]
     CONTEXT = "production"
