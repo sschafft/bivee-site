@@ -4,7 +4,7 @@ headline:
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
 # an intro blurb describing our work
-intro: We’re an advisory ﬁrm with experience in strategy, technology, and design development for organizations of all kinds - private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+intro: We're all about results. See how we've helped our partners in achieve their goals in the public, private, nonprofit, and academic sectors.
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
@@ -13,10 +13,36 @@ projects:
   slug: PPP
   client: World Bank PPP Group
   date: 2014
-  type: Systems development
+  type: Data, knowledge, and learning systems
   cover: case-studies/ppp/ppp-cover.png
   team:
     - Helly Stoyanova
     - Scott Schaffter
     - Nicholas Kingston
     - Jay Perry
+
+- title: Gateway Academy
+  slug: GA
+  client: CGAP and Mastercard Foundation
+  date: 2017+
+  type: Data, knowledge, and learning systems
+  cover: 
+  team:
+    - Helly Stoyanova
+    - Scott Schaffter
+    - Nicholas Kingston
+    - Jay Perry
+    - Nestor Fuentes
+    - Haley Cline
+    
+- title: Development Data Hub
+  slug: DDH
+  client: World Bank Group
+  date: 2015
+  type: Data, knowledge, and learning systems
+  cover: 
+  team:
+    - Scott Schaffter
+    - Nicholas Kingston
+    - Jay Perry
+    - Haley Cline
