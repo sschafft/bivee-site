@@ -1,24 +1,21 @@
-<%#
-    Cover component
-    - A 'hero' with a full-bleed image and headline
-
-    Locals:
-    - STRING image (optional): image for the background
-
-    Styles:
-    - base/type
-    - layout/wrapper
-    - components/cover
-%>
-
 <%
-    image ||= false
-    overlay ||= false
-    theme ||= "wash"
+  # Cover component
+  # - A 'hero' with a full-bleed image and headline
+
+  # Locals:
+  headline ||= false # STRING: a headline, if you'd like one
+  bg_image ||= false # STRING: image for the background
+  theme ||= "wash" # STRING: color theme
+  classes ||= false # STRING: additional utilitiy classes you'd like to pass in
+  padding ||= 'wide' # STRING/HASH: outside padding - see padding_classes in config.rb
+  borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
+
+  utils = [
+    "c-theme-#{theme}",
+    classes
+  ]
 %>
 
-<div class="cover<%= ' cover--overlay' if overlay %> c-theme-<%= theme %>"<%= " style='background-image: url(#{image});'" if image %>>
-    <div class="cover-content l-wrapper l-wrapper--wide t-centered">
-        <%= yield %>
-    </div>
+<div data-ui-cover <%= class_list(utils) %><%= " style='background-image: url(#{asset_url(bg_image)});'" if bg_image %>>
+  <div data-ui-cover-headline class="<%= padding_classes(padding) %>"><%= yield %></div>
 </div>

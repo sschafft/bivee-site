@@ -1,83 +1,83 @@
-/* =============================================================================
+// =============================================================================
 //  Base form styles
-// ========================================================================== */
+// =============================================================================
 
-/*doc
----
-title: Forms
-name: Form
-category: atoms
----
+@import '../config/animation';
+@import '../config/type';
+@import '../config/borders';
 
-*/
+%form-field {
+  @include border;
+  @include color('text' 'secondary');
+  @include color('well', 'background-color');
+  @include font-body;
+  @include transition;
+  border-radius: 3px;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  text-shadow: none;
 
-@import "../core/animation";
-@import "../base/type";
+  &:focus {
+    box-shadow: none;
+    outline: 0;
+  }
+}
 
-/* Base
-// -------------------------------------------------------------------------- */
+// Base
+// -----------------------------------------------------------------------------
 
 .form,
-form { @include font-body; }
+form {
+  @include font-body;
+}
 
-.form-fieldset,
-fieldset {}
+// .form-fieldset,
+// fieldset {}
 
-.form-legend,
-legend {}
+// .form-legend,
+// legend {}
 
 .form-field,
-input, textarea, select {
-	@include font-body;
-    @include transition-default;
-    @include border;
-    @include color('text' 'secondary');
-    @include color('well', 'background-color');
-	padding: 0.5em 1em;
-	border-radius: 3px;
-	box-sizing: border-box;
-	box-shadow: none;
-	text-shadow: none;
-
-	&:focus {
-		outline: 0;
-		outline: thin dotted \9; /* IE6-9 */
-		box-shadow: none;
-	}
+input,
+textarea,
+select {
+  @extend %form-field;
 }
 
-    .form-field--invisible {
-        display: inline-block;
-        padding: 0;
-        margin: 0;
-        width: auto;
-        background-color: transparent !important;
-        border: none !important;
-        border-radius: 0;
-        font-family: inherit;
-    }
+.form-field--invisible {
+  // sass-lint:disable no-important
+  background-color: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+  display: inline-block;
+  font-family: inherit;
+  margin: 0;
+  padding: 0;
+  width: auto;
+}
 
 .form-checkbox,
-[type="checkbox"] {
-	width: 1em;
-	height: 1em;
+[type='checkbox'] {
+  height: 1em;
+  width: 1em;
 }
 
-.form-search,
-input[type="search"] {
+// .form-search,
+// input[type='search'] {
 
-	&:focus {}
-}
+// 	&:focus {}
+// }
 
 // Allow only vertical resizing of textareas.
 .form-textarea,
 textarea {
-    @extend .form-field;
-	resize: vertical;
+  @extend %form-field;
+  resize: vertical;
 }
 
-.form-select,
-select {}
+// .form-select,
+// select {}
 
-.form-label,
-label {}
+// .form-label,
+// label {}

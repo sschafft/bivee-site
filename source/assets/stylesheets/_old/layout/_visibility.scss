@@ -1,0 +1,21 @@
+/* =============================================================================
+// Visibility
+// -> hide and show things in various ways
+// ========================================================================== */
+
+
+
+// visibility helper classes
+
+// hide but keep it accessible
+.is-visually_hidden {
+  @include visually_hidden;
+
+  &.focusable {
+    @include visually_hidden(true);
+  }
+}
+
+// completely hide
+.is-hidden {
+  display: none !important; }

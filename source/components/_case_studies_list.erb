@@ -1,0 +1,26 @@
+<%
+  # Staff list
+  # -> A grid of staff listings
+
+  # Locals:
+  # ARRAY projects: the projects to display
+  classes ||= false # STRING (optional): additional modifier classes, if needed
+%>
+
+<ul data-ui-gallery="large centered" <%= " class='#{classes}'" if classes %>>
+  <% projects.each do |project| %>
+    <li data-ui-gallery-item>
+      <% link_to "work/#{project.slug.urlize}/", class: 'display-block border border-round c-bg' do %>
+        <%= component 'fluid_aspect_image', locals: {
+          source: project.cover,
+          bg_size: 'cover',
+          alt: project.title
+        } %>
+        <div class="padding-narrow border-top">
+          <h2 class="t-scale-delta"><%= project.title %></h2>
+          <p class="t-heading t-scale-zeta padding-top-xxnarrow c-text-secondary"><%= project.client %></p>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

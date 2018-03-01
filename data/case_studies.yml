@@ -1,8 +1,20 @@
+headline:
+  # the headline for the work section on the homepage
+  home: Our work
+  # the headline for the 'more work' nav at the bottom of each case study
+  nav: More work
+# an intro blurb describing our work
+intro: We’re an advisory ﬁrm with experience in strategy, technology, and design development for organizations of all kinds - private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+
+# the list of projects and their metadata
+# -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
+projects:
 - title: PPP Knowledge Lab
   slug: PPP
+  client: World Bank PPP Group
   date: 2014
   type: Systems development
-  cover: /assets/images/case-studies/ppp/ppp-cover.png
+  cover: case-studies/ppp/ppp-cover.png
   team:
     - Helly Stoyanova
     - Scott Schaffter

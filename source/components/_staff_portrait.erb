@@ -1,19 +1,14 @@
-<%#
-    Staff Portrait component
-    - A scaled photo of a team member
+<%
+  # Staff Portrait component
+  # - A scaled photo of a team member
 
-    Locals:
-    - STRING image: the photo to display
-    - STRING classes (optional): additional modifier classes, if needed
-
-    Styles:
-    - components/gallery
+  # Locals:
+  # image - STRING: the photo to display
+  classes ||= false # STRING: additional modifier classes, if needed
 %>
 
-<% classes ||= false %>
-
 <div class="l-centered-block" style="max-width: 424px;">
-	<div class="media-aspect-1-2 l-margin-bottom-narrow border-round<%= " #{classes}" if classes %>">
-	    <span class="media-aspect-content c-well" style="background-image: url('/assets/images/portraits/<%= image %>');"></span>
+	<div data-ui-aspect="1-2" class="-margin-bottom-narrow border-round<%= " #{classes}" if classes %>">
+    <span data-ui-aspect-content class="c-well" style="background-image: url('/assets/images/portraits/<%= image %>');"></span>
 	</div>
 </div>

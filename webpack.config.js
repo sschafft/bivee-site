@@ -1,40 +1,54 @@
-var Clean = require("clean-webpack-plugin"),
-    webpack = require("webpack");
+const path = require('path')
+const clean = require('clean-webpack-plugin')
+const webpack = require('webpack')
 
-var modulePath = "/source/assets/javascripts";
+const buildPath = '.tmp/assets/javascripts'
 
-// split output JS into "critical" (above-the-fold) scripts and the rest (which can be loaded on-demand)
-module.exports = {
+// split output JS into 'critical' (above-the-fold/blocking) scripts and the rest (which can be loaded on-demand)
+module.exports = env => {
+  return {
     entry: {
-        critical: ["vendor/modernizr.js", "picturefill"],
-        main: "." + modulePath + "/main.js",
-    },
-    resolve: {
-        root: __dirname + modulePath,
+      critical: ['picturefill'],
+      main: './source/assets/javascripts/main.js',
     },
     output: {
-        path: __dirname + '/source/assets/dist/javascripts',
-        filename: "bundle.js",
+      path: path.resolve(__dirname, buildPath),
+      filename: '[name].bundle.js',
     },
     module: {
-        loaders: [
-            {
-                test: /source\/assets\/javascripts\/.*\.js$/,
-                exclude: /node_modules|\.tmp|vendor/,
-                loader: 'babel-loader',
-                query: {
-                  presets: ['es2015', 'react'],
-                },
-            },
-        ],
+      rules: [
+        {
+          test: /\.jsx?$/,
+          enforce: 'pre',
+          exclude: /node_modules/,
+          use: {
+            loader: 'eslint-loader',
+            options: {
+              formatter: require('eslint-friendly-formatter'),
+              cache: env.development && true,
+              failOnWarning: env.production && true
+            }
+          }
+        },
+        {
+          test: /source\/assets\/javascripts\/.*\.js$/,
+          exclude: /node_modules|\.tmp|vendor/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015'],
+            }
+          }
+        },
+      ],
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("critical", "critical.bundle.js"),
-        new Clean(['source/assets/dist/javascripts']),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
+      new clean([buildPath]),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
     ]
-};
+  }
+}

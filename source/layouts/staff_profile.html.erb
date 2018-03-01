@@ -4,25 +4,23 @@
 %>
 
 <% wrap_layout :layout do %>
+  <%= component "main_header", locals: { theme: 'wash', bgcolor: 'raspberry' } %>
 
-    <%= component "main_header", locals: { theme: 'wash', bgcolor: 'raspberry' } %>
+  <!-- Staff profile -->
+  <article class = "l-wrapper l-margin-top-wide l-margin-bottom-wide">
+    <%= component "staff_portrait", locals: { image: current_page.data.portrait, classes: "l-margin-top-extra_wide" } %>
+    <header class = "l-margin-top-wide l-margin-bottom-wide t-align-center">
+	    <h1 class = "t-heading t-scale-alpha"><%= current_page.data.name %></h1>
+	    <span class = "t-heading t-heading--slug c-highlight"><%= current_page.data.job_title %></span>
+	</header>
+    <%= yield %>
+  </article>
 
-	<!-- Staff profile -->
-    <article class = "l-wrapper l-margin-top-wide l-margin-bottom-wide">
-	    <%= component "staff_portrait", locals: { image: current_page.data.portrait, classes: "l-margin-top-extra_wide" } %>
-	    <header class = "l-margin-top-wide l-margin-bottom-wide t-centered">
-		    <h1 class = "t-heading t-scale-alpha"><%= current_page.data.name %></h1>
-		    <span class = "t-heading t-heading--slug c-highlight"><%= current_page.data.job_title %></span>
-		</header>
-	    <%= yield %>
-    </article>
-
-    <!-- List of other staff -->
-    <% component "panel", locals: { theme: "reverse" } do %>
-		<div class = "l-wrapper l-wrapper--wide">
-			<h1 class = "t-heading t-scale-cappa t-centered">Meet the rest of the team</h1>
-			<%= component "staff_list", locals: { staff: get_staff_profiles(exclude: current_page.data.name), classes: "l-margin-top-wide" } %>
-		</div>
-    <% end %>
-
+  <!-- List of other staff -->
+  <% component "panel", locals: { theme: "reverse" } do %>
+  	<div class = "l-wrapper l-wrapper--wide">
+  		<h1 class = "t-heading t-scale-cappa t-align-center"><%= data.site.staff.headline.nav %></h1>
+  		<%= component "staff_list", locals: { staff: find_staff_profiles(exclude: [ current_page.data.name ]), classes: "l-margin-top-wide" } %>
+  	</div>
+  <% end %>
 <% end %>

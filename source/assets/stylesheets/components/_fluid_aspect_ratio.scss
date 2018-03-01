@@ -1,0 +1,65 @@
+// =============================================================================
+//  Fluid aspect ratio
+// -> provides a fluid container to maintain aspect ratio when resizing
+// =============================================================================
+
+// create a modifier with width:height ratio values
+// PRIVATE
+@mixin _aspect-variation($w: 3, $h: 1, $use-scale: true) {
+  [data-ui-aspect*='#{$w}x#{$h}'] {
+    &::before {
+      @if $use-scale {
+        padding-top: (ms($h) / ms($w) * 100%);
+      } @else {
+        padding-top: ($h / $w * 100%);
+      }
+    }
+  }
+}
+
+// Block
+// -----------------------------------------------------------------------------
+[data-ui-aspect] {
+  position: relative;
+  width: 100%;
+
+  &::before {
+    content: '';
+    display: block;
+  }
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+[data-ui-aspect-content],
+[data-ui-aspect] > iframe {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// display a background image on the item
+// -> pass in the background image inline, e.g. style="background-image: url(...);"
+// -> useful for swapping print/screen versions of an image, see marketing site
+[data-ui-aspect-content~='bg'] {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &[data-ui-aspect-content~='cover'] {
+    background-size: cover;
+  }
+
+  [data-ui-aspect-image] {
+    display: none;
+  }
+}
+
+// Modifiers
+// -----------------------------------------------------------------------------
+@include _aspect-variation(16, 9, $use-scale: false);
+@include _aspect-variation(3, 1);
+
+

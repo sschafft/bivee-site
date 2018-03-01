@@ -1,24 +1,49 @@
-<%#
-  Main Header component
-  - the header appearing at the top of every page
-
-  Locals:
-  - STRING theme (optional): color theme
-
-  Styles:
-  - modules/main_header
-  - layout/bookend
-%>
-
 <%
-  overlay ||= false
-  theme ||= "default"
-  bgcolor ||= "none"
+  # Main Header component
+  # -> the header appearing at the top of every page
+
+  # Locals:
+  back ||= '/' # STRING: where the back button should point
+  hide_contact ||= false # BOOLEAN: show a contact button?
+  overlay ||= false # BOOLEAN: turn on 'overlay' styles for the header
+  size ||= 'default' # STRING: 'large' (for homepage) or 'default'
+  theme ||= false # STRING: color theme
+  padding ||= 'wide'
+
+  props = [
+    ("overlay" if overlay),
+    (size unless size == 'default')
+  ]
+
+  utils = [
+    padding_classes(padding),
+    ("c-theme-#{theme}" if theme)
+  ]
 %>
 
-<header class="main_header<%= " main_header--overlay" if overlay == true %> bookend bookend--horizontal l-padding-wide c-theme-<%= theme %> <%= bgcolor == "none" ? " c-no-bg" : " c-theme-wash--#{bgcolor}" %>" role="banner">
-  <% link_to "/", :class => "logo bookend-item bookend-item--left" do %>
-      <%= component "logo", locals: { filename: "logo-bivee#{'-reverse-bw' unless theme == "default" }" } %>
-  <% end %>
-  <%= link_to "Contact us", "mailto:#{data.site.email}", :class => "button button--small bookend-item bookend-item--right" %>
+<header data-ui-main-header<%= props_list(props) %> <%= class_list(utils) %> role="banner">
+  <div data-ui-bookend="horizontal">
+    <!-- back button -->
+    <% unless current_page.data.title == "home" %>
+      <div data-ui-bookend-item="left">
+        <% link_to back, class: 'display-inline-block' do %>
+          <%= component 'icon', locals: { id: 'arrow-left' } %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <!-- logo -->
+    <div data-ui-bookend-item="center" class="t-align-center">
+      <% link_to '/', class: 'display-inline-block' do %>
+        <%= image_tag 'logos/logo-bivee-reverse-bw.svg', class: 'display-inline-block', alt: 'Bivee' %>
+      <% end %>
+    </div>
+
+    <!-- contact button -->
+    <% unless hide_contact %>
+      <div data-ui-bookend-item="right">
+        <%= link_to "Contact us", "mailto:#{data.site.email}", data: { 'ui-button': 'small' } %>
+      </div>
+    <% end %>
+  </div>
 </header>

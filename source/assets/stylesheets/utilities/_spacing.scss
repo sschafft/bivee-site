@@ -1,0 +1,152 @@
+// =============================================================================
+// Spacing layout utilities
+// -> used to keep whitespace in the layout consistent
+// =============================================================================
+// sass-lint:disable no-important
+
+@import '../config/spacing';
+
+// Margin & padding utils
+// -----------------------------------------------------------------------------
+
+@each $prop in (padding, margin) {
+  // add space on all sides, e.g. padding or margin
+  .#{$prop} {
+    #{$prop}: space();
+  }
+
+  // remove space from all sides
+  .no-#{$prop} {
+    #{$prop}: 0 !important;
+  }
+
+  // add space on x and y axes, e.g. padding-y, margin-x
+  .#{$prop}-x {
+    #{$prop}-left: space();
+    #{$prop}-right: space();
+  }
+
+  .#{$prop}-y {
+    #{$prop}-bottom: space();
+    #{$prop}-top: space();
+  }
+
+  // add space between all children on a given axis
+  .#{$prop}-x-between {
+    & + & {
+      #{$prop}-left: space();
+    }
+  }
+
+  .#{$prop}-y-between {
+    & + & {
+      #{$prop}-top: space();
+    }
+  }
+
+  // remove space on x and y axes
+  .no-#{$prop}-x {
+    #{$prop}-left: 0 !important;
+    #{$prop}-right: 0 !important;
+  }
+
+  .no-#{$prop}-y {
+    #{$prop}-bottom: 0 !important;
+    #{$prop}-top: 0 !important;
+  }
+
+  // spacing variations
+  @each $name, $length in $spacing {
+    @if $name != 'medium' {
+      .#{$prop}-#{$name} {
+        #{$prop}: space($name) !important;
+      }
+
+      .#{$prop}-x-#{$name} {
+        #{$prop}-left: space($name) !important;
+        #{$prop}-right: space($name) !important;
+      }
+
+      .#{$prop}-y-#{$name} {
+        #{$prop}-bottom: space($name) !important;
+        #{$prop}-top: space($name) !important;
+      }
+
+      // add space between all children
+      .#{$prop}-x-between-#{$name} {
+        & + & {
+          #{$prop}-left: space($name) !important;
+        }
+      }
+
+      .#{$prop}-y-between-#{$name} {
+        & + & {
+          #{$prop}-top: space($name) !important;
+        }
+      }
+    }
+  }
+
+  // add or remove space from a specific side
+  @each $side in (top, right, bottom, left) {
+    .#{$prop}-#{$side} {
+      #{$prop}-#{$side}: space() !important;
+    }
+
+    .no-#{$prop}-#{$side} {
+      #{$prop}-#{$side}: 0 !important;
+    }
+
+    // variations
+    @each $name, $length in $spacing {
+      @if $name != 'medium' {
+        .#{$prop}-#{$side}-#{$name} {
+          #{$prop}-#{$side}: space($name) !important;
+        }
+      }
+    }
+  }
+}
+
+// Split gutters
+// -----------------------------------------------------------------------------
+// TODO @jay figure out how to treat these classes - make a component?
+
+// add uniform gutters to a group of elements
+// .gutter-wrapper {
+//   padding: space($split: true);
+
+//   .gutter {
+//     padding: space($split: true);
+//   }
+// }
+
+// @each $name, $size in $spacing {
+//   @if $name != 'medium' {
+//     .gutter-wrapper.gutter--#{$name} {
+//       padding: space($name, $split: true);
+
+//       .gutter {
+//         padding: space($name, $split: true);
+//       }
+//     }
+//     .gutter-wrapper.gutter--#{$name}-y {
+//       padding-top: space($name, $split: true);
+//       padding-bottom: space($name, $split: true);
+
+//       .gutter {
+//         padding-top: space($name, $split: true);
+//         padding-bottom: space($name, $split: true);
+//       }
+//     }
+//     .gutter-wrapper.gutter--#{$name}-x {
+//       padding-left: space($name, $split: true);
+//       padding-right: space($name, $split: true);
+
+//       .gutter {
+//         padding-left: space($name, $split: true);
+//         padding-right: space($name, $split: true);
+//       }
+//     }
+//   }
+// }

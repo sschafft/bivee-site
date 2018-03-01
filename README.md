@@ -1,5 +1,9 @@
-# Bivee website
+# Bivee's website
 http://bivee.co
+
+## About this site:
+
+This site is built primarily on Middleman, a static site generator. It uses [Sass](http://sass-lang.com) for its styling (via [LibSass](https://github.com/sass/sassc-ruby)) and a variant of [AMCSS](https://amcss.github.io) for its CSS naming conventions and architecture. Javascript is handled with [Webpack](https://webpack.js.org), and front-end dependencies are managed with Yarn. It's hosted on [Netlify](http://netlify.com).
 
 ## Local setup:
 
@@ -17,4 +21,9 @@ http://bivee.co
 ## Deploy:
 
 - Merge your pull request into the `dev` branch.
-- Run `yarn run deploy`; this will build the site, commit the compiled files to the `master` branch, then push up to remote. The updates should be live shortly after running this command.
+- The site will automatically build and go live on the host (Netlify) when the PR is merged via Git hook. Branch "previews" are available for PRs.
+- To manually build: run `bundle exec middleman build`; this will build the site. This will build the site, compile assets (CSS, JS), and run linters.
+
+## Test:
+
+- `yarn test` will run linters.

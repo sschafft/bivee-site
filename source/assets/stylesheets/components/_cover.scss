@@ -1,0 +1,42 @@
+// =============================================================================
+//  Cover
+//  -> a big splashy 'book cover' for a page of content
+// =============================================================================
+
+@import '../config/spacing';
+
+// Block
+// -----------------------------------------------------------------------------
+
+[data-ui-cover] {
+  // sass-lint:disable no-duplicate-properties
+  // -> need a fallback min-height here
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  min-height: 400px;
+  min-height: 90vh;
+  position: relative;
+
+  @supports (display: flex) {
+    display: flex;
+  }
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+[data-ui-cover-headline] {
+  bottom: space('xwide');
+  display: block;
+  margin-top: auto;
+  width: 100%;
+}
+
+// Traits
+// -----------------------------------------------------------------------------
+
+// [data-ui-cover~='TRAIT'] {
+
+// }

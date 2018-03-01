@@ -1,0 +1,78 @@
+// =============================================================================
+// Border settings & helpers
+// =============================================================================
+
+// Allow 'important!' here in the mixins, which are used for small utility classes
+// sass-lint:disable no-important
+
+@import 'libs';
+@import 'color';
+
+// Rounded corners
+// -----------------------------------------------------------------------------
+
+$border-radii: (
+  'default': 0.1em,
+  'large': 0.375em
+);
+
+@function border-radius($size: 'default') {
+  @return map-get($border-radii, $size);
+}
+
+// set a standard border radius for a given side
+// usage: @include border-radius('top-left' 'bottom-right');
+@mixin border-radius($sides: all, $size: 'default') {
+  @if $sides == all {
+    border-radius: border-radius($size);
+  } @else {
+    @each $side in $sides {
+      border-#{$side}-radius: border-radius($size);
+    }
+  }
+}
+
+// Border width & style
+// -----------------------------------------------------------------------------
+
+$border-w-default: 'thin' !default;
+
+$border-styles: (
+  'default': solid
+) !default;
+
+$border-widths: (
+  'thin': 1px,
+  'medium': 2px,
+  'thick': 4px
+) !default;
+
+// get function for border style
+@function border-style($name) {
+  @return map-get($border-styles, $name);
+}
+
+// get function for border widths
+@function border-width($w: $border-w-default) {
+  @if type-of($w) == 'number' {
+    @return #{$w};
+  } @else {
+    @return map-get($border-widths, $w);
+  }
+}
+
+// make a standard border/hairline that works with the parent color theme
+@mixin border($sides: all, $w: $border-w-default, $color: 'border', $style: 'default', $important: false) {
+  @if $sides == all {
+    border: #{border-width($w)} #{border-style($style)} #{color($color)}#{if($important == true, ' !important', '')};
+  } @else {
+    @each $side in $sides {
+      border-#{$side}: #{border-width($w)} #{border-style($style)} #{color($color)}#{if($important == true, ' !important', '')};
+    }
+  }
+
+  // if no color is specified, set up border-color for each theme
+  @if type-of($color) != 'color' {
+    @include color($color, 'border-color');
+  }
+}
