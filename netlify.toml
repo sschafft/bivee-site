@@ -29,3 +29,9 @@
   command = "middleman build"
   [context.branch-deploy.environment]
     CONTEXT = "staging"
+
+# Staging
+[context.staging]
+  command = "middleman build"
+  [context.staging.environment]
+    CONTEXT = "staging"
