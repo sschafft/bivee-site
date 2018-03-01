@@ -11,16 +11,23 @@
 // Rounded corners
 // -----------------------------------------------------------------------------
 
-$border-radius: 3px !default;
+$border-radii: (
+  'default': 0.1em,
+  'large': 0.375em
+);
+
+@function border-radius($size: 'default') {
+  @return map-get($border-radii, $size);
+}
 
 // set a standard border radius for a given side
 // usage: @include border-radius('top-left' 'bottom-right');
-@mixin border-radius($sides: all) {
+@mixin border-radius($sides: all, $size: 'default') {
   @if $sides == all {
-    border-radius: $border-radius;
+    border-radius: border-radius($size);
   } @else {
     @each $side in $sides {
-      border-#{$side}-radius: $border-radius;
+      border-#{$side}-radius: border-radius($size);
     }
   }
 }
@@ -57,10 +64,10 @@ $border-widths: (
 // make a standard border/hairline that works with the parent color theme
 @mixin border($sides: all, $w: $border-w-default, $color: 'border', $style: 'default', $important: false) {
   @if $sides == all {
-    border: #{border-width($w)} #{border-style($style)} #{theme($color)}#{if($important == true, ' !important', '')};
+    border: #{border-width($w)} #{border-style($style)} #{color($color)}#{if($important == true, ' !important', '')};
   } @else {
     @each $side in $sides {
-      border-#{$side}: #{border-width($w)} #{border-style($style)} #{theme($color)}#{if($important == true, ' !important', '')};
+      border-#{$side}: #{border-width($w)} #{border-style($style)} #{color($color)}#{if($important == true, ' !important', '')};
     }
   }
 

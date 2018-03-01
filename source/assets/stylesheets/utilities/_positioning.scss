@@ -1,0 +1,24 @@
+// =============================================================================
+// Positioning utilities
+// ==========================================================================
+
+// Allow 'important!' here because we want the styles to always apply in small utility classes
+// sass-lint:disable no-important
+
+@import '../config/libs';
+@import '../config/positioning';
+@import '../config/breakpoints';
+
+// make an element rise to the top of a layout
+// -> useful if it contains, for instance, stuff like a jump nav that needs to overlay elements below
+.z-top {
+  z-index: z('high') !important;
+}
+
+.display-block {
+  display: block !important;
+}
+
+.display-inline-block {
+  display: inline-block !important;
+}

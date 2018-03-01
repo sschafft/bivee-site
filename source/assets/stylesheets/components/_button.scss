@@ -1,0 +1,79 @@
+// =============================================================================
+//  Button
+//  -> brief description
+// =============================================================================
+
+@import '../config/color';
+@import '../config/animation';
+@import '../config/scale';
+@import '../config/type';
+@import '../config/borders';
+
+$button-icon-size: 1.2em;
+$button-icon-margin: ms(1, 1em);
+
+// Block
+// -----------------------------------------------------------------------------
+
+[data-ui-button] {
+  @include border-radius($size: 'large');
+  @include border($color: 'highlight');
+  @include color('text' 'primary');
+  @include font-display('bold');
+  @include transition;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: scale-type('epsilon');
+  padding: ms(-2, 1em) ms(3, 1em);
+  position: relative;
+  text-shadow: none;
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+// use repeat selector to increase specifity, to ensure this overrides the icon component
+[data-ui-button-icon][data-ui-button-icon] {
+  $size: 1.2em;
+  $position: ms(1, 1em);
+
+  @include color('highlight');
+  height: $button-icon-size;
+  width: $button-icon-size;
+
+  [data-ui-button~='icon'] & {
+    margin-top: -(($button-icon-size / 2) + 0.05em);
+    position: absolute;
+    right: ms(1, 1em);
+    top: 50%;
+  }
+
+  [data-ui-button~='icon'][data-ui-button~='left'] & {
+    left: ms(1, 1em);
+    right: auto;
+  }
+}
+
+
+// Traits
+// -----------------------------------------------------------------------------
+
+[data-ui-button~='icon'] {
+  $icon-space: ($button-icon-margin + $button-icon-size + 0.8em);
+  padding-right: $icon-space;
+
+  &[data-ui-button~='left'] {
+    padding-left: $icon-space;
+    padding-right: ms(3, 1em);
+  }
+}
+
+[data-ui-button~='small'] {
+  font-size: scale-type('eta');
+}
+
+[data-ui-button~='large'] {
+  font-size: scale-type('delta');
+}

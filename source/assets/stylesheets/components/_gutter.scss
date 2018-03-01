@@ -1,0 +1,47 @@
+// =============================================================================
+//  Split gutters
+//  -> Create even spacing between a group of elements, regardless
+//     of the direction of flow. Great for grids and flowing lists.
+// =============================================================================
+
+@import '../config/spacing';
+
+// Block
+// -----------------------------------------------------------------------------
+
+[data-ui-gutter] {
+  padding: space($split: true);
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+[data-ui-gutter-item] {
+  padding: space($split: true);
+}
+
+// Traits
+// -----------------------------------------------------------------------------
+
+// a 'flush' gutter group gets a negative margin so it appears to have no
+// outside gutter
+[data-ui-gutter~='flush'] {
+  margin: -(space());
+}
+
+
+@each $name, $width in $spacing {
+  @if $name != 'medium' {
+    [data-ui-gutter~='#{$name}'] {
+      padding: space($name, $split: true);
+
+      &[data-ui-gutter~='flush'] {
+        margin: -(space($name));
+      }
+
+      [data-ui-gutter-item] {
+        padding: space($name, $split: true);
+      }
+    }
+  }
+}

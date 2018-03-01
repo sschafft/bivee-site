@@ -4,26 +4,64 @@
 
 // Allow 'important!' here because we want the styles to always apply in small utility classes
 // sass-lint:disable no-important
+// sass-lint:disable class-name-format
+// -> allow '@[state]' suffixes
 
-@import '../config/visibility';
 @import '../config/breakpoints';
 
 // hide but keep it accessible
-@include breakpointify('.hide-visually', true) {
-  @include visually-hidden;
+// @include breakpointify('.hide-visually', true) {
+//   border: 0;
+//   clip: rect(0 0 0 0);
+//   height: 1px;
+//   overflow: hidden;
+//   position: absolute;
+//   width: 1px;
 
-  &.hide-visually--focusable {
-    @include visually-hidden(true);
-  }
-}
+//   &.hide-visually--focusable {
+//     &:active,
+//     &:focus {
+//       clip-path: auto;
+//       height: auto;
+//       overflow: visible;
+//       position: static;
+//       width: auto;
+//     }
+//   }
+// }
+
+// @include breakpointify('.restore-visually-hidden', true) {
+//   clip-path: auto;
+//   height: auto;
+//   overflow: visible;
+//   position: relative;
+//   width: auto;
+// }
 
 // see hidden-[below|above]@[size] in _breakpoints for media-query versions
 .hide {
   display: none !important;
 }
 
-// sass-lint:disable class-name-format
-// -> allow '@js' suffixes
+// --- show/hide at screen sizes -----------------------------------------------
+// -> hide content until screen reaches specified breakpoint size
+
+// usage: <span class='hide-[below|above]@small'>
+@each $name, $size in $breakpoints {
+  .hide-below\@#{$name} {
+    @include media('<#{$size}') {
+      display: none !important;
+    }
+  }
+
+  .hide-above\@#{$name} {
+    @include media('>#{$size}') {
+      display: none !important;
+    }
+  }
+}
+
+// --- show/hide for JS --------------------------------------------------------
 .hide\@js {
   .js & {
     display: none !important;
@@ -42,10 +80,24 @@
   }
 }
 
+// --- show/hide for print -----------------------------------------------------
+
 .show\@print {
   display: none !important;
 
   @media print {
     display: block !important;
   }
+}
+
+// --- show/hide for touch -----------------------------------------------------
+
+.touch .show\@touch,
+.no-touch .hide\@no-touch {
+  display: block !important;
+}
+
+.touch .hide\@no-touch,
+.no-touch .show\@touch {
+  display: none !important;
 }

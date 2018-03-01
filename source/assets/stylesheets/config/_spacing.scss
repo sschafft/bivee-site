@@ -6,22 +6,26 @@
 @import '../config/libs';
 @import '../config/scale';
 
-@function gutter-scale($size: 0) {
-  @return round(ms($size, 1rem));
+@function space-scale($size: 0) {
+  @return ms($size, 1rem);
 }
 
 // standard spacing for margins and padding, etc.
-$gutters: (
-  'xxnarrow': gutter-scale(-4),
-  'xnarrow': gutter-scale(-2),
-  'narrow': gutter-scale(0),
-  'medium': gutter-scale(2),
-  'wide': gutter-scale(4),
-  'xwide': gutter-scale(6),
-  'xxwide': gutter-scale(8)
+$spacing: (
+  'xxnarrow': space-scale(-6),
+  'xnarrow': space-scale(-2),
+  'narrow': space-scale(0),
+  'medium': space-scale(2),
+  'wide': space-scale(4),
+  'xwide': space-scale(6),
+  'xxwide': space-scale(8)
 );
 
 // getter function for $gutters map
-@function gutter($name: 'medium') {
-  @return map-get($gutters, $name);
+@function space($name: 'medium', $split: false) {
+  @if $split == false {
+    @return map-get($spacing, $name);
+  } @else {
+    @return (map-get($spacing, $name) / 2);
+  }
 }

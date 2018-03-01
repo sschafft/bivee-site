@@ -4,6 +4,7 @@
 
 @import '../config/animation';
 @import '../config/type';
+@import '../config/borders';
 
 %form-field {
   @include border;

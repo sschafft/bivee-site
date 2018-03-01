@@ -34,8 +34,8 @@ activate :external_pipeline,
 config[:markdown_engine] = :kramdown
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-data.case_studies.each do |project|
-  proxy "work/#{project.slug.urlize}/index.html", '/project.html', locals: {
+data.case_studies.projects.each do |project|
+  proxy "work/#{project.slug.urlize}/index.html", '/case_study.html', locals: {
     title: project.title,
     slug: project.slug,
     date: project.date,
@@ -46,6 +46,7 @@ data.case_studies.each do |project|
 end
 
 # Helpers
+# rubocop:disable Metrics/BlockLength
 helpers do
   # 'Component' decorator for partial function
   # -> just used to point automatically to 'components' dir so you don't have
@@ -53,6 +54,41 @@ helpers do
   def component(name, opts = {}, &block)
     partial("components/#{name}", opts, &block)
   end
+
+  def class_list(classes)
+    return "class='#{classes.join(' ')}'" unless classes.empty?
+  end
+
+  def props_list(props)
+    return "='#{props.join(' ')}'" unless props.empty?
+  end
+
+  # figure out the utility padding classes to use
+  # arguments:
+  # STRING/HASH values (required): size of padding
+  # -> Pass in a string to apply the same padding to all sides, e.g. 'wide'
+  # -> Pass in a hash to apply padding to each side, e.g. { top: 'narrow' }.
+  #    Any sides you leave out will have no padding.
+  def padding_classes(values)
+    if values.is_a?(String)
+      "padding-#{values}" unless values == 'none'
+    else
+      values.collect do |side, width|
+        width == 'medium' ? "padding-#{side}" : "padding-#{side}-#{width}"
+      end.join(' ')
+    end
+  end
+
+  # figure out the utility border classes to use
+  # arguments:
+  # ARRAY list (required): a list of the sides that should get borders
+  # rubocop:disable Metrics/LineLength
+  # rubocop is being annoying about guard statements vs. if statements here
+  def border_classes(sides)
+    return 'border' if sides == 'all'
+    return sides.collect { |side| "border-#{side}" }.join(' ') if sides.respond_to?(:collect)
+  end
+  # rubocop:enable Metrics/LineLength
 
   # is this url the current page?
   def current_page?(url)
@@ -66,19 +102,20 @@ helpers do
   end
 
   # return a list of site resouces for staff from a list of names
-  # @param names ARRAY or STRING (optional): the names of the staff you need.
-  #        use 'all' to get everybody.
-  # @param exclude ARRAY (optional): the names of staff you want to exclude.
-  #        use only when names is 'all'.
-  def find_staff_profiles(exclude: false)
+  # arguments:
+  # ARRAY exclude (optional): the names of staff you want to exclude.
+  def find_staff_profiles(exclude: [])
     profiles = sitemap.resources.select do |r|
-      r.path.include?('staff') unless r.data.name == exclude
+      r.path.include?('staff') unless exclude.include?(r.data.name)
     end
     profiles.sort_by do |r|
-      r.data.tribal_dominance
+      # order alphbetically by last name
+      # -> use split to find the last word in the string
+      r.data.name.split(' ').last
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
 
 activate :directory_indexes
 page 'README.md', directory_index: false

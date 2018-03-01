@@ -2,20 +2,23 @@
 //  Main Header component
 // =============================================================================
 
-// @import "../core/all";
+@import '../config/positioning';
 
-// Base
+// Block
 // -----------------------------------------------------------------------------
 
-.main_header {
+[data-ui-main-header] {
   position: relative;
 }
 
-.main_header--overlay {
-  position: absolute;
-  top: 0;
+// Traits
+// -----------------------------------------------------------------------------
+
+[data-ui-main-header~='overlay'] {
   left: 0;
-  right: 0;
   padding-bottom: 0;
-  z-index: $z--high;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: z('top');
 }

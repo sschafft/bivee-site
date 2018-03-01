@@ -1,22 +1,51 @@
+# Overall site title. Something like "Bivee" ought to do the trick.
 title: Bivee
 
-# General email for potential clients/visitors to contact us
-email: sayhi@bivee.co
+# Content for the 'cover' (hero unit) on the homepage
+cover:
+  # Main headline/tagline
+  headline: Together we can do great things.
+  # Blurb introducing us. It'll be followed by a link to the about page.
+  intro: Short blurb explaining/reinforcing the tagline. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui, inquit, si Stoicis concedis ut virtus sola, si adsit vitam efficiat beatam, concedis etiam Peripateticis. Nam, ut sint illa vendibiliora, haec uberiora certe sunt.
 
-# Add social channels for the whole company
-# -> current icons available: github, linkedin, instagram, pinterest, facebook
-# -> icons are from iconmonstr.com
-social:
-  - name: 'Github'
-    url: https://github.com/biveeco
-    icon: 'github'
-  - name: 'LinkedIn'
-    url: https://www.linkedin.com/company/bivee-co
-    icon: 'linkedin'
-  - name: 'Instagram'
-    url: http://instagram.com/biveeco
-    icon: 'instagram'
-  # Let's add Twitter after we've built up some Tweets
-  # - name: 'Twitter'
-  #   url: https://twitter.com/biveeco
-  #   icon: 'twitter'
+# Content for the staff listings that appear around the site
+staff:
+  headline:
+    # Headline for the staff section on the homepage
+    home: Our team
+    # Headline for the staff nav at the bottom of each profle
+    nav: Meet the rest of the team
+  intro: We’re an advisory firm with experience in strategy, technology, and design development for organizations of all kinds – private, public, academic, and nonprofit. Our team’s diverse background and expertise have allowed us to develop a unique and multidisciplinary approach to our work.
+
+
+# Contact/location info that appears in various places around the site
+# -> primarily used in the footer
+contact:
+  # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
+  headline: Contact us
+  # A short blurb - just one paragraph, please.
+  intro: We’re based in the Washington DC Metro Area but serve clients globally. We’d love to hear about your ideas and the problems you want to solve. Let’s get the conversation started.
+  # General email for potential clients/visitors to contact us
+  email: sayhi@bivee.co
+  # Places where we have offices
+  locations:
+    - name: 'Washington, DC'
+      address: '1875 Connecticut Ave NW, Washington, DC 20009'
+    - name: 'Denver, CO'
+      address: '2420 17th St, Denver, CO 80202'
+  # Social channels for the whole company
+  # -> current icons available: github, linkedin, instagram, pinterest, facebook
+  # -> icons are from iconmonstr.com
+  social:
+    - name: 'Github'
+      url: https://github.com/biveeco
+      icon: 'github'
+    - name: 'LinkedIn'
+      url: https://www.linkedin.com/company/bivee-co
+      icon: 'linkedin'
+    - name: 'Instagram'
+      url: http://instagram.com/biveeco
+      icon: 'instagram'
+    - name: 'Twitter'
+      url: https://twitter.com/biveeco
+      icon: 'twitter'

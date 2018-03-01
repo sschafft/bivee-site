@@ -7,14 +7,20 @@
   classes ||= false # STRING: additional modifier classes, if needed
 %>
 
-<ul data-ui-gallery <%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="xsmall flush centered"<%= " class='#{classes}'" if classes %>>
   <% staff.each do |profile| %>
-    <li data-ui-gallery-item class="t-centered">
-      <% link_to profile.url do %>
-        <%= component "staff_portrait", locals: { image: profile.data.portrait } %>
+    <li data-ui-gallery-item class="t-align-center">
+      <% link_to profile.url, class: 'display-block padding-x padding-top border-bottom' do %>
+        <%= component 'fluid_aspect_image', locals: {
+          source: "portraits/#{profile.data.portrait.thumb}",
+          alt: profile.data.name
+        } %>
       <% end %>
-      <h3 class="t-heading t-heading--sub t-scale-epsilon"><%= link_to profile.data.name, profile.url %></h3>
-      <%= link_to profile.data.job_title, profile.url, class: "t-heading t-heading--slug t-scale-eta c-highlight" %>
+      <div class="padding">
+        <h3 class="t-scale-delta padding-bottom-xnarrow"><%= link_to profile.data.name, profile.url %></h3>
+        <%= link_to profile.data.role.level, profile.url, class: 't-heading t-weight-bold t-scale-zeta c-highlight padding-bottom-xxnarrow' unless profile.data.role.level == 'Team' %>
+        <%= link_to profile.data.role.title, profile.url, class: "t-heading t-scale-zeta c-text-secondary" %>
+      </div>
     </li>
   <% end %>
 </ul>

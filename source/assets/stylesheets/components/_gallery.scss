@@ -1,0 +1,103 @@
+// =============================================================================
+// Gallery module
+// -> arrange child elements into even rows and columns
+// =============================================================================
+// sass-lint:disable mixins-before-declarations
+// -> gallery-item mixin contains media queries and overrides, so it needs to come
+//    after declarations
+
+@import '../config/spacing';
+@import '../config/scale';
+@import '../config/type';
+
+$gallery-gutter: space();
+
+@function col-width-percentage($target-width, $screen-size) {
+  $em-width: ($target-width / 16px * 1em);
+  @return (100% / round($screen-size / $em-width));
+}
+
+@mixin gallery-item($width) {
+  @each $name, $screen-size in $breakpoints {
+    @include media('>#{$name}') {
+      display: inline-block;
+      width: col-width-percentage($width, $screen-size);
+    }
+  }
+}
+
+// Block
+// -----------------------------------------------------------------------------
+
+[data-ui-gallery] {
+  display: block;
+  font-size: 0;
+  list-style: none;
+  margin: -($gallery-gutter / 2); // offset for column gutters
+  position: relative;
+  text-align: left;
+
+  > ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  @supports (display: flex) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+[data-ui-gallery-item] {
+  display: block;
+  font-size: $type-size-default;
+  margin: 0;
+  padding: ($gallery-gutter / 2);
+  position: relative;
+  vertical-align: top;
+
+  @supports (display: flex) {
+    display: flex;
+  }
+
+  @include gallery-item(300px);
+}
+
+// Traits
+// -----------------------------------------------------------------------------
+
+[data-ui-gallery~='xsmall'] [data-ui-gallery-item] {
+  display: inline-block;
+  width: 50%;
+
+  @include gallery-item(200px);
+}
+
+[data-ui-gallery~='small'] [data-ui-gallery-item] {
+  @include gallery-item(200px);
+}
+
+[data-ui-gallery~='large'] [data-ui-gallery-item] {
+  @include gallery-item(400px);
+}
+
+[data-ui-gallery~='flush'] [data-ui-gallery-item] {
+  padding: 0;
+}
+
+[data-ui-gallery~='centered'] {
+  text-align: center;
+
+  @supports (justify-content: center) {
+    justify-content: center;
+  }
+
+  [data-ui-gallery-item] {
+    text-align: left;
+  }
+}

@@ -2,8 +2,8 @@
   <%= component "main_header", locals: { theme: 'wash', overlay: true } %>
 
   <!-- Header, hero image, and title -->
-	<header class="l-padding-top-extra_wide t-centered c-theme-wash">
-    <div class="l-wrapper l-padding-bottom-wide l-padding-top-wide">
+	<header class="padding-top-extra_wide t-align-center c-theme-wash">
+    <div class="l-wrapper padding-bottom-wide padding-top-wide">
       <span class="t-heading t-heading--slug t-scale-epsilon"><strong>Case study:</strong> <%= type %></span>
       <h1 class="t-heading t-scale-alpha"><%= title %></h1>
     </div>
@@ -18,7 +18,7 @@
     <% sections.each do |section| %>
       <% component "panel", locals: { slug: false } do %>
         <div class="l-wrapper">
-          <h2 class="t-heading t-scale-beta t-centered l-padding-bottom"><%= section.data.title %></h2>
+          <h2 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h2>
           <%= section.render layout: false %>
         </div>
       <% end %>
@@ -28,7 +28,7 @@
   <!-- Staff -->
   <% component "panel", locals: { slug: false } do %>
     <div class="l-wrapper l-wrapper--wide">
-      <h2 class="t-heading t-scale-beta t-centered">The team</h2>
+      <h2 class="t-heading t-scale-beta t-align-center">The team</h2>
       <%= component "staff_list", locals: { staff: find_staff_profiles(), classes: "l-margin-top-wide" } %>
     </div>
   <% end %>

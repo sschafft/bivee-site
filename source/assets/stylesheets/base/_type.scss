@@ -33,13 +33,13 @@ h6,
   position: relative;
 
   a {
-    color: inherit;
+    @include color('text' 'primary');
     text-decoration: none;
 
-    &:hover,
-    &:active {
-      @include color('highlight');
-    }
+    // &:hover,
+    // &:active {
+    //   @include color('highlight');
+    // }
   }
 }
 
@@ -86,18 +86,15 @@ h4,
 
 h5,
 .t-scale-epsilon {
-  @include font-display;
   font-size: scale-type('epsilon');
 }
 
 h6,
 .t-scale-zeta {
-  @include font-display;
   font-size: scale-type('zeta');
 }
 
 .t-scale-eta {
-  @include font-display;
   font-size: scale-type('eta');
 }
 
@@ -321,16 +318,16 @@ cite {
 }
 
 // position text
-.t-align-center {
-  text-align: center;
+@include breakpointify('.t-align-center', true) {
+  text-align: center !important;
 }
 
-.t-align-left {
-  text-align: left;
+@include breakpointify('.t-align-left', true) {
+  text-align: left !important;
 }
 
-.t-align-right {
-  text-align: right;
+@include breakpointify('.t-align-right', true) {
+  text-align: right !important;
 }
 
 // leading utilities to set line height from global config

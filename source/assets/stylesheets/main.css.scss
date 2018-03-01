@@ -15,8 +15,34 @@
 // -> global element styles: lists, text, images, etc.
 ////////////////////////////////////////////////////////////////////////////////
 
+@import 'base/form';
 @import 'base/html';
+@import 'base/list';
 @import 'base/media';
 @import 'base/type';
-@import 'base/form';
-@import 'base/list';
+
+////////////////////////////////////////////////////////////////////////////////
+// Utility classes
+// -> global element styles: lists, text, images, etc.
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'utilities/borders';
+@import 'utilities/color';
+@import 'utilities/positioning';
+@import 'utilities/spacing';
+@import 'utilities/visibility';
+
+////////////////////////////////////////////////////////////////////////////////
+// Component styles
+// -> self-contained, namespaced, opinionated UI elements
+////////////////////////////////////////////////////////////////////////////////
+
+@import 'components/bookend';
+@import 'components/button';
+@import 'components/cover';
+@import 'components/fluid_aspect_ratio';
+@import 'components/gallery';
+@import 'components/gutter';
+@import 'components/icon';
+@import 'components/main_header';
+@import 'components/wrapper';

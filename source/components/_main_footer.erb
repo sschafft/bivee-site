@@ -3,11 +3,60 @@
   # -> the footer appearing at the bottom of every page
 %>
 
-<footer data-ui-bookend="horizontal@xsmall" class="c-theme-reverse c-well border-top" role="contentinfo">
-  <% link_to "/", data: { "ui-bookend-item": "left" }, style: "max-width: 70px;" do %>
-    <%= component "logo" %>
+<!-- Contact us -->
+<% component 'panel', locals: { theme: 'dark' } do %>
+  <% component 'wrapper', locals: { width: 'narrow' } do %>
+    <h1 class="t-align-center padding-bottom"><%= data.site.contact.headline %></h1>
+     <p class="t-content"><%= data.site.contact.intro %></p>
+
+    <ul class="list-undecorated padding-top">
+      <% data.site.contact.locations.each_with_index do |location, index| %>
+        <li class="margin-y-between">
+          <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
+          <p><%= location.address %></p>
+        </li>
+      <% end %>
+    </ul>
+
+    <!-- message & social buttons -->
+    <div class="margin-top padding-top border-top t-align-center t-align-left@xsmall">
+      <div data-ui-bookend="horizontal@small" data-ui-gutter="flush">
+        <div data-ui-bookend-item="left" data-ui-gutter-item>
+          <div data-ui-gutter="flush narrow">
+            <div data-ui-gutter-item class="display-inline-block"><%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %></div>
+            <p data-ui-gutter-item class="display-inline-block"><%= data.site.contact.email %></p>
+          </div>
+        </div>
+        <div data-ui-bookend-item="right" data-ui-gutter-item>
+          <div data-ui-gutter="flush xxnarrow">
+            <h2 data-ui-gutter-item class="t-font-body t-scale-epsilon c-text-tertiary display-inline-block">Say hi:</h2>
+            <ul data-ui-gutter-item class="list-inline display-inline-block">
+              <% data.site.contact.social.each do |channel| %>
+              <li class="list-inline-item padding-x-between-xxnarrow">
+                <% link_to channel.url, target: '_blank', title: "Say hi on #{channel.name}" do %>
+                  <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <small data-ui-bookend-item="right" class="l-margin-top-narrow l-no-margin@xsmall t-right@xsmall t-font-display c-text-tertiary">
-    &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
-  </small>
+<% end %>
+
+<footer class="c-theme-dark c-well border-top padding-x padding-y-narrow" role="contentinfo">
+  <div data-ui-gutter="flush narrow">
+    <div data-ui-bookend="horizontal@xsmall">
+      <div data-ui-bookend-item="left" class="t-align-center t-align-left@xsmall">
+        <% link_to '/', data: { 'ui-gutter-item': '' }, class: 'display-inline-block', style: 'max-width: 5rem;' do %>
+          <%= image_tag 'logos/logo-bivee-reverse-bw.svg', alt: 'Bivee' %>
+        <% end %>
+      </div>
+      <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-tertiary">
+        &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
+      </small>
+    </div>
+  </div>
 </footer>

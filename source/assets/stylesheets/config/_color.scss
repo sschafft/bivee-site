@@ -66,11 +66,11 @@ $themes: (
       'secondary': $blackberry,
       'tertiary': $blackberry
     ),
-    'bg': highlight('blueberry'),
-    'well': darken(highlight('blueberry'), 5),
-    'shadow': shade($blackberry, 15),
-    'border': #fff,
-    'highlight': #fff,
+    'bg': $blue-kuri,
+    'well': darken($blue-kuri, 5),
+    'shadow': shade($blue-kuri, 15),
+    'border': darken($blue-kuri, 10),
+    'highlight': highlight('orange'),
     'accent': $blackberry
   )
 );
