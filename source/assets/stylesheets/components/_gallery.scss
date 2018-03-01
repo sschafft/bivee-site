@@ -2,6 +2,9 @@
 // Gallery module
 // -> arrange child elements into even rows and columns
 // =============================================================================
+// sass-lint:disable mixins-before-declarations
+// -> gallery-item mixin contains media queries and overrides, so it needs to come
+//    after declarations
 
 @import '../config/spacing';
 @import '../config/scale';
