@@ -137,13 +137,13 @@ configure :build do
   activate :minify_html
 
   if ENV["CONTEXT"] == "production"
-    activate :robots, 
+    activate :robots,
       rules: [
         { user_agent: '*', allow: %w[/] }
       ],
       sitemap: 'https://www.bivee.co/sitemap.xml'
   else
-    activate :robots, 
+    activate :robots,
       rules: [
         { user_agent: '*', disallow: %w[/] }
       ]
