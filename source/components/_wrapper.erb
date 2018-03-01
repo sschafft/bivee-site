@@ -9,8 +9,13 @@
   # Locals:
   width ||= 'default' # STRING (optional): make the wrapper wider or narrower
   classes ||= ''
+
+  # Private:
+  props = [
+    (width if width != 'default')
+  ]
 %>
 
-<div data-ui-wrapper<%= "=#{width}" if width != 'default' %> class="<%= " #{classes}" unless classes == '' %>">
+<div data-ui-wrapper<%= props_list(props) %><%= class_list(classes) %>>
   <%= yield %>
 </div>

@@ -56,11 +56,11 @@ helpers do
   end
 
   def class_list(classes)
-    return "class='#{classes.join(' ')}'" unless classes.empty?
+    return " class='#{classes.is_a?(String) ? classes : classes.join(' ')}'" unless classes.empty?
   end
 
   def props_list(props)
-    return "='#{props.join(' ')}'" unless props.empty?
+    return "='#{props.is_a?(String) ? props : props.join(' ')}'" unless props.empty?
   end
 
   # figure out the utility padding classes to use

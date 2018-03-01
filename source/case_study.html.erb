@@ -1,7 +1,16 @@
+<%= component "main_header", locals: { theme: 'dark', overlay: true } %>
+
 <article>
-  <%= component "main_header", locals: { theme: 'wash', overlay: true } %>
 
   <!-- Header, hero image, and title -->
+  <header>
+    <% component 'cover', locals: {
+      bg_image: locals[:cover]
+    } do %>
+
+    <% end %>
+  </header>
+
 	<header class="padding-top-extra_wide t-align-center c-theme-wash">
     <div class="l-wrapper padding-bottom-wide padding-top-wide">
       <span class="t-heading t-heading--slug t-scale-epsilon"><strong>Case study:</strong> <%= type %></span>
@@ -16,7 +25,7 @@
   <main>
     <% sections = sitemap.resources.select {|r| r.data.project == locals[:slug] || r.data.project == locals[:title] }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
-      <% component "panel", locals: { slug: false } do %>
+      <% component 'panel', locals: { slug: false } do %>
         <div class="l-wrapper">
           <h2 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h2>
           <%= section.render layout: false %>
@@ -24,19 +33,11 @@
       <% end %>
     <% end %>
   </main>
-
-  <!-- Staff -->
-  <% component "panel", locals: { slug: false } do %>
-    <div class="l-wrapper l-wrapper--wide">
-      <h2 class="t-heading t-scale-beta t-align-center">The team</h2>
-      <%= component "staff_list", locals: { staff: find_staff_profiles(), classes: "l-margin-top-wide" } %>
-    </div>
-  <% end %>
-
 </article>
 
-<% component "panel", locals: { theme: "wash", slug: "See more of our work" } do %>
-  <div class="l-wrapper l-margin-top-wide">
+<!-- Case studies local nav -->
+<% component 'panel', locals: { theme: 'midtone' } do %>
+  <% component 'wrapper', locals: { width: 'wide' } do %>
     <ul class="gallery">
       <li class="gallery-item">
         <span class="t-heading t-heading--sub">Case study</span>
@@ -51,5 +52,5 @@
       <p class="t-font-display">The road to Sendai</p>
       <p class="t-font-display">Global Facility for Disaster Risk Reduction</li>
     </ul>
-  </div>
+  <% end %>
 <% end %>
