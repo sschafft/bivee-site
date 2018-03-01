@@ -136,17 +136,17 @@ configure :build do
   activate :minify_css
   activate :minify_html
 
-  if ENV["CONTEXT"] == "production"
+  if ENV['CONTEXT'] == 'production'
     activate :robots,
-      rules: [
-        { user_agent: '*', allow: %w[/] }
-      ],
-      sitemap: 'https://www.bivee.co/sitemap.xml'
+             rules: [
+               { user_agent: '*', allow: %w[/] }
+             ],
+             sitemap: 'https://www.bivee.co/sitemap.xml'
   else
     activate :robots,
-      rules: [
-        { user_agent: '*', disallow: %w[/] }
-      ]
+             rules: [
+               { user_agent: '*', disallow: %w[/] }
+             ]
   end
 
   # Enable cache buster
