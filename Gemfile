@@ -15,6 +15,9 @@ gem "middleman-blog"
 # Middleman Deployment
 gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
 
+# Robots txt
+gem 'middleman-robots'
+
 # Markdown engine
 gem 'kramdown'
 

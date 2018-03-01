@@ -133,9 +133,22 @@ end
 
 # Build-specific configuration
 configure :build do
-  config[:host] = "http://www.bivee.co"
+  config[:host] = "https://www.bivee.co"
   # For example, change the Compass output style for deployment
   # activate :minify_css
+
+  if ENV["CONTEXT"] == "staging"
+    activate :robots, 
+      rules: [
+        { user_agent: '*', disallow: %w[/] }
+      ]
+  else
+    activate :robots, 
+      rules: [
+        { user_agent: '*', allow: %w[/] }
+      ],
+      sitemap: 'https://www.bivee.co/sitemap.xml'
+  end
 
   # Minify Javascript on build
   # activate :minify_javascript
