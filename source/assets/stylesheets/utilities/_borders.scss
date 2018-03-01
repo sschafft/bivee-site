@@ -31,7 +31,11 @@
 }
 
 .border-round {
-  border-radius: $border-radius;
+  border-radius: border-radius();
+}
+
+.border-round-large {
+  border-radius: border-radius('large');
 }
 
 // Modifiers

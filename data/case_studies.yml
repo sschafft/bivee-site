@@ -14,7 +14,7 @@ projects:
   client: World Bank PPP Group
   date: 2014
   type: Systems development
-  cover: /assets/images/case-studies/ppp/ppp-cover.png
+  cover: case-studies/ppp/ppp-cover.png
   team:
     - Helly Stoyanova
     - Scott Schaffter

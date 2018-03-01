@@ -1,5 +1,5 @@
 // =============================================================================
-//  Fluid ratio
+//  Fluid aspect ratio
 // -> provides a fluid container to maintain aspect ratio when resizing
 // =============================================================================
 
@@ -47,6 +47,10 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+
+  &[data-ui-aspect-content~='cover'] {
+    background-size: cover;
+  }
 
   [data-ui-aspect-image] {
     display: none;

@@ -16,7 +16,7 @@ $button-icon-margin: ms(1, 1em);
 // -----------------------------------------------------------------------------
 
 [data-ui-button] {
-  @include border-radius;
+  @include border-radius($size: 'large');
   @include border($color: 'highlight');
   @include color('text' 'primary');
   @include font-display('bold');

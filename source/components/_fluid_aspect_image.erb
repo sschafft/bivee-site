@@ -6,10 +6,20 @@
   # STRING source: if you want to use an image, pass in a path
   alt ||= '' # STRING (optional): alt tag if you're using an image
   ratio ||= '3x1' # STRING (optional): the aspect ratio
+  bg_size ||= 'contain' # STRING (optional): how the image is scaled in the container.
+      # -> default is 'contain', which scales the whole image to fit
+      # -> 'cover' will stretch the image to cover the whole frame in either direction
+  classes ||= false # STRING (optional): list of additional util classes, if needed
+
+  # list of props to pass to the data-ui attributes
+  props = [
+    'bg',
+    (bg_size unless bg_size == 'contain')
+  ]
 %>
 
 <div data-ui-aspect="<%= ratio %>">
-  <div data-ui-aspect-content="bg" style="background-image: url('<%= asset_url("#{config[:images_dir]}/#{source}") %>');">
+  <div data-ui-aspect-content<%= props_list(props) %><%= " class='#{classes}'" if classes %> style="background-image: url('<%= asset_url("#{config[:images_dir]}/#{source}") %>');">
     <%= image_tag source, data: { 'ui-aspect-image': '' }, alt: alt %>
   </div>
 </div>

@@ -11,16 +11,23 @@
 // Rounded corners
 // -----------------------------------------------------------------------------
 
-$border-radius: 0.375em !default;
+$border-radii: (
+  'default': 0.1em,
+  'large': 0.375em
+);
+
+@function border-radius($size: 'default') {
+  @return map-get($border-radii, $size);
+}
 
 // set a standard border radius for a given side
 // usage: @include border-radius('top-left' 'bottom-right');
-@mixin border-radius($sides: all) {
+@mixin border-radius($sides: all, $size: 'default') {
   @if $sides == all {
-    border-radius: $border-radius;
+    border-radius: border-radius($size);
   } @else {
     @each $side in $sides {
-      border-#{$side}-radius: $border-radius;
+      border-#{$side}-radius: border-radius($size);
     }
   }
 }
