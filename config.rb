@@ -132,9 +132,22 @@ end
 
 # Build-specific configuration
 configure :build do
-  config[:host] = 'http://www.bivee.co'
+  config[:host] = 'https://www.bivee.co'
   activate :minify_css
   activate :minify_html
+
+  if ENV['CONTEXT'] == 'production'
+    activate :robots,
+             rules: [
+               { user_agent: '*', allow: %w[/] }
+             ],
+             sitemap: 'https://www.bivee.co/sitemap.xml'
+  else
+    activate :robots,
+             rules: [
+               { user_agent: '*', disallow: %w[/] }
+             ]
+  end
 
   # Enable cache buster
   activate :asset_hash

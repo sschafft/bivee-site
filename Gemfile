@@ -11,6 +11,9 @@ gem 'middleman-google-analytics'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
 
+# Robots txt
+gem 'middleman-robots'
+
 # Content/asset compilers
 gem 'kramdown' # markdown engine
 gem 'rake' # required for SassC (below)
