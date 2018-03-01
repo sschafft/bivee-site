@@ -21,11 +21,11 @@
 [context.deploy-preview]
   command = "middleman build"
   [context.deploy-preview.environment]
-    CONTEXT = "production"
+    CONTEXT = "staging"
 
 # Branch Deploy context: All deploys that are not in
 # an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
   command = "middleman build"
   [context.branch-deploy.environment]
-    CONTEXT = "production"
+    CONTEXT = "staging"
