@@ -1,55 +1,45 @@
-<article>
-  <%= component "main_header", locals: { theme: 'wash', overlay: true } %>
+<%= component "main_header", locals: { theme: 'dark', borders: 'bottom' } %>
 
-  <!-- Header, hero image, and title -->
-	<header class="padding-top-extra_wide t-align-center c-theme-wash">
-    <div class="l-wrapper padding-bottom-wide padding-top-wide">
-      <span class="t-heading t-heading--slug t-scale-epsilon"><strong>Case study:</strong> <%= type %></span>
-      <h1 class="t-heading t-scale-alpha"><%= title %></h1>
-    </div>
-    <div class="l-wrapper l-wrapper--wide">
-      <img src="<%= cover %>">
-    </div>
-	</header>
+<article>
+  <!-- Cover image, and title -->
+  <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
+    <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 16em; max-height: 12em;' %>
+      <h1 class="padding-top-wide padding-bottom"><%= project.title %></h1>
+      <p class="t-heading t-scale-epsilon c-text-secondary">
+        <time class="t-weight-bold"><%= project.date %></time> | <%= project.type %>
+      </p>
+      <a class="display-inline-block margin-top-wide" href="#main_content">
+        <%= component 'icon', locals: { id: 'arrow-down' } %>
+      </a>
+    <% end %>
+  </header>
 
   <!-- Main content: sections -->
-  <main>
-    <% sections = sitemap.resources.select {|r| r.data.project == locals[:slug] || r.data.project == locals[:title] }.sort_by {|r| r.data.weight } %>
+  <main id="main_content">
+    <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
-      <% component "panel", locals: { slug: false } do %>
-        <div class="l-wrapper">
-          <h2 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h2>
-          <%= section.render layout: false %>
-        </div>
+      <% component 'panel', locals: { slug: false } do %>
+        <% component 'wrapper', locals: { width: 'narrow' } do %>
+          <h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= section.data.title %></h1>
+          <div class="t-content">
+            <%= section.render layout: false %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </main>
-
-  <!-- Staff -->
-  <% component "panel", locals: { slug: false } do %>
-    <div class="l-wrapper l-wrapper--wide">
-      <h2 class="t-heading t-scale-beta t-align-center">The team</h2>
-      <%= component "staff_list", locals: { staff: find_staff_profiles(), classes: "l-margin-top-wide" } %>
-    </div>
-  <% end %>
-
 </article>
 
-<% component "panel", locals: { theme: "wash", slug: "See more of our work" } do %>
-  <div class="l-wrapper l-margin-top-wide">
-    <ul class="gallery">
-      <li class="gallery-item">
-        <span class="t-heading t-heading--sub">Case study</span>
-        <p class="t-font-display">An architecture for public-private partnership knowledge</p>
-        <p class="t-font-display">World Bank | PPP CCSA</p></li>
-      <li class="gallery-item">
-      <span class="t-heading t-heading--sub">Case study</span>
-      <p class="t-font-display">Development Data Hub</p>
-      <p class="t-font-display">World Bank | Development Data Group</li>
-      <li class="gallery-item">
-      <span class="t-heading t-heading--sub">Case study</span>
-      <p class="t-font-display">The road to Sendai</p>
-      <p class="t-font-display">Global Facility for Disaster Risk Reduction</li>
-    </ul>
-  </div>
+<!-- Case studies local nav -->
+<% if data.case_studies.projects.length > 1 %>
+  <% component 'panel', locals: { theme: 'midtone', classes: 'c-well' } do %>
+    <% component 'wrapper', locals: { width: 'wide' } do %>
+      <h1 class="padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
+      <%= component 'case_studies_list', locals: {
+        projects: data.case_studies.projects,
+        exclude: project.slug
+      } %>
+    <% end %>
+  <% end %>
 <% end %>

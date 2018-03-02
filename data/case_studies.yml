@@ -11,10 +11,14 @@ intro: We're all about results. See how we've helped our partners in achieve the
 projects:
 - title: PPP Knowledge Lab
   slug: PPP
-  client: World Bank PPP Group
+  client:
+    name: World Bank PPP Group
+    logo: work/ppp/assets/logo-knowledge_lab.svg
   date: 2014
   type: Data, knowledge, and learning systems
-  cover: case-studies/ppp/ppp-cover.png
+  cover:
+    thumb: work/ppp/assets/ppp-cover.png
+    full_size: work/ppp/assets/ppp-cover.png
   team:
     - Helly Stoyanova
     - Scott Schaffter
@@ -26,7 +30,9 @@ projects:
   client: CGAP and Mastercard Foundation
   date: 2017+
   type: Data, knowledge, and learning systems
-  cover: 
+  cover:
+    thumb: work/ppp/assets/ppp-cover.png
+    full_size: work/ppp/assets/ppp-cover.png
   team:
     - Helly Stoyanova
     - Scott Schaffter
@@ -40,7 +46,9 @@ projects:
   client: World Bank Group
   date: 2015
   type: Data, knowledge, and learning systems
-  cover: 
+  cover:
+    thumb: work/ppp/assets/ppp-cover.png
+    full_size: work/ppp/assets/ppp-cover.png
   team:
     - Scott Schaffter
     - Nicholas Kingston

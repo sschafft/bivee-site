@@ -4,8 +4,9 @@
 
   borders ||= [ 'top' ] # STRING/ARRAY: sides you want borders on - see border_classes helper in config.rb
   classes ||= false # STRING: additional modifier classes for the container
+  el ||= 'section' # What HTML element should the wrapper be?
   padding ||= { x: 'wide', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
-  slug ||= false # STRING: a slug header for the top of the panel, e.g. "Recent work"
+  byline ||= false # STRING: a byline or label for the top of the panel, e.g. "Recent work"
   theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
 
   utils = [
@@ -16,9 +17,6 @@
   ]
 %>
 
-<section <%= class_list(utils) %>>
-  <% if slug %>
-    <p class="t-heading t-scale-zeta t-align-center"><%= slug %></p>
-  <% end %>
+<<%= el %><%= class_list(utils) %>>
   <%= yield %>
-</section>
+</<%= el %>>

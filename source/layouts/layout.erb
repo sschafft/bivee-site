@@ -20,7 +20,7 @@
 
   <body>
     <%# icon sprites %>
-    <%= component 'spritemap' %>
+    <div style="width: 0; height: 0; position: absolute;"><%= component 'spritemap' %></div>
     <%# flag for homepage used in child templates %>
     <% is_home = current_resource.data.title == "home" ? true : false %>
 

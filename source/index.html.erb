@@ -9,11 +9,9 @@ title: home
   <% component 'cover', locals: {
     bg_image: 'assets/images/covers/cover-drawing.jpg',
     theme: 'dark',
-    padding: { top: 'narrow', bottom: 'xxwide', x: 'wide' }
+    padding: { top: 'wide', bottom: 'xxwide', x: 'wide' }
   } do %>
-    <% component 'wrapper' do %>
-      <h1 class='padding-top-xxwide c-text-reverse'><%= data.site.cover.headline %></h1>
-    <% end %>
+    <h1 class="c-text-reverse"><%= data.site.cover.headline %></h1>
   <% end %>
 
   <!-- Intro blurb -->

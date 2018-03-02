@@ -12,7 +12,7 @@
     <li data-ui-gallery-item class="t-align-center">
       <% link_to profile.url, class: 'display-block padding-x padding-top border-bottom' do %>
         <%= component 'fluid_aspect_image', locals: {
-          source: "portraits/#{profile.data.portrait.thumb}",
+          source: "assets/images/portraits/#{profile.data.portrait.thumb}",
           alt: profile.data.name
         } %>
       <% end %>
