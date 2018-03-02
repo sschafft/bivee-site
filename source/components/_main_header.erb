@@ -31,9 +31,9 @@
     <!-- back button -->
     <% unless current_page.data.title == "home" %>
       <div data-ui-bookend-item="left">
-        <% link_to back, class: 'display-inline-block c-text-primary' do %>
-          <%= component 'icon', locals: { id: 'arrow-left' } %>
-          <span class="t-font-display t-weight-bold t-scale-zeta margin-left-xxnarrow display-inline-block">Home</span>
+        <% link_to back, class: 'display-inline-block c-text-secondary t-scale-zeta' do %>
+          <%= component 'icon', locals: { id: 'arrow-left', space: 'right' } %>
+          <span class="t-font-display t-weight-bold">Home</span>
         <% end %>
       </div>
     <% end %>

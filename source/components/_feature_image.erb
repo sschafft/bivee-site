@@ -3,7 +3,17 @@
 	# -> An image occuring within a panel of text
 
   # Locals:
-  alt ||= "" # alt tag
+  # STRING source: the path or url of the image file
+  alt ||= "" # STRING (optional): alt tag
+  padding ||= { y: 'wide' } # STRING/HASH (optional): padding classes
+
+  # Private:
+  utils = [
+    padding_classes(padding),
+    't-align-center'
+  ]
 %>
 
-<%= image_tag source, alt: alt %>
+<div data-ui-wrapper="wide outcrop"<%= class_list(utils) %>>
+  <%= image_tag source, alt: alt %>
+</div>

@@ -20,6 +20,10 @@
     #{$prop}: 0 !important;
   }
 
+  .offset-#{$prop} {
+    margin: -(space());
+  }
+
   // add space on x and y axes, e.g. padding-y, margin-x
   .#{$prop}-x {
     #{$prop}-left: space();
@@ -62,6 +66,10 @@
         #{$prop}: space($name) !important;
       }
 
+      .offset-#{$prop}-#{$name} {
+        margin: -(space($name));
+      }
+
       .#{$prop}-x-#{$name} {
         #{$prop}-left: space($name) !important;
         #{$prop}-right: space($name) !important;
@@ -97,56 +105,21 @@
       #{$prop}-#{$side}: 0 !important;
     }
 
+    .offset-#{$prop}-#{$side} {
+      margin-#{$side}: -(space());
+    }
+
     // variations
     @each $name, $length in $spacing {
       @if $name != 'medium' {
         .#{$prop}-#{$side}-#{$name} {
           #{$prop}-#{$side}: space($name) !important;
         }
+
+        .offset-#{$prop}-#{$side}-#{$name} {
+          margin-#{$side}: -(space($name));
+        }
       }
     }
   }
 }
-
-// Split gutters
-// -----------------------------------------------------------------------------
-// TODO @jay figure out how to treat these classes - make a component?
-
-// add uniform gutters to a group of elements
-// .gutter-wrapper {
-//   padding: space($split: true);
-
-//   .gutter {
-//     padding: space($split: true);
-//   }
-// }
-
-// @each $name, $size in $spacing {
-//   @if $name != 'medium' {
-//     .gutter-wrapper.gutter--#{$name} {
-//       padding: space($name, $split: true);
-
-//       .gutter {
-//         padding: space($name, $split: true);
-//       }
-//     }
-//     .gutter-wrapper.gutter--#{$name}-y {
-//       padding-top: space($name, $split: true);
-//       padding-bottom: space($name, $split: true);
-
-//       .gutter {
-//         padding-top: space($name, $split: true);
-//         padding-bottom: space($name, $split: true);
-//       }
-//     }
-//     .gutter-wrapper.gutter--#{$name}-x {
-//       padding-left: space($name, $split: true);
-//       padding-right: space($name, $split: true);
-
-//       .gutter {
-//         padding-left: space($name, $split: true);
-//         padding-right: space($name, $split: true);
-//       }
-//     }
-//   }
-// }

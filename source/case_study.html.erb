@@ -2,24 +2,29 @@
 
 <article>
   <!-- Cover image, and title -->
-  <header class="padding-x-wide padding-y-xwide border-bottom c-theme-dark">
-    <% component 'wrapper', locals: { width: 'wide' } do %>
+  <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
+    <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
       <!-- client logo -->
-      <h1 class="t-align-center padding-bottom"><%= title %></h1>
-      <p class="t-heading t-scale-epsilon t-align-center c-text-secondary">
+      <h1 class="padding-bottom"><%= title %></h1>
+      <p class="t-heading t-scale-epsilon c-text-secondary">
         <time class="t-weight-bold"><%= date %></time> | <%= type %>
       </p>
+      <a class="display-inline-block margin-top-wide" href="#main_content">
+        <%= component 'icon', locals: { id: 'arrow-down' } %>
+      </a>
     <% end %>
   </header>
 
   <!-- Main content: sections -->
-  <main>
+  <main id="main_content">
     <% sections = sitemap.resources.select {|r| r.data.project == locals[:slug] || r.data.project == locals[:title] }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
       <% component 'panel', locals: { slug: false } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
           <h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= section.data.title %></h1>
-          <%= section.render layout: false %>
+          <div class="t-content">
+            <%= section.render layout: false %>
+          </div>
         <% end %>
       <% end %>
     <% end %>
