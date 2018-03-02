@@ -3,6 +3,7 @@ headline:
   home: Our work
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
+
 # an intro blurb describing our work
 intro: We're all about results. See how we've helped our partners in achieve their goals in the public, private, nonprofit, and academic sectors.
 
@@ -27,7 +28,9 @@ projects:
 
 - title: Gateway Academy
   slug: GA
-  client: CGAP and Mastercard Foundation
+  client: 
+    name: CGAP and Mastercard Foundation
+    logo: work/ppp/assets/logo-knowledge_lab.svg
   date: 2017+
   type: Data, knowledge, and learning systems
   cover:
@@ -43,7 +46,9 @@ projects:
     
 - title: Development Data Hub
   slug: DDH
-  client: World Bank Group
+  client: 
+    name: World Bank Group
+    logo: work/ppp/assets/logo-knowledge_lab.svg
   date: 2015
   type: Data, knowledge, and learning systems
   cover:
