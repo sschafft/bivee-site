@@ -36,12 +36,7 @@ config[:markdown_engine] = :kramdown
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
 data.case_studies.projects.each do |project|
   proxy "work/#{project.slug.urlize}/index.html", '/case_study.html', locals: {
-    title: project.title,
-    slug: project.slug,
-    date: project.date,
-    type: project.type,
-    cover: project.cover,
-    team: project.team
+    project: project
   }, ignore: true
 end
 
@@ -56,11 +51,13 @@ helpers do
   end
 
   def class_list(classes)
-    return "class='#{classes.join(' ')}'" unless classes.empty?
+    list = classes.is_a?(String) ? classes : classes.join(' ')
+    return " class='#{list}'" unless classes.empty?
   end
 
   def props_list(props)
-    return "='#{props.join(' ')}'" unless props.empty?
+    list = props.is_a?(String) ? props : props.join(' ')
+    return "='#{list}'" unless props.empty?
   end
 
   # figure out the utility padding classes to use
@@ -69,26 +66,44 @@ helpers do
   # -> Pass in a string to apply the same padding to all sides, e.g. 'wide'
   # -> Pass in a hash to apply padding to each side, e.g. { top: 'narrow' }.
   #    Any sides you leave out will have no padding.
+  # rubocop:disable Metrics/MethodLength
+  # -> we need all this logic in this method, doesn't make sense to split it up
   def padding_classes(values)
     if values.is_a?(String)
-      "padding-#{values}" unless values == 'none'
+      case values
+      when 'none'
+        'no-padding'
+      when 'medium'
+        'padding'
+      else
+        "padding-#{values}"
+      end
     else
       values.collect do |side, width|
-        width == 'medium' ? "padding-#{side}" : "padding-#{side}-#{width}"
+        case width
+        when 'none'
+          "no-padding-#{side}"
+        when 'medium'
+          "padding-#{side}"
+        else
+          "padding-#{side}-#{width}"
+        end
       end.join(' ')
     end
   end
+  # rubocop:enable Metrics/MethodLength
 
   # figure out the utility border classes to use
   # arguments:
   # ARRAY list (required): a list of the sides that should get borders
-  # rubocop:disable Metrics/LineLength
-  # rubocop is being annoying about guard statements vs. if statements here
   def border_classes(sides)
-    return 'border' if sides == 'all'
-    return sides.collect { |side| "border-#{side}" }.join(' ') if sides.respond_to?(:collect)
+    if sides.is_a?(String)
+      return 'border' if sides == 'all'
+      "border-#{sides}"
+    else
+      sides.collect { |side| "border-#{side}" }.join(' ')
+    end
   end
-  # rubocop:enable Metrics/LineLength
 
   # is this url the current page?
   def current_page?(url)

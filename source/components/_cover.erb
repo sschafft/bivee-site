@@ -5,17 +5,18 @@
   # Locals:
   headline ||= false # STRING: a headline, if you'd like one
   bg_image ||= false # STRING: image for the background
-  theme ||= "wash" # STRING: color theme
+  theme ||= 'dark' # STRING: color theme
   classes ||= false # STRING: additional utilitiy classes you'd like to pass in
   padding ||= 'wide' # STRING/HASH: outside padding - see padding_classes in config.rb
   borders ||= false # STRING/ARRAY: borders - see border_classes in config.rb
 
+  # Private
   utils = [
     "c-theme-#{theme}",
-    classes
+    (classes if classes)
   ]
 %>
 
-<div data-ui-cover <%= class_list(utils) %><%= " style='background-image: url(#{asset_url(bg_image)});'" if bg_image %>>
-  <div data-ui-cover-headline class="<%= padding_classes(padding) %>"><%= yield %></div>
+<div data-ui-cover<%= class_list(utils) %><%= " style='background-image: url(#{asset_url(bg_image)});'" if bg_image %>>
+  <div data-ui-cover-content class="<%= padding_classes(padding) %>"><%= yield %></div>
 </div>

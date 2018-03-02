@@ -91,7 +91,7 @@ $focus-default: 10;
 // -> USAGE:
 //    - color: color('text' 'primary');
 //    - color: color('highlight' 'primary', 'reverse');
-@function color($colors, $name: 'default', $grade: 0) {
+@function color($colors, $name: 'default', $grade: 0, $opacity: 1) {
   // first extract the 'theme' nested map
   $theme: map-get($themes, $name);
 
@@ -111,6 +111,10 @@ $focus-default: 10;
     $color: shade($color, abs($grade));
   } @elseif ($grade > 0) {
     $color: tint($color, abs($grade));
+  }
+
+  @if ($opacity < 1) {
+    $color: rgba($color);
   }
 
   @return $color;
@@ -143,6 +147,7 @@ $focus-default: 10;
   $prop: color,
   $theme: 'default',
   $grade: 0,
+  $opacity: 1,
   $hover: false,
   $active: false,
   $focus: false,
@@ -156,27 +161,27 @@ $focus-default: 10;
 
 
   // set color for default theme
-  #{$prop}: _important(color($color, $theme, $grade), $important);
+  #{$prop}: _important(color($color, $theme, $grade, $opacity), $important);
 
   // hover/active/focus states
   @if $hover != false {
     &:hover {
       $percentage: if(type-of($hover) == 'number', $hover, $hover-default);
-      #{$prop}: _important(color($color, $theme, $percentage + $grade), $important);
+      #{$prop}: _important(color($color, $theme, $percentage + $grade, $opacity), $important);
     }
   }
 
   @if $active != false {
     &:active {
       $percentage: if(type-of($active) == 'number', $active, $active-default);
-      #{$prop}: _important(color($color, $theme, $percentage + $grade), $important);
+      #{$prop}: _important(color($color, $theme, $percentage + $grade, $opacity), $important);
     }
   }
 
   @if $focus != false {
     &:focus {
       $percentage: if(type-of($focus) == 'number', $focus, $focus-default);
-      #{$prop}: _important(color($color, $theme, $percentage + $grade), $important);
+      #{$prop}: _important(color($color, $theme, $percentage + $grade, $opacity), $important);
     }
   }
 }
@@ -200,19 +205,20 @@ $focus-default: 10;
   $color,
   $prop: color,
   $grade: 0,
+  $opacity: 1,
   $hover: false,
   $active: false,
   $focus: false,
   $important: false
 ) {
-  @include _color-props($color, $prop, 'default', $grade, $hover, $active, $focus, $important);
+  @include _color-props($color, $prop, 'default', $grade, $opacity, $hover, $active, $focus, $important);
 
   // set the color of this element to match the theme of this context
   @each $theme, $colors in $themes {
     // set color to theme of either this element or its parent
     &.c-theme-#{$theme},
     .c-theme-#{$theme} & {
-      @include _color-props($color, $prop, $theme, $grade, $hover, $active, $focus, $important);
+      @include _color-props($color, $prop, $theme, $grade, $opacity, $hover, $active, $focus, $important);
     }
   }
 }

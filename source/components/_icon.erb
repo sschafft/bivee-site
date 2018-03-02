@@ -15,13 +15,13 @@
 
   props = [
     (size if size),
-    ("space-#{space}" unless space == false)
+    ("space-#{space}" if space)
   ]
 %>
 
 <svg data-ui-icon<%= props_list(props) %><%= " #{parent}" if parent %><%= "class='#{classes}'" if classes %><%= " title='#{title}'" if title %> role="<%= role %>">
   <!-- This excellent icon is from iconmonstr.com -->
-  <use xlink:href="#icon-<%= id %>"></use>
+  <use xlink:href="#<%= id %>"></use>
   <% unless role == "presentation" %>
     <desc><%= title %></desc>
   <% end %>

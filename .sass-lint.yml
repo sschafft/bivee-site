@@ -72,7 +72,7 @@ rules:
   border-zero: 2
   brace-style: 2
   clean-import-paths: 2
-  empty-args: 2
+  empty-args: 0
   hex-length: 2
   hex-notation: 2
   indentation: 2

@@ -8,7 +8,11 @@
   overlay ||= false # BOOLEAN: turn on 'overlay' styles for the header
   size ||= 'default' # STRING: 'large' (for homepage) or 'default'
   theme ||= false # STRING: color theme
-  padding ||= 'wide'
+  classes ||= false # STRING: any additional classes to pass in
+  borders ||= false # STRING/ARRAY: sides you want borders on
+
+  # Private:
+  padding = size == 'default' ? { x: 'medium', y: 'narrow' } : { x: 'medium', y: 'wide' }
 
   props = [
     ("overlay" if overlay),
@@ -17,17 +21,19 @@
 
   utils = [
     padding_classes(padding),
+    (border_classes(borders) if borders),
     ("c-theme-#{theme}" if theme)
   ]
 %>
 
-<header data-ui-main-header<%= props_list(props) %> <%= class_list(utils) %> role="banner">
+<header data-ui-main-header<%= props_list(props) %><%= class_list(utils) %> role="banner">
   <div data-ui-bookend="horizontal">
     <!-- back button -->
     <% unless current_page.data.title == "home" %>
       <div data-ui-bookend-item="left">
-        <% link_to back, class: 'display-inline-block' do %>
-          <%= component 'icon', locals: { id: 'arrow-left' } %>
+        <% link_to back, class: 'display-inline-block c-text-secondary t-scale-zeta' do %>
+          <%= component 'icon', locals: { id: 'arrow-left', space: 'right' } %>
+          <span class="t-font-display t-weight-bold">Home</span>
         <% end %>
       </div>
     <% end %>
@@ -35,7 +41,7 @@
     <!-- logo -->
     <div data-ui-bookend-item="center" class="t-align-center">
       <% link_to '/', class: 'display-inline-block' do %>
-        <%= image_tag 'logos/logo-bivee-reverse-bw.svg', class: 'display-inline-block', alt: 'Bivee' %>
+        <%= image_tag 'logos/logo-bivee-red-reverse.svg', class: 'display-inline-block', alt: 'Bivee', style: size == 'default' ? 'max-width: 5em;' : 'max-width: 8em;' %>
       <% end %>
     </div>
 
