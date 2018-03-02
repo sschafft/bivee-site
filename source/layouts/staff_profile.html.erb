@@ -12,7 +12,8 @@
     <%= image_tag "portraits/#{current_page.data.portrait.full_size}", alt: current_page.data.name %>
       <header class="padding-top-wide padding-bottom t-align-center">
   	    <h1 class="t-scale-alpha"><%= current_page.data.name %></h1>
-  	    <p class= "t-heading c-highlight padding-top-xnarrow"><%= current_page.data.role.title %></p>
+  	    <p class= "t-heading c-highlight padding-top-xnarrow">
+          <% unless current_page.data.role.level == 'Team' %><span class="t-weight-bold"><%= current_page.data.role.level %></span> | <% end %><%= current_page.data.role.title %></p>
     	</header>
       <%= yield %>
     <% end %>
