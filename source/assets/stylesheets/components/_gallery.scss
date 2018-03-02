@@ -22,6 +22,11 @@ $gallery-gutter: space();
     @include media('>#{$name}') {
       display: inline-block;
       width: col-width-percentage($width, $screen-size);
+
+      @supports (display: flex) {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }
