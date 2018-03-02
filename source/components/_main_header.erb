@@ -8,7 +8,8 @@
   overlay ||= false # BOOLEAN: turn on 'overlay' styles for the header
   size ||= 'default' # STRING: 'large' (for homepage) or 'default'
   theme ||= false # STRING: color theme
-  padding ||= 'wide'
+  padding ||= 'wide' # STRING/ARRAY: padding on each side
+  classes ||= false # STRING: any additional classes to pass in
 
   props = [
     ("overlay" if overlay),

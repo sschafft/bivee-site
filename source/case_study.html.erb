@@ -1,11 +1,9 @@
-<%= component "main_header", locals: { theme: 'dark', overlay: true } %>
+<%= component "main_header", locals: { theme: 'dark' } %>
 
 <article>
   <!-- Cover image, and title -->
-  <header>
-    <% component 'cover', locals: {
-      padding: { x: 'wide', y: 'xwide' }
-    } do %>
+  <header class="padding-x-wide padding-y-xwide border-bottom c-theme-dark">
+    <% component 'wrapper', locals: { width: 'wide' } do %>
       <!-- client logo -->
       <h1 class="t-align-center padding-bottom"><%= title %></h1>
       <p class="t-heading t-scale-epsilon t-align-center c-text-secondary">
@@ -19,31 +17,23 @@
     <% sections = sitemap.resources.select {|r| r.data.project == locals[:slug] || r.data.project == locals[:title] }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
       <% component 'panel', locals: { slug: false } do %>
-        <div class="l-wrapper">
-          <h2 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h2>
+        <% component 'wrapper', locals: { width: 'narrow' } do %>
+          <h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= section.data.title %></h1>
           <%= section.render layout: false %>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </main>
 </article>
 
 <!-- Case studies local nav -->
-<% component 'panel', locals: { theme: 'midtone' } do %>
-  <% component 'wrapper', locals: { width: 'wide' } do %>
-    <ul class="gallery">
-      <li class="gallery-item">
-        <span class="t-heading t-heading--sub">Case study</span>
-        <p class="t-font-display">An architecture for public-private partnership knowledge</p>
-        <p class="t-font-display">World Bank | PPP CCSA</p></li>
-      <li class="gallery-item">
-      <span class="t-heading t-heading--sub">Case study</span>
-      <p class="t-font-display">Development Data Hub</p>
-      <p class="t-font-display">World Bank | Development Data Group</li>
-      <li class="gallery-item">
-      <span class="t-heading t-heading--sub">Case study</span>
-      <p class="t-font-display">The road to Sendai</p>
-      <p class="t-font-display">Global Facility for Disaster Risk Reduction</li>
-    </ul>
+<% if data.case_studies.projects.length > 1 %>
+  <% component 'panel', locals: { theme: 'midtone', classes: 'c-well' } do %>
+    <% component 'wrapper', locals: { width: 'wide' } do %>
+      <h1 class="padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
+      <%= component 'case_studies_list', locals: {
+        projects: data.case_studies.projects
+      } %>
+    <% end %>
   <% end %>
 <% end %>
