@@ -14,7 +14,8 @@
         <%= component 'fluid_aspect_image', locals: {
           source: "assets/images/portraits/#{profile.data.portrait.thumb}",
           bg_size: 'cover',
-          alt: profile.data.name
+          alt: profile.data.name,
+          classes: 'border-round border'
         } %>
         <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-narrow"><%= profile.data.name %></h3>
         <% unless profile.data.role.level == 'Team' %>
