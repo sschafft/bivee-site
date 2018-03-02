@@ -1,25 +1,18 @@
 <%= component "main_header", locals: { theme: 'dark', overlay: true } %>
 
 <article>
-
-  <!-- Header, hero image, and title -->
+  <!-- Cover image, and title -->
   <header>
     <% component 'cover', locals: {
-      bg_image: locals[:cover]
+      padding: { x: 'wide', y: 'xwide' }
     } do %>
-
+      <!-- client logo -->
+      <h1 class="t-align-center padding-bottom"><%= title %></h1>
+      <p class="t-heading t-scale-epsilon t-align-center c-text-secondary">
+        <time class="t-weight-bold"><%= date %></time> | <%= type %>
+      </p>
     <% end %>
   </header>
-
-	<header class="padding-top-extra_wide t-align-center c-theme-wash">
-    <div class="l-wrapper padding-bottom-wide padding-top-wide">
-      <span class="t-heading t-heading--slug t-scale-epsilon"><strong>Case study:</strong> <%= type %></span>
-      <h1 class="t-heading t-scale-alpha"><%= title %></h1>
-    </div>
-    <div class="l-wrapper l-wrapper--wide">
-      <img src="<%= cover %>">
-    </div>
-	</header>
 
   <!-- Main content: sections -->
   <main>

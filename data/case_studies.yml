@@ -11,7 +11,11 @@ intro: We’re an advisory ﬁrm with experience in strategy, technology, and de
 projects:
 - title: PPP Knowledge Lab
   slug: PPP
-  client: World Bank PPP Group
+  client:
+    name: World Bank PPP Group
+    logo: work/ppp/assets/ppp-logo.svg
   date: 2014
   type: Systems development
-  cover: work/ppp/assets/ppp-cover.png
+  cover:
+    thumb: work/ppp/assets/ppp-cover.png
+    full_size: work/ppp/assets/ppp-cover.png
