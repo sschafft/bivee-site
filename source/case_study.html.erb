@@ -4,10 +4,10 @@
   <!-- Cover image, and title -->
   <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
-      <!-- client logo -->
+      <%= image_tag project.client.logo
       <h1 class="padding-bottom"><%= title %></h1>
       <p class="t-heading t-scale-epsilon c-text-secondary">
-        <time class="t-weight-bold"><%= date %></time> | <%= type %>
+        <time class="t-weight-bold"><%= project.date %></time> | <%= project.type %>
       </p>
       <a class="display-inline-block margin-top-wide" href="#main_content">
         <%= component 'icon', locals: { id: 'arrow-down' } %>
@@ -17,7 +17,7 @@
 
   <!-- Main content: sections -->
   <main id="main_content">
-    <% sections = sitemap.resources.select {|r| r.data.project == locals[:slug] || r.data.project == locals[:title] }.sort_by {|r| r.data.weight } %>
+    <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
       <% component 'panel', locals: { slug: false } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
@@ -37,7 +37,8 @@
     <% component 'wrapper', locals: { width: 'wide' } do %>
       <h1 class="padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
       <%= component 'case_studies_list', locals: {
-        projects: data.case_studies.projects
+        projects: data.case_studies.projects,
+        exclude: project.slug
       } %>
     <% end %>
   <% end %>

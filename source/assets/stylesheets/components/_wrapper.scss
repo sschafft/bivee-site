@@ -39,7 +39,7 @@
   right: 50%;
   width: 100vw;
 
-  @include media(">#{layout-w('wide')}") {
+  @include media('>#{layout-w(wide)}') {
     left: 0;
     margin-left: ((layout-w() - layout-w('wide')) / 2);
     margin-right: ((layout-w() - layout-w('wide')) / 2);
