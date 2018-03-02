@@ -10,7 +10,8 @@ intro: We're all about results. See how we've helped our partners in achieve the
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
 projects:
-- title: PPP Knowledge Lab
+- short_title: PPP Knowledge Lab
+  long_title: Knowledge Sharing for Public Private Partnerships
   slug: PPP
   client:
     name: World Bank PPP Group
@@ -18,7 +19,7 @@ projects:
   date: 2014
   type: Data, knowledge, and learning systems
   cover:
-    thumb: work/ppp/assets/ppp-cover.png
+    thumb: work/ppp/assets/ppp-thumb.png
     full_size: work/ppp/assets/ppp-cover.png
   team:
     - Helly Stoyanova
@@ -26,15 +27,16 @@ projects:
     - Nicholas Kingston
     - Jay Perry
 
-- title: Gateway Academy
+- short_title: Gateway Academy
+  long_title: eLearning for Financial Inclusion
   slug: GA
   client: 
     name: CGAP and Mastercard Foundation
-    logo: work/ppp/assets/logo-knowledge_lab.svg
+    logo: work/ga/assets/logo-cgap.svg
   date: 2017+
   type: Data, knowledge, and learning systems
   cover:
-    thumb: work/ppp/assets/ppp-cover.png
+    thumb: work/ga/assets/ga-thumb.png
     full_size: work/ppp/assets/ppp-cover.png
   team:
     - Helly Stoyanova
@@ -44,15 +46,16 @@ projects:
     - Nestor Fuentes
     - Haley Cline
     
-- title: Development Data Hub
+- short_title: Development Data Hub
+  long_title: Strategy for Data Sharing
   slug: DDH
   client: 
     name: World Bank Group
-    logo: work/ppp/assets/logo-knowledge_lab.svg
+    logo: work/ddh/assets/logo-wbg.svg
   date: 2015
   type: Data, knowledge, and learning systems
   cover:
-    thumb: work/ppp/assets/ppp-cover.png
+    thumb: work/ddh/assets/ddh-thumb.png
     full_size: work/ppp/assets/ppp-cover.png
   team:
     - Scott Schaffter

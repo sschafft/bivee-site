@@ -32,7 +32,7 @@ title: home
   <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
     <!-- Case study listings -->
     <%= component 'case_studies_list', locals: { projects: data.case_studies.projects, classes: 'padding-top-wide' } %>
-    <%= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top-wide' } %>
+    <% # component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top-wide' } %>
   <% end %>
 <% end %>
 
