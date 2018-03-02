@@ -137,8 +137,6 @@ page 'README.md', directory_index: false
 page 'LICENSE', directory_index: false
 page '404.html', directory_index: false
 
-activate :relative_assets
-
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload,
