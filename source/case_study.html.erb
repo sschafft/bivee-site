@@ -4,8 +4,8 @@
   <!-- Cover image, and title -->
   <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
-      <%= image_tag project.client.logo
-      <h1 class="padding-bottom"><%= title %></h1>
+      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 16em; max-height: 12em;' %>
+      <h1 class="padding-top-wide padding-bottom"><%= project.title %></h1>
       <p class="t-heading t-scale-epsilon c-text-secondary">
         <time class="t-weight-bold"><%= project.date %></time> | <%= project.type %>
       </p>
