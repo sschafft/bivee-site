@@ -14,15 +14,13 @@
     "url": "git+https://github.com/biveeco/biveeco.github.io.git"
   },
   "config": {
-    "css_src": "source/assets/stylesheets",
-    "icons_src": "./source/assets/images/icons",
-    "icons_dest": "./source/components"
+    "icons_src": "./source/assets/images/icons"
   },
   "sassLintConfig": ".sass-lint.yml",
   "scripts": {
     "javascripts:build": "echo '--- Building & Linting JS ---' && webpack -p --bail --env.production --",
     "javascripts:watch": "echo '--- Bundling & Linting JS ---' && webpack --watch -d --env.development --",
-    "icons": "svg-sprite --symbol --symbol-dest $npm_package_config_icons_dest --symbol-sprite 'spritemap.erb' --symbol-inline --symbol-prefix 'icon-%s' $npm_package_config_icons_src/**/*.svg",
+    "icons": "svgo -f $npm_package_config_icons_src && svgstore -o ./source/components/_spritemap.erb --inline $npm_package_config_icons_src/**/*.svg",
     "middleman": "bundle exec middleman build --",
     "lint:styles": "echo '--- Linting CSS ---' && yarn run sass-lint --verbose",
     "lint:ruby": "echo '--- Linting Ruby ---' && bundle exec rubocop",
@@ -61,8 +59,9 @@
     "onchange": "^3.3.0",
     "path": "^0.12.7",
     "sass-lint": "^1.12.1",
-    "svg-sprite": "^1.3.1",
+    "svg-sprite": "^1.3.7",
     "svgo": "^0.6.6",
+    "svgstore-cli": "^1.3.1",
     "webpack": "^3.11.0"
   }
 }

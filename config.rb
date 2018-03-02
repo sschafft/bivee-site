@@ -71,10 +71,24 @@ helpers do
   #    Any sides you leave out will have no padding.
   def padding_classes(values)
     if values.is_a?(String)
-      "padding-#{values}" unless values == 'none'
+      case values
+      when 'none'
+        'no-padding'
+      when 'medium'
+        'padding'
+      else
+        "padding-#{values}"
+      end
     else
       values.collect do |side, width|
-        width == 'medium' ? "padding-#{side}" : "padding-#{side}-#{width}"
+        case width
+        when 'none'
+          "no-padding-#{side}"
+        when 'medium'
+          "padding-#{side}"
+        else
+          "padding-#{side}-#{width}"
+        end
       end.join(' ')
     end
   end
@@ -85,8 +99,12 @@ helpers do
   # rubocop:disable Metrics/LineLength
   # rubocop is being annoying about guard statements vs. if statements here
   def border_classes(sides)
-    return 'border' if sides == 'all'
-    return sides.collect { |side| "border-#{side}" }.join(' ') if sides.respond_to?(:collect)
+    if sides.is_a?(String)
+      return 'border' if sides == 'all'
+      "border-#{sides}"
+    else
+      sides.collect { |side| "border-#{side}" }.join(' ')
+    end
   end
   # rubocop:enable Metrics/LineLength
 
