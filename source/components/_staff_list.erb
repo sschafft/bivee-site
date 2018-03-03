@@ -7,7 +7,7 @@
   classes ||= false # STRING: additional modifier classes, if needed
 %>
 
-<ul data-ui-gallery="xsmall centered"<%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="centered"<%= class_list(classes) if classes %>>
   <% staff.each do |profile| %>
     <li data-ui-gallery-item>
       <% link_to profile.url, class: 'display-flex-fill display-block t-align-center' do %>
