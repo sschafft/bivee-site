@@ -11,12 +11,10 @@
 %>
 
 <section>
-  <% component 'wrapper', locals: { width: width } do %>
-    <% if heading %>
-      <h1 class="t-scale-<%= heading_size %> t-align-center padding-bottom-narrow"><%= heading %></h1>
-    <% end %>
-    <div class="t-content t-scale-<%= text_size %>">
-      <%= yield %>
-    </div>
+  <% if heading %>
+    <h1 class="t-scale-<%= heading_size %> t-align-center padding-bottom-narrow"><%= heading %></h1>
+  <% end %>
+  <% component 'wrapper', locals: { width: width, classes: "t-content t-scale-#{text_size}" } do %>
+    <%= yield %>
   <% end %>
 </section>
