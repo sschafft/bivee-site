@@ -4,9 +4,9 @@ title: Bivee
 # Content for the 'cover' (hero unit) on the homepage
 cover:
   # Main headline/tagline
-  headline: Together, we can do great things.
+  headline: We do development differently
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: We use design thinking to create simple, useful tools to solve complex problems and help clients achieve their goals.
+  intro: At our very core we believe that different thinking leads to different outcomes … mostly better ones!
 
 # Content for the staff listings that appear around the site
 staff:

@@ -1,0 +1,19 @@
+<%
+  # Analytics Component
+  # -> provides analytics to provide data about site access
+
+  # Locals:
+  ga_code ||= false # STRING (required): if no ga code is provided, fall back to nothing
+
+%>
+<% if ga_code %>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<%= ga_code %>"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', '<%= ga_code %>');
+	  gtag('require', 'linkid');
+	</script>
+<% end %>
