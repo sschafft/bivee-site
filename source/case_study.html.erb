@@ -36,7 +36,7 @@
 <% if data.case_studies.projects.length > 1 %>
   <% component 'panel', locals: { theme: 'midtone', classes: 'c-well' } do %>
     <% component 'wrapper', locals: { width: 'wide' } do %>
-      <h1 class="padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
+      <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
       <%= component 'case_studies_list', locals: {
         projects: data.case_studies.projects,
         exclude: project.slug
