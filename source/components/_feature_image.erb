@@ -6,14 +6,17 @@
   # STRING source: the path or url of the image file
   alt ||= "" # STRING (optional): alt tag
   padding ||= { y: 'wide' } # STRING/HASH (optional): padding classes
+  borders ||= false # BOOLEAN (optional): add a border to the image
+  classes ||= false # STRING (optional): additional utility classes
 
   # Private:
   utils = [
     padding_classes(padding),
-    't-align-center'
+    't-align-center',
+    (classes if classes)
   ]
 %>
 
 <div data-ui-wrapper="wide outcrop"<%= class_list(utils) %>>
-  <%= image_tag source, alt: alt %>
+  <%= image_tag source, class: ('border' if borders), alt: alt %>
 </div>
