@@ -7,8 +7,8 @@
       <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 16em; max-height: 12em;' %>
       <h1 class="padding-top-wide padding-bottom-narrow"><%= project.long_title %></h1>
       <p class="t-heading t-scale-gamma c-highlight padding-bottom"><%= project.short_title %></p>
-      <p class="t-heading t-scale-epsilon c-text-secondary">
-        <time class="t-weight-bold"><%= project.date %></time> | <%= project.type %>
+      <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon c-text-secondary">
+        <time data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="padding-right-xnarrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block"><%= project.type %></span>
       </p>
       <a class="display-inline-block margin-top-wide" href="#main_content">
         <%= component 'icon', locals: { id: 'arrow-down' } %>
@@ -36,7 +36,7 @@
 <% if data.case_studies.projects.length > 1 %>
   <% component 'panel', locals: { theme: 'midtone', classes: 'c-well' } do %>
     <% component 'wrapper', locals: { width: 'wide' } do %>
-      <h1 class="padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
+      <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
       <%= component 'case_studies_list', locals: {
         projects: data.case_studies.projects,
         exclude: project.slug
