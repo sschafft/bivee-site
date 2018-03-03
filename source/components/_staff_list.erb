@@ -7,20 +7,22 @@
   classes ||= false # STRING: additional modifier classes, if needed
 %>
 
-<ul data-ui-gallery="xsmall flush centered"<%= " class='#{classes}'" if classes %>>
+<ul data-ui-gallery="centered"<%= class_list(classes) if classes %>>
   <% staff.each do |profile| %>
-    <li data-ui-gallery-item class="t-align-center">
-      <% link_to profile.url, class: 'display-block padding-x padding-top border-bottom' do %>
+    <li data-ui-gallery-item>
+      <% link_to profile.url, class: 'display-flex-fill display-block t-align-center' do %>
         <%= component 'fluid_aspect_image', locals: {
           source: "assets/images/portraits/#{profile.data.portrait.thumb}",
-          alt: profile.data.name
+          bg_size: 'cover',
+          alt: profile.data.name,
+          classes: 'border-round border'
         } %>
+        <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-narrow"><%= profile.data.name %></h3>
+        <% unless profile.data.role.level == 'Team' %>
+          <p class="t-heading t-weight-bold t-scale-zeta c-highlight padding-bottom-xxnarrow"><%= profile.data.role.level %></p>
+        <% end %>
+        <p class="t-heading t-scale-zeta c-text-secondary"><%= profile.data.role.title %></p>
       <% end %>
-      <div class="padding">
-        <h3 class="t-scale-delta padding-bottom-xnarrow"><%= link_to profile.data.name, profile.url %></h3>
-        <%= link_to profile.data.role.level, profile.url, class: 't-heading t-weight-bold t-scale-zeta c-highlight padding-bottom-xxnarrow' unless profile.data.role.level == 'Team' %>
-        <%= link_to profile.data.role.title, profile.url, class: "t-heading t-scale-zeta c-text-secondary" %>
-      </div>
     </li>
   <% end %>
 </ul>
