@@ -10,11 +10,11 @@ html {
   font-size: 100%;
 
   @include media('>small') {
-    font-size: 105%;
+    font-size: 110%;
   }
 
   @include media('>medium') {
-    font-size: 110%;
+    font-size: 120%;
   }
 }
 

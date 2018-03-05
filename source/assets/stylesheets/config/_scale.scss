@@ -23,13 +23,13 @@ $scale-base-type: 16px;
 // -> we could compute this via the modular scale mixins,
 // -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
 $scale-type: (
-  'alpha': convert-to-rem(57px),
-  'beta': convert-to-rem(39px),
-  'gamma': convert-to-rem(28px),
-  'delta': convert-to-rem(23px),
-  'epsilon': convert-to-rem(16px),
-  'zeta': convert-to-rem(13px),
-  'eta': convert-to-rem(11px)
+  'alpha': 3.7rem,
+  'beta': 2.5rem,
+  'gamma': 2rem,
+  'delta': 1.44rem,
+  'epsilon': 1.2rem,
+  'zeta': 1rem,
+  'eta': 0.8rem
 ) !default;
 
 @function scale-type($size) {
