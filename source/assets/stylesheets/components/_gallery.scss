@@ -62,12 +62,14 @@ $gallery-gutter: space();
   display: block;
   font-size: $type-size-default;
   margin: 0;
+  width: 100%;
   padding: ($gallery-gutter / 2);
   position: relative;
   vertical-align: top;
 
   @supports (display: flex) {
     display: flex;
+    flex-direction: column;
   }
 
   @include gallery-item(300px);
