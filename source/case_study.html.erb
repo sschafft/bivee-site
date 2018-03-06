@@ -4,7 +4,7 @@
   <!-- Cover image, and title -->
   <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
-      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 16em; max-height: 12em;' %>
+      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 13em; max-height: 12em;' %>
       <h1 class="padding-top-wide"><%= project.title.long %></h1>
       <% if project.title.subtitle %>
         <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
