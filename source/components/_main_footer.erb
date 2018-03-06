@@ -6,7 +6,7 @@
 <!-- Contact us -->
 <% component 'panel', locals: { theme: 'dark' } do %>
   <% component 'wrapper', locals: { width: 'narrow' } do %>
-    <h1 class="t-align-center padding-bottom"><%= data.site.contact.headline %></h1>
+    <h1 class="t-scale-beta t-align-center padding-bottom"><%= data.site.contact.headline %></h1>
      <p class="t-content"><%= data.site.contact.intro %></p>
 
     <ul class="list-undecorated padding-top">
@@ -27,17 +27,17 @@
             <div data-ui-gutter-item class="display-inline-block">
               <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %>
             </div>
-            <p data-ui-gutter-item class="display-inline-block"><%= data.site.contact.email %></p>
+            <p data-ui-gutter-item class="display-inline-block t-scale-zeta"><%= data.site.contact.email %></p>
           </div>
         </div>
         <!-- Social channels -->
         <div data-ui-bookend-item="right" data-ui-gutter-item>
           <div data-ui-gutter="flush xxnarrow">
-            <h2 data-ui-gutter-item class="t-font-body t-scale-epsilon c-text-tertiary display-inline-block">Say hi:</h2>
+            <h2 data-ui-gutter-item class="t-font-body t-scale-zeta c-text-tertiary display-inline-block">Say hi:</h2>
             <ul data-ui-gutter-item class="list-inline display-inline-block">
               <% data.site.contact.social.each do |channel| %>
               <li class="list-inline-item padding-x-between-xxnarrow">
-                <% link_to channel.url, class: 'c-text-primary', target: '_blank', title: "Say hi on #{channel.name}" do %>
+                <% link_to channel.url, class: 'c-text-primary t-scale-zeta', target: '_blank', title: "Say hi on #{channel.name}" do %>
                   <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
                 <% end %>
               </li>
