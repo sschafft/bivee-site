@@ -109,7 +109,7 @@ body {
 }
 
 p {
-  @include color('text' 'secondary');
+  @include color('text' 'primary');
   font-size: scale-type('epsilon');
 
   margin: 0;
@@ -209,6 +209,7 @@ cite {
 // -----------------------------------------------------------------------------
 
 .t-content {
+  @include color('text' 'primary');
 
   // add a line of whitespace between everything
   > * + * {

@@ -12,7 +12,7 @@
     <ul class="list-undecorated padding-top">
       <% data.site.contact.locations.each_with_index do |location, index| %>
         <li class="margin-y-between">
-          <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
+          <h2 class="t-scale-delta padding-bottom-xxnarrow c-accent"><%= location.name %></h2>
           <p><%= location.address %></p>
         </li>
       <% end %>
@@ -27,13 +27,13 @@
             <div data-ui-gutter-item class="display-inline-block">
               <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %>
             </div>
-            <p data-ui-gutter-item class="display-inline-block t-scale-zeta"><%= data.site.contact.email %></p>
+            <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.email %></p>
           </div>
         </div>
         <!-- Social channels -->
         <div data-ui-bookend-item="right" data-ui-gutter-item>
           <div data-ui-gutter="flush xxnarrow">
-            <h2 data-ui-gutter-item class="t-font-body t-scale-zeta c-text-tertiary display-inline-block">Say hi:</h2>
+            <h2 data-ui-gutter-item class="t-font-body t-scale-zeta c-text-secondary display-inline-block">Say hi:</h2>
             <ul data-ui-gutter-item class="list-inline display-inline-block">
               <% data.site.contact.social.each do |channel| %>
               <li class="list-inline-item padding-x-between-xxnarrow">
