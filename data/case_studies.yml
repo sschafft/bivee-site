@@ -14,9 +14,12 @@ intro:  -| By applying design thinking to a bunch of situations (from relatively
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
+# -> title.long is the main headline for the case study, and should be descriptive/editorial
+# -> title.short is a short version of the title used to refer to the project in the UI/navigation. Usually just the project name (e.g. PPP Knowledge Lab) is good.
+# -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
 - title:
-    long: Knowledge Sharing for Public Private Partnerships
+    long: Knowledge sharing for public private partnerships
     short: PPP Knowledge Lab
   slug: PPP
   client:
@@ -29,7 +32,7 @@ projects:
     full_size: work/ppp/assets/ppp-cover.png
 
 - title:
-    long: eLearning for Financial Inclusion
+    long: e-Learning for financial inclusion
     short: Gateway Academy
     subtitle: Gateway Academy
   slug: GA
@@ -43,7 +46,7 @@ projects:
     full_size: work/ppp/assets/ppp-cover.png
 
 - title:
-    long: Strategy for Data Sharing
+    long: A strategy for data sharing
     short: Development Data Hub
     subtitle: Development Data Hub
   slug: DDH
