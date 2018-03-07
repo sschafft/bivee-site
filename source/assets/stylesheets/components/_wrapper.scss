@@ -6,6 +6,30 @@
 @import '../config/layout_width';
 @import '../config/spacing';
 
+// create overrides for an 'outcrop' version of the wrapper at a given width
+// -> see 'outcrop' styles below
+
+@function not-wrapper-variation() {
+  $list: null;
+
+  @each $name, $width in $layout-widths {
+    @if $name != 'default' {
+      $list: append($list, #{'&:not([data-ui-wrapper~="#{$name}"])'}, 'comma');
+    }
+  }
+
+  @return $list;
+}
+
+@mixin wrapper-outcrop-variation($width, $parent-width: 'default') {
+  $margin: if(layout-w-difference($parent-width, $width) < 0, (layout-w-difference($parent-width, $width) / 2), auto);
+  left: 0;
+  margin-left: $margin;
+  margin-right: $margin;
+  right: 0;
+  width: if(layout-w-difference($parent-width, $width) > 0, layout-w($width), auto);
+}
+
 // Block
 // -----------------------------------------------------------------------------
 
@@ -26,8 +50,7 @@
 }
 
 // a child element of a layout wrapper which is actually wider than its parent
-// -> use to expand a child of a default wrapper to the width of a 'wide' wrapper
-// -> great trick stolen from CSS-Tricks: https://css-tricks.com/full-width-containers-limited-width-parents/
+// -> a great trick from CSS-Tricks: https://css-tricks.com/full-width-containers-limited-width-parents/
 [data-ui-wrapper~='outcrop'] {
   display: block;
   left: 50%;
@@ -39,11 +62,47 @@
   right: 50%;
   width: 100vw;
 
-  @include media('>#{layout-w(wide)}') {
-    left: 0;
-    margin-left: ((layout-w() - layout-w('wide')) / 2);
-    margin-right: ((layout-w() - layout-w('wide')) / 2);
-    right: 0;
-    width: auto;
+  // if nested in a default wrapper
+  // -> in this case both are the same width, so just kill everything
+  [data-ui-wrapper] & {
+    // width: auto;
+    // margin-left: 0;
+    // margin-right: 0;
+    // left: 0;
+    // right: 0;
+
+    // if a specific width is nested in a default wrapper
+    @each $name, $width in $layout-widths {
+      @include media('>#{$width}') {
+        @if ($name != 'default') {
+          &[data-ui-wrapper~='#{$name}'] {
+            @include wrapper-outcrop-variation($name);
+          }
+        }
+      }
+    }
+  }
+
+  // if nested in a parent with a specific width
+  // -> e.g. [data-ui-wrapper~='narrow'] [data-ui-wrapper~='outcrop'] {...}
+  //    or [data-ui-wrapper~='narrow'] [data-ui-wrapper~='wide'][data-ui-wrapper~='outcrop'] {...}
+  @each $parent-name, $parent-width in $layout-widths {
+    @if ($parent-name != 'default') {
+      [data-ui-wrapper~='#{$parent-name}'] & {
+        @each $child-name, $child-width in $layout-widths {
+          @include media('>#{$child-width}') {
+            @if($child-name == 'default') {
+              #{not-wrapper-variation()} {
+                @include wrapper-outcrop-variation($child-name, $parent-name);
+              }
+            } @else {
+              &[data-ui-wrapper~='#{$child-name}'] {
+                @include wrapper-outcrop-variation($child-name, $parent-name);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

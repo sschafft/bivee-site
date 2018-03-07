@@ -15,3 +15,7 @@ $layout-widths: (
 @function layout-w($w: 'default') {
   @return map-get($layout-widths, $w);
 }
+
+@function layout-w-difference($w1, $w2: 'default') {
+  @return (layout-w($w1) - layout-w($w2));
+}
