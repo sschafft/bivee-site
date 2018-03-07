@@ -14,7 +14,7 @@
 
   @each $name, $width in $layout-widths {
     @if $name != 'default' {
-      $selector: $selector + ':not([data-ui-wrapper~=#{$name}])'
+      $selector: $selector + ':not([data-ui-wrapper~=#{$name}])';
     }
   }
 
