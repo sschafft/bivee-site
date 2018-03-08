@@ -6,6 +6,38 @@
 @import '../config/layout_width';
 @import '../config/spacing';
 
+// build a rule where all the wrapper width variations are chained in a :not() selector
+// -> needed to fix a specificity issue where [data-ui-wrapper~='outcrop'] selects all the
+//    other widths; this selects ONLY the default width
+@function _only-the-default-width() {
+  $selector: '&';
+
+  @each $name, $width in $layout-widths {
+    @if $name != 'default' {
+      $selector: $selector + ':not([data-ui-wrapper~=#{$name}])';
+    }
+  }
+
+  @return unquote($selector);
+}
+
+// create overrides for an 'outcrop' version of the wrapper at a given width
+// -> see 'outcrop' styles below
+@mixin _wrapper-outcrop-variation($width, $parent-width: 'default', $padding: 'none') {
+  $margin: if(layout-w-difference($parent-width, $width) < 0, (layout-w-difference($parent-width, $width) / 2), auto);
+
+  left: 0;
+  margin-left: $margin;
+  margin-right: $margin;
+  right: 0;
+  width: if(layout-w-difference($parent-width, $width) > 0, layout-w($width), auto);
+
+  @if $padding != 'none' {
+    padding-left: if(type-of($padding) == 'string', space($padding), $padding);
+    padding-right: if(type-of($padding) == 'string', space($padding), $padding);
+  }
+}
+
 // Block
 // -----------------------------------------------------------------------------
 
@@ -26,8 +58,7 @@
 }
 
 // a child element of a layout wrapper which is actually wider than its parent
-// -> use to expand a child of a default wrapper to the width of a 'wide' wrapper
-// -> great trick stolen from CSS-Tricks: https://css-tricks.com/full-width-containers-limited-width-parents/
+// -> a great trick from CSS-Tricks: https://css-tricks.com/full-width-containers-limited-width-parents/
 [data-ui-wrapper~='outcrop'] {
   display: block;
   left: 50%;
@@ -39,11 +70,69 @@
   right: 50%;
   width: 100vw;
 
-  @include media('>#{layout-w(wide)}') {
-    left: 0;
-    margin-left: ((layout-w() - layout-w('wide')) / 2);
-    margin-right: ((layout-w() - layout-w('wide')) / 2);
-    right: 0;
-    width: auto;
+  // if nested in a default wrapper
+  // -> in this case both are the same width, so just kill everything
+  [data-ui-wrapper] & {
+    // if a specific width is nested in a default wrapper
+    @each $name, $width in $layout-widths {
+      // only create rules for widths that are bigger than the parent
+      // -> e.g. 'default' > 'wide'
+      @if (layout-w-difference('default', $name) < 0) {
+        @include media('>#{$width}') {
+          &[data-ui-wrapper~='#{$name}'] {
+            @include _wrapper-outcrop-variation($name);
+          }
+        }
+      } @else {
+        // otherwise, reset it and make it act like a regular container
+        @if $name == 'default' {
+          #{_only-the-default-width()} {
+            @include _wrapper-outcrop-variation($name, $padding: 0);
+          }
+        } @else {
+          &[data-ui-wrapper~='#{$name}'] {
+            @include _wrapper-outcrop-variation($name, $padding: 0);
+          }
+        }
+      }
+    }
+  }
+
+  // if nested in a parent with a specific width
+  // -> e.g. [data-ui-wrapper~='narrow'] [data-ui-wrapper~='outcrop'] {...}
+  //    or [data-ui-wrapper~='narrow'] [data-ui-wrapper~='wide'][data-ui-wrapper~='outcrop'] {...}
+  @each $parent-name, $parent-width in $layout-widths {
+    @if ($parent-name != 'default') {
+      [data-ui-wrapper~='#{$parent-name}'] & {
+        @each $child-name, $child-width in $layout-widths {
+          // only create rules for widths that are bigger than the parent
+          // -> e.g. 'narrow' > 'wide'
+          @if (layout-w-difference($parent-name, $child-name) < 0) {
+            @include media('>#{$child-width}') {
+              @if($child-name == 'default') {
+                #{_only-the-default-width()} {
+                  @include _wrapper-outcrop-variation($child-name, $parent-name);
+                }
+              } @else {
+                &[data-ui-wrapper~='#{$child-name}'] {
+                  @include _wrapper-outcrop-variation($child-name, $parent-name);
+                }
+              }
+            }
+          } @else {
+            // otherwise, reset it and make it act like a regular container
+            @if $child-name == 'default' {
+              #{_only-the-default-width()} {
+                @include _wrapper-outcrop-variation($child-name, $parent-name, $padding: 0);
+              }
+            } @else {
+              &[data-ui-wrapper~='#{$child-name}'] {
+                @include _wrapper-outcrop-variation($child-name, $parent-name, $padding: 0);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

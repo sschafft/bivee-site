@@ -5,11 +5,17 @@
   # Locals:
   # STRING source: the path or url of the image file
   alt ||= "" # STRING (optional): alt tag
+  width ||= 'wide' # STRING (optional): how wide the image should be
   padding ||= { y: 'wide' } # STRING/HASH (optional): padding classes
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional utility classes
 
   # Private:
+  props = [
+    (width unless width == 'default'),
+    'outcrop'
+  ]
+
   utils = [
     padding_classes(padding),
     't-align-center',
@@ -17,6 +23,6 @@
   ]
 %>
 
-<div data-ui-wrapper="wide outcrop"<%= class_list(utils) %>>
+<div data-ui-wrapper<%= props_list(props) %><%= class_list(utils) %>>
   <%= image_tag source, class: ('border' if borders), alt: alt %>
 </div>
