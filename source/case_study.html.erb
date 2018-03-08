@@ -4,12 +4,16 @@
   <!-- Cover image, and title -->
   <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
-      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 16em; max-height: 12em;' %>
-      <h1 class="padding-top-wide padding-bottom-narrow"><%= project.long_title %></h1>
-      <p class="t-heading t-scale-gamma c-highlight padding-bottom"><%= project.short_title %></p>
-      <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon c-text-secondary">
-        <time data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="padding-right-xnarrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block"><%= project.type %></span>
-      </p>
+      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 13em; max-height: 12em;' %>
+      <h1 class="padding-top-wide"><%= project.title.long %></h1>
+      <% if project.title.subtitle %>
+        <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
+      <% end %>
+      <div class="padding-top">
+        <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon c-text-secondary">
+          <time data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="padding-right-xnarrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block"><%= project.type %></span>
+        </p>
+      </div>
       <a class="display-inline-block margin-top-wide" href="#main_content">
         <%= component 'icon', locals: { id: 'arrow-down' } %>
       </a>
@@ -18,7 +22,7 @@
 
   <!-- Main content: sections -->
   <main id="main_content">
-    <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.short_title }.sort_by {|r| r.data.weight } %>
+    <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title.short }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
       <% component 'panel', locals: { slug: false } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>

@@ -7,14 +7,22 @@
 
 html {
   box-sizing: border-box;
-  font-size: 100%;
+  font-size: 90%;
+
+  @include media('>xsmall') {
+    font-size: 100%;
+  }
 
   @include media('>small') {
-    font-size: 105%;
+    font-size: 110%;
   }
 
   @include media('>medium') {
-    font-size: 110%;
+    font-size: 120%;
+  }
+
+  @include media('>large') {
+    font-size: 125%;
   }
 }
 

@@ -65,9 +65,11 @@ $gallery-gutter: space();
   padding: ($gallery-gutter / 2);
   position: relative;
   vertical-align: top;
+  width: 100%;
 
   @supports (display: flex) {
     display: flex;
+    flex-direction: column;
   }
 
   @include gallery-item(300px);

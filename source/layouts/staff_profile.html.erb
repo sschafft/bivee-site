@@ -12,8 +12,8 @@
       <%= component 'feature_image', locals: { source: "portraits/#{current_page.data.portrait.full_size}", alt: current_page.data.name } %>
       <header class="padding-bottom t-align-center">
   	    <h1 class="t-scale-alpha"><%= current_page.data.name %></h1>
-  	    <p data-ui-gutter="narrow" class="t-heading c-highlight padding-top-xnarrow">
-          <% unless current_page.data.role.level == 'Team' %><span data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="padding-right-xnarrow border-right"><%= current_page.data.role.level %></span></span><% end %><span data-ui-gutter-item class="display-inline-block"><%= current_page.data.role.title %></span>
+        <p data-ui-gutter="xnarrow" class="t-heading t-scale-delta c-accent">
+          <% unless current_page.data.role.level == 'Team' %><span data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="display-inline-block padding-right-xnarrow border-right"><%= current_page.data.role.level %></span></span><% end %><span data-ui-gutter-item class="display-inline-block"><%= current_page.data.role.title %></span>
         </p>
     	</header>
       <%= yield %>

@@ -11,8 +11,7 @@
 // -> PRIVATE, do not use outside this settings file
 
 // neutrals
-$blue-kuri: #9fa0ae;
-$blue-kuri-dark: #464c56;
+$blue-kuri: #9698b1;
 $blackberry: #263750;
 
 // highlights
@@ -37,40 +36,40 @@ $themes: (
   'default': (
     'text': (
       'primary': $blackberry,
-      'secondary': $blue-kuri-dark,
-      'tertiary': $blue-kuri
+      'secondary': shade($blue-kuri, 10),
+      'tertiary': tint($blue-kuri, 10)
     ),
     'bg': #fff,
-    'well': lighten($blue-kuri, 31),
+    'well': tint($blue-kuri, 92),
     'shadow': shade($blue-kuri, 15),
-    'border': lighten($blue-kuri, 20),
-    'highlight': highlight('blueberry'),
-    'accent': highlight('raspberry')
+    'border': tint($blue-kuri, 60),
+    'highlight': highlight('raspberry'),
+    'accent': highlight('blueberry')
   ),
   'dark': (
     'text': (
       'primary': #fff,
-      'secondary': lighten($blackberry, 65),
-      'tertiary': lighten($blackberry, 20)
+      'secondary': tint($blackberry, 70),
+      'tertiary': tint($blackberry, 45)
     ),
     'bg': $blackberry,
     'well': darken($blackberry, 7),
     'shadow': shade($blackberry, 15),
     'border': darken($blackberry, 15),
-    'highlight': highlight('blueberry'),
-    'accent': highlight('raspberry')
+    'highlight': highlight('raspberry'),
+    'accent': highlight('blueberry')
   ),
   'midtone': (
     'text': (
       'primary': #fff,
-      'secondary': $blackberry,
-      'tertiary': $blackberry
+      'secondary': shade($blackberry, 10),
+      'tertiary': shade($blue-kuri, 40)
     ),
     'bg': $blue-kuri,
     'well': darken($blue-kuri, 5),
     'shadow': shade($blue-kuri, 15),
     'border': darken($blue-kuri, 10),
-    'highlight': highlight('orange'),
+    'highlight': #ffc60c,
     'accent': $blackberry
   )
 );
@@ -239,7 +238,7 @@ $focus-default: 10;
 @mixin theme($theme) {
   background-color: color('bg', $theme);
   border-color: color('border', $theme);
-  color: color('text' 'secondary', $theme);
+  color: color('text' 'primary', $theme);
 
   // highlight color when you select something
   ::selection {

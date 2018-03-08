@@ -1,22 +1,26 @@
 headline:
   # the headline for the work section on the homepage
-  home: Has it worked? 
+  home: Has it worked?
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
 
 # an intro blurb describing our work
-intro:  -| By applying design thinking to a bunch of situations (from relatively simple to super complex), 
-        across diverse sectors (healthcare, learning, disaster management, public-private partnerships, consumer products), 
-        for diverse needs (technology, innovation, knowledge management, branding, communications) 
+intro:  -| By applying design thinking to a bunch of situations (from relatively simple to super complex),
+        across diverse sectors (healthcare, learning, disaster management, public-private partnerships, consumer products),
+        for diverse needs (technology, innovation, knowledge management, branding, communications)
         we have helped our clients (ngos, corporates, international development organizations) do achieve better outcomes than they thought possible.
 
         Here's a taste of what we've done
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
+# -> title.long is the main headline for the case study, and should be descriptive/editorial
+# -> title.short is a short version of the title used to refer to the project in the UI/navigation. Usually just the project name (e.g. PPP Knowledge Lab) is good.
+# -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
-- short_title: PPP Knowledge Lab
-  long_title: Knowledge Sharing for Public Private Partnerships
+- title:
+    long: Knowledge sharing for public private partnerships
+    short: PPP Knowledge Lab
   slug: PPP
   client:
     name: World Bank PPP Group
@@ -26,16 +30,13 @@ projects:
   cover:
     thumb: work/ppp/assets/ppp-thumb.png
     full_size: work/ppp/assets/ppp-cover.png
-  team:
-    - Helly Stoyanova
-    - Scott Schaffter
-    - Nicholas Kingston
-    - Jay Perry
 
-- short_title: Gateway Academy
-  long_title: eLearning for Financial Inclusion
+- title:
+    long: e-Learning for financial inclusion
+    short: Gateway Academy
+    subtitle: Gateway Academy
   slug: GA
-  client: 
+  client:
     name: CGAP and Mastercard Foundation
     logo: work/ga/assets/logo-cgap.svg
   date: 2017+
@@ -43,18 +44,13 @@ projects:
   cover:
     thumb: work/ga/assets/ga-thumb.png
     full_size: work/ppp/assets/ppp-cover.png
-  team:
-    - Helly Stoyanova
-    - Scott Schaffter
-    - Nicholas Kingston
-    - Jay Perry
-    - Nestor Fuentes
-    - Haley Cline
-    
-- short_title: Development Data Hub
-  long_title: Strategy for Data Sharing
+
+- title:
+    long: A strategy for data sharing
+    short: Development Data Hub
+    subtitle: Development Data Hub
   slug: DDH
-  client: 
+  client:
     name: World Bank Group
     logo: work/ddh/assets/logo-wbg.svg
   date: 2015
@@ -62,8 +58,3 @@ projects:
   cover:
     thumb: work/ddh/assets/ddh-thumb.png
     full_size: work/ppp/assets/ppp-cover.png
-  team:
-    - Scott Schaffter
-    - Nicholas Kingston
-    - Jay Perry
-    - Haley Cline

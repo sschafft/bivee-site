@@ -82,11 +82,13 @@ h3,
 h4,
 .t-scale-delta {
   @include type-fluid($size-min: 'epsilon', $size-max: 'delta');
+  letter-spacing: -0.02em;
 }
 
 h5,
 .t-scale-epsilon {
   font-size: scale-type('epsilon');
+  letter-spacing: -0.005em;
 }
 
 h6,
@@ -107,7 +109,7 @@ body {
 }
 
 p {
-  @include color('text' 'secondary');
+  @include color('text' 'primary');
   font-size: scale-type('epsilon');
 
   margin: 0;
@@ -207,6 +209,7 @@ cite {
 // -----------------------------------------------------------------------------
 
 .t-content {
+  @include color('text' 'primary');
 
   // add a line of whitespace between everything
   > * + * {
