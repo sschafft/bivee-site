@@ -5,7 +5,6 @@
 
 // width of main layout
 $layout-widths: (
-  'xnarrow': 480px,
   'narrow': 600px,
   'default': 750px,
   'wide': 1200px
@@ -14,4 +13,8 @@ $layout-widths: (
 // Getter function for layout widths
 @function layout-w($w: 'default') {
   @return map-get($layout-widths, $w);
+}
+
+@function layout-w-difference($w1, $w2: 'default') {
+  @return (layout-w($w1) - layout-w($w2));
 }
