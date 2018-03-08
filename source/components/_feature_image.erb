@@ -3,7 +3,7 @@
 	# -> An image occuring within a panel of text
 
   # Locals:
-  # STRING source: the path or url of the image file
+  # STRING/HASH source: the path or url of the image file
   alt ||= "" # STRING (optional): alt tag
   width ||= 'wide' # STRING (optional): how wide the image should be
   padding ||= { y: 'wide' } # STRING/HASH (optional): padding classes
@@ -11,6 +11,16 @@
   classes ||= false # STRING (optional): additional utility classes
 
   # Private:
+  fallback_source = source.is_a?(Hash) ? source.values[0] : source
+
+  def source_set(src)
+    if src.is_a?(Hash)
+      src.collect do |screen, width|
+        "#{screen} #{width}w"
+      end.join
+    end
+  end
+
   props = [
     (width unless width == 'default'),
     'outcrop'
@@ -24,5 +34,5 @@
 %>
 
 <div data-ui-wrapper<%= props_list(props) %><%= class_list(utils) %>>
-  <%= image_tag source, class: ('border' if borders), alt: alt %>
+  <img class="<%= ('border' if borders) %>" src="<%= asset_url(fallback_source) %>"<%= "srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">
 </div>
