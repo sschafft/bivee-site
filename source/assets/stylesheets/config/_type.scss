@@ -142,7 +142,7 @@ $type-leading: (
 @mixin font-body($weight: normal, $style: normal) {
   font-family: 'Source Sans Pro', $font-stack-verdana;
   // font-family: 'source-sans-#{$weight}-#{$style}', $verdana;
-  font-weight: if($weight == normal, 400, 700);
+  font-weight: if($weight == normal, 300, 700);
   @if $style != normal {
     font-style: unquote($style);
   }
