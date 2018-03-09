@@ -5,5 +5,26 @@ project: GA
 ---
 The Demo phase was completed in July 2017. Participant feedback on the platform’s functionality and content  allowed our team to refine Gateway Academy for the Beta phase launch in February 2017. This phase will expand platform access to a greater number of financial service providers while providing more targeted content. To learn more, visit <%= link_to('Gateway Academy', 'https://gateway.academy', target: '_blank', ) %>
 
-<%= component 'feature_image', locals: { source: 'assets/ga-internal-1.png', borders: true, padding: { top: 'wide' } } %>
-<%= component 'feature_image', locals: { source: 'assets/ga-internal-2.png', borders: true, padding: { top: 'wide' } } %>
+<%= component 'feature_image', locals: {
+  source: {
+    '480': 'assets/intro-video@480.jpg',
+    '800': 'assets/intro-video@800.jpg',
+    '1200': 'assets/intro-video@1200.jpg',
+    '1600': 'assets/intro-video@1600.jpg'
+  },
+  alt: 'Gateway Academy web application',
+  screenshot: true,
+  padding: { top: 'wide' }
+} %>
+
+<%= component 'feature_image', locals: {
+  source: {
+    '480': 'assets/GA-course-progress@480.jpg',
+    '800': 'assets/GA-course-progress@800.jpg',
+    '1200': 'assets/GA-course-progress@1200.jpg',
+    '1600': 'assets/GA-course-progress@1600.jpg'
+  },
+  alt: 'Gateway Academy web application',
+  screenshot: true,
+  padding: { top: 'wide' }
+} %>

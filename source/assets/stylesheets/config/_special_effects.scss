@@ -1,0 +1,23 @@
+// =============================================================================
+//  Mixins and such for special effects
+// =============================================================================
+
+@import 'color';
+
+// default box shadow
+@mixin se-shadow($position: 0 0, $blur: 0.5rem, $spread: 0, $color: 'shadow', $opacity: 0.2) {
+  // check if the $color argument is a theme color or a hex
+  $c: if(type-of($color) != 'color', color($color), $color);
+
+  box-shadow: $position $blur $spread rgba($c, $opacity);
+
+  // set for each color theme
+  @if type-of($color) != 'color' {
+    @each $theme, $name in $themes {
+      &.c-theme-#{$theme},
+      .c-theme-#{$theme} & {
+        box-shadow: $position $blur $spread rgba(color($color, $theme), $opacity);
+      }
+    }
+  }
+}
