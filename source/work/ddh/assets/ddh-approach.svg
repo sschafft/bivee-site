@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 1549 807" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
-    <g id="Layer-1" serif:id="Layer 1">
+<svg width="100%" height="100%" viewBox="0 0 1000 530" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g id="Layer-1" serif:id="Layer 1" transform="matrix(0.907996,0,0,0.907996,-158.417,-105.734)">
         <g transform="matrix(1,0,0,1,0,-310)">
             <rect x="507" y="484" width="571" height="149" style="fill:none;stroke:rgb(151,151,151);stroke-width:1px;"/>
         </g>
@@ -203,22 +203,54 @@
         <g transform="matrix(1,0,0,1,748.291,463.243)">
             <path d="M0,-35L88,-35C92.418,-35 96,-31.418 96,-27L96,-8C96,-3.582 92.418,0 88,0L0,0C-4.418,0 -8,-3.582 -8,-8L-8,-27C-8,-31.418 -4.418,-35 0,-35" style="fill:rgb(202,217,54);fill-rule:nonzero;"/>
         </g>
-        <use xlink:href="#_Image1" x="579.686" y="236.772" width="54.365px" height="34.088px" transform="matrix(0.988463,0,0,0.973941,0,0)"/>
-        <use xlink:href="#_Image2" x="779.081" y="254.359" width="53.007px" height="15.088px" transform="matrix(0.981609,0,0,0.942995,0,0)"/>
-        <use xlink:href="#_Image3" x="960.58" y="257.707" width="46.8px" height="11.286px" transform="matrix(0.995742,0,0,0.940495,0,0)"/>
-        <use xlink:href="#_Image4" x="482.749" y="413.154" width="123.915px" height="15.088px" transform="matrix(0.999313,0,0,0.942995,0,0)"/>
-        <use xlink:href="#_Image5" x="476.346" y="473.6" width="134.917px" height="15.088px" transform="matrix(0.999389,0,0,0.942995,0,0)"/>
-        <use xlink:href="#_Image6" x="486.735" y="506.607" width="122.095px" height="12.923px" transform="matrix(0.992646,0,0,0.994069,0,0)"/>
-        <use xlink:href="#_Image7" x="1032.74" y="411.033" width="96.682px" height="15.088px" transform="matrix(0.996718,0,0,0.942995,0,0)"/>
-        <use xlink:href="#_Image8" x="1020.47" y="472.742" width="121.705px" height="12.281px" transform="matrix(0.997584,0,0,0.944706,0,0)"/>
-        <use xlink:href="#_Image9" x="1025.47" y="534.045" width="116.58px" height="15.088px" transform="matrix(0.996407,0,0,0.942995,0,0)"/>
-        <use xlink:href="#_Image10" x="270.657" y="257.36" width="52.431px" height="11.286px" transform="matrix(0.989261,0,0,0.940495,0,0)"/>
-        <use xlink:href="#_Image11" x="1185" y="246.276" width="49.987px" height="14.733px" transform="matrix(0.999748,0,0,0.982179,0,0)"/>
-        <use xlink:href="#_Image12" x="279.634" y="164.757" width="35.605px" height="14.574px" transform="matrix(0.989032,0,0,0.971618,0,0)"/>
-        <use xlink:href="#_Image13" x="738.572" y="569.539" width="117.948px" height="11.8px" transform="matrix(0.999558,0,0,0.983299,0,0)"/>
-        <use xlink:href="#_Image14" x="764.988" y="446.554" width="66.458px" height="11.8px" transform="matrix(0.991908,0,0,0.983299,0,0)"/>
-        <use xlink:href="#_Image15" x="327.006" y="666.447" width="765.22px" height="19.495px" transform="matrix(0.998982,0,0,0.974753,0,0)"/>
-        <use xlink:href="#_Image16" x="641.48" y="134.536" width="318.251px" height="13.59px" transform="matrix(0.997653,0,0,0.970726,0,0)"/>
+        <g id="_Image1_" serif:id="_Image1" transform="matrix(0.988463,0,0,0.973941,572.998,230.602)">
+            <use xlink:href="#_Image1" x="0" y="0" width="55px" height="35px"/>
+        </g>
+        <g id="_Image2_" serif:id="_Image2" transform="matrix(0.981609,0,0,0.942995,764.753,239.859)">
+            <use xlink:href="#_Image2" x="0" y="0" width="54px" height="16px"/>
+        </g>
+        <g id="_Image3_" serif:id="_Image3" transform="matrix(0.995742,0,0,0.940495,956.49,242.372)">
+            <use xlink:href="#_Image3" x="0" y="0" width="47px" height="12px"/>
+        </g>
+        <g id="_Image4_" serif:id="_Image4" transform="matrix(0.999313,0,0,0.942995,482.417,389.602)">
+            <use xlink:href="#_Image4" x="0" y="0" width="124px" height="16px"/>
+        </g>
+        <g id="_Image5_" serif:id="_Image5" transform="matrix(0.999389,0,0,0.942995,476.055,446.602)">
+            <use xlink:href="#_Image5" x="0" y="0" width="135px" height="16px"/>
+        </g>
+        <g id="_Image6_" serif:id="_Image6" transform="matrix(0.992646,0,0,0.994069,483.156,503.602)">
+            <use xlink:href="#_Image6" x="0" y="0" width="123px" height="13px"/>
+        </g>
+        <g id="_Image7_" serif:id="_Image7" transform="matrix(0.996718,0,0,0.942995,1029.35,387.602)">
+            <use xlink:href="#_Image7" x="0" y="0" width="97px" height="16px"/>
+        </g>
+        <g id="_Image8_" serif:id="_Image8" transform="matrix(0.997584,0,0,0.944706,1018,446.602)">
+            <use xlink:href="#_Image8" x="0" y="0" width="122px" height="13px"/>
+        </g>
+        <g id="_Image9_" serif:id="_Image9" transform="matrix(0.996407,0,0,0.942995,1021.79,503.602)">
+            <use xlink:href="#_Image9" x="0" y="0" width="117px" height="16px"/>
+        </g>
+        <g id="_Image10_" serif:id="_Image10" transform="matrix(0.989261,0,0,0.940495,267.75,242.046)">
+            <use xlink:href="#_Image10" x="0" y="0" width="53px" height="12px"/>
+        </g>
+        <g id="_Image11_" serif:id="_Image11" transform="matrix(0.999748,0,0,0.982179,1184.7,241.887)">
+            <use xlink:href="#_Image11" x="0" y="0" width="50px" height="15px"/>
+        </g>
+        <g id="_Image12_" serif:id="_Image12" transform="matrix(0.989032,0,0,0.971618,276.567,160.081)">
+            <use xlink:href="#_Image12" x="0" y="0" width="36px" height="15px"/>
+        </g>
+        <g id="_Image13_" serif:id="_Image13" transform="matrix(0.999558,0,0,0.983299,738.246,560.027)">
+            <use xlink:href="#_Image13" x="0" y="0" width="118px" height="12px"/>
+        </g>
+        <g id="_Image14_" serif:id="_Image14" transform="matrix(0.991908,0,0,0.983299,758.798,439.096)">
+            <use xlink:href="#_Image14" x="0" y="0" width="67px" height="12px"/>
+        </g>
+        <g id="_Image15_" serif:id="_Image15" transform="matrix(0.998982,0,0,0.974753,326.673,649.621)">
+            <use xlink:href="#_Image15" x="0" y="0" width="766px" height="20px"/>
+        </g>
+        <g id="_Image16_" serif:id="_Image16" transform="matrix(0.997653,0,0,0.970726,639.974,130.598)">
+            <use xlink:href="#_Image16" x="0" y="0" width="319px" height="14px"/>
+        </g>
         <g transform="matrix(1,0,0,1,0,509.046)">
             <rect x="539.643" y="135.977" width="26" height="26" style="fill:rgb(0,169,190);"/>
         </g>
