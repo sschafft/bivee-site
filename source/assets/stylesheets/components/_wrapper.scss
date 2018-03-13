@@ -108,7 +108,7 @@
           // only create rules for widths that are bigger than the parent
           // -> e.g. 'narrow' > 'wide'
           @if (layout-w-difference($parent-name, $child-name) < 0) {
-            @include media('>#{$child-width}') {
+            @include media('>#{strip-unit($child-width)}em') {
               @if($child-name == 'default') {
                 #{_only-the-default-width()} {
                   @include _wrapper-outcrop-variation($child-name, $parent-name);
