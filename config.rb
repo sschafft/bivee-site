@@ -129,6 +129,23 @@ helpers do
       r.data.name.split(' ').last
     end
   end
+
+  # convert staff portrait frontmatter data to the string or hash
+  # needed by the 'responsive_image' component
+  # -> expects this data format:
+  #    A) [frontmatter value]: scott.jpg
+  #    - or -
+  #    B) [frontmatter value]:
+  #         - source: scott@480.jpg
+  #           width: 480
+  def portrait_sources(source, path: "assets/images/portraits")
+    # is the portrait just a string (i.e. one source)?
+    return "#{path}/#{source}" if source.is_a?(String)
+    # or is it responsive (i.e. multiple paths/sizes)?
+    portrait_sources = {}
+    source.collect { |portrait| portrait_sources[portrait.width] = "#{path}/#{portrait.source}" }
+    return portrait_sources
+  end
 end
 # rubocop:enable Metrics/BlockLength
 
