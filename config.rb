@@ -138,13 +138,12 @@ helpers do
   #    B) [frontmatter value]:
   #         - source: scott@480.jpg
   #           width: 480
-  def portrait_sources(source, path: "assets/images/portraits")
-    # is the portrait just a string (i.e. one source)?
-    return "#{path}/#{source}" if source.is_a?(String)
-    # or is it responsive (i.e. multiple paths/sizes)?
-    portrait_sources = {}
-    source.collect { |portrait| portrait_sources[portrait.width] = "#{path}/#{portrait.source}" }
-    return portrait_sources
+  def portrait_source(source, path: 'assets/images/portraits/')
+    return "#{path}#{source}" if source.is_a?(String)
+
+    source.map do |portrait|
+      [portrait.width, "#{path}#{portrait.source}"]
+    end.to_h
   end
 end
 # rubocop:enable Metrics/BlockLength
