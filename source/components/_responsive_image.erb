@@ -15,7 +15,7 @@
   def source_set(src)
     if src.is_a?(Hash)
       src.collect do |width, path|
-        "#{path} #{width}w"
+        "#{asset_url(path)} #{width}w"
       end.join(', ')
     end
   end
