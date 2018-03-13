@@ -25,7 +25,7 @@
           <div data-ui-gutter="flush narrow">
             <!-- Email button -->
             <div data-ui-gutter-item class="display-inline-block">
-              <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %>
+              <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}", type: 'primary' } %>
             </div>
             <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.email %></p>
           </div>

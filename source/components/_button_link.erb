@@ -8,11 +8,13 @@
   icon ||= false # STRING (optional): include an icon? if so, pass in the icon id
   icon_position ||= 'right' # STRING (optional): which side should the icon be on?
   label ||= '' # STRING (optional): the button's label, e.g. "Read more"
-  size ||= 'default' # STRING (optional): the button's size
+  size ||= false # STRING (optional): the button's size
+  type ||= false
 
   # Private vars
   props = [
-    (size unless size == 'default'),
+    (type if type),
+    (size if size),
     ("icon #{icon_position}" if icon)
   ]
 %>

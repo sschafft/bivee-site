@@ -93,5 +93,6 @@ $button-icon-margin: ms(1, 1em);
 
 // role
 [data-ui-button~='primary'] {
-
+  @include color-background('accent', $hover: 10, $active: -10, $focus: 10);
+  @include color-border('accent', $grade: -10, $hover: 10, $active: 0, $focus: 10);
 }
