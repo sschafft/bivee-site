@@ -54,7 +54,7 @@ $themes: (
     ),
     'bg': $blackberry,
     'well': darken($blackberry, 7),
-    'shadow': shade($blackberry, 15),
+    'shadow': shade($blackberry, 50),
     'border': darken($blackberry, 15),
     'highlight': highlight('raspberry'),
     'accent': highlight('blueberry')
@@ -73,11 +73,6 @@ $themes: (
     'accent': $blackberry
   )
 );
-
-// default tint/shadow values for hover/active/focus states
-$hover-default: 10;
-$active-default: 10;
-$focus-default: 10;
 
 // getter function to access color map values
 // -> PARAMS
@@ -113,7 +108,7 @@ $focus-default: 10;
   }
 
   @if ($opacity < 1) {
-    $color: rgba($color);
+    $color: rgba($color, $opacity);
   }
 
   @return $color;

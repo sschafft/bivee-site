@@ -5,7 +5,7 @@
 @import 'color';
 
 // default box shadow
-@mixin se-shadow($position: 0 0, $blur: 0.5rem, $spread: 0, $color: 'shadow', $opacity: 0.2) {
+@mixin se-shadow($position: 0 0, $blur: 0.5rem, $spread: 0, $color: 'shadow', $opacity: 0.3) {
   // sass-lint:disable no-color-literals
   // -> allow color literals here b/c we're passing theme colors into an rbga function
   // -> need to use this here because we're setting opacity from the argument above

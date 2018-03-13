@@ -17,25 +17,36 @@ $button-icon-margin: ms(1, 1em);
 
 [data-ui-button] {
   @include border-radius($size: 'large');
-  @include border($color: 'accent');
   @include color('text' 'primary');
+  @include color-border('accent', $hover: 15, $active: -15, $focus: 15);
+  @include color-background('bg', $grade: 20, $opacity: 0.1, $hover: 20, $active: -20, $focus: 20);
   @include font-display('bold');
+  @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.8);
   @include transition;
   background-color: transparent;
-  box-shadow: none;
+  border-width: border-width('thin');
+  border-style: border-style();
   cursor: pointer;
   display: inline-block;
   font-size: scale-type('zeta');
   padding: ms(-2, 1em) ms(3, 1em);
   position: relative;
   text-shadow: none;
+
+  &:hover {
+    @include se-shadow($position: 0 0.125rem);
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 // Elements
 // -----------------------------------------------------------------------------
 
-// use repeat selector to increase specifity, to ensure this overrides the icon component
-[data-ui-button-icon][data-ui-button-icon] {
+// use descendent selector to increase specificity, to ensure this overrides the icon component
+[data-ui-button] [data-ui-button-icon] {
   $size: 1.2em;
   $position: ms(1, 1em);
 
@@ -60,6 +71,7 @@ $button-icon-margin: ms(1, 1em);
 // Traits
 // -----------------------------------------------------------------------------
 
+// icons
 [data-ui-button~='icon'] {
   $icon-space: ($button-icon-margin + $button-icon-size + 0.8em);
   padding-right: $icon-space;
@@ -70,10 +82,16 @@ $button-icon-margin: ms(1, 1em);
   }
 }
 
+// size
 [data-ui-button~='small'] {
   font-size: scale-type('eta');
 }
 
 [data-ui-button~='large'] {
   font-size: scale-type('epsilon');
+}
+
+// role
+[data-ui-button~='primary'] {
+
 }

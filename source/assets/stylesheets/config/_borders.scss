@@ -48,7 +48,7 @@ $border-widths: (
 ) !default;
 
 // get function for border style
-@function border-style($name) {
+@function border-style($name: 'default') {
   @return map-get($border-styles, $name);
 }
 
