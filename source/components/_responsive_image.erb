@@ -7,6 +7,7 @@
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional classes you'd like to pass in
+  data ||= false # HASH (optional): additional data attributes
 
   # Private:
   fallback_source = source.is_a?(Hash) ? source.values[0] : source
@@ -23,6 +24,12 @@
     ('border' if borders),
     (classes if classes)
   ]
+
+  def data_attr(attrs)
+    attrs.collect do |attr, value|
+      ["data-#{attr}='#{value}'"]
+    end.join(' ')
+  end
 %>
 
-<img<%= class_list(utils) %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">

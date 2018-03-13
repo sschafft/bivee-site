@@ -32,9 +32,7 @@ title: home
 
 <!-- Work -->
 <% component 'panel', locals: { classes: 'c-well' } do %>
-  <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> 
-  <p>By applying design thinking to a bunch of situations (from relatively simple to super complex), across diverse sectors (healthcare, learning, disaster management, public-private partnerships, consumer products), for diverse needs (technology, innovation, knowledge management, branding, communications) we have helped our clients (ngos, corporates, international development organizations) do achieve better outcomes than they thought possible.
-  </p><p>Here's a taste of what we've done: </p>
+  <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> <%= data.case_studies.intro %>
   <% end %>
   <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
     <!-- Case study listings -->
