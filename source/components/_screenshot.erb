@@ -1,0 +1,20 @@
+<%
+  # Screenshot with a browser
+  # -> used for showing views of web pages.
+  # -> gets a drop shadow and border treatment
+
+  # Locals:
+  # STRING/HASH source: the path(s) or url(s) of the image files(s)
+  classes ||= false
+
+  # Private
+  utils = [
+
+  ]
+%>
+
+<%= component 'responsive_image', locals: {
+  source: source,
+  borders: true,
+  classes: 'border-round-large has-shadow #{classes if classes}'
+} %>

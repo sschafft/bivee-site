@@ -1,0 +1,35 @@
+<%
+  # Responsive image
+  # -> use srcset to create an image that scales with screen size
+
+  # Locals:
+  # STRING/HASH source: the path(s) or url(s) of the image files(s)
+  alt ||= '' # STRING (optional): alt tag
+  borders ||= false # BOOLEAN (optional): add a border to the image
+  classes ||= false # STRING (optional): additional classes you'd like to pass in
+  data ||= false # HASH (optional): additional data attributes
+
+  # Private:
+  fallback_source = source.is_a?(Hash) ? source.values[0] : source
+
+  def source_set(src)
+    if src.is_a?(Hash)
+      src.collect do |width, path|
+        "#{path} #{width}w"
+      end.join(', ')
+    end
+  end
+
+  utils = [
+    ('border' if borders),
+    (classes if classes)
+  ]
+
+  def data_attr(attrs)
+    attrs.collect do |attr, value|
+      ["data-#{attr}='#{value}'"]
+    end.join(' ')
+  end
+%>
+
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">

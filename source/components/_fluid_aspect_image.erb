@@ -20,6 +20,10 @@
 
 <div data-ui-aspect="<%= ratio %>">
   <div data-ui-aspect-content<%= props_list(props) %><%= " class='#{classes}'" if classes %> style="background-image: url('<%= asset_url(source) %>');">
-    <%= image_tag source, data: { 'ui-aspect-image': '' }, alt: alt %>
+    <%= component 'responsive_image', locals: {
+      source: source,
+      alt: alt,
+      data: { 'ui-aspect-image': '' }
+    } %>
   </div>
 </div>
