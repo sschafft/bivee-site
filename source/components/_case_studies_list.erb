@@ -13,7 +13,7 @@
   <% projects.each do |project| %>
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
-        <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block border border-round c-bg' do %>
+        <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block border border-round c-bg t-decoration-none' do %>
                   <%= component 'fluid_aspect_image', locals: {
             source: project.cover.thumb,
             bg_size: 'cover',
