@@ -23,7 +23,7 @@
   utils = [
     padding_classes(padding),
     (border_classes(borders) if borders),
-    "c-theme-#{theme}"
+    ("c-theme-#{theme}" unless overlay)
   ]
 %>
 
@@ -32,7 +32,7 @@
     <!-- back button -->
     <% unless current_page.data.title == "home" %>
       <div data-ui-bookend-item="left">
-        <% link_to back, class: 'display-inline-block c-text-secondary t-scale-zeta' do %>
+        <% link_to back, class: 'display-inline-block c-text-secondary t-scale-zeta t-decoration-none' do %>
           <%= component 'icon', locals: { id: 'arrow-left', space: 'right' } %>
           <span class="t-font-display">Home</span>
         <% end %>
@@ -41,7 +41,7 @@
 
     <!-- logo -->
     <div data-ui-bookend-item="center" class="t-align-center">
-      <% link_to '/', class: 'display-inline-block' do %>
+      <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
         <%= image_tag "logos/logo-bivee-#{logo_color}-reverse.svg", class: 'display-inline-block', alt: 'Bivee', style: size == 'default' ? 'max-width: 5em;' : 'max-width: 8em;' %>
       <% end %>
     </div>
@@ -49,7 +49,7 @@
     <!-- contact button -->
     <% unless hide_contact %>
       <div data-ui-bookend-item="right">
-        <%= link_to "Contact us", "mailto:#{data.site.email}", data: { 'ui-button': 'small' } %>
+        <%= component 'button_link', locals: { label: 'Contact us', url: "mailto:#{data.site.email}", size: 'small' } %>
       </div>
     <% end %>
   </div>

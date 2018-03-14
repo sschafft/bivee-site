@@ -18,16 +18,16 @@ hide_contact: true
     <h1 class="t-scale-beta t-align-center">Color themes</h1>
       <div class="padding-top-wide margin-y-between">
         <% ['default', 'midtone', 'dark'].each do |theme| %>
-          <section class="c-theme-<%= theme %> border border-round border-round-wide padding-wide">
+          <section class="c-theme-<%= theme %> border border-round border-round-large padding-wide">
             <header class="padding-bottom">
               <p class="t-heading t-scale-zeta t-case-upper c-text-tertiary padding-bottom-narrow">Theme: <strong><%= theme %></strong></p>
-              <h1 class="padding-bottom-xnarrow">Lorem ipsum dolor sit amet</h1>
-              <p class="t-heading t-scale-gamma c-highlight padding-bottom-xxnarrow">Subhead lorem ipsum dolor sit amet</p>
+              <h1 class="padding-bottom-xnarrow">Lorem ipsum dolor <strong>sit amet</strong></h1>
+              <p class="t-heading t-scale-gamma c-highlight padding-bottom-xxnarrow">Subhead <strong>lorem ipsum</strong> dolor sit amet</p>
             </header>
             <div class="t-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt perferendis quisquam nihil nemo nulla <a href="#">nesciunt quaerat ullam</a>, mollitia saepe voluptas, tempore id optio rem, voluptate, officia a! Molestiae, quam.</p>
               <h2 class="t-heading t-scale-delta c-text-secondary">Another subhead Lorem ipsum dolor sit amet consectetur</h2>
-              <p>Error pariatur ex, <em>aut dignissimos</em> molestiae aliquam suscipit officia animi nihil, deleniti earum quasi dolorum iure, veniam. <strong>Harum fugit</strong> vitae fugiat maiores, illo, ex natus commodi, tempora quas fuga incidunt!</p>
+              <p>Error pariatur ex, <em>aut dignissimos</em> molestiae aliquam suscipit officia animi nihil, deleniti earum quasi dolorum iure, veniam. <strong>Harum fugit <em>vitae fugiat maiores</em></strong>, illo, ex natus commodi, tempora quas fuga incidunt!</p>
               <div data-ui-gutter="flush xnarrow" class="margin-top">
                 <div data-ui-gutter-item class="display-inline-block">
                   <%= component 'button_link', locals: { label: 'Primary button!', url: "#", type: 'primary' } %>

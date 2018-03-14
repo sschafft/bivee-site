@@ -32,14 +32,8 @@ h6,
   margin: 0;
   position: relative;
 
-  a {
-    @include color('text' 'primary');
-    text-decoration: none;
-
-    // &:hover,
-    // &:active {
-    //   @include color('highlight');
-    // }
+  strong {
+    @include font-display('bold');
   }
 }
 
@@ -125,14 +119,21 @@ p {
 }
 
 a {
-  @include color('accent');
   @include transition;
+  border-bottom-style: border-style('secondary');
+  border-bottom-width: border-width('thin');
+  color: inherit;
   text-decoration: none;
 
   // 'active' state
   &.is-active,
   .is-active & {
     @include color('highlight');
+  }
+
+  &:hover,
+  &:active {
+
   }
 }
 
@@ -141,8 +142,7 @@ strong {
   @extend %t-weight-bold;
 
   em {
-    @extend %t-weight-bold;
-    @extend %t-style-italic;
+    @include font-body($weight: bold, $style: italic);
   }
 }
 
@@ -150,8 +150,7 @@ em {
   @extend %t-style-italic;
 
   strong {
-    @extend %t-weight-bold;
-    @extend %t-style-italic;
+    @include font-body($weight: bold, $style: italic);
   }
 }
 
@@ -294,6 +293,11 @@ cite {
 .t-style-italic {
   // italic style is only available for the body font
   @include font-body($style: 'italic');
+
+  .t-weight-bold &,
+  &.t-weight-bold {
+    @include font-body($weight: 'bold', $style: 'italic')
+  }
 }
 
 .t-case-upper {
@@ -318,6 +322,7 @@ cite {
   // Need important here because this should always override the default
   // sass-lint:disable no-important
   text-decoration: none !important;
+  border-bottom-width: 0;
 }
 
 // position text

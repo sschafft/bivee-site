@@ -42,7 +42,7 @@ $type-leading: (
       #{$property}: ((scale-type($size-min) + scale-type($size-max)) / 2);
 
       // use calc and vw units to make the type scale fluidly between two sizes
-      #{$property}: calc(#{scale-type($size-min)} + #{strip-unit(scale-type($size-max) - scale-type($size-min))} * (100vw - #{screen($screen-min)}) / #{strip-unit(screen($screen-max) - screen($screen-min))});
+      #{$property}: calc(#{scale-type($size-min)} + #{strip-unit(scale-type($size-max) - scale-type($size-min))} * (100vw - #{strip-unit(screen($screen-min))}rem) / #{strip-unit(screen($screen-max) - screen($screen-min))});
     }
   }
 
@@ -86,7 +86,7 @@ $type-leading: (
 // -> body font
 
 // use @import for the moment, having trouble creating webfonts with Source Sans
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i');
 // @include font-face('source-sans-normal-normal', $file-path: '#{$asset-path-fonts}/Aspira-Thin-webfont', $file-formats: woff woff2) {
 //   @include font-display;
 // }

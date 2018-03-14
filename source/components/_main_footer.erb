@@ -40,7 +40,7 @@
               <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xxnarrow">
                 <% data.site.contact.social.each do |channel| %>
                 <li class="list-inline-item">
-                  <% link_to channel.url, class: 'c-text-primary t-scale-zeta', target: '_blank', title: "Say hi on #{channel.name}" do %>
+                  <% link_to channel.url, class: 'c-text-primary t-scale-zeta t-decoration-none', target: '_blank', title: "Say hi on #{channel.name}" do %>
                     <% component 'icon', locals: { id: channel.icon, title: channel.name, role: 'img' } %>
                   <% end %>
                 </li>
@@ -58,7 +58,7 @@
   <div data-ui-gutter="flush narrow">
     <div data-ui-bookend="horizontal@xsmall">
       <div data-ui-bookend-item="left" class="t-align-center t-align-left@xsmall">
-        <% link_to '/', data: { 'ui-gutter-item': '' }, class: 'display-inline-block', style: 'max-width: 5rem;' do %>
+        <% link_to '/', data: { 'ui-gutter-item': '' }, class: 'display-inline-block t-decoration-none', style: 'max-width: 5rem;' do %>
           <%= image_tag 'logos/logo-bivee-red-reverse.svg', alt: 'Bivee' %>
         <% end %>
       </div>
