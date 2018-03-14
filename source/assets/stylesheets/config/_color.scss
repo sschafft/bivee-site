@@ -9,8 +9,10 @@
 // Base Palette
 // -----------------------------------------------------------------------------
 // -> PRIVATE, do not use outside this settings file
+//    unless you have a really ironclad reason
 
 // neutrals
+$white: #fff;
 $blue-kuri: #9698b1;
 $blackberry: #263750;
 
@@ -41,7 +43,7 @@ $themes: (
     ),
     'bg': #fff,
     'well': tint($blue-kuri, 92),
-    'shadow': shade($blue-kuri, 15),
+    'shadow': tint($blue-kuri, 40),
     'border': tint($blue-kuri, 60),
     'highlight': highlight('raspberry'),
     'accent': highlight('blueberry')
@@ -67,7 +69,7 @@ $themes: (
     ),
     'bg': $blue-kuri,
     'well': darken($blue-kuri, 5),
-    'shadow': shade($blue-kuri, 15),
+    'shadow': shade($blue-kuri, 30),
     'border': darken($blue-kuri, 10),
     'highlight': #ffc60c,
     'accent': $blackberry

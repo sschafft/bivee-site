@@ -7,7 +7,7 @@
   hide_contact ||= false # BOOLEAN (optional): show a contact button?
   overlay ||= false # BOOLEAN (optional): turn on 'overlay' styles for the header
   size ||= 'default' # STRING (optional): 'large' (for homepage) or 'default'
-  theme ||= false # STRING (optional): color theme
+  theme ||= 'dark' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
   borders ||= false # STRING/ARRAY (optional): sides you want borders on
   logo_color ||= 'red' # STRING (optional): color the logo icon should be
@@ -23,7 +23,7 @@
   utils = [
     padding_classes(padding),
     (border_classes(borders) if borders),
-    ("c-theme-#{theme}" if theme)
+    "c-theme-#{theme}"
   ]
 %>
 
