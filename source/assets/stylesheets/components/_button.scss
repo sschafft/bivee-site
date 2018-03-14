@@ -32,9 +32,11 @@ $button-icon-margin: ms(1, 1em);
   padding: ms(-2, 1em) ms(3, 1em);
   position: relative;
   text-shadow: none;
+  text-decoration: none;
 
   &:hover {
     @include se-shadow($position: 0 0.125rem, $blur: 0.25rem);
+    @include color('text' 'primary');
   }
 
   &:active {
@@ -93,16 +95,9 @@ $button-icon-margin: ms(1, 1em);
 
 // role
 [data-ui-button~='primary'] {
+  // sass-lint:disable no-important
+  // -> need important here because it should always always always be white
   @include color-background('accent', $hover: 6, $active: -6, $focus: 6);
   @include color-border('accent', $grade: -10, $hover: 10, $active: 0, $focus: 10);
-  color: $white;
-
-  // set the color to be white all the time
-  @each $theme, $colors in $themes {
-    // set color to theme of either this element or its parent
-    &.c-theme-#{$theme},
-    .c-theme-#{$theme} & {
-      color: $white;
-    }
-  }
+  color: $white !important;
 }

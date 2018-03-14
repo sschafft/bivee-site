@@ -120,10 +120,11 @@ p {
 
 a {
   @include transition;
-  border-bottom-style: border-style('secondary');
-  border-bottom-width: border-width('thin');
+  // border-bottom-style: border-style('secondary');
+  // border-bottom-width: border-width('thin');
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-skip: objects edges box-decoration;
 
   // 'active' state
   &.is-active,
@@ -133,7 +134,8 @@ a {
 
   &:hover,
   &:active {
-
+    @include color('accent');
+    // @include color-border('accent');
   }
 }
 
