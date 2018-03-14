@@ -14,6 +14,7 @@
     "url": "git+https://github.com/biveeco/biveeco.github.io.git"
   },
   "config": {
+    "css_src": "./source/assets/stylesheets",
     "icons_src": "./source/assets/images/icons"
   },
   "sassLintConfig": ".sass-lint.yml",

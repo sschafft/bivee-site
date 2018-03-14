@@ -24,15 +24,15 @@ $button-icon-margin: ms(1, 1em);
   @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.5);
   @include transition;
   background-color: transparent;
-  border-width: border-width('thin');
   border-style: border-style();
+  border-width: border-width('thin');
   cursor: pointer;
   display: inline-block;
   font-size: scale-type('zeta');
   padding: ms(-2, 1em) ms(3, 1em);
   position: relative;
-  text-shadow: none;
   text-decoration: none;
+  text-shadow: none;
 
   &:hover {
     @include se-shadow($position: 0 0.125rem, $blur: 0.25rem);

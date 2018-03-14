@@ -1,6 +1,8 @@
 // =============================================================================
 //  Global type styles
 // =============================================================================
+// sass-lint:disable no-important
+// -> need important in utils that should always be true
 
 @import '../config/libs';
 @import '../config/scale';
@@ -303,28 +305,20 @@ cite {
 }
 
 .t-case-upper {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
   text-transform: uppercase !important;
 }
 
 .t-case-lower {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
   text-transform: lowercase !important;
 }
 
 .t-case-none {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
+
   text-transform: none !important;
 }
 
 .t-decoration-none {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
   text-decoration: none !important;
-  border-bottom-width: 0;
 }
 
 // position text
@@ -343,8 +337,6 @@ cite {
 // leading utilities to set line height from global config
 @each $name, $height in $type-leading {
   .t-leading-#{unquote($name)} {
-    // Need important here because this should override default line heights
-    // sass-lint:disable no-important
     line-height: type-leading($name) !important;
   }
 }
