@@ -7,14 +7,14 @@
       <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 13em; max-height: 12em;' %>
       <h1 class="padding-top-wide"><%= project.title.long %></h1>
       <% if project.title.subtitle %>
-        <p class="t-heading t-scale-beta c-accent padding-top-narrow"><%= project.title.subtitle %></p>
+        <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
       <% end %>
       <div class="padding-top">
         <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon c-text-secondary">
           <time data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="padding-right-xnarrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block"><%= project.type %></span>
         </p>
       </div>
-      <a class="display-inline-block margin-top-wide" href="#main_content">
+      <a class="display-inline-block margin-top-wide t-decoration-none c-accent" href="#main_content">
         <%= component 'icon', locals: { id: 'arrow-down' } %>
       </a>
     <% end %>

@@ -28,7 +28,7 @@
 
     <%= yield %>
 
-    <%= component "main_footer" %>
+    <%= component "main_footer", locals: { hide_contact: current_resource.data.hide_contact } %>
     <%#= javascript_include_tag :bundle %>
   </body>
 </html>

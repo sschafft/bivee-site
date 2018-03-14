@@ -10,7 +10,7 @@
 <ul data-ui-gallery="centered"<%= class_list(classes) if classes %>>
   <% staff.each do |profile| %>
     <li data-ui-gallery-item>
-      <% link_to profile.url, class: 'display-flex-fill display-block t-align-center' do %>
+      <% link_to profile.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <%= component 'fluid_aspect_image', locals: {
           source: "assets/images/portraits/#{profile.data.portrait.thumb}",
           bg_size: 'cover',

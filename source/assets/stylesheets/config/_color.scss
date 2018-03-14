@@ -9,8 +9,10 @@
 // Base Palette
 // -----------------------------------------------------------------------------
 // -> PRIVATE, do not use outside this settings file
+//    unless you have a really ironclad reason
 
 // neutrals
+$white: #fff;
 $blue-kuri: #9698b1;
 $blackberry: #263750;
 
@@ -41,7 +43,7 @@ $themes: (
     ),
     'bg': #fff,
     'well': tint($blue-kuri, 92),
-    'shadow': shade($blue-kuri, 15),
+    'shadow': tint($blue-kuri, 40),
     'border': tint($blue-kuri, 60),
     'highlight': highlight('raspberry'),
     'accent': highlight('blueberry')
@@ -54,7 +56,7 @@ $themes: (
     ),
     'bg': $blackberry,
     'well': darken($blackberry, 7),
-    'shadow': shade($blackberry, 15),
+    'shadow': shade($blackberry, 50),
     'border': darken($blackberry, 15),
     'highlight': highlight('raspberry'),
     'accent': highlight('blueberry')
@@ -67,17 +69,12 @@ $themes: (
     ),
     'bg': $blue-kuri,
     'well': darken($blue-kuri, 5),
-    'shadow': shade($blue-kuri, 15),
+    'shadow': shade($blue-kuri, 30),
     'border': darken($blue-kuri, 10),
     'highlight': #ffc60c,
     'accent': $blackberry
   )
 );
-
-// default tint/shadow values for hover/active/focus states
-$hover-default: 10;
-$active-default: 10;
-$focus-default: 10;
 
 // getter function to access color map values
 // -> PARAMS
@@ -113,7 +110,7 @@ $focus-default: 10;
   }
 
   @if ($opacity < 1) {
-    $color: rgba($color);
+    $color: rgba($color, $opacity);
   }
 
   @return $color;

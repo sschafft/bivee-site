@@ -38,7 +38,8 @@ $border-radii: (
 $border-w-default: 'thin' !default;
 
 $border-styles: (
-  'default': solid
+  'default': solid,
+  'secondary': dashed
 ) !default;
 
 $border-widths: (
@@ -48,7 +49,7 @@ $border-widths: (
 ) !default;
 
 // get function for border style
-@function border-style($name) {
+@function border-style($name: 'default') {
   @return map-get($border-styles, $name);
 }
 

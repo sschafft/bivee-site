@@ -37,13 +37,13 @@
 
   // add space between all children on a given axis
   .#{$prop}-x-between {
-    & + & {
+    > * + * {
       #{$prop}-left: space();
     }
   }
 
   .#{$prop}-y-between {
-    & + & {
+    > * + * {
       #{$prop}-top: space();
     }
   }
@@ -82,13 +82,13 @@
 
       // add space between all children
       .#{$prop}-x-between-#{$name} {
-        & + & {
+        > * + * {
           #{$prop}-left: space($name) !important;
         }
       }
 
       .#{$prop}-y-between-#{$name} {
-        & + & {
+        > * + * {
           #{$prop}-top: space($name) !important;
         }
       }

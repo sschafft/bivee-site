@@ -1,6 +1,8 @@
 // =============================================================================
 //  Global type styles
 // =============================================================================
+// sass-lint:disable no-important
+// -> need important in utils that should always be true
 
 @import '../config/libs';
 @import '../config/scale';
@@ -32,14 +34,8 @@ h6,
   margin: 0;
   position: relative;
 
-  a {
-    @include color('text' 'primary');
-    text-decoration: none;
-
-    // &:hover,
-    // &:active {
-    //   @include color('highlight');
-    // }
+  strong {
+    @include font-display('bold');
   }
 }
 
@@ -125,14 +121,23 @@ p {
 }
 
 a {
-  @include color('accent');
   @include transition;
-  text-decoration: none;
+  // border-bottom-style: border-style('secondary');
+  // border-bottom-width: border-width('thin');
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-skip: objects edges box-decoration;
 
   // 'active' state
   &.is-active,
   .is-active & {
     @include color('highlight');
+  }
+
+  &:hover,
+  &:active {
+    @include color('accent');
+    // @include color-border('accent');
   }
 }
 
@@ -141,8 +146,7 @@ strong {
   @extend %t-weight-bold;
 
   em {
-    @extend %t-weight-bold;
-    @extend %t-style-italic;
+    @include font-body($weight: bold, $style: italic);
   }
 }
 
@@ -150,8 +154,7 @@ em {
   @extend %t-style-italic;
 
   strong {
-    @extend %t-weight-bold;
-    @extend %t-style-italic;
+    @include font-body($weight: bold, $style: italic);
   }
 }
 
@@ -294,29 +297,27 @@ cite {
 .t-style-italic {
   // italic style is only available for the body font
   @include font-body($style: 'italic');
+
+  .t-weight-bold &,
+  &.t-weight-bold {
+    @include font-body($weight: 'bold', $style: 'italic')
+  }
 }
 
 .t-case-upper {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
   text-transform: uppercase !important;
 }
 
 .t-case-lower {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
   text-transform: lowercase !important;
 }
 
 .t-case-none {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
+
   text-transform: none !important;
 }
 
 .t-decoration-none {
-  // Need important here because this should always override the default
-  // sass-lint:disable no-important
   text-decoration: none !important;
 }
 
@@ -336,8 +337,6 @@ cite {
 // leading utilities to set line height from global config
 @each $name, $height in $type-leading {
   .t-leading-#{unquote($name)} {
-    // Need important here because this should override default line heights
-    // sass-lint:disable no-important
     line-height: type-leading($name) !important;
   }
 }

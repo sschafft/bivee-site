@@ -19,7 +19,7 @@
   ]
 %>
 
-<svg data-ui-icon<%= props_list(props) %><%= " #{parent}" if parent %><%= "class='#{classes}'" if classes %><%= " title='#{title}'" if title %> role="<%= role %>">
+<svg data-ui-icon<%= props_list(props) %><%= " #{parent}" if parent %><%= " class='#{classes}'" if classes %><%= " title='#{title}'" if title %> role="<%= role %>">
   <!-- This excellent icon is from iconmonstr.com -->
   <use xlink:href="#<%= id %>"></use>
   <% unless role == "presentation" %>
