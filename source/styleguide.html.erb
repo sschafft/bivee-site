@@ -1,0 +1,49 @@
+---
+title: Bivee styleguide
+hide_contact: true
+---
+
+<!-- Main header -->
+<%= component 'main_header', locals: {
+  hide_contact: true,
+  theme: 'dark',
+  logo_color: 'white'
+} %>
+
+<article class="">
+  <header class="padding-x-wide padding-y-xwide">
+    <% component 'wrapper', locals: { width: 'narrow' } do %>
+      <h1 class="t-align-center padding-bottom-narrow"><%= current_resource.data.title %></h1>
+      <p class="t-align-center t-heading t-scale-gamma t-leading-default c-text-secondary">A kitcken sink of UI components for now, but will be evolving into a real styleguide soon. Stay tuned.</p>
+    <% end %>
+  </header>
+  <% component 'panel' do %>
+    <% component 'wrapper' do %>
+    <h1 class="t-scale-beta t-align-center">Color themes</h1>
+      <div class="padding-top-wide margin-y-between">
+        <% ['default', 'midtone', 'dark'].each do |theme| %>
+          <section class="c-theme-<%= theme %> border border-round border-round-wide padding-wide">
+            <header class="padding-bottom">
+              <p class="t-heading t-scale-zeta t-case-upper c-text-tertiary padding-bottom-narrow">Theme: <strong><%= theme %></strong></p>
+              <h1 class="padding-bottom-xnarrow">Lorem ipsum dolor sit amet</h1>
+              <p class="t-heading t-scale-gamma c-highlight padding-bottom-xxnarrow">Subhead lorem ipsum dolor sit amet</p>
+            </header>
+            <div class="t-content">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt perferendis quisquam nihil nemo nulla <a href="#">nesciunt quaerat ullam</a>, mollitia saepe voluptas, tempore id optio rem, voluptate, officia a! Molestiae, quam.</p>
+              <h2 class="t-heading t-scale-delta c-text-secondary">Another subhead Lorem ipsum dolor sit amet consectetur</h2>
+              <p>Error pariatur ex, <em>aut dignissimos</em> molestiae aliquam suscipit officia animi nihil, deleniti earum quasi dolorum iure, veniam. <strong>Harum fugit</strong> vitae fugiat maiores, illo, ex natus commodi, tempora quas fuga incidunt!</p>
+              <div data-ui-gutter="flush xnarrow" class="margin-top">
+                <div data-ui-gutter-item class="display-inline-block">
+                  <%= component 'button_link', locals: { label: 'Primary button!', url: "#", type: 'primary' } %>
+                </div>
+                <div data-ui-gutter-item class="display-inline-block">
+                  <%= component 'button_link', locals: { label: 'Default button!', url: "#" } %>
+                </div>
+              </div>
+            </div>
+          </section>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</article>
