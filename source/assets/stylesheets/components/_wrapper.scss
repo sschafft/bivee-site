@@ -3,7 +3,9 @@
 //  -> a layout container that sets maximum width and centers content horizontally
 // =============================================================================
 
+@import '../config/breakpoints';
 @import '../config/layout_width';
+@import '../config/scale';
 @import '../config/spacing';
 
 // build a rule where all the wrapper width variations are chained in a :not() selector
@@ -19,6 +21,27 @@
   }
 
   @return unquote($selector);
+}
+
+// find the correct breakpoint to transition an 'outcrop' wrapper from being screen-width
+// to its maximum size
+@function _find-breakpoint($width) {
+  $screen: null;
+
+  // loop through the breakpoints until a screen size is bigger than the container width
+  @each $name, $size in $breakpoints {
+    @if (strip-unit($width) >= strip-unit($size)) {
+      $screen: $name;
+    }
+  }
+
+  // multiply the container width by the base type size at the right screen size
+  // -> e.g. if the wrapper will be 72rem, then that size is between the 'medium' (62em)
+  //    and 'large' (75em) breakpoints
+  // -> above the medium breakpoint, base type size is 120%
+  // -> so we need to multiply the width by 120% (or 1.2) to get a correct breakpoint of
+  //    73.2em to avoid side-scrolling or overflows
+  @return #{strip-unit($width) * (scale-base-type-size($screen) / 100%)}em;
 }
 
 // create overrides for an 'outcrop' version of the wrapper at a given width
@@ -78,7 +101,8 @@
       // only create rules for widths that are bigger than the parent
       // -> e.g. 'default' > 'wide'
       @if (layout-w-difference('default', $name) < 0) {
-        @include media('>#{$width}') {
+        // @TODO jay - multiply screen size by 1.25 to account for 125% type size at largest breakpoint. prob need to do this more accurately and actually compare to type sizes at this screen size (e.g. 110% or whatever)
+        @include media('>#{_find-breakpoint($width)}') {
           &[data-ui-wrapper~='#{$name}'] {
             @include _wrapper-outcrop-variation($name);
           }
@@ -108,7 +132,8 @@
           // only create rules for widths that are bigger than the parent
           // -> e.g. 'narrow' > 'wide'
           @if (layout-w-difference($parent-name, $child-name) < 0) {
-            @include media('>#{strip-unit($child-width)}em') {
+            // @TODO jay - multiply screen size by 1.25 to account for 125% type size at largest breakpoint. prob need to do this more accurately and actually compare to type sizes at this screen size (e.g. 110% or whatever)
+            @include media('>#{_find-breakpoint($child-width)}') {
               @if($child-name == 'default') {
                 #{_only-the-default-width()} {
                   @include _wrapper-outcrop-variation($child-name, $parent-name);
