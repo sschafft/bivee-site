@@ -7,12 +7,15 @@
   <%= component 'main_header' %>
 
   <!-- Staff profile -->
-  <article class="margin-bottom-xwide">
-    <% component 'wrapper', locals: { width: 'narrow' } do %>
-      <%= component 'feature_image', locals: {
+  <article class="margin-bottom-xwide padding-wide">
+    <% component 'wrapper', locals: { classes: 'padding-bottom-wide' } do %>
+      <%= component 'responsive_image', locals: {
         source: portrait_source(current_page.data.portrait.full_size),
-        alt: current_page.data.name
+        alt: current_page.data.name,
+        classes: 'border-round-large'
       } %>
+    <% end %>
+    <% component 'wrapper', locals: { width: 'narrow' } do %>
       <header class="padding-bottom t-align-center">
   	    <h1 class="t-scale-alpha"><%= current_page.data.name %></h1>
         <p data-ui-gutter="xnarrow" class="t-heading t-scale-delta c-accent">

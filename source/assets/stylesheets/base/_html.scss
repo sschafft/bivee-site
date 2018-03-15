@@ -2,27 +2,19 @@
 // Global box model and scaling
 // =============================================================================
 
-@import '../config/libs';
+@import '../config/scale';
 @import '../config/breakpoints';
 
 html {
   box-sizing: border-box;
-  font-size: 90%;
+  font-size: scale-base-type-size();
 
-  @include media('>xsmall') {
-    font-size: 100%;
-  }
-
-  @include media('>small') {
-    font-size: 110%;
-  }
-
-  @include media('>medium') {
-    font-size: 120%;
-  }
-
-  @include media('>large') {
-    font-size: 125%;
+  @each $screen, $size in $scale-base-type-percentages {
+    @if $screen != 'default' {
+      @include media('>#{$screen}') {
+        font-size: $size;
+      }
+    }
   }
 }
 

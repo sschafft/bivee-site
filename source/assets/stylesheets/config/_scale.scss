@@ -13,11 +13,19 @@
 $scale-global: 1.2 !default;
 $scale-base-type: 16px;
 
-// --- type scale & sizing -----------------------------------------------------
+$scale-base-type-percentages: (
+  'default': 90%,
+  'xsmall': 100%,
+  'small': 110%,
+  'medium': 120%,
+  'large': 125%
+);
 
-@function convert-to-rem($px) {
-  @return ($px / $scale-base-type * 1rem);
+@function scale-base-type-size($screen: 'default') {
+  @return map-get($scale-base-type-percentages, $screen);
 }
+
+// --- type scale & sizing -----------------------------------------------------
 
 // global type scale
 // -> we could compute this via the modular scale mixins,
