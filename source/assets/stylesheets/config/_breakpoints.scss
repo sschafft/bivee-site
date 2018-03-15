@@ -52,3 +52,35 @@ $breakpoints: (
     }
   }
 }
+
+@function _attr-selector($attr, $value: false, $screen: false) {
+  @if $value {
+    @return '[#{$attr}~="#{$value}#{if($screen, '\@#{$screen}', '')}"]';
+  } @else {
+    @return '[#{$attr}~="#{if($screen, '\@#{$screen}', '')}"]';
+  }
+}
+
+@mixin breakpointify-attr($attr, $value: false, $default: false, $sizes: all, $direction: '>') {
+  @if $default == true {
+    #{_attr-selector($attr, $value)} { @content; }
+  }
+
+  @if $sizes == 'all' {
+    @each $name, $size in $breakpoints {
+      @include media('#{$direction}#{$name}') {
+        #{_attr-selector($attr, $value, $name)} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @each $name in $sizes {
+      @include media('#{$direction}#{$name}') {
+        #{_attr-selector($attr, $value, $name)} {
+          @content;
+        }
+      }
+    }
+  }
+}
