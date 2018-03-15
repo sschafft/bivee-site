@@ -45,7 +45,7 @@ $gallery-gutter: space();
 
 [data-ui-gallery-item] {
   // Need to break the alphabetical rule order here so it's easier to see how the fallbacks work
-  // scss-lint:disable PropertySortOrder
+  // sass-lint:disable property-sort-order
   display: inline-block;
   font-size: $type-size-default;
   margin: 0;
