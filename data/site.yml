@@ -21,14 +21,12 @@ staff:
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
   headline: Want to do something differently?
-  # A short blurb - just one paragraph, please.
-  intro: We’d love to hear about your ideas and the problems you want to solve. Contact us, and let’s get the conversation started. 
   # General email for potential clients/visitors to contact us
   email: sayhi@bivee.co
   # Places where we have offices
   locations:
     - name: 'Washington, DC'
-      address: '1875 Connecticut Ave NW, Washington, DC 20009'
+      address: '1875 Connecticut Ave NW, 10th floor, Washington, DC 20009'
     - name: 'Denver, CO'
       address: '2420 17th St, Denver, CO 80202'
     - name: 'Hong Kong'
