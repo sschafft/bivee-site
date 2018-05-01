@@ -6,7 +6,7 @@ cover:
   # Main headline/tagline
   headline: We do development differently.
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: At our very core we believe that different thinking leads to different outcomes … mostly better ones!
+  intro: We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and in the development of new products and applications. 
 
 # Content for the staff listings that appear around the site
 staff:
@@ -20,7 +20,7 @@ staff:
 # -> primarily used in the footer
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
-  headline: Contact us
+  headline: Want to do something differently?
   # A short blurb - just one paragraph, please.
   intro: We’d love to hear about your ideas and the problems you want to solve. Contact us, and let’s get the conversation started. 
   # General email for potential clients/visitors to contact us
