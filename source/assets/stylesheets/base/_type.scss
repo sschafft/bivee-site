@@ -178,19 +178,8 @@ address,
 
 blockquote,
 .t-blockquote {
-  @include color('well', background-color);
-  @include border('left', $w: 'medium');
-  margin: gutter('xxnarrow') 0;
-  padding: gutter('narrow') gutter();
-
-  > * {
-    margin: 0;
-    padding: 0;
-  }
-
-  header {
-    margin-bottom: gutter('xxnarrow');
-  }
+  @include border('left', $w: 'thick', $color: 'highlight');
+  padding-left: space();
 
   @media print {
     page-break-inside: avoid;
@@ -212,38 +201,37 @@ cite {
 // -----------------------------------------------------------------------------
 
 .t-content {
-  @include color('text' 'primary');
-
   // add a line of whitespace between everything
   > * + * {
     margin-top: 1em;
-  }
-
-  li {
-    font-size: 0.8em;
-
-    + li {
-      margin-top: 0.6em;
-    }
   }
 
   // add more space before some elements
   > * + blockquote,
   > * + ul,
   > * + ol {
-    margin-top: ms(1);
+    margin-top: #{ms(2)}em;
   }
 
   // add more space after some elements
+  > blockquote + *,
   > ul + *,
   > ol + * {
-    margin-top: ms(1);
+    margin-top: #{ms(2)}em;
   }
 
   // force some default type styles on blockquotes, since we can't add utilities
-  blockquote > * {
-    font-size: scale-type('delta');
-    line-height: type-leading();
+  blockquote {
+    @include color('text' 'secondary');
+    margin-left: 0;
+    margin-right: 0;
+
+    > ol,
+    > ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 1.3em;
+    }
   }
 
   p {
