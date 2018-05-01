@@ -6,7 +6,8 @@ cover:
   # Main headline/tagline
   headline: We do development differently.
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and in the development of new products and applications. 
+  intro: |-
+    <p>Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution.</p>
 
 # Content for the staff listings that appear around the site
 staff:
@@ -30,7 +31,7 @@ contact:
     - name: 'Denver, CO'
       address: '2420 17th St, Denver, CO 80202'
     - name: 'Hong Kong'
-      address: '14F, Manning House, 38-48 Queen's Road Central, Central, Hong Kong'    
+      address: 14F, Manning House, 38-48 Queen's Road Central, Central, Hong Kong
   # Social channels for the whole company
   # -> current icons available: github, linkedin, instagram, pinterest, facebook
   # -> icons are from iconmonstr.com
