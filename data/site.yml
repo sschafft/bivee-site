@@ -4,10 +4,9 @@ title: Bivee
 # Content for the 'cover' (hero unit) on the homepage
 cover:
   # Main headline/tagline
-  headline: Development done differently
-  subhead: "Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution."
+  headline: We do development differently.
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and in the development of new products and applications.
+  intro: At our very core we believe that different thinking leads to different outcomes … mostly better ones!
 
 # Content for the staff listings that appear around the site
 staff:
