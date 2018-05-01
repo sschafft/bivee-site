@@ -1,11 +1,11 @@
 ---
-layout: simple_page_with_cover
+layout: design_thinking
 title: Design thinking for development
 # subtitle: test test test
 # cover: 'path/to/cover/image'
-primary_action:
-  label: Design thinking in action
-  url: '/case_studies'
+footer_nav:
+  heading: Want to know more?
+  description: Here's a few examples of our design thinking in action.
 ---
 
 We _do development differently_ by applying design thinking principles to development challenges. Design thinking is a process that comes from consumer product development and ensures that a final product responds to the needs of its future users.
@@ -29,7 +29,7 @@ So what exactly is design thinking? Put simply, it's a humble, sensible way of t
 > 2. Challenge all assumptions
 > 3. Stop to think
 > 5. Design the thing
-> 6. Give it a shot and either succeed or, more likely, fail (which is OK)
+> 6. Give it a shot and either succeed or&mdash;more likely&mdash;fail (which is OK)
 > 7. Stop to think again
 > 8. Redesign the thing
 > 9. Give it another shot
@@ -39,4 +39,4 @@ We force ourselves to think of anything and everything, challenge even the most 
 
 This method loosens the traditional project design approach that keeps us in a loop, coming up with the same types of solutions that often don't work, respond to the wrong problem, or make the wrong assumptions.
 
-If we were jargon-users, we'd call this approach "disruptive" and "game-changing"... but we're not, so we won't.
+If we were jargon-users, we'd call this approach "disruptive" and "game-changing"&hellip; but we're not, so we won't.
