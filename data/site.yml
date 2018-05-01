@@ -4,9 +4,10 @@ title: Bivee
 # Content for the 'cover' (hero unit) on the homepage
 cover:
   # Main headline/tagline
-  headline: We do development differently.
+  headline: Development done differently
+  subhead: "Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution."
   # Blurb introducing us. It'll be followed by a link to the about page.
-  intro: At our very core we believe that different thinking leads to different outcomes … mostly better ones!
+  intro: We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and in the development of new products and applications.
 
 # Content for the staff listings that appear around the site
 staff:
@@ -22,7 +23,7 @@ contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
   headline: Contact us
   # A short blurb - just one paragraph, please.
-  intro: We’d love to hear about your ideas and the problems you want to solve. Contact us, and let’s get the conversation started. 
+  intro: We’d love to hear about your ideas and the problems you want to solve. Contact us, and let’s get the conversation started.
   # General email for potential clients/visitors to contact us
   email: sayhi@bivee.co
   # Places where we have offices
@@ -32,7 +33,7 @@ contact:
     - name: 'Denver, CO'
       address: '2420 17th St, Denver, CO 80202'
     - name: 'Hong Kong'
-      address: '21/F The Phoenix Building, 23 Luard Road, Wan Chai, Hong Kong'    
+      address: '21/F The Phoenix Building, 23 Luard Road, Wan Chai, Hong Kong'
   # Social channels for the whole company
   # -> current icons available: github, linkedin, instagram, pinterest, facebook
   # -> icons are from iconmonstr.com

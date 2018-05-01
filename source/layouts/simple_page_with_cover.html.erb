@@ -1,0 +1,23 @@
+<%#
+    Layout for simple, flowing-copy pages with a cover illustration
+%>
+
+<% wrap_layout :layout do %>
+  <%= component 'main_header' %>
+
+  <!-- Staff profile -->
+  <article>
+    <!-- Cover image, and title -->
+    <header class="padding-x-wide padding-y-xwide border-bottom c-theme-dark">
+      <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+        <h1><%= current_page.data.title %></h1>
+        <%= "<p class='t-heading t-scale-gamma c-text-secondary margin-top-narrow'>#{current_page.data.subtitle}</p>" if current_page.data.subtitle %>
+      <% end %>
+    </header>
+    <div class="padding-wide">
+      <% component 'wrapper', locals: { width: 'narrow' } do %>
+        <%= yield %>
+      <% end %>
+    </div>
+  </article>
+<% end %>
