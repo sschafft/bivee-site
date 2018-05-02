@@ -22,6 +22,7 @@ staff:
 contact:
   # Title for contact area in footer, e.g. 'You used to call me on my cell phone'
   headline: Want to do something differently?
+  # A short blurb - just one paragraph, please.
   # General email for potential clients/visitors to contact us
   email: getstarted@bivee.co
   # Places where we have offices

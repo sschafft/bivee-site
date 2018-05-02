@@ -1,0 +1,36 @@
+<%#
+    Layout for simple, flowing-copy pages with a cover illustration
+%>
+
+<% wrap_layout :layout do %>
+  <%= component 'main_header' %>
+
+  <article>
+    <!-- Cover image, and title -->
+    <header class="padding-x-wide padding-y-xwide border-bottom c-theme-dark">
+      <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+        <h1><%= current_page.data.title %></h1>
+        <%= "<p class='t-heading t-scale-gamma c-text-secondary margin-top-narrow'>#{current_page.data.subtitle}</p>" if current_page.data.subtitle %>
+      <% end %>
+    </header>
+    <!-- body text -->
+    <div class="padding-wide padding-bottom-xwide">
+      <% component 'wrapper', locals: { width: 'narrow', classes: 't-content' } do %>
+        <%= yield %>
+      <% end %>
+    </div>
+  </article>
+
+  <!-- Case studies local nav -->
+  <% if data.case_studies.projects.length > 1 %>
+    <% component 'panel', locals: { theme: 'midtone', classes: 'c-well' } do %>
+      <% component 'wrapper' do %>
+        <h1 class="t-scale-beta t-align-center padding-bottom-xnarrow"><%= current_page.data.footer_nav.heading %></h1>
+        <p class="t-scale-delta t-align-center padding-bottom-wide"><%= current_page.data.footer_nav.description %></p>
+        <%= component 'case_studies_list', locals: {
+          projects: data.case_studies.projects
+        } %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

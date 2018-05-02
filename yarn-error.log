@@ -1,14 +1,14 @@
 Arguments: 
-  /usr/local/Cellar/node/9.4.0/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js run build
+  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run lint:styles
 
 PATH: 
-  /usr/local/opt/postgresql@9.6/bin:/Users/jayperry/.rvm/gems/ruby-2.4.3/bin:/Users/jayperry/.rvm/gems/ruby-2.4.3@global/bin:/Users/jayperry/.rvm/rubies/ruby-2.4.3/bin:/Users/jayperry/.rvm/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/jayperry/.rvm/bin
+  /Users/jayperry/Sites/Bivee/bivee-site/node_modules/.bin:/Users/jayperry/.config/yarn/link/node_modules/.bin:/Users/jayperry/Sites/Bivee/bivee-site/node_modules/.bin:/Users/jayperry/.config/yarn/link/node_modules/.bin:/usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/9.8.0/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/9.8.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/jayperry/Sites/Bivee/bivee-site/node_modules/.bin:/Users/jayperry/.config/yarn/link/node_modules/.bin:/Users/jayperry/Sites/Bivee/bivee-site/node_modules/.bin:/Users/jayperry/.config/yarn/link/node_modules/.bin:/usr/local/Cellar/node/9.8.0/libexec/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/9.8.0/lib/node_modules/npm/bin/node-gyp-bin:/usr/local/Cellar/node/9.8.0/bin/node_modules/npm/bin/node-gyp-bin:/Users/jayperry/.rvm/gems/ruby-2.4.3/bin:/usr/local/opt/postgresql@9.6/bin:/Users/jayperry/.rvm/gems/ruby-2.4.3@global/bin:/Users/jayperry/.rvm/rubies/ruby-2.4.3/bin:/Users/jayperry/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
-  1.3.2
+  1.5.1
 
 Node version: 
-  9.4.0
+  9.8.0
 
 Platform: 
   darwin x64
@@ -30,13 +30,14 @@ npm manifest:
       "url": "git+https://github.com/biveeco/biveeco.github.io.git"
     },
     "config": {
-      "icons_src": "./source/assets/images/icons",
+      "css_src": "./source/assets/stylesheets",
+      "icons_src": "./source/assets/images/icons"
     },
     "sassLintConfig": ".sass-lint.yml",
     "scripts": {
       "javascripts:build": "echo '--- Building & Linting JS ---' && webpack -p --bail --env.production --",
       "javascripts:watch": "echo '--- Bundling & Linting JS ---' && webpack --watch -d --env.development --",
-      "icons": "svgo -f $npm_package_config_icons_src && svgstore -o ./source/components/spritemap-test.erb --inline $npm_package_config_icons_src/**/*.svg",
+      "icons": "svgo -f $npm_package_config_icons_src && svgstore -o ./source/components/_spritemap.erb --inline $npm_package_config_icons_src/**/*.svg",
       "middleman": "bundle exec middleman build --",
       "lint:styles": "echo '--- Linting CSS ---' && yarn run sass-lint --verbose",
       "lint:ruby": "echo '--- Linting Ruby ---' && bundle exec rubocop",
@@ -1951,13 +1952,9 @@ Lockfile:
       mkdirp "0.5.0"
       yauzl "2.4.1"
   
-  extsprintf@1.3.0:
+  extsprintf@1.3.0, extsprintf@^1.2.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
-  
-  extsprintf@^1.2.0:
-    version "1.4.0"
-    resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   
   eyes@0.1.x:
     version "0.1.8"
@@ -4556,10 +4553,16 @@ Lockfile:
       fd-slicer "~1.0.1"
 
 Trace: 
-  SyntaxError: /Users/jayperry/Sites/Bivee/bivee-site/package.json: Unexpected token } in JSON at position 488
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:770:59
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:92:30)
-      at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:103:13
-      at <anonymous>
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c echo '--- Linting CSS ---' && yarn run sass-lint --verbose
+  Directory: /Users/jayperry/Sites/Bivee/bivee-site
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)
