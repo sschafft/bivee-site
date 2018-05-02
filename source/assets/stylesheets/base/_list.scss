@@ -9,12 +9,14 @@
 
 ul,
 ol {
-  padding-left: 1.5em; // bump to the right a little @ mobile sizes so the numbers/bullets don't run off
+  padding-left: 2em; // bump to the right a little @ mobile sizes so the numbers/bullets don't run off
 }
 
 li {
+  font-size: scale-type('epsilon');
+
   & + & {
-    margin-top: 1em;
+    margin-top: 0.25em;
   }
 }
 
