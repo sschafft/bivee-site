@@ -49,7 +49,7 @@
     <!-- contact button -->
     <% unless hide_contact %>
       <div data-ui-bookend-item="right">
-        <%= component 'button_link', locals: { label: 'Contact us', url: "mailto:#{data.site.email}", size: 'small' } %>
+        <%= component 'button_link', locals: { label: 'Contact us', url: "mailto:#{data.site.contact.email}", size: 'small' } %>
       </div>
     <% end %>
   </div>
