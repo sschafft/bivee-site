@@ -1,13 +1,13 @@
 headline:
   # the headline for the work section on the homepage
-  home: Has it worked?
+  home: How do we do this?
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
 
 # an intro blurb describing our work
 intro: |-
-  <p>By applying design thinking to a bunch of situations (from relatively simple to super complex), across diverse sectors (healthcare, learning, disaster management, public-private partnerships, consumer products), for diverse needs (technology, innovation, knowledge management, branding, communications) we have helped our clients (NGOs, corporates, international development organizations) to achieve better outcomes than they thought possible.</p>
-  <p>Here's a taste of what we've done:</p>
+  <p>We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and the development of new products and applications.</p>
+  <p>We’ve taken this approach on projects in development, healthcare, and education, among others, and with a wide variety of partners, from international development organisations to nonprofits and private sector firms. </p>
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders

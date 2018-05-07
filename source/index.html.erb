@@ -26,6 +26,7 @@ title: home
       width: 'narrow'
     } do %>
       <p class="t-heading t-scale-delta t-leading-default"><%= data.site.cover.intro %></p>
+      <%= component 'button_link', locals: { label: 'Why does this work?', url: 'design_thinking', classes: 'margin-top-wide' } %>
     <% end %>
   </div>
 </section>
