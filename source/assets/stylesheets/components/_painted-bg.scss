@@ -1,0 +1,55 @@
+// =============================================================================
+//  Panel
+//  -> a full-width section of content, sometimes with pretty borders
+// =============================================================================
+
+@import '../config/color';
+
+$painted-texture-path: '/assets/images/textures';
+
+$painted-bg-sizes: ();
+
+// Block
+// -----------------------------------------------------------------------------
+
+[data-ui-painted-bg] {
+  &::before,
+  &::after {
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: ' ';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+// [data-ui-painted-bg-ELEMENT] {
+
+// }
+
+// Traits
+// -----------------------------------------------------------------------------
+
+[data-ui-painted-bg~='texture01'] {
+  &[data-ui-painted-bg~='top'] {
+    &.c-theme-midtone {
+      &::before {
+        background-image: url('/assets/images/textures/paint-stroke-01@2000w.png');
+        top: -3.5rem;
+        height: 31.25rem; // 500px max height
+      }
+    }
+  }
+
+  &[data-ui-painted-bg~='bottom'] {
+    &::after {
+
+    }
+  }
+}

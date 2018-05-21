@@ -41,7 +41,7 @@ $themes: (
       'secondary': shade($blue-kuri, 10),
       'tertiary': tint($blue-kuri, 10)
     ),
-    'bg': #fff,
+    'bg': $white,
     'well': tint($blue-kuri, 92),
     'shadow': tint($blue-kuri, 40),
     'border': tint($blue-kuri, 60),
@@ -50,7 +50,7 @@ $themes: (
   ),
   'dark': (
     'text': (
-      'primary': #fff,
+      'primary': $white,
       'secondary': tint($blackberry, 70),
       'tertiary': tint($blackberry, 45)
     ),
@@ -63,7 +63,7 @@ $themes: (
   ),
   'midtone': (
     'text': (
-      'primary': #fff,
+      'primary': $white,
       'secondary': shade($blackberry, 10),
       'tertiary': shade($blue-kuri, 40)
     ),
