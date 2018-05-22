@@ -1,13 +1,26 @@
 // =============================================================================
-//  Panel
-//  -> a full-width section of content, sometimes with pretty borders
+//  Painted background
+//  -> a way to apply fancy brush-stroke borders to a container
 // =============================================================================
 
 @import '../config/color';
+@import '../config/breakpoints';
 
-$painted-texture-path: '/assets/images/textures';
+$painted-texture-path: '/assets/images/textures/paint-stroke';
 
-$painted-bg-sizes: ();
+// background images sizes for each breakpoint
+$painted-bg-sizes: (
+  'default': 480,
+  'xsmall': 800,
+  'small': 1200,
+  'medium': 1200,
+  'large': 2000,
+  'huge': 2000
+);
+
+@function bg-size($size) {
+  @return map-get($painted-bg-sizes, $size);
+}
 
 // Block
 // -----------------------------------------------------------------------------
@@ -20,7 +33,9 @@ $painted-bg-sizes: ();
     background-size: contain;
     content: ' ';
     display: block;
+    height: 0;
     left: 0;
+    padding-bottom: 16.7%; // all images have a 1:6 (3000 x 500px) aspect ratio
     position: absolute;
     right: 0;
   }
@@ -38,18 +53,27 @@ $painted-bg-sizes: ();
 
 [data-ui-painted-bg~='texture01'] {
   &[data-ui-painted-bg~='top'] {
-    &.c-theme-midtone {
+    top: -3.5rem;
+    bottom: auto;
+
+    &.c-theme-midtone,
+    & .c-theme-midtone {
       &::before {
-        background-image: url('/assets/images/textures/paint-stroke-01@2000w.png');
-        top: -3.5rem;
-        height: 31.25rem; // 500px max height
+        background-image: url('#{$painted-texture-path}-01@#{bg-size("default")}w.png');
+
+        @each $name, $size in $breakpoints {
+          @include media('>#{$name}') {
+            background-image: url('#{$painted-texture-path}-01@#{bg-size($name)}w.png');
+          }
+        }
       }
     }
   }
 
   &[data-ui-painted-bg~='bottom'] {
     &::after {
-
+      top: auto;
+      bottom: 0;
     }
   }
 }

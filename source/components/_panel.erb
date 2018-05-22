@@ -10,6 +10,7 @@
   theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
 
   utils = [
+    'position-relative',
     padding_classes(padding),
     border_classes(borders),
     ("c-theme-#{theme}" if theme != 'default'),
@@ -17,6 +18,6 @@
   ]
 %>
 
-<<%= el %> data-ui-painted-bg="texture01 top" style="position: relative;" <%= class_list(utils) %>>
+<<%= el %> data-ui-painted-bg="texture01 top" <%= class_list(utils) %>>
   <%= yield %>
 </<%= el %>>
