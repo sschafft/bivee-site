@@ -14,6 +14,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: url('/assets/images/covers/ink-cover@400w.png');
   display: block;
   min-height: 400px;
   min-height: 70vh;
@@ -21,6 +22,26 @@
 
   @supports (display: flex) {
     display: flex;
+  }
+
+  @include media('>xsmall') {
+    background-image: url('/assets/images/covers/ink-cover@800w.png');
+  }
+
+  // @include media('>small') {
+  //   background-image: url('/assets/images/covers/ink-cover@800w.png');
+  // }
+
+  @include media('>medium') {
+    background-image: url('/assets/images/covers/ink-cover@1200w.png');
+  }
+
+  @include media('>large') {
+    background-image: url('/assets/images/covers/ink-cover@1600w.png');
+  }
+
+  @include media('>huge') {
+    background-image: url('/assets/images/covers/ink-cover@2000w.png');
   }
 }
 
