@@ -2,26 +2,18 @@
 title: home
 ---
 
-<!-- Main header -->
-<%= component 'main_header', locals: {
-  overlay: true,
-  size: 'large',
-  hide_contact: true,
-  logo_color: 'white'
-} %>
-
 <section class="t-align-center">
   <!-- Cover -->
   <% component 'cover', locals: {
-    bg_image: 'assets/images/covers/cover-drawing.jpg',
-    theme: 'dark',
-    padding: { top: 'wide', bottom: 'xxwide', x: 'wide' }
+    bg_image: '/assets/images/covers/ink-cover%401200w.png',
+    padding: { top: 'xxwide', bottom: 'xxwide', x: 'wide' }
   } do %>
-    <h1 class="c-text-reverse"><%= data.site.cover.headline %></h1>
+    <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block padding-bottom-wide', alt: 'Bivee', style: 'min-width: 16em; max-width: 20em;' %>
+    <h1 class="t-scale-beta c-text-reverse"><%= data.site.cover.headline %></h1>
   <% end %>
 
   <!-- Intro blurb -->
-  <div class="c-theme-dark border-top padding-x-wide padding-y-xwide">
+  <div class="padding-x-wide padding-bottom-xwide padding-top-wide">
     <% component 'wrapper', locals: {
       width: 'narrow'
     } do %>

@@ -11,12 +11,12 @@
 [data-ui-cover] {
   // sass-lint:disable no-duplicate-properties
   // -> need a fallback min-height here
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
   min-height: 400px;
-  min-height: 90vh;
+  min-height: 70vh;
   position: relative;
 
   @supports (display: flex) {
@@ -29,7 +29,8 @@
 
 [data-ui-cover-content] {
   display: block;
-  margin-top: auto;
+  // margin-top: auto;
+  // margin-bottom: auto;
   width: 100%;
 }
 
