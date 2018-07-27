@@ -11,16 +11,33 @@
 [data-ui-cover] {
   // sass-lint:disable no-duplicate-properties
   // -> need a fallback min-height here
-  background-position: center;
+  background-image: url('/assets/images/covers/ink-cover@400w.png');
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
   min-height: 400px;
-  min-height: 90vh;
+  min-height: 70vh;
   position: relative;
 
   @supports (display: flex) {
     display: flex;
+  }
+
+  @include media('>xsmall') {
+    background-image: url('/assets/images/covers/ink-cover@800w.png');
+  }
+
+  @include media('>medium') {
+    background-image: url('/assets/images/covers/ink-cover@1200w.png');
+  }
+
+  @include media('>large') {
+    background-image: url('/assets/images/covers/ink-cover@1600w.png');
+  }
+
+  @include media('>huge') {
+    background-image: url('/assets/images/covers/ink-cover@2000w.png');
   }
 }
 
@@ -29,7 +46,8 @@
 
 [data-ui-cover-content] {
   display: block;
-  margin-top: auto;
+  // margin-top: auto;
+  // margin-bottom: auto;
   width: 100%;
 }
 
