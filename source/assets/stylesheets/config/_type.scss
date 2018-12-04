@@ -13,8 +13,8 @@ $type-size-default: 1rem !default;
 // global line heights
 $type-leading: (
   'xtight': 1,
-  'tight': ms(1),
-  'default': ms(2)
+  'tight': 1.35,
+  'default': 1.7
 );
 
 @function type-leading($height: 'default') {
@@ -54,47 +54,14 @@ $type-leading: (
   }
 }
 
-// @mixin fluid-type($properties, $min-vw, $max-vw, $min-value, $max-value) {
-//   @each $property in $properties {
-//     #{$property}: $min-value;
-//   }
-
-//   @media screen and (min-width: $min-vw) {
-//     @each $property in $properties {
-//       #{$property}: calc(#{$min-value} + #{strip-unit($max-value - $min-value)} * (100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)});
-//     }
-//   }
-
-//   @media screen and (min-width: $max-vw) {
-//     @each $property in $properties {
-//       #{$property}: $max-value;
-//     }
-//   }
-// }
-
 // Fonts
-// -----------------------------------------------------------------------------
-// -> font-face mixins use Bourbon
-
-// in supporting browsers, specify the font-loading strategy
-@mixin font-display {
-  // swap in the webfont once it loads
-  font-display: swap;
-}
-
-// ----- Libre Franklin ------------------------------------------------------------
-
-@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:200,300,400,400i,600,600i');
-
-
-// Font mixins
 // -----------------------------------------------------------------------------
 // -> PUBLIC, use these to style type globally & in modules
 
 $font-weights: (
-  'extralight': 200,
-  'light': 300,
-  'normal': 400,
+  'xlight': 100,
+  'light': 200,
+  'normal': 300,
   'bold': 600
 );
 
@@ -103,6 +70,8 @@ $font-weights: (
 }
 
 @mixin font($weight: normal, $style: normal) {
+  // swap in the webfont once it loads
+  font-display: swap;
   font-family: 'Libre Franklin', $font-stack-system;
   font-style: $style;
   font-weight: font-weight($weight);
