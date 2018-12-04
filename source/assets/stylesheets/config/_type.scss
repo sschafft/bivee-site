@@ -82,43 +82,25 @@ $type-leading: (
   font-display: swap;
 }
 
-// ----- Source Sans -----------------------------------------------------------
-// -> body font
+// ----- Libre Sans ------------------------------------------------------------
 
-// use @import for the moment, having trouble creating webfonts with Source Sans
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i');
-// @include font-face('source-sans-normal-normal', $file-path: '#{$asset-path-fonts}/Aspira-Thin-webfont', $file-formats: woff woff2) {
-//   @include font-display;
-// }
-// @include font-face('source-sans-bold-normal', $file-path: '#{$asset-path-fonts}/Aspira-Demi-webfont', $file-formats: woff woff2) {
-//   @include font-display;
-//   font-weight: bold;
-// }
-// @include font-face('source-sans-italic', $file-path: '#{$asset-path-fonts}/Aspira-Demi-webfont', $file-formats: woff woff2) {
-//   @include font-display;
-//   font-style: italic;
-// }
-// @include font-face('source-sans-bold-italic', $file-path: '#{$asset-path-fonts}/Aspira-Demi-webfont', $file-formats: woff woff2) {
-//   @include font-display;
-//   font-style: italic;
-//   font-weight: bold;
-// }
+// variable font
+@font-face {
+ font-family: 'libre-roman-VF';
+ src: url('/assets/fonts/variable/libre-franklin-roman.woff2') format('woff2-variations'),
+      // will be the standard and works in Safari now
+      url('/assets/fonts/variable/libre-franklin-roman.woff2') format('woff2');
+      // for the other supporting browsers
+}
 
-// ----- Cairo -----------------------------------------------------------------
-// -> display font
-
-
-@import url('https://fonts.googleapis.com/css?family=Cairo:300,400,600');
-// @include font-face('cairo-normal', $file-path: '#{$asset-path-fonts}/cairo/cairo-regular-webfont', $file-formats: eot woff) {
-//   @include font-display;
+// @font-face {
+//  font-family: 'libre-roman-regular';
+//  src: url('Venn_Regular.woff2') format('woff2');
 // }
-// @include font-face('cairo-light', $file-path: '#{$asset-path-fonts}/cairo/cairo-light-webfont', $file-formats: eot woff) {
-//   @include font-display;
-//   font-weight: normal;
-// }
-// @include font-face('cairo-bold', $file-path: '#{$asset-path-fonts}/cairo/cairo-bold-webfont', $file-formats: eot woff) {
-//   @include font-display;
-//   font-weight: bold;
+// @font-face {
+//  font-family: 'libre-roman-regular';
+//  src: url('Venn_Bold.woff2') format('woff2');
+//  font-weight: 700;
 // }
 
 
@@ -127,20 +109,24 @@ $type-leading: (
 // -> PUBLIC, use these to style type globally & in modules
 
 @mixin font-display($weight: light) {
-  font-family: 'Cairo', $font-stack-verdana;
-  @if $weight == 'light' {
-    font-weight: 300;
-  } @elseif $weight == 'bold' {
-    font-weight: 600;
-  } @else {
-    font-weight: 400;
+  font-family: 'Helvetica';
+  // @if $weight == 'light' {
+  //   font-weight: 100;
+  // } @elseif $weight == 'bold' {
+  //   font-weight: 500;
+  // } @else {
+  //   font-weight: 300;
+  // }
+
+  @supports (font-variation-settings: 'wght' 100) {
+    font-family: 'libre-roman-VF';
+    // font-variation-settings: 'wght' 1000;
+    font-weight: normal;
   }
-  // font-family: 'cairo-#{$weight}', $font-stack-verdana;
-  // font-weight: unquote(if($weight == light, normal, $weight));
 }
 
 @mixin font-body($weight: normal, $style: normal) {
-  font-family: 'Source Sans Pro', $font-stack-verdana;
+  font-family: 'Libre Franklin', $font-stack-system;
   // font-family: 'source-sans-#{$weight}-#{$style}', $verdana;
   font-weight: if($weight == normal, 300, 700);
   @if $style != normal {
