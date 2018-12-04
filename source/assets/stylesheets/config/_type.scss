@@ -82,15 +82,17 @@ $type-leading: (
   font-display: swap;
 }
 
-// ----- Libre Sans ------------------------------------------------------------
+// ----- Libre Franklin ------------------------------------------------------------
+
+// @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:200,300,400,400i,600,600i');
 
 // variable font
 @font-face {
- font-family: 'libre-roman-VF';
- src: url('/assets/fonts/variable/libre-franklin-roman.woff2') format('woff2-variations'),
-      // will be the standard and works in Safari now
-      url('/assets/fonts/variable/libre-franklin-roman.woff2') format('woff2');
-      // for the other supporting browsers
+  font-family: 'libre-roman-VF';
+  src: url('/assets/fonts/variable/LibreFranklinGX-Romans-v4015.ttf') format('woff2-variations'),
+    // will be the standard and works in Safari now
+    url('/assets/fonts/variable/LibreFranklinGX-Romans-v4015.ttf') format('woff2');
+    // for the other supporting browsers
 }
 
 // @font-face {
@@ -110,18 +112,17 @@ $type-leading: (
 
 @mixin font-display($weight: light) {
   font-family: 'Helvetica';
-  // @if $weight == 'light' {
-  //   font-weight: 100;
-  // } @elseif $weight == 'bold' {
-  //   font-weight: 500;
-  // } @else {
-  //   font-weight: 300;
-  // }
+  @if $weight == 'light' {
+    font-weight: 100;
+  } @elseif $weight == 'bold' {
+    font-weight: 500;
+  } @else {
+    font-weight: 300;
+  }
 
   @supports (font-variation-settings: 'wght' 100) {
     font-family: 'libre-roman-VF';
-    // font-variation-settings: 'wght' 1000;
-    font-weight: normal;
+    font-variation-settings: 'wght' 80;
   }
 }
 
