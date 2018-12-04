@@ -20,7 +20,7 @@ $button-icon-margin: ms(1, 1em);
   @include color('text' 'primary');
   @include color-border('accent', $hover: 15, $active: -15, $focus: 15);
   @include color-background('bg', $grade: 20, $opacity: 0.2, $hover: 10, $active: -10, $focus: 10);
-  @include font-display('bold');
+  @include font('bold');
   @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.5);
   @include transition;
   background-color: transparent;

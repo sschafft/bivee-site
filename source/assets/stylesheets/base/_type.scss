@@ -27,7 +27,7 @@ h5,
 h6,
 .t-heading {
   @include color('text' 'primary');
-  @include font-display('light');
+  @include font('light');
   display: block;
   letter-spacing: 0;
   line-height: type-leading('tight');
@@ -35,14 +35,15 @@ h6,
   position: relative;
 
   strong {
-    @include font-display('bold');
+    @include font('bold');
   }
 }
 
 h1,
 .t-scale-alpha {
   @include type-fluid($size-min: 'gamma', $size-max: 'alpha');
-  letter-spacing: -0.035em;
+  font-weight: font-weight(extralight);
+  letter-spacing: -0.03em;
   line-height: 1.1;
 
   @media print {
@@ -53,7 +54,8 @@ h1,
 h2,
 .t-scale-beta {
   @include type-fluid($size-min: 'gamma', $size-max: 'beta');
-  letter-spacing: -0.025em;
+  font-weight: font-weight(extralight);
+  letter-spacing: -0.02em;
   line-height: 1.15;
 
   @media print {
@@ -99,7 +101,7 @@ h6,
 // --- body/inline text --------------------------------------------------------
 
 body {
-  @include font-body;
+  @include font;
   font-style: normal;
   line-height: type-leading();
 }
@@ -146,7 +148,7 @@ strong {
   @extend %t-weight-bold;
 
   em {
-    @include font-body($weight: bold, $style: italic);
+    @include font($weight: bold, $style: italic);
   }
 }
 
@@ -154,7 +156,7 @@ em {
   @extend %t-style-italic;
 
   strong {
-    @include font-body($weight: bold, $style: italic);
+    @include font($weight: bold, $style: italic);
   }
 }
 
@@ -189,7 +191,7 @@ blockquote,
 // this is a default for this element
 // -> to style with classes use t-scale-*, t-italic, etc.
 cite {
-  @include font-body($style: 'italic');
+  @include font($style: 'italic');
   font-size: 0.6em;
   line-height: type-leading('tight');
 }
@@ -243,40 +245,40 @@ cite {
 // -----------------------------------------------------------------------------
 
 .t-font-display {
-  @include font-display;
+  @include font;
 }
 
 .t-font-body {
-  @include font-body;
+  @include font;
 }
 
 // type weight
 .t-weight-light {
   // light weight is only available for display font
-  @include font-display('light');
+  @include font('light');
 }
 
 .t-weight-normal {
-  @include font-body;
+  @include font;
 
   .t-heading &,
   &.t-heading,
   .t-font-display &,
   &.t-font-display {
-    @include font-display;
+    @include font;
   }
 }
 
 // extended by strong base style above
 %t-weight-bold,
 .t-weight-bold {
-  @include font-body('bold');
+  @include font('bold');
 
   .t-heading &,
   &.t-heading,
   .t-font-display &,
   &.t-font-display {
-    @include font-display('bold');
+    @include font('bold');
   }
 }
 
@@ -284,11 +286,11 @@ cite {
 %t-style-italic,
 .t-style-italic {
   // italic style is only available for the body font
-  @include font-body($style: 'italic');
+  @include font($style: 'italic');
 
   .t-weight-bold &,
   &.t-weight-bold {
-    @include font-body($weight: 'bold', $style: 'italic')
+    @include font($weight: 'bold', $style: 'italic')
   }
 }
 

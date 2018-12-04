@@ -24,7 +24,7 @@ $button-border-w: 'mid';
     @include transtion;
     @include border(all, $button-border-w, $color: $c);
     @include border-radius;
-    @include font-display;
+    @include font;
     @include scale-type('epsilon');
     @include color($c);
     display: inline-block;
@@ -50,7 +50,7 @@ $button-border-w: 'mid';
         @include transition(all 0);
     }
 
-    strong { @include font-display('bold'); }
+    strong { @include font('bold'); }
 }
 
 

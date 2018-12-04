@@ -84,53 +84,26 @@ $type-leading: (
 
 // ----- Libre Franklin ------------------------------------------------------------
 
-// @import url('https://fonts.googleapis.com/css?family=Libre+Franklin:200,300,400,400i,600,600i');
-
-// variable font
-@font-face {
-  font-family: 'libre-roman-VF';
-  src: url('/assets/fonts/variable/LibreFranklinGX-Romans-v4015.ttf') format('woff2-variations'),
-    // will be the standard and works in Safari now
-    url('/assets/fonts/variable/LibreFranklinGX-Romans-v4015.ttf') format('woff2');
-    // for the other supporting browsers
-}
-
-// @font-face {
-//  font-family: 'libre-roman-regular';
-//  src: url('Venn_Regular.woff2') format('woff2');
-// }
-// @font-face {
-//  font-family: 'libre-roman-regular';
-//  src: url('Venn_Bold.woff2') format('woff2');
-//  font-weight: 700;
-// }
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:200,300,400,400i,600,600i');
 
 
 // Font mixins
 // -----------------------------------------------------------------------------
 // -> PUBLIC, use these to style type globally & in modules
 
-@mixin font-display($weight: light) {
-  font-family: 'Helvetica';
-  @if $weight == 'light' {
-    font-weight: 100;
-  } @elseif $weight == 'bold' {
-    font-weight: 500;
-  } @else {
-    font-weight: 300;
-  }
+$font-weights: (
+  'extralight': 200,
+  'light': 300,
+  'normal': 400,
+  'bold': 600
+);
 
-  @supports (font-variation-settings: 'wght' 100) {
-    font-family: 'libre-roman-VF';
-    font-variation-settings: 'wght' 80;
-  }
+@function font-weight($weight: normal) {
+  @return map-get($font-weights, $weight);
 }
 
-@mixin font-body($weight: normal, $style: normal) {
+@mixin font($weight: normal, $style: normal) {
   font-family: 'Libre Franklin', $font-stack-system;
-  // font-family: 'source-sans-#{$weight}-#{$style}', $verdana;
-  font-weight: if($weight == normal, 300, 700);
-  @if $style != normal {
-    font-style: unquote($style);
-  }
+  font-style: $style;
+  font-weight: font-weight($weight);
 }
