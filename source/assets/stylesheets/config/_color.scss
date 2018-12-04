@@ -13,8 +13,9 @@
 
 // neutrals
 $white: #fff;
-$blue-kuri: #9698b1;
 $blackberry: #263750;
+$blue-kuri: tint($blackberry, 20);
+
 
 // highlights
 // -> 4 flavors of Bivee. Hat tip to Christie.
@@ -37,7 +38,7 @@ $highlights: (
 $themes: (
   'default': (
     'text': (
-      'primary': $blackberry,
+      'primary': tint($blackberry, 5),
       'secondary': shade($blue-kuri, 10),
       'tertiary': tint($blue-kuri, 10)
     ),

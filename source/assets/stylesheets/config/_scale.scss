@@ -16,9 +16,9 @@ $scale-base-type: 16px;
 $scale-base-type-percentages: (
   'default': 95%,
   'xsmall': 100%,
-  'small': 110%,
-  'medium': 120%,
-  'large': 125%
+  'small': 105%,
+  'medium': 110%,
+  'large': 120%
 );
 
 @function scale-base-type-size($screen: 'default') {
