@@ -14,7 +14,7 @@
 // neutrals
 $white: #fff;
 $blackberry: #263750;
-$blue-kuri: tint($blackberry, 20);
+$blue-kuri: tint($blackberry, 40);
 
 
 // highlights
@@ -65,7 +65,7 @@ $themes: (
   'midtone': (
     'text': (
       'primary': #fff,
-      'secondary': shade($blackberry, 10),
+      'secondary': shade($blackberry, 40),
       'tertiary': shade($blue-kuri, 40)
     ),
     'bg': $blue-kuri,
