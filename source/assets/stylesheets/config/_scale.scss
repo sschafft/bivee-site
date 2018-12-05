@@ -14,11 +14,11 @@ $scale-global: 1.2 !default;
 $scale-base-type: 16px;
 
 $scale-base-type-percentages: (
-  'default': 90%,
+  'default': 95%,
   'xsmall': 100%,
-  'small': 110%,
-  'medium': 120%,
-  'large': 125%
+  'small': 105%,
+  'medium': 110%,
+  'large': 120%
 );
 
 @function scale-base-type-size($screen: 'default') {
@@ -31,7 +31,7 @@ $scale-base-type-percentages: (
 // -> we could compute this via the modular scale mixins,
 // -> but doing it by hand allows us to tweak certain sizes to suit the fonts we're using
 $scale-type: (
-  'alpha': 3.7rem,
+  'alpha': 3.6rem,
   'beta': 2.5rem,
   'gamma': 2rem,
   'delta': 1.44rem,

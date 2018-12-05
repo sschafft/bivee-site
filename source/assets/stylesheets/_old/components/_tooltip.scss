@@ -20,7 +20,7 @@ $tooltip-marginY: 0;
   $h: ($line_height + ($paddingY * 2));
 
   @include transtion;
-  @include font-display;
+  @include font;
   @include scale-type("eta");
   @include border-radius;
   @include border;
@@ -46,7 +46,7 @@ $tooltip-marginY: 0;
   background-color: theme('bg');
   box-shadow: 0 2px rbga(#ff0000, 0.2);
 
-  strong { @include font-display('bold'); }
+  strong { @include font('bold'); }
 }
 
 .tooltip::after,

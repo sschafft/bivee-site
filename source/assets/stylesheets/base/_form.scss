@@ -10,7 +10,7 @@
   @include border;
   @include color('text' 'secondary');
   @include color('well', 'background-color');
-  @include font-body;
+  @include font;
   @include transition;
   border-radius: 3px;
   box-shadow: none;
@@ -29,7 +29,7 @@
 
 .form,
 form {
-  @include font-body;
+  @include font;
 }
 
 // .form-fieldset,

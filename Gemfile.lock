@@ -106,7 +106,7 @@ GEM
       ast (~> 2.3)
     powerpack (0.1.1)
     public_suffix (3.0.1)
-    rack (2.0.4)
+    rack (2.0.6)
     rack-livereload (0.3.16)
       rack
     rainbow (3.0.0)
@@ -152,6 +152,7 @@ DEPENDENCIES
   middleman-livereload
   middleman-minify-html
   middleman-robots
+  rack (>= 2.0.6)
   rake
   rubocop (~> 0.52.1)
   sassc
@@ -164,4 +165,4 @@ RUBY VERSION
    ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.1
+   1.16.3
