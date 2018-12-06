@@ -42,16 +42,16 @@ projects:
     thumb: work/ga/assets/GA-thumb@800.jpg
     full_size: work/ppp/assets/ppp-cover.png
 
-- title:
-    long: A strategy for data sharing
-    short: Development Data Hub
-    subtitle: Development Data Hub
-  slug: DDH
-  client:
-    name: World Bank Group
-    logo: work/ddh/assets/logo-wbg.svg
-  date: 2015
-  type: Data, knowledge, and learning systems
-  cover:
-    thumb: work/ddh/assets/DDH-thumb@800.jpg
-    full_size: work/ppp/assets/ppp-cover.png
+# - title:
+#     long: A strategy for data sharing
+#     short: Development Data Hub
+#     subtitle: Development Data Hub
+#   slug: DDH
+#   client:
+#     name: World Bank Group
+#     logo: work/ddh/assets/logo-wbg.svg
+#   date: 2015
+#   type: Data, knowledge, and learning systems
+#   cover:
+#     thumb: work/ddh/assets/DDH-thumb@800.jpg
+#     full_size: work/ppp/assets/ppp-cover.png

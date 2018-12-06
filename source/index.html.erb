@@ -27,7 +27,7 @@ title: home
 <% component 'panel', locals: { classes: 'c-well' } do %>
   <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> <%= data.case_studies.intro %>
   <% end %>
-  <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center' } do %>
     <!-- Case study listings -->
     <%= component 'case_studies_list', locals: { projects: data.case_studies.projects, classes: 'padding-top-xwide' } %>
 
