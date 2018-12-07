@@ -15,8 +15,9 @@ gem 'middleman-minify-html'
 # Robots txt
 gem 'middleman-robots'
 
-# Use newer version of rack per Github security warnings
+# Specify newer version of these gems per Github security warnings
 gem 'rack', '>= 2.0.6'
+gem 'ffi', '>= 1.9.24'
 
 # Content/asset compilers
 gem 'kramdown' # markdown engine
