@@ -29,6 +29,12 @@ $gallery-gutter: space();
     padding-left: 0;
   }
 
+  // use flexbox if supported
+  @supports (display: flex) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   @supports (display: grid) {
     // Disable 'spelling' linter b/c it doesn't recognize grid properties
     // scss-lint:disable PropertySpelling
@@ -69,6 +75,9 @@ $gallery-gutter: space();
   // -> all the responsive things, all the time, all the glory
   // -> for modern browsers
   @supports (display: grid) {
+    // set the grid item as a flex container itself, so it can position its children better
+    // use flex here b/c if grid is supported, flex most likely is too
+    display: flex;
     max-width: auto;
     min-width: auto;
     padding: 0;
