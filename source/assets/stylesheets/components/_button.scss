@@ -23,7 +23,6 @@ $button-icon-margin: ms(1, 1em);
   @include font('bold');
   @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.5);
   @include transition;
-  background-color: transparent;
   border-style: border-style();
   border-width: border-width('thin');
   cursor: pointer;
@@ -73,7 +72,7 @@ $button-icon-margin: ms(1, 1em);
 // Traits
 // -----------------------------------------------------------------------------
 
-// icons
+// --- icons
 [data-ui-button~='icon'] {
   $icon-space: ($button-icon-margin + $button-icon-size + 0.8em);
   padding-right: $icon-space;
@@ -84,7 +83,7 @@ $button-icon-margin: ms(1, 1em);
   }
 }
 
-// size
+// --- size
 [data-ui-button~='small'] {
   font-size: scale-type('eta');
 }
@@ -93,11 +92,24 @@ $button-icon-margin: ms(1, 1em);
   font-size: scale-type('epsilon');
 }
 
-// role
+// --- role
 [data-ui-button~='primary'] {
   // sass-lint:disable no-important
   // -> need important here because it should always always always be white
   @include color-background('accent', $hover: 6, $active: -6, $focus: 6);
   @include color-border('accent', $grade: -10, $hover: 10, $active: 0, $focus: 10);
   color: $white !important;
+}
+
+// --- special effects
+// a button that has no border or box around it; displays only its child element (label or icon)
+[data-ui-button~='incognito'] {
+  // use !important in color props to override all theme variations, e.g. [data-ui-button].c-theme-reverse
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  text-shadow: none;
 }

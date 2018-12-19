@@ -9,34 +9,46 @@
 
 @import '../config/breakpoints';
 
+@mixin hide-visually() {
+  border: 0;
+  clip-path: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+
+  &.hide-visually--focusable {
+    &:active,
+    &:focus {
+      clip-path: auto;
+      height: auto;
+      overflow: visible;
+      position: static;
+      width: auto;
+    }
+  }
+}
+
+@mixin show-visually() {
+  clip-path: auto;
+  height: auto;
+  overflow: visible;
+  position: relative;
+  width: auto;
+}
+
+.hide-visually {
+  @include hide-visually();
+}
+
 // hide but keep it accessible
-// @include breakpointify('.hide-visually', true) {
-//   border: 0;
-//   clip: rect(0 0 0 0);
-//   height: 1px;
-//   overflow: hidden;
-//   position: absolute;
-//   width: 1px;
+@include breakpointify('.hide-visually-above') {
+  @include hide-visually();
+}
 
-//   &.hide-visually--focusable {
-//     &:active,
-//     &:focus {
-//       clip-path: auto;
-//       height: auto;
-//       overflow: visible;
-//       position: static;
-//       width: auto;
-//     }
-//   }
-// }
-
-// @include breakpointify('.restore-visually-hidden', true) {
-//   clip-path: auto;
-//   height: auto;
-//   overflow: visible;
-//   position: relative;
-//   width: auto;
-// }
+@include breakpointify('.show-visually-above') {
+  @include show-visually();
+}
 
 // see hidden-[below|above]@[size] in _breakpoints for media-query versions
 .hide {

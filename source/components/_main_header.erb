@@ -3,54 +3,56 @@
   # -> the header appearing at the top of every page
 
   # Locals:
-  back ||= '/' # STRING (optional): where the back button should point
-  hide_contact ||= false # BOOLEAN (optional): show a contact button?
   overlay ||= false # BOOLEAN (optional): turn on 'overlay' styles for the header
-  size ||= 'default' # STRING (optional): 'large' (for homepage) or 'default'
   theme ||= 'dark' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
-  borders ||= false # STRING/ARRAY (optional): sides you want borders on
-  logo_color ||= 'red' # STRING (optional): color the logo icon should be
-
-  # Private:
-  padding = size == 'default' ? { x: 'narrow', y: 'narrow' } : { x: 'medium', y: 'wide' }
 
   props = [
-    ("overlay" if overlay),
-    (size unless size == 'default')
+    ("overlay" if overlay)
   ]
 
   utils = [
-    padding_classes(padding),
-    (border_classes(borders) if borders),
+    'padding-x-wide',
+    'padding-y-narrow',
     ("c-theme-#{theme}" unless overlay)
   ]
 %>
 
 <header data-ui-main-header<%= props_list(props) %><%= class_list(utils) %> role="banner">
   <div data-ui-bookend="horizontal">
-    <!-- back button -->
-    <% unless current_page.data.title == "home" %>
-      <div data-ui-bookend-item="left">
-        <% link_to back, class: 'display-inline-block c-text-secondary t-scale-zeta t-decoration-none' do %>
-          <%= component 'icon', locals: { id: 'arrow-left', space: 'right' } %>
-          <span class="t-font-display">Home</span>
-        <% end %>
-      </div>
-    <% end %>
 
     <!-- logo -->
-    <div data-ui-bookend-item="center" class="t-align-center">
+    <div data-ui-bookend-item="left" class="t-align-center">
       <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
-        <%= image_tag "logos/logo-bivee-#{logo_color}-reverse.svg", class: 'display-inline-block', alt: 'Bivee', style: size == 'default' ? 'max-width: 5em;' : 'max-width: 8em;' %>
+        <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block', alt: 'Bivee', style: 'max-width: 5em;' %>
       <% end %>
     </div>
 
-    <!-- contact button -->
-    <% unless hide_contact %>
-      <div data-ui-bookend-item="right">
-        <%= component 'button_link', locals: { label: 'Contact us', url: "mailto:#{data.site.contact.email}", size: 'small' } %>
+    <!-- main menu -->
+    <nav data-ui-bookend-item="right">
+      <div data-ui-gutter="narrow">
+        <div data-ui-gutter-item class="display-inline-block">
+          <ul data-ui-main-header-menu class="padding-x-between-narrow">
+            <li class="hide-visually show-visually-above@medium">
+              <a class="t-scale-eta t-decoration-hover" href="#">What we do</a>
+            </li>
+            <li class="hide-visually show-visually-above@medium">
+              <a class="t-scale-eta t-decoration-hover" href="#">Who we are</a>
+            </li>
+            <li class="hide-visually show-visually-above@medium">
+              <a class="t-scale-eta t-decoration-hover" href="/design_thinking">How we work</a>
+            </li>
+            <li>
+              <a class="t-scale-eta t-decoration-hover c-highlight" href="#">Contact us</a>
+            </li>
+          </ul>
+        </div>
+        <div data-ui-gutter-item class="display-inline-block">
+          <button data-ui-button="incognito">
+            <%= component "icon", locals: { id: "arrow-right", size: "large" } %>
+          </button>
+        </div>
       </div>
-    <% end %>
+    </nav>
   </div>
 </header>

@@ -123,9 +123,11 @@ a {
   @include transition;
   // border-bottom-style: border-style('secondary');
   // border-bottom-width: border-width('thin');
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
   color: inherit;
-  text-decoration: underline;
-  text-decoration-skip: objects edges box-decoration;
+  text-decoration: none;
+  // text-decoration-skip: objects edges box-decoration;
 
   // 'active' state
   &.is-active,
@@ -135,8 +137,7 @@ a {
 
   &:hover,
   &:active {
-    @include color('accent');
-    // @include color-border('accent');
+    @include color('highlight');
   }
 }
 
@@ -306,12 +307,20 @@ cite {
 }
 
 .t-case-none {
-
   text-transform: none !important;
 }
 
 .t-decoration-none {
-  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+
+.t-decoration-hover {
+  border-bottom-width: 0;
+
+  &:hover,
+  &:active {
+    border-bottom-width: 1px;
+  }
 }
 
 // position text
