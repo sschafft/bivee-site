@@ -6,6 +6,7 @@
   overlay ||= false # BOOLEAN (optional): turn on 'overlay' styles for the header
   theme ||= 'dark' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
+  breakpoint ||= 'medium'
 
   props = [
     ("overlay" if overlay)
@@ -33,24 +34,26 @@
       <div data-ui-gutter="narrow">
         <div data-ui-gutter-item class="display-inline-block">
           <ul data-ui-main-header-menu class="padding-x-between-narrow">
-            <li class="hide-visually show-visually-above@medium">
+            <li class="hide-visually show-visually-above@<%= breakpoint %>">
               <a class="t-scale-eta t-decoration-hover" href="#">What we do</a>
             </li>
-            <li class="hide-visually show-visually-above@medium">
+            <li class="hide-visually show-visually-above@<%= breakpoint %>">
               <a class="t-scale-eta t-decoration-hover" href="#">Who we are</a>
             </li>
-            <li class="hide-visually show-visually-above@medium">
-              <a class="t-scale-eta t-decoration-hover" href="/design_thinking">How we work</a>
+            <li class="hide-visually show-visually-above@<%= breakpoint %>">
+              <%= link_to "How we work", "design_thinking", class: "t-scale-eta t-decoration-hover" %>
             </li>
             <li>
               <a class="t-scale-eta t-decoration-hover c-highlight" href="#">Contact us</a>
             </li>
           </ul>
         </div>
-        <div data-ui-gutter-item class="display-inline-block">
+        <div data-ui-gutter-item class="display-inline-block hide-above@<%= breakpoint %>">
           <button data-ui-button="incognito">
             <%= component "icon", locals: { id: "arrow-right", size: "large" } %>
+            <%= component "icon", locals: { id: "close", size: "large" } %>
           </button>
+          <!-- mobile flyout nav here? -->
         </div>
       </div>
     </nav>
