@@ -68,6 +68,13 @@ $button-icon-margin: ms(1, 1em);
   }
 }
 
+[data-ui-button-flyout] {
+  position: absolute;
+  display: block;
+  min-width: 12rem;
+  right: 0;
+}
+
 
 // Traits
 // -----------------------------------------------------------------------------

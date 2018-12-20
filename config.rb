@@ -51,13 +51,13 @@ helpers do
   end
 
   def class_list(classes)
-    list = classes.is_a?(String) ? classes : classes.join(' ')
-    return " class='#{list}'" unless classes.empty?
+    list = classes.is_a?(String) ? classes : classes.join(' ').rstrip
+    return " class='#{list}'" unless list.empty?
   end
 
   def props_list(props)
-    list = props.is_a?(String) ? props : props.join(' ')
-    return "='#{list}'" unless props.empty?
+    list = props.is_a?(String) ? props : props.join(' ').rstrip
+    return "='#{list}'" unless list.empty?
   end
 
   # figure out the utility padding classes to use
