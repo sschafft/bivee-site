@@ -58,3 +58,7 @@ body,
 .c-bg {
   @include color('bg', 'background-color');
 }
+
+.c-bg-transparent {
+  background-color: transparent !important;
+}

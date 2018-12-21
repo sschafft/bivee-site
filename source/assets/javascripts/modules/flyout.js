@@ -14,12 +14,14 @@ export default function flyout (attribute, toggleAttribute = 'is-active') {
     }
 
     trigger.addEventListener('click', event => {
-      event.target.classList.toggle(toggleAttribute)
+      trigger.classList.toggle(toggleAttribute)
       target.classList.toggle(toggleAttribute)
     })
 
     // detect clicks outside the target element and reset both
+    // -> be sure to set all children of the tigger el to `pointer-events: none` to keep Safari from getting event.target events from them
     document.addEventListener('click', event => {
+      console.log(event.target)
       if (event.target !== trigger && target.classList.contains(toggleAttribute)) {
         trigger.classList.remove(toggleAttribute)
         target.classList.remove(toggleAttribute)

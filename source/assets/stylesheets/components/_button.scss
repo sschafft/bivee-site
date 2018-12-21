@@ -82,6 +82,7 @@ $button-icon-margin: ms(1, 1em);
   // use !important in color props to override all theme variations, e.g. [data-ui-button].c-theme-reverse
   background: transparent !important;
   border: 0 !important;
+  border-radius: 0 !important;
   box-shadow: none !important;
   padding: 0;
   position: relative;
@@ -91,6 +92,9 @@ $button-icon-margin: ms(1, 1em);
 
 // a button that toggles the visibility of child elements based on state
 [data-ui-button~='toggle'] {
+  [data-ui-button-toggle-item] {
+    pointer-events: none;
+  }
 
   [data-ui-button-toggle-item~='default'] {
     display: inline-block;
