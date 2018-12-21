@@ -16,8 +16,6 @@
     <%# Google fonts API %>
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,300i,600,600i" rel="stylesheet">
     <%= stylesheet_link_tag :main %>
-    <%# netlify identity script - yarn install is being wonky %>
-    <%# <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> %>
     <%= component "analytics", locals: { ga_code: ENV['GA_CODE'] }%>
 
   </head>
@@ -27,9 +25,8 @@
     <div style="width: 0; height: 0; position: absolute;"><%= component 'spritemap' %></div>
     <%# flag for homepage used in child templates %>
     <% is_home = current_resource.data.title == "home" ? true : false %>
-
+    <%= component 'main_header', locals: { hide_logo: (is_home ? true : false)} %>
     <%= yield %>
-
     <%= component "main_footer", locals: { hide_contact: current_resource.data.hide_contact } %>
     <%= javascript_include_tag 'main.bundle' %>
   </body>
