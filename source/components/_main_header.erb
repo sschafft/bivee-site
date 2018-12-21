@@ -65,14 +65,14 @@
               <%= component "icon", locals: { id: "arrow-left", size: "large" } %>
             </span>
           </button>
-          <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default" id="main-nav-flyout">
-            <ul class="list-undecorated margin-y-between-xnarrow">
+          <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
+            <ul class="list-undecorated margin-y-between-xxnarrow">
               <% data.site.main_nav.each do |item| %>
                 <% if item.priority > 1 %>
                   <li>
                     <%
                       link_classes = [
-                        'display-block',
+                        'display-inline-block',
                         't-scale-eta',
                         't-decoration-hover',
                         (item.highlight ? 'c-highlight' : 'c-text-primary')

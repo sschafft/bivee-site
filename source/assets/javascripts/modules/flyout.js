@@ -13,9 +13,17 @@ export default function flyout (attribute, toggleAttribute = 'is-active') {
       return
     }
 
-    trigger.addEventListener('click', (event) => {
+    trigger.addEventListener('click', event => {
       event.target.classList.toggle(toggleAttribute)
       target.classList.toggle(toggleAttribute)
+    })
+
+    // detect clicks outside the target element and reset both
+    document.addEventListener('click', event => {
+      if (event.target !== trigger && target.classList.contains(toggleAttribute)) {
+        trigger.classList.remove(toggleAttribute)
+        target.classList.remove(toggleAttribute)
+      }
     })
   })
 }
