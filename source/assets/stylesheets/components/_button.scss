@@ -43,38 +43,6 @@ $button-icon-margin: ms(1, 1em);
   }
 }
 
-// Elements
-// -----------------------------------------------------------------------------
-
-// use descendent selector to increase specificity, to ensure this overrides the icon component
-[data-ui-button] [data-ui-button-icon] {
-  $size: 1.2em;
-  $position: ms(1, 1em);
-
-  @include color('highlight');
-  height: $button-icon-size;
-  width: $button-icon-size;
-
-  [data-ui-button~='icon'] & {
-    margin-top: -(($button-icon-size / 2) + 0.05em);
-    position: absolute;
-    right: ms(1, 1em);
-    top: 50%;
-  }
-
-  [data-ui-button~='icon'][data-ui-button~='left'] & {
-    left: ms(1, 1em);
-    right: auto;
-  }
-}
-
-[data-ui-button-flyout] {
-  position: absolute;
-  display: block;
-  min-width: 12rem;
-  right: 0;
-}
-
 
 // Traits
 // -----------------------------------------------------------------------------
@@ -119,4 +87,63 @@ $button-icon-margin: ms(1, 1em);
   position: relative;
   text-decoration: none;
   text-shadow: none;
+}
+
+// a button that toggles the visibility of child elements based on state
+[data-ui-button~='toggle'] {
+  [data-ui-button-toggle-item~='default'] {
+    display: inline-block;
+  }
+
+  [data-ui-button-toggle-item~='active'] {
+    display: none;
+  }
+
+  &.is-active {
+    @include color('highlight');
+
+    [data-ui-button-toggle-item~='default'] {
+      display: none;
+    }
+
+    [data-ui-button-toggle-item~='active'] {
+      display: inline-block;
+    }
+  }
+}
+
+// Elements
+// -----------------------------------------------------------------------------
+
+// use descendent selector to increase specificity, to ensure this overrides the icon component
+[data-ui-button] [data-ui-button-icon] {
+  $size: 1.2em;
+  $position: ms(1, 1em);
+
+  @include color('highlight');
+  height: $button-icon-size;
+  width: $button-icon-size;
+
+  [data-ui-button~='icon'] & {
+    margin-top: -(($button-icon-size / 2) + 0.05em);
+    position: absolute;
+    right: ms(1, 1em);
+    top: 50%;
+  }
+
+  [data-ui-button~='icon'][data-ui-button~='left'] & {
+    left: ms(1, 1em);
+    right: auto;
+  }
+}
+
+[data-ui-button-flyout] {
+  display: block;
+  min-width: 12rem;
+  position: absolute;
+  right: 0;
+
+  &.is-active {
+    display: block;
+  }
 }
