@@ -27,7 +27,7 @@ ignore 'assets/javascripts/*'
 activate :external_pipeline,
          name: :yarn,
          command: build? ? 'yarn run build' : 'yarn run dev',
-         source: '.tmp/dist',
+         source: '.tmp/assets/',
          latency: 1
 
 # explicitly set the markdown engine to Kramdown

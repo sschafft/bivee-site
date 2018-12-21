@@ -1,11 +1,6 @@
-// Netlify Identity
-// -----------------------------------------------------------------------------
-// if (window.netlifyIdentity) {
-//   window.netlifyIdentity.on('init', user => {
-//     if (!user) {
-//       window.netlifyIdentity.on('login', () => {
-//         document.location.href = '/admin/'
-//       })
-//     }
-//   })
-// }
+import flyout from './modules/flyout.js'
+
+document.addEventListener('DOMContentLoaded', () => {
+  // set up flyout toggle buttons
+  flyout('data-js-toggle')
+})

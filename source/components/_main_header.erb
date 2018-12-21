@@ -56,12 +56,12 @@
         </div>
 
         <!-- flyout nav for small screens -->
-        <div data-ui-gutter-item data-js-open-toggle="main-nav-flyout" class="display-inline-block hide-above@<%= breakpoint %>">
-          <button data-ui-button="incognito flyout">
+        <div data-ui-gutter-item class="display-inline-block hide-above@<%= breakpoint %>">
+          <button data-ui-button="incognito flyout" data-js-toggle="main-nav-flyout">
             <%= component "icon", locals: { id: "arrow-right", size: "large" } %>
             <%= component "icon", locals: { id: "close", size: "large" } %>
           </button>
-          <div data-ui-button-flyout data-js-open class="t-align-left padding-narrow c-theme-default" id="main-nav-flyout">
+          <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default" id="main-nav-flyout">
             <ul class="list-undecorated">
               <% data.site.main_nav.each do |item| %>
                 <% if item.priority > 1 %>
