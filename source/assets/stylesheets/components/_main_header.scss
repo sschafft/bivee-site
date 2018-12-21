@@ -22,3 +22,16 @@
   top: 0;
   z-index: z('top');
 }
+
+// Elements
+// -----------------------------------------------------------------------------
+[data-ui-main-header-menu] {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+
+  > li {
+    display: inline-block;
+  }
+}

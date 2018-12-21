@@ -2,11 +2,11 @@
   # Panel component
   # -> For short content in scrolling sections. Meant to be full-width.
 
-  borders ||= [ 'top' ] # STRING/ARRAY: sides you want borders on - see border_classes helper in config.rb
+  id ||= false # STRING: id attribute for the container, for anchor links etc.
   classes ||= false # STRING: additional modifier classes for the container
+  borders ||= [ 'top' ] # STRING/ARRAY: sides you want borders on - see border_classes helper in config.rb
   el ||= 'section' # What HTML element should the wrapper be?
   padding ||= { x: 'wide', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
-  byline ||= false # STRING: a byline or label for the top of the panel, e.g. "Recent work"
   theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
 
   utils = [
@@ -17,6 +17,6 @@
   ]
 %>
 
-<<%= el %><%= class_list(utils) %>>
+<<%= el %><%= class_list(utils) %><%= " id='#{id}'" if id %>>
   <%= yield %>
 </<%= el %>>

@@ -23,7 +23,6 @@ $button-icon-margin: ms(1, 1em);
   @include font('bold');
   @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.5);
   @include transition;
-  background-color: transparent;
   border-style: border-style();
   border-width: border-width('thin');
   cursor: pointer;
@@ -41,6 +40,76 @@ $button-icon-margin: ms(1, 1em);
 
   &:active {
     box-shadow: none;
+  }
+}
+
+
+// Traits
+// -----------------------------------------------------------------------------
+
+// --- icons
+[data-ui-button~='icon'] {
+  $icon-space: ($button-icon-margin + $button-icon-size + 0.8em);
+  padding-right: $icon-space;
+
+  &[data-ui-button~='left'] {
+    padding-left: $icon-space;
+    padding-right: ms(3, 1em);
+  }
+}
+
+// --- size
+[data-ui-button~='small'] {
+  font-size: scale-type('eta');
+}
+
+[data-ui-button~='large'] {
+  font-size: scale-type('epsilon');
+}
+
+// --- role
+[data-ui-button~='primary'] {
+  // sass-lint:disable no-important
+  // -> need important here because it should always always always be white
+  @include color-background('accent', $hover: 6, $active: -6, $focus: 6);
+  @include color-border('accent', $grade: -10, $hover: 10, $active: 0, $focus: 10);
+  color: $white !important;
+}
+
+// --- special effects
+// a button that has no border or box around it; displays only its child element (label or icon)
+[data-ui-button~='incognito'] {
+  // use !important in color props to override all theme variations, e.g. [data-ui-button].c-theme-reverse
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+// a button that toggles the visibility of child elements based on state
+[data-ui-button~='toggle'] {
+
+  [data-ui-button-toggle-item~='default'] {
+    display: inline-block;
+  }
+
+  [data-ui-button-toggle-item~='active'] {
+    display: none;
+  }
+
+  &.is-active {
+    @include color('highlight');
+
+    [data-ui-button-toggle-item~='default'] {
+      display: none;
+    }
+
+    [data-ui-button-toggle-item~='active'] {
+      display: inline-block;
+    }
   }
 }
 
@@ -69,35 +138,29 @@ $button-icon-margin: ms(1, 1em);
   }
 }
 
+[data-ui-button-flyout] {
+  $duration: 0.25s;
+  margin-top: space('narrow');
+  min-width: 12rem;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: opacity $duration, visibility $duration;
+  visibility: hidden;
+  z-index: z('high');
 
-// Traits
-// -----------------------------------------------------------------------------
-
-// icons
-[data-ui-button~='icon'] {
-  $icon-space: ($button-icon-margin + $button-icon-size + 0.8em);
-  padding-right: $icon-space;
-
-  &[data-ui-button~='left'] {
-    padding-left: $icon-space;
-    padding-right: ms(3, 1em);
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
   }
-}
 
-// size
-[data-ui-button~='small'] {
-  font-size: scale-type('eta');
-}
-
-[data-ui-button~='large'] {
-  font-size: scale-type('epsilon');
-}
-
-// role
-[data-ui-button~='primary'] {
-  // sass-lint:disable no-important
-  // -> need important here because it should always always always be white
-  @include color-background('accent', $hover: 6, $active: -6, $focus: 6);
-  @include color-border('accent', $grade: -10, $hover: 10, $active: 0, $focus: 10);
-  color: $white !important;
+  &::before {
+    $size: 1rem;
+    @include triangle('up', $size, ($size / 2), color('bg'));
+    content: '';
+    display: block;
+    position: absolute;
+    right: space('narrow');
+    top: -(($size / 2) - 0.0625rem);
+  }
 }
