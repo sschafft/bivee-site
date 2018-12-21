@@ -160,7 +160,7 @@ $button-icon-margin: ms(1, 1em);
     content: '';
     display: block;
     position: absolute;
-    top: -(($size / 2) - 0.0625rem);
     right: space('narrow');
+    top: -(($size / 2) - 0.0625rem);
   }
 }
