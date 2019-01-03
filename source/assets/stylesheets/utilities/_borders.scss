@@ -8,6 +8,46 @@
 @import '../config/borders';
 @import '../config/breakpoints';
 
+.border-markers-wide-top {
+  $slice-width: 53;
+
+  border-top: 1px dotted color('border');
+  position: relative;
+
+  &::after {
+    $h: 40px;
+    $w: 1px;
+    background-color: color('border');
+    content: '';
+    display: block;
+    height: $h;
+    left: 50%;
+    margin-left: -($w / 2);
+    position: absolute;
+    top: -($h / 2);
+    width: $w;
+  }
+
+  @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') $slice-width repeat) {
+    border-top: 0;
+
+    // add the border image to a pseudo element so it doesn't mess with the container's padding or bg image
+    &::before {
+      border: #{$slice-width}px dotted color('border');
+      border-image: url('/assets/images/borders/border-markers-wide-top.svg') $slice-width repeat;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      // height of SVG image is 15px
+      // border height is 1px
+      // offset = (15px - 1px)/2
+      top: -7px;
+    }
+  }
+}
+
 // .border, .border@[screen]
 @include breakpointify('.border', true) {
   @include border;

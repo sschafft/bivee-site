@@ -36,58 +36,55 @@
     <!-- main menu -->
     <nav data-ui-bookend-item="right">
 
-      <!-- horizontal nav for larger screens -->
-      <div data-ui-gutter="narrow">
-        <div data-ui-gutter-item class="display-inline-block">
-          <ul data-ui-main-header-menu class="padding-x-between-narrow">
-            <% data.site.main_nav.each do |item| %>
-              <%
-                list_classes = [
-                  (item.priority > 1 ? "hide-visually show-visually-above@#{breakpoint}" : '')
-                ]
-                link_classes = [
-                  't-scale-eta',
-                  't-decoration-hover',
-                  (item.highlight && 'c-highlight')
-                ]
-              %>
-              <li<%= class_list(list_classes) %>>
+    <!-- horizontal nav for larger screens -->
+      <ul data-ui-main-header-menu class="display-inline-block padding-x-between-narrow list-undecorated">
+        <% data.site.main_nav.each do |item| %>
+          <%
+            list_classes = [
+              'no-margin-top',
+              (item.priority > 1 ? "hide-visually show-visually-above@#{breakpoint}" : '')
+            ]
+            link_classes = [
+              'display-inline-block',
+              't-scale-eta',
+              't-decoration-hover',
+              (item.highlight && 'c-highlight')
+            ]
+          %>
+          <li<%= class_list(list_classes) %>>
+            <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
+          </li>
+        <% end %>
+      </ul>
 
-                <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
-              </li>
+      <!-- flyout nav for small screens -->
+      <div class="display-inline-block hide-above@<%= breakpoint %>">
+        <button data-ui-button="incognito toggle" data-js-toggle="main-nav-flyout">
+          <span data-ui-button-toggle-item="default">
+            <%= component "icon", locals: { id: "menu", size: "large" } %>
+          </span>
+          <span data-ui-button-toggle-item="active">
+            <%= component "icon", locals: { id: "close", size: "large" } %>
+          </span>
+        </button>
+        <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
+          <ul class="list-undecorated margin-y-between-xxnarrow">
+            <% data.site.main_nav.each do |item| %>
+              <% if item.priority > 1 %>
+                <li>
+                  <%
+                    link_classes = [
+                      'display-inline-block',
+                      't-scale-eta',
+                      't-decoration-hover',
+                      (item.highlight ? 'c-highlight' : 'c-text-primary')
+                    ]
+                  %>
+                  <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
+                </li>
+              <% end %>
             <% end %>
           </ul>
-        </div>
-
-        <!-- flyout nav for small screens -->
-        <div data-ui-gutter-item class="display-inline-block hide-above@<%= breakpoint %>">
-          <button data-ui-button="incognito toggle" data-js-toggle="main-nav-flyout">
-            <span data-ui-button-toggle-item="default">
-              <%= component "icon", locals: { id: "menu", size: "large" } %>
-            </span>
-            <span data-ui-button-toggle-item="active">
-              <%= component "icon", locals: { id: "close", size: "large" } %>
-            </span>
-          </button>
-          <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
-            <ul class="list-undecorated margin-y-between-xxnarrow">
-              <% data.site.main_nav.each do |item| %>
-                <% if item.priority > 1 %>
-                  <li>
-                    <%
-                      link_classes = [
-                        'display-inline-block',
-                        't-scale-eta',
-                        't-decoration-hover',
-                        (item.highlight ? 'c-highlight' : 'c-text-primary')
-                      ]
-                    %>
-                    <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
-                  </li>
-                <% end %>
-              <% end %>
-            </ul>
-          </div>
         </div>
       </div>
     </nav>

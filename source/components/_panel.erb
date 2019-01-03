@@ -9,9 +9,11 @@
   padding ||= { x: 'wide', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
   theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
 
+    # border_classes(borders),
+
   utils = [
+    'border-markers-wide-top',
     padding_classes(padding),
-    border_classes(borders),
     ("c-theme-#{theme}" if theme != 'default'),
     (classes if classes)
   ]
