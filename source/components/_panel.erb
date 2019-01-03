@@ -20,5 +20,7 @@
 %>
 
 <<%= el %><%= class_list(utils) %><%= " id='#{id}'" if id %>>
-  <%= yield %>
+  <div class="c-painted-bg">
+    <%= yield %>
+  </div>
 </<%= el %>>
