@@ -62,3 +62,7 @@ body,
 .c-bg-transparent {
   background-color: transparent !important;
 }
+
+.c-painted-bg {
+  @include full-bleed-painted-background('bg-well-top-01');
+}

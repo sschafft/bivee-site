@@ -31,7 +31,7 @@
   &::after {
     $w: border-width('thin');
 
-    background-color: #fff;
+    background-color: color('bg');
     content: '';
     display: block;
     height: scale-type('delta');
