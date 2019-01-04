@@ -69,7 +69,7 @@ $themes: (
       'tertiary': tint($blue-kuri, 10)
     ),
     'bg': #fff,
-    'well': #E3E5E9,
+    'well': #e3e5e9,
     'shadow': tint($blue-kuri, 40),
     'border': tint($blue-kuri, 60),
     'highlight': highlight('raspberry'),
@@ -295,7 +295,7 @@ $themes: (
       // margin-top: _top-outset($size, $outset-factor);
 
       &::before {
-        background-image: url('#{$image-path}#{$image-name}@#{unquote($size)}w.png');
+        background-image: url('#{$image-path}#{$image-name}@#{$size}w.png');
         height: $height;
         top: -($height / $outset-factor);
       }
