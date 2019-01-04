@@ -35,7 +35,7 @@
 
     <!-- main menu -->
     <nav data-ui-bookend-item="right">
-      <div data-ui-gutter="narrow">
+      <div data-ui-gutter="narrow flush">
 
         <!-- horizontal nav for larger screens -->
         <div data-ui-gutter-item class="display-inline-block">
@@ -43,11 +43,12 @@
             <% data.site.main_nav.each do |item| %>
               <%
                 list_classes = [
+                  'display-inline-block',
                   'no-margin-top',
                   (item.priority > 1 ? "hide-visually show-visually-above@#{breakpoint}" : '')
                 ]
                 link_classes = [
-                  'display-inline-block',
+                  'display-block',
                   't-scale-eta',
                   't-decoration-hover',
                   (item.highlight && 'c-highlight')
