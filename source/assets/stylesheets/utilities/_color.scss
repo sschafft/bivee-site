@@ -47,14 +47,6 @@ body,
   @include color('highlight', $important: true);
 }
 
-.c-accent {
-  @include color('accent', $important: true);
-}
-
-.c-well {
-  @include color('well', 'background-color');
-}
-
 .c-bg {
   @include color('bg', 'background-color');
 }

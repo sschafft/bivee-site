@@ -14,7 +14,7 @@
 // neutrals
 $white: #fff;
 $blackberry: #263750;
-$blue-kuri: tint($blackberry, 40);
+$blue-kuri: #e3e5e9;
 
 
 // highlights
@@ -36,6 +36,7 @@ $highlights: (
 // -----------------------------------------------------------------------------
 
 $themes: (
+  // dark blue background, light text
   'dark': (
     'text': (
       'primary': #fff,
@@ -43,37 +44,33 @@ $themes: (
       'tertiary': tint($blackberry, 45)
     ),
     'bg': $blackberry,
-    'well': darken($blackberry, 7),
     'shadow': shade($blackberry, 50),
     'border': darken($blackberry, 15),
     'highlight': highlight('raspberry'),
-    'accent': highlight('blueberry')
   ),
-  'midtone': (
+  // light gray background, dark text
+  'light': (
     'text': (
-      'primary': #fff,
-      'secondary': shade($blackberry, 40),
-      'tertiary': shade($blue-kuri, 40)
+      'primary': tint($blackberry, 5),
+      'secondary': shade($blue-kuri, 10),
+      'tertiary': $white
     ),
     'bg': $blue-kuri,
-    'well': darken($blue-kuri, 5),
     'shadow': shade($blue-kuri, 30),
     'border': darken($blue-kuri, 10),
     'highlight': #ffc60c,
-    'accent': $blackberry
   ),
+  // white background, dark text
   'default': (
     'text': (
       'primary': tint($blackberry, 5),
       'secondary': shade($blue-kuri, 10),
       'tertiary': tint($blue-kuri, 10)
     ),
-    'bg': #fff,
-    'well': #e3e5e9,
+    'bg': $white,
     'shadow': tint($blue-kuri, 40),
     'border': tint($blue-kuri, 60),
     'highlight': highlight('raspberry'),
-    'accent': highlight('blueberry')
   )
 );
 
