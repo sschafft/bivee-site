@@ -19,7 +19,7 @@
 
 @mixin _painted-background-variation(
   $image-name,
-  $image-path: '/assets/images/backgrounds/light/',
+  $image-path: '/assets/images/backgrounds/',
   $color: 'bg',
   $bg-widths: (480, 800, 1200, 2000, 2600),
   $aspect-ratio: 0.096153846
@@ -28,7 +28,6 @@
   $initial-width: nth($bg-widths, 1);
   $initial-height: round($initial-width * $aspect-ratio * 1px);
   $initial-factor: 2;
-
 
   // put the paint texture in a pseudo element so we can position it slightly outside the container boundary without interfering with its internal spacing (padding, etc.)
   &::before {
@@ -127,8 +126,9 @@ body,
 
 // base styles
 [class*='c-bg-painted'] {
-  position: relative;
   background: transparent !important;
+  position: relative;
+  z-index: 1; // add a z-index value so subsequent containers 'overlap' correctly
 
   &::before {
     background-position: bottom center;
@@ -176,7 +176,7 @@ body,
     // loop through 9 background versions for each theme
     @for $i from 1 through 9 {
       .c-bg-painted-0#{$i}.c-theme-#{$theme} {
-        @include _painted-background-variation('bg-#{$theme}-top-0#{$i}');
+        @include _painted-background-variation('#{$theme}/bg-#{$theme}-top-0#{$i}');
       }
     }
   }

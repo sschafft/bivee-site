@@ -35,7 +35,7 @@ $themes: (
   // dark blue background, light text
   'dark': (
     'text': (
-      'primary': #fff,
+      'primary': $white,
       'secondary': tint($blackberry, 70),
       'tertiary': tint($blackberry, 45)
     ),
@@ -43,7 +43,7 @@ $themes: (
     'island': tint($blackberry, 10),
     'well': shade($blackberry, 10),
     'shadow': shade($blackberry, 50),
-    'border': darken($blackberry, 15),
+    'border': $dark-blue-kuri,
     'highlight': $raspberry,
   ),
   // light gray background, dark text
