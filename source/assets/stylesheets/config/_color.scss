@@ -15,6 +15,7 @@
 $white: #fff;
 $blackberry: #263750;
 $blue-kuri: #e3e5e9;
+$dark-blue-kuri: #939ba8;
 
 // highlights
 $raspberry: #ef4759;
@@ -55,8 +56,8 @@ $themes: (
     'bg': $blue-kuri,
     'island': $white,
     'well': shade($blue-kuri, 10),
-    'shadow': shade($blue-kuri, 30),
-    'border': darken($blue-kuri, 10),
+    'shadow': tint($blue-kuri, 60),
+    'border': $dark-blue-kuri,
     'highlight': $raspberry,
   ),
   // white background, dark text
@@ -70,7 +71,7 @@ $themes: (
     'island': $white,
     'well': tint($blue-kuri, 80),
     'shadow': tint($blue-kuri, 40),
-    'border': tint($blue-kuri, 60),
+    'border': $dark-blue-kuri,
     'highlight': $raspberry,
   )
 );

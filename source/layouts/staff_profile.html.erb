@@ -26,7 +26,7 @@
   </article>
 
   <!-- List of other staff -->
-  <% component 'panel', locals: { theme: 'midtone' } do %>
+  <% component 'panel', locals: { theme: 'light', painted: rand(1..9) } do %>
     <% component 'wrapper', locals: { width: 'wide' } do %>
   		<h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= data.site.staff.headline.nav %></h1>
   		<%= component "staff_list", locals: { staff: find_staff_profiles(exclude: [ current_page.data.name ]), classes: "l-margin-top-wide" } %>

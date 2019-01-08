@@ -17,7 +17,7 @@
   &::after {
     $h: 40px;
     $w: 1px;
-    background-color: color('border');
+    @include color-background('border');
     content: '';
     display: block;
     height: $h;

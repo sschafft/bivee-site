@@ -38,7 +38,7 @@
 
 <!-- Case studies local nav -->
 <% if data.case_studies.projects.length > 1 %>
-  <% component 'panel', locals: { theme: 'midtone', classes: 'c-well' } do %>
+  <% component 'panel', locals: { theme: 'light', painted: rand(1..9), classes: 'c-well' } do %>
     <%# temporarily use local styles to keep single thumb from being huge %>
     <% component 'wrapper', locals: { style: 'width: 21rem;' } do %>
       <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>

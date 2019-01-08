@@ -24,7 +24,7 @@ title: home
 </section>
 
 <!-- Work -->
-<% component 'panel', locals: { classes: '' } do %>
+<% component 'panel' do %>
   <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> <%= data.case_studies.intro %>
   <% end %>
   <% component 'wrapper', locals: { width: 'default', classes: 't-align-center' } do %>
@@ -37,7 +37,7 @@ title: home
 <% end %>
 
 <!-- Staff -->
-<% component 'panel', locals: { theme: 'midtone' } do %>
+<% component 'panel', locals: { theme: 'light', painted: rand(1..9) } do %>
   <% component 'blurb', locals: { heading: data.site.staff.headline.home } do %>
     <%= data.site.staff.intro %>
   <% end %>
