@@ -19,7 +19,7 @@
   ]
 %>
 
-<<%= el %> class="c-painted-bg"<%= " id='#{id}'" if id %>>
+<<%= el %> class="c-theme-light c-bg-painted-0<%= rand(1..9) %>"<%= " id='#{id}'" if id %>>
   <div<%= class_list(utils) %>>
     <%= yield %>
   </div>

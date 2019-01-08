@@ -16,15 +16,10 @@ $white: #fff;
 $blackberry: #263750;
 $blue-kuri: #e3e5e9;
 
-
 // highlights
-// -> 4 flavors of Bivee. Hat tip to Christie.
-$highlights: (
-  'blueberry': #11a9be,
-  'raspberry': #ef4759,
-  'orange': #eabf32,
-  'kiwi': #9bc73f
-);
+$raspberry: #ef4759;
+$blueberry: #11a9be;
+
 
 // getter function for highlight colors
 // -> PRIVATE
@@ -44,9 +39,11 @@ $themes: (
       'tertiary': tint($blackberry, 45)
     ),
     'bg': $blackberry,
+    'island': tint($blackberry, 10),
+    'well': shade($blackberry, 10),
     'shadow': shade($blackberry, 50),
     'border': darken($blackberry, 15),
-    'highlight': highlight('raspberry'),
+    'highlight': $raspberry,
   ),
   // light gray background, dark text
   'light': (
@@ -56,9 +53,11 @@ $themes: (
       'tertiary': $white
     ),
     'bg': $blue-kuri,
+    'island': $white,
+    'well': shade($blue-kuri, 10),
     'shadow': shade($blue-kuri, 30),
     'border': darken($blue-kuri, 10),
-    'highlight': #ffc60c,
+    'highlight': $raspberry,
   ),
   // white background, dark text
   'default': (
@@ -68,9 +67,11 @@ $themes: (
       'tertiary': tint($blue-kuri, 10)
     ),
     'bg': $white,
+    'island': $white,
+    'well': tint($blue-kuri, 80),
     'shadow': tint($blue-kuri, 40),
     'border': tint($blue-kuri, 60),
-    'highlight': highlight('raspberry'),
+    'highlight': $raspberry,
   )
 );
 
@@ -224,87 +225,6 @@ $themes: (
 
 @mixin color-border($color, $arguments...) {
   @include color($color, 'border-color', $arguments...);
-}
-
-// Painted backgrounds
-//
-// Arguments:
-// $image-name (string, required): the filename of the image without extension
-// $image-path (string): path the file
-// $color (string): color role of the background, e.g. 'well' or 'reverse'
-// $bg-widths (list of numbers): the widths of your scaled background images
-// $aspect-ratio (number): the height/width ratio of your scaled images - used to calculate bg height and offset for each media query.
-
-@mixin full-bleed-painted-background(
-  $image-name,
-  $image-path: '/assets/images/backgrounds/well/',
-  $color: 'well',
-  $bg-widths: (480, 800, 1200, 2000, 2600),
-  $aspect-ratio: 0.192307692
-) {
-
-  $initial-width: nth($bg-widths, 1);
-  $initial-height: round($initial-width * $aspect-ratio * 1px);
-  $initial-factor: 5;
-
-  position: relative;
-
-  // put the paint texture in a pseudo element so we can position it slightly outside the container boundary without interfering with its internal spacing (padding, etc.)
-  &::before {
-    background: url('#{$image-path}#{$image-name}@#{$initial-width}w.png') bottom center no-repeat;
-    content: '';
-    display: block;
-    height: $initial-height;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: -($initial-height / $initial-factor);
-    z-index: 0;
-  }
-
-  // put the bg color in another pseudo element so we can place it precisely under the paint texture without interfering with padding, etc.
-  &::after {
-    background-color: color($color);
-    bottom: 0;
-    content: '';
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: ($initial-height - ($initial-height / $initial-factor));
-    z-index: 1;
-  }
-
-  // make sure children are located above the bg color.
-  > * {
-    z-index: 2;
-  }
-
-  // set some initial conditions and we'll increment them in each media query below
-  $current-width: $initial-width; // the width of the screen size for which we'll be scaling the image, e.g. 800w image for a 480 screen, 1200w for an 800 screen, and so on. Equals the previous $key in $bg-widths.
-  $outset-factor: $initial-factor; // the fraction of the paint texture sticking out the top of the container, which decreases for each increase in size, e.g. 1/3 for 480, 1/4 for 800, etc.
-
-  // loop through the $bg-widths map above and set up media queries for each scaled version of the bg image
-  @each $size in $bg-widths {
-    $height: round($size * $aspect-ratio * 1px);
-    // using pixel units in the media queries because we're scaling for raster bg images and also because casting strings to real numbers is murder in Sass
-    @include media('>#{$current-width}px') {
-      // margin-top: _top-outset($size, $outset-factor);
-
-      &::before {
-        background-image: url('#{$image-path}#{$image-name}@#{$size}w.png');
-        height: $height;
-        top: -($height / $outset-factor);
-      }
-
-      &::after {
-        top: ($height - ($height / $outset-factor));
-      }
-    }
-
-    $current-width: $size;
-    $outset-factor: ($outset-factor + 1);
-  }
 }
 
 // Theme Globals
