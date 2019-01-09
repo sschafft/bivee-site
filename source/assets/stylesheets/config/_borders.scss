@@ -12,7 +12,7 @@
 // -----------------------------------------------------------------------------
 
 $border-radii: (
-  'default': 0.2em,
+  'default': 0.18em,
   'large': 0.375em
 );
 
@@ -39,7 +39,7 @@ $border-w-default: 'thin' !default;
 
 $border-styles: (
   'default': solid,
-  'secondary': dashed
+  'secondary': dotted
 ) !default;
 
 $border-widths: (

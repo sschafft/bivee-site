@@ -6,19 +6,15 @@
 @import '../config/libs';
 @import '../config/scale';
 
-@function space-scale($size: 0) {
-  @return ms($size, 1rem);
-}
-
 // standard spacing for margins and padding, etc.
 $spacing: (
-  'xxwide': space-scale(11),
-  'xwide': space-scale(8),
-  'wide': space-scale(4),
-  'medium': space-scale(2),
-  'narrow': space-scale(0),
-  'xnarrow': space-scale(-2),
-  'xxnarrow': space-scale(-6)
+  'xxwide': ms(12),
+  'xwide': ms(10),
+  'wide': ms(7),
+  'medium': ms(4),
+  'narrow': ms(2),
+  'xnarrow': ms(0),
+  'xxnarrow': ms(-2)
 );
 
 // getter function for $gutters map

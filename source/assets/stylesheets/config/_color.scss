@@ -36,8 +36,7 @@ $themes: (
   'dark': (
     'text': (
       'primary': $white,
-      'secondary': tint($blackberry, 70),
-      'tertiary': tint($blackberry, 45)
+      'secondary': $dark-blue-kuri
     ),
     'bg': $blackberry,
     'island': tint($blackberry, 10),
@@ -49,9 +48,8 @@ $themes: (
   // light gray background, dark text
   'light': (
     'text': (
-      'primary': tint($blackberry, 5),
-      'secondary': shade($blue-kuri, 10),
-      'tertiary': $white
+      'primary': $blackberry,
+      'secondary': tint($blackberry, 20)
     ),
     'bg': $blue-kuri,
     'island': $white,
@@ -64,8 +62,7 @@ $themes: (
   'default': (
     'text': (
       'primary': tint($blackberry, 5),
-      'secondary': shade($blue-kuri, 10),
-      'tertiary': tint($blue-kuri, 10)
+      'secondary': tint($blackberry, 40)
     ),
     'bg': $white,
     'island': $white,
