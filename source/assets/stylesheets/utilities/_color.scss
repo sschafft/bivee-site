@@ -112,8 +112,10 @@ body,
   @include color-background('well', $important: true);
 }
 
-.c-bg {
-  @include color('bg', 'background-color');
+@each $theme, $colors in $themes {
+  .c-bg-#{$theme} {
+    background-color: color('bg', $theme) !important;
+  }
 }
 
 .c-bg-transparent {
@@ -121,12 +123,12 @@ body,
 }
 
 // --- painted backgrounds
-// -> usage: ".c-painted-bg-01"
+// -> usage: ".c-painted-bg-01", "c-painted-bg-05", etc.
 // -> 9 versions available
+// -> use with "c-bg-transparent" or "c-bg-[theme]" to control the background of the container. otherwise it will inherit the bg color of the parent theme (e.g. 'dark') which may obscure the paint texture. I'm leaving this unopinionated to avoid specificity wars with c-theme-* utils.
 
 // base styles
 [class*='c-bg-painted'] {
-  background: transparent !important;
   position: relative;
   z-index: 1; // add a z-index value so subsequent containers 'overlap' correctly
 
