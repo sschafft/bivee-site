@@ -96,10 +96,7 @@ body,
   @include color('text' 'secondary', $important: true);
 }
 
-.c-text-tertiary {
-  @include color('text' 'tertiary', $important: true);
-}
-
+// make the text (or foreground element) the background color
 .c-text-reverse {
   @include color('bg');
 }
@@ -112,6 +109,14 @@ body,
   @include color-background('well', $important: true);
 }
 
+// change the color of the border
+@each $color in ['highlight', 'island', 'well'] {
+  .c-border-#{$color} {
+    @include color-border($color, $important:  true);
+  }
+}
+
+// change the color of the background to match another theme
 @each $theme, $colors in $themes {
   .c-bg-#{$theme} {
     background-color: color('bg', $theme) !important;

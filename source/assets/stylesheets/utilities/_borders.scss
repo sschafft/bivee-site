@@ -8,15 +8,42 @@
 @import '../config/borders';
 @import '../config/breakpoints';
 
+.border-markers-corners {
+  $slice-width: 20;
+  $marker-width: 15px;
+  border: border-width('thin') dotted color('border');
+  position: relative;
+
+  @supports(border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat) {
+    border: 0;
+
+    // add the border image to a pseudo element so it doesn't mess with the container's padding or bg image
+    &::before {
+      $offset: -(($marker-width - border-width('thin')) / 2);
+
+      border: #{$slice-width}px dotted color('border');
+      border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat;
+      content: '';
+      display: block;
+      left: $offset;
+      position: absolute;
+      right: $offset;
+      bottom: $offset;
+      top: $offset;
+      z-index: 3;
+    }
+  }
+}
+
 .border-markers-wide-top {
   $slice-width: 53;
 
-  border-top: 1px dotted color('border');
+  border-top: border-width('thin') dotted color('border');
   position: relative;
 
   &::after {
     $h: 40px;
-    $w: 1px;
+    $w: border-width('thin');
     @include color-background('border');
     content: '';
     display: block;
@@ -83,5 +110,5 @@
 
 // make a border thicker
 .border-thick {
-  border-width: border-w('thick');
+  border-width: border-width('thick') !important;
 }

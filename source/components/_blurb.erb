@@ -6,13 +6,14 @@
     # Locals:
     width ||= 'narrow' # STRING: how wide the wrapper should be, e.g. 'wide' or 'default'
     heading ||= false # STRING: header
+    heading_level ||= 2 # NUMBER: the semantic level of heading, e.g. h2
     heading_size ||= 'alpha' # STRING: how big/prominent the header is, e.g. 'alpha', 'beta', etc.
     text_size ||= 'epsilon'
 %>
 
 <section>
   <% if heading %>
-    <h1 class="t-scale-<%= heading_size %> t-align-center padding-bottom-narrow"><%= heading %></h1>
+    <h<%= heading_level %> class="t-scale-<%= heading_size %> t-align-center padding-bottom-narrow"><%= heading %></h<%= heading_level %>>
   <% end %>
   <% component 'wrapper', locals: { width: width, classes: "t-content t-scale-#{text_size}" } do %>
     <%= yield %>

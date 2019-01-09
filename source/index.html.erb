@@ -8,7 +8,7 @@ title: home
     bg_image: '/assets/images/covers/ink-cover%401200w.png',
     padding: { top: 'xxwide', bottom: 'xxwide', x: 'wide' }
   } do %>
-    <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block padding-bottom-wide', alt: 'Bivee', style: 'width: 15em;' %>
+    <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block padding-bottom-narrow', alt: 'Bivee', style: 'width: 15em;' %>
     <h1 class="t-scale-beta t-leading-default c-text-reverse"><%= data.site.cover.headline %></h1>
   <% end %>
 
@@ -38,11 +38,9 @@ title: home
 
 <!-- Staff -->
 <% component 'panel', locals: { theme: 'light', painted: rand(1..9) } do %>
-  <% component 'blurb', locals: { heading: data.site.staff.headline.home } do %>
-    <%= data.site.staff.intro %>
-  <% end %>
+  <h2 class="t-scale-alpha t-align-center"><%= data.site.staff.headline.home %></h2>
   <!-- list of staff photos -->
-  <section class='l-wrapper l-wrapper--wide padding-top-wide'>
+  <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
     <%= component 'staff_list', locals: { staff: find_staff_profiles, classes: 't-align-center' } %>
-  </section>
+  <% end %>
 <% end %>
