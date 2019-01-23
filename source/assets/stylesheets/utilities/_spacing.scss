@@ -20,10 +20,6 @@
     #{$prop}: 0 !important;
   }
 
-  .offset-#{$prop} {
-    margin: -(space());
-  }
-
   // add space on x and y axes, e.g. padding-y, margin-x
   .#{$prop}-x {
     #{$prop}-left: space();
@@ -105,21 +101,33 @@
       #{$prop}-#{$side}: 0 !important;
     }
 
-    .offset-#{$prop}-#{$side} {
-      margin-#{$side}: -(space());
-    }
-
     // variations
     @each $name, $length in $spacing {
       @if $name != 'medium' {
         .#{$prop}-#{$side}-#{$name} {
           #{$prop}-#{$side}: space($name) !important;
         }
-
-        .offset-#{$prop}-#{$side}-#{$name} {
-          margin-#{$side}: -(space($name));
-        }
       }
+    }
+  }
+}
+
+// "Offset" negative spacing
+// -> compensate for interior padding to make an element appear flush
+//    or create an 'outdent' on a child element
+
+.offset-margin {
+  margin: -(space());
+}
+
+@each $side in (top, right, bottom, left) {
+  .offset-margin-#{$side} {
+    margin-#{$side}: -(space());
+  }
+
+  @each $name, $length in $spacing {
+    .offset-margin-#{$side}-#{$name} {
+      margin-#{$side}: -(space($name));
     }
   }
 }
