@@ -25,7 +25,7 @@ projects:
   date: 2014
   type: Data, knowledge, and learning systems
   cover:
-    thumb: work/ppp/assets/PPP-thumb@800.jpg
+    thumb: work/ppp/assets/thumb-PPP.png
     full_size: work/ppp/assets/ppp-cover.png
 
 - title:
@@ -39,7 +39,7 @@ projects:
   date: 2017+
   type: Data, knowledge, and learning systems
   cover:
-    thumb: work/ga/assets/GA-thumb@800.jpg
+    thumb: work/ga/assets/thumb-GA.png
     full_size: work/ppp/assets/ppp-cover.png
 
 # - title:
