@@ -16,23 +16,19 @@
         <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
           <div class="border-markers-corners">
             <div class="offset-margin-left-narrow offset-margin-right-narrow">
-              <div style="
-                display: flex;
-                align-content: center;
-                position: absolute;
-                top: 20%;
-                bottom: 20%;
-                left: 20%;
-                right: 20%;
-                z-index: 3;
-              ">
-                <img src="/assets/images/thumbs/GA-drawing.png" style="max-width: 100%; max-height: 100%; margin: auto;" />
+              <div data-ui-aspect="3x1">
+                <div data-ui-aspect-content="bg" style="
+                  background-image: url('/assets/images/thumbs/thumb-0<%= rand(1...6) %>.png');
+                  padding: 16%; /* padding around client logo drawing */
+                ">
+                  <%= component 'responsive_image', locals: {
+                    source: '/assets/images/thumbs/GA-drawing.png',
+                    alt: project.title.short,
+                    data: { 'ui-aspect-image': ''}
+                  } %>
+                </div>
               </div>
-              <%= component 'fluid_aspect_image', locals: {
-                source: "/assets/images/thumbs/thumb-0#{index + 1}.png",
-                bg_size: 'cover',
-                alt: project.title.short
-              } %>
+
             </div>
           </div>
           <h2 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h2>

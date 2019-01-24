@@ -40,20 +40,42 @@
   width: 100%;
 }
 
+// force an inline child image to conform to the aspect ratio of the aspect-content container
+[data-ui-aspect-image] {
+  display: inline-block;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: scale-down;
+}
+
+// change the object-fit scaling
+[data-ui-aspect-image~='scale-contain'] {
+  object-fit: contain;
+}
+
+[data-ui-aspect-image~='scale-cover'] {
+  object-fit: cover;
+}
+
 // display a background image on the item
 // -> pass in the background image inline, e.g. style="background-image: url(...);"
-// -> useful for swapping print/screen versions of an image, see marketing site
 [data-ui-aspect-content~='bg'] {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
 
-  &[data-ui-aspect-content~='cover'] {
+  &[data-ui-aspect-content~='scale-cover'] {
     background-size: cover;
   }
 
-  [data-ui-aspect-image] {
+  // display the inline image as a background, to ensure it scales correctly to the aspect ratio. useful as a print and IE fallback, which doesn't support object-fit.
+  &[data-ui-aspect-content~='swap'] [data-ui-aspect-image] {
     display: none;
+
+    @media print {
+      display: inline-block;
+    }
   }
 }
 
