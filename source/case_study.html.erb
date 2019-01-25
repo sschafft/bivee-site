@@ -5,7 +5,7 @@
 
 <article>
   <!-- Cover image, and title -->
-  <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark">
+  <header class="padding-x-wide padding-top-xwide padding-bottom-wide border-bottom c-theme-dark c-bg-painted-bottom-0<%= rand(1...9) %>">
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
       <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 13em; max-height: 12em;' %>
       <h1 class="padding-top-wide"><%= project.title.long %></h1>
@@ -24,12 +24,12 @@
   </header>
 
   <!-- Main content: sections -->
-  <main id="main_content">
+  <main class="z-top" id="main_content">
     <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title.short }.sort_by {|r| r.data.weight } %>
     <% sections.each do |section| %>
       <% component 'panel', locals: { slug: false } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
-          <h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= section.data.title %></h1>
+          <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
           <div class="t-content">
             <%= section.render layout: false %>
           </div>

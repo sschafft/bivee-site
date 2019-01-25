@@ -8,15 +8,12 @@
   painted ||= false # NUMBER (optional): number of the bg image used for the painted bg. 1-9.
   painted_side ||= 'top' # STRING (optional): side the painted bg appears on. Can be 'top' or 'bottom'.
   classes ||= false # STRING: additional modifier classes for the container
-  borders ||= [ 'top' ] # STRING/ARRAY: sides you want borders on - see border_classes helper in config.rb
   el ||= 'section' # What HTML element should the wrapper be?
   padding ||= { x: 'wide', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
 
-    # border_classes(borders),
-
   wrapper = [
     ("c-theme-#{theme}" if theme != 'default'),
-    ("c-bg-painted-0#{painted}-#{painted_side}" if painted),
+    ("c-bg-painted-#{painted_side}-0#{painted}" if painted),
     ("c-bg-#{bg}" if bg != 'inherit'),
     (classes if classes)
   ]

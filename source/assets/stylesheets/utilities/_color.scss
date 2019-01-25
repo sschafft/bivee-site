@@ -22,7 +22,8 @@
   $image-path: '/assets/images/backgrounds/',
   $color: 'bg',
   $bg-widths: (480, 800, 1200, 2000, 2600),
-  $aspect-ratio: 0.096153846
+  $aspect-ratio: 0.096153846,
+  $side: 'top'
 ) {
 
   $initial-width: nth($bg-widths, 1);
@@ -31,14 +32,14 @@
 
   // put the paint texture in a pseudo element so we can position it slightly outside the container boundary without interfering with its internal spacing (padding, etc.)
   &::before {
+    #{$side}: -($initial-height / $initial-factor);
     background-image: url('#{$image-path}#{$image-name}@#{$initial-width}w.png');
     height: $initial-height;
-    top: -($initial-height / $initial-factor);
   }
 
   // put the bg color in another pseudo element so we can place it precisely under the paint texture without interfering with padding, etc.
   &::after {
-    top: ($initial-height - ($initial-height / $initial-factor));
+    #{$side}: ($initial-height - ($initial-height / $initial-factor));
   }
 
   // set some initial conditions and we'll increment them in each media query below
@@ -53,13 +54,13 @@
       // margin-top: _top-outset($size, $outset-factor);
 
       &::before {
+        #{$side}: -($height / $outset-factor);
         background-image: url('#{$image-path}#{$image-name}@#{$size}w.png');
         height: $height;
-        top: -($height / $outset-factor);
       }
 
       &::after {
-        top: ($height - ($height / $outset-factor));
+        #{$side}: ($height - ($height / $outset-factor));
       }
     }
 
@@ -183,8 +184,8 @@ body,
     // loop through 9 background versions for each theme
     @for $i from 1 through 9 {
       @each $side in (top, bottom) {
-        .c-bg-painted-0#{$i}-#{$side}.c-theme-#{$theme} {
-          @include _painted-background-variation('#{$theme}/#{$side}/0#{$i}');
+        .c-bg-painted-#{$side}-0#{$i}.c-theme-#{$theme} {
+          @include _painted-background-variation('#{$theme}/#{$side}/0#{$i}', $side: $side);
         }
       }
     }
