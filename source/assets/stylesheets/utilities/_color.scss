@@ -150,6 +150,7 @@ body,
   // put the bg color in another pseudo element so we can place it precisely under the paint texture without interfering with padding, etc.
   &::after {
     #{$side}: ($initial-height - ($initial-height / $initial-factor));
+    #{if($side == 'top', 'bottom', 'top')}: 0;
   }
 
   // set some initial conditions and we'll increment them in each media query below
@@ -171,7 +172,6 @@ body,
 
       &::after {
         #{$side}: ($height - ($height / $outset-factor));
-        #{if($side == 'top', 'bottom', 'top')}: 0;
       }
     }
 

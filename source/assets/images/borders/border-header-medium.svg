@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="200px" height="100px" viewBox="0 0 200 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>border-header</title>
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>border-header-medium</title>
     <desc>Created with Sketch.</desc>
-    <g id="border-header" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="border-header-medium" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <path d="M49,92.5 L77,92.5" id="line-left-inside" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
         <path d="M124,92.5 L152,92.5" id="line-right-inside" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
         <path d="M175,92.5 L200,92.5" id="line-right" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
@@ -11,6 +11,6 @@
         <path d="M164,92 L170.5,92 C170.776142,92 171,92.2238576 171,92.5 C171,92.7761424 170.776142,93 170.5,93 L164,93 L164,99.5 C164,99.7761424 163.776142,100 163.5,100 C163.223858,100 163,99.7761424 163,99.5 L163,93 L156.5,93 C156.223858,93 156,92.7761424 156,92.5 C156,92.2238576 156.223858,92 156.5,92 L163,92 L163,85.5 C163,85.2238576 163.223858,85 163.5,85 C163.776142,85 164,85.2238576 164,85.5 L164,92 Z" id="marker-right" fill="#939BA8"></path>
         <path d="M37,92 L43.5,92 C43.7761424,92 44,92.2238576 44,92.5 C44,92.7761424 43.7761424,93 43.5,93 L37,93 L37,99.5 C37,99.7761424 36.7761424,100 36.5,100 C36.2238576,100 36,99.7761424 36,99.5 L36,93 L29.5,93 C29.2238576,93 29,92.7761424 29,92.5 C29,92.2238576 29.2238576,92 29.5,92 L36,92 L36,85.5 C36,85.2238576 36.2238576,85 36.5,85 C36.7761424,85 37,85.2238576 37,85.5 L37,92 Z" id="marker-left" fill="#939BA8"></path>
         <path d="M201,0 L201,16 L165,16" id="corner-top-right" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3" transform="translate(183.000000, 8.000000) scale(-1, 1) translate(-183.000000, -8.000000) "></path>
-        <path d="M35,0 L35,16 L-1,16" id="corner-top-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M36,0 L36,16 L0,16" id="corner-top-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
     </g>
 </svg>

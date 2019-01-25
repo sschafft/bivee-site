@@ -112,6 +112,22 @@
   }
 }
 
+// Outside gutters
+// -> opinionated class to set consistent, responsive outside padding on full-width containers
+.padding-x-outside {
+  padding-left: space(space-outside('default'));
+  padding-right: space(space-outside('default'));
+
+  @each $screen, $width in $spacing-outside {
+    @if $screen != 'default' {
+      @include media('>#{$screen}') {
+        padding-left: space($width);
+        padding-right: space($width);
+      }
+    }
+  }
+}
+
 // "Offset" negative spacing
 // -> compensate for interior padding to make an element appear flush
 //    or create an 'outdent' on a child element

@@ -24,7 +24,7 @@
     &::before {
       $offset: -(($marker-width - border-width('thin')) / 2);
 
-      border: #{$slice-width}px dotted color('border');
+      border: #{$slice-width}px solid transparent;
       border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat;
       bottom: $offset;
       content: '';
@@ -39,7 +39,7 @@
 }
 
 // base styles for border-markers classes used on panels, etc.
-[class*='border-markers'] {
+[class*='border-markers-full-bleed'] {
   &:not(.border-markers-corners) {
     position: relative;
 
@@ -63,12 +63,12 @@
   }
 }
 
-@mixin border-markers(
+@mixin border-markers-full-bleed(
   $side,
-  $image: 'border-markers-wide-top.svg',
+  $image,
   $path: '/assets/images/borders/',
   $color: 'border',
-  $slice-width: 53,
+  $slice-width: 76,
   $image-height: 15px,
   $border-height: 1px,
   $eyebrow-height: 40px,
@@ -89,7 +89,7 @@
 
     // add the border image to a pseudo element so it doesn't mess with the container's padding or bg image
     &::before {
-      border: #{$slice-width}px dotted color('border');
+      border: #{$slice-width}px solid transparent;
       border-image: url('#{$path}#{$image}') $slice-width repeat;
       // vertical offset so the border is placed at the edge of the container
       #{$side}: -(($image-height - $border-height) / 2);
@@ -97,12 +97,28 @@
   }
 }
 
-.border-markers-wide-top {
-  @include border-markers('top');
-}
+// Full-bleed decorative borders, for full-width containers
+// -> they follow (and respond with) outside margins. See config/spacing
+@each $side in ('top', 'bottom') {
+  .border-markers-full-bleed-top {
+    @include border-markers-full-bleed(
+      $side,
+      'border-markers-#{space-outside('default')}-#{$side}.svg',
+      $slice-width: border-markers-full-bleed-slices(space-outside('default'))
+    );
 
-.border-markers-wide-bottom {
-  @include border-markers('bottom', 'border-markers-wide-bottom.svg');
+    @each $screen, $width in $spacing-outside {
+      @if $screen != 'default' {
+        @include media('>#{$screen}') {
+          @include border-markers-full-bleed(
+            $side,
+            'border-markers-#{$width}-#{$side}.svg',
+            $slice-width: border-markers-full-bleed-slices($width)
+          );
+        }
+      }
+    }
+  }
 }
 
 // Basic borders

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="100px" viewBox="0 0 200 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>border-header-narrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="border-header-narrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M36,92.5 L64,92.5" id="line-left-inside" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M136,92.5 L164,92.5" id="line-right-inside" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M200,0 L200,16 L176,16" id="corner-top-right" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3" transform="translate(188.000000, 8.000000) scale(-1, 1) translate(-188.000000, -8.000000) "></path>
+        <path d="M24,0 L24,16 L0,16" id="corner-top-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M1.7584434,92.5 L12.5,92.5" id="line-right-copy" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M188.758443,92.5 L199.5,92.5" id="line-right-copy-2" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M24,92 L30.5,92 C30.7761424,92 31,92.2238576 31,92.5 C31,92.7761424 30.7761424,93 30.5,93 L24,93 L24,99.5 C24,99.7761424 23.7761424,100 23.5,100 C23.2238576,100 23,99.7761424 23,99.5 L23,93 L16.5,93 C16.2238576,93 16,92.7761424 16,92.5 C16,92.2238576 16.2238576,92 16.5,92 L23,92 L23,85.5 C23,85.2238576 23.2238576,85 23.5,85 C23.7761424,85 24,85.2238576 24,85.5 L24,92 Z" id="marker-left" fill="#939BA8"></path>
+        <path d="M24,92 L30.5,92 C30.7761424,92 31,92.2238576 31,92.5 C31,92.7761424 30.7761424,93 30.5,93 L24,93 L24,99.5 C24,99.7761424 23.7761424,100 23.5,100 C23.2238576,100 23,99.7761424 23,99.5 L23,93 L16.5,93 C16.2238576,93 16,92.7761424 16,92.5 C16,92.2238576 16.2238576,92 16.5,92 L23,92 L23,85.5 C23,85.2238576 23.2238576,85 23.5,85 C23.7761424,85 24,85.2238576 24,85.5 L24,92 Z" id="marker-left-copy" fill="#939BA8"></path>
+        <path d="M177,92 L183.5,92 C183.776142,92 184,92.2238576 184,92.5 C184,92.7761424 183.776142,93 183.5,93 L177,93 L177,99.5 C177,99.7761424 176.776142,100 176.5,100 C176.223858,100 176,99.7761424 176,99.5 L176,93 L169.5,93 C169.223858,93 169,92.7761424 169,92.5 C169,92.2238576 169.223858,92 169.5,92 L176,92 L176,85.5 C176,85.2238576 176.223858,85 176.5,85 C176.776142,85 177,85.2238576 177,85.5 L177,92 Z" id="marker-left-copy-2" fill="#939BA8"></path>
+    </g>
+</svg>

@@ -48,6 +48,12 @@ $border-widths: (
   'thick': 11px
 ) !default;
 
+$border-markers-full-bleed-slices: (
+  'narrow': 40,
+  'medium': 53,
+  'wide': 76
+);
+
 // get function for border style
 @function border-style($name: 'default') {
   @return map-get($border-styles, $name);
@@ -60,6 +66,10 @@ $border-widths: (
   } @else {
     @return map-get($border-widths, $w);
   }
+}
+
+@function border-markers-full-bleed-slices($size) {
+  @return map-get($border-markers-full-bleed-slices, $size);
 }
 
 // make a standard border/hairline that works with the parent color theme

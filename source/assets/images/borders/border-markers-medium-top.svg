@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="100px" viewBox="0 0 200 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>border-markers-medium-top</title>
+    <desc>Created with Sketch.</desc>
+    <g id="border-markers-medium-top" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M178,7.5 L199.5,7.5" id="line-right" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M46,7.5 L154.5,7.5" id="line-middle" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M167,7 L173.5,7 C173.776142,7 174,7.22385763 174,7.5 C174,7.77614237 173.776142,8 173.5,8 L167,8 L167,14.5 C167,14.7761424 166.776142,15 166.5,15 C166.223858,15 166,14.7761424 166,14.5 L166,8 L159.5,8 C159.223858,8 159,7.77614237 159,7.5 C159,7.22385763 159.223858,7 159.5,7 L166,7 L166,0.5 C166,0.223857625 166.223858,5.07265313e-17 166.5,0 C166.776142,-5.07265313e-17 167,0.223857625 167,0.5 L167,7 Z" id="marker-right" fill="#939BA8"></path>
+        <path d="M34,7 L40.5,7 C40.7761424,7 41,7.22385763 41,7.5 C41,7.77614237 40.7761424,8 40.5,8 L34,8 L34,14.5 C34,14.7761424 33.7761424,15 33.5,15 C33.2238576,15 33,14.7761424 33,14.5 L33,8 L26.5,8 C26.2238576,8 26,7.77614237 26,7.5 C26,7.22385763 26.2238576,7 26.5,7 L33,7 L33,0.5 C33,0.223857625 33.2238576,5.07265313e-17 33.5,0 C33.7761424,-5.07265313e-17 34,0.223857625 34,0.5 L34,7 Z" id="marker-left" fill="#939BA8"></path>
+        <path d="M0,7.5 L21.5,7.5" id="line-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+    </g>
+</svg>

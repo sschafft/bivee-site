@@ -11,12 +11,12 @@
 
 [data-ui-main-header] {
   $slice-width-x: 18;
-  $slice-width-y: 80;
+  $slice-width-y: 104;
   position: relative;
 
   &::before {
     border-color: color('border');
-    border-image: url('/assets/images/borders/border-header.svg') $slice-width-x $slice-width-y repeat;
+    border-image: url('/assets/images/borders/border-header-wide.svg') $slice-width-x $slice-width-y repeat;
     border-style: dotted;
     border-width: #{$slice-width-x}px #{$slice-width-y}px;
     bottom: -7px;

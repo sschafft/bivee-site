@@ -32,8 +32,8 @@
   <!-- Main content: sections -->
   <main class="z-top" id="main_content">
     <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title.short }.sort_by {|r| r.data.weight } %>
-    <% sections.each do |section, index| %>
-      <% component 'panel', locals: { border: (index === 0 ? 'none' : 'top') } do %>
+    <% sections.each_with_index do |section, index| %>
+      <% component 'panel', locals: { border: (index == 0 ? 'none' : 'top') } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
           <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
           <div class="t-content">

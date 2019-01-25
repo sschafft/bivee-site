@@ -17,6 +17,16 @@ $spacing: (
   'xxnarrow': ms(-8)
 );
 
+// outside margins for full-width containers
+// -> [screen size]: [margin width]
+// -> need to be responsive to keep content from getting too scrunched on small screens, and to add more air on larger screens
+// -> used for both spacing utils also decorated borders
+$spacing-outside: (
+  'default': 'narrow',
+  'small': 'medium',
+  'medium': 'wide'
+);
+
 // getter function for $gutters map
 @function space($name: 'medium', $split: false) {
   @if $split == false {
@@ -24,4 +34,9 @@ $spacing: (
   } @else {
     @return (map-get($spacing, $name) / 2);
   }
+}
+
+// getter function for outside spacing
+@function space-outside($name) {
+  @return map-get($spacing-outside, $name);
 }

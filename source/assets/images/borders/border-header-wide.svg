@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="250px" height="100px" viewBox="0 0 250 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>border-header-wide</title>
+    <desc>Created with Sketch.</desc>
+    <g id="border-header-wide" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group" transform="translate(0.000000, 85.000000)">
+            <path d="M73,7.5 L101,7.5" id="line-left-inside" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+            <path d="M61,7 L67.5,7 C67.7761424,7 68,7.22385763 68,7.5 C68,7.77614237 67.7761424,8 67.5,8 L61,8 L61,14.5 C61,14.7761424 60.7761424,15 60.5,15 C60.2238576,15 60,14.7761424 60,14.5 L60,8 L53.5,8 C53.2238576,8 53,7.77614237 53,7.5 C53,7.22385763 53.2238576,7 53.5,7 L60,7 L60,0.5 C60,0.223857625 60.2238576,5.07265313e-17 60.5,0 C60.7761424,-5.07265313e-17 61,0.223857625 61,0.5 L61,7 Z" id="marker-left" fill="#939BA8"></path>
+            <path d="M0,7.5 L48.5,7.5" id="line-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        </g>
+        <path d="M149,92.5 L177,92.5" id="line-left-inside" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3" transform="translate(163.000000, 92.500000) scale(-1, 1) translate(-163.000000, -92.500000) "></path>
+        <path d="M190,92 L196.5,92 C196.776142,92 197,92.2238576 197,92.5 C197,92.7761424 196.776142,93 196.5,93 L190,93 L190,99.5 C190,99.7761424 189.776142,100 189.5,100 C189.223858,100 189,99.7761424 189,99.5 L189,93 L182.5,93 C182.223858,93 182,92.7761424 182,92.5 C182,92.2238576 182.223858,92 182.5,92 L189,92 L189,85.5 C189,85.2238576 189.223858,85 189.5,85 C189.776142,85 190,85.2238576 190,85.5 L190,92 Z" id="marker-left" fill="#939BA8" transform="translate(189.500000, 92.500000) scale(-1, 1) translate(-189.500000, -92.500000) "></path>
+        <path d="M201,92.5 L249.5,92.5" id="line-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3" transform="translate(225.500000, 92.500000) scale(-1, 1) translate(-225.500000, -92.500000) "></path>
+        <path d="M250,0 L250,16 L190,16" id="corner-top-right" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3" transform="translate(220.000000, 8.000000) scale(-1, 1) translate(-220.000000, -8.000000) "></path>
+        <path d="M59,0 L59,16 L-1,16" id="corner-top-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+    </g>
+</svg>

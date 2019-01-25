@@ -11,7 +11,7 @@
   painted_side ||= 'top' # STRING (optional): side the painted bg appears on. Can be 'top' or 'bottom'.
   classes ||= false # STRING: additional modifier classes for the container
   el ||= 'section' # What HTML element should the wrapper be?
-  padding ||= { x: 'wide', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
+  padding ||= { x: 'outside', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
 
   wrapper = [
     ("c-theme-#{theme}" if theme != 'default'),
@@ -21,7 +21,7 @@
   ]
 
   utils = [
-    border_classes(border, 'border-markers-wide'),
+    border_classes(border, 'border-markers-full-bleed'),
     padding_classes(padding)
   ]
 %>
