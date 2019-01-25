@@ -10,7 +10,7 @@
 @import '../config/scale';
 @import '../config/type';
 
-$gallery-gutter: space();
+$gallery-gutter: space(); // default gutter width
 
 // Block
 // -----------------------------------------------------------------------------
@@ -43,6 +43,28 @@ $gallery-gutter: space();
     grid-row-gap: $gallery-gutter;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     margin: 0;
+  }
+}
+
+@each $name, $width in $spacing {
+  [data-ui-gallery~='gutter-#{$name}'] {
+    margin: -($width / 2);
+
+    @supports (display: grid) {
+      // Disable 'spelling' linter b/c it doesn't recognize grid properties
+      // scss-lint:disable PropertySpelling
+      grid-column-gap: $width;
+      grid-row-gap: $width;
+      margin: 0;
+    }
+
+    [data-ui-gallery-item] {
+      padding: ($width / 2);
+
+      @supports (display: grid) {
+        padding: 0;
+      }
+    }
   }
 }
 

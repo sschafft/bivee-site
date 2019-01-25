@@ -23,12 +23,12 @@
 
       border: #{$slice-width}px dotted color('border');
       border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat;
+      bottom: $offset;
       content: '';
       display: block;
       left: $offset;
       position: absolute;
       right: $offset;
-      bottom: $offset;
       top: $offset;
       z-index: 3;
     }

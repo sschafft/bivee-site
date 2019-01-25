@@ -13,8 +13,8 @@ $spacing: (
   'wide': ms(7),
   'medium': ms(4),
   'narrow': ms(2),
-  'xnarrow': ms(0),
-  'xxnarrow': ms(-6)
+  'xnarrow': ms(-2),
+  'xxnarrow': ms(-8)
 );
 
 // getter function for $gutters map

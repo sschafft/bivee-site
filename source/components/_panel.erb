@@ -5,7 +5,8 @@
   id ||= false # STRING: id attribute for the container, for anchor links etc.
   theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
   bg ||= 'transparent' # STRING: how to handle the bg color. "transparent" forces it to be transparent. "inherit" will use the bg color of the theme (e.g. "dark"). Or, pass in a theme name ("light") to use a specific bg color.
-  painted ||= false # NUMBER: use a painted background texture? pass in 1-9 to pick a variation
+  painted ||= false # NUMBER (optional): number of the bg image used for the painted bg. 1-9.
+  painted_side ||= 'top' # STRING (optional): side the painted bg appears on. Can be 'top' or 'bottom'.
   classes ||= false # STRING: additional modifier classes for the container
   borders ||= [ 'top' ] # STRING/ARRAY: sides you want borders on - see border_classes helper in config.rb
   el ||= 'section' # What HTML element should the wrapper be?
@@ -15,7 +16,7 @@
 
   wrapper = [
     ("c-theme-#{theme}" if theme != 'default'),
-    ("c-bg-painted-0#{painted}" if painted),
+    ("c-bg-painted-0#{painted}-#{painted_side}" if painted),
     ("c-bg-#{bg}" if bg != 'inherit'),
     (classes if classes)
   ]

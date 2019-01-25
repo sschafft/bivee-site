@@ -4,6 +4,8 @@
 %>
 
 <% wrap_layout :layout do %>
+  <%# header %>
+  <%= component 'main_header', locals: { theme: 'dark' } %>
 
   <!-- Staff profile -->
   <article class="margin-bottom-xwide padding-wide">
@@ -18,7 +20,7 @@
       <header class="padding-bottom t-align-center">
   	    <h1 class="t-scale-alpha"><%= current_page.data.name %></h1>
         <p data-ui-gutter="xnarrow" class="t-heading t-scale-delta c-accent">
-          <% unless current_page.data.role.level == 'Team' %><span data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="display-inline-block padding-right-xnarrow border-right"><%= current_page.data.role.level %></span></span><% end %><span data-ui-gutter-item class="display-inline-block"><%= current_page.data.role.title %></span>
+          <span data-ui-gutter-item class="display-inline-block"><%= current_page.data.job_title %></span>
         </p>
     	</header>
       <%= yield %>

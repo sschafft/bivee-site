@@ -7,7 +7,12 @@
 
 <% unless hide_contact %>
   <!-- Contact us -->
-  <% component 'panel', locals: { theme: 'dark', painted: rand(1..9), bg: 'light', id: 'contact' } do %>
+  <% component 'panel', locals: {
+    theme: 'dark',
+    painted: rand(1..9),
+    bg: 'light',
+    id: 'contact'
+  } do %>
     <% component 'wrapper', locals: { width: 'narrow' } do %>
       <h1 class="t-scale-beta t-align-center padding-bottom"><%= data.site.contact.headline %></h1>
        <%= "<p class='t-content'>#{data.site.contact.intro}</p>" if data.site.contact.intro %>

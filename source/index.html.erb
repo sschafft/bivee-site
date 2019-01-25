@@ -2,6 +2,11 @@
 title: home
 ---
 
+<%= component 'main_header', locals: {
+  hide_logo: true,
+  overlay: true,
+  theme: 'dark'
+} %>
 <section class="t-align-center">
   <!-- Cover -->
   <% component 'cover', locals: {
@@ -27,9 +32,9 @@ title: home
 <% component 'panel' do %>
   <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> <%= data.case_studies.intro %>
   <% end %>
-  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center' } do %>
+  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center padding-top-xwide' } do %>
     <!-- Case study listings -->
-    <%= component 'case_studies_list', locals: { projects: data.case_studies.projects, classes: 'padding-top-xwide' } %>
+    <%= component 'case_studies_list', locals: { projects: data.case_studies.projects } %>
 
     <%# enable this button when there's more than 3 case studies to display %>
     <%#= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top-wide', role: 'primary' } %>
@@ -37,7 +42,10 @@ title: home
 <% end %>
 
 <!-- Staff -->
-<% component 'panel', locals: { theme: 'light', painted: rand(1..9) } do %>
+<% component 'panel', locals: {
+  theme: 'light',
+  painted: rand(1..9)
+} do %>
   <h2 class="t-scale-alpha t-align-center"><%= data.site.staff.headline.home %></h2>
   <!-- list of staff photos -->
   <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
