@@ -40,25 +40,23 @@
 
 // base styles for border-markers classes used on panels, etc.
 [class*='border-markers-full-bleed'] {
-  &:not(.border-markers-corners) {
-    position: relative;
+  position: relative;
 
-    // the vertical 'eyebrow' at top center
-    &::after {
+  // the vertical 'eyebrow' at top center
+  &::after {
+    content: '';
+    display: block;
+    left: 50%;
+    position: absolute;
+  }
+
+  @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') 12 repeat) {
+    &::before {
       content: '';
       display: block;
-      left: 50%;
+      left: 0;
       position: absolute;
-    }
-
-    @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') 12 repeat) {
-      &::before {
-        content: '';
-        display: block;
-        left: 0;
-        position: absolute;
-        right: 0;
-      }
+      right: 0;
     }
   }
 }
@@ -100,7 +98,7 @@
 // Full-bleed decorative borders, for full-width containers
 // -> they follow (and respond with) outside margins. See config/spacing
 @each $side in ('top', 'bottom') {
-  .border-markers-full-bleed-top {
+  .border-markers-full-bleed-#{$side} {
     @include border-markers-full-bleed(
       $side,
       'border-markers-#{space-outside('default')}-#{$side}.svg',
