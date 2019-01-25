@@ -38,8 +38,8 @@ $border-radii: (
 $border-w-default: 'thin' !default;
 
 $border-styles: (
-  'default': solid,
-  'secondary': dotted
+  'default': solid, // buttons, etc.
+  'secondary': dotted // hairlines
 ) !default;
 
 $border-widths: (

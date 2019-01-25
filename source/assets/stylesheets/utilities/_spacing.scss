@@ -142,7 +142,7 @@
   }
 
   @each $name, $length in $spacing {
-    .offset-margin-#{$side}-#{$name} {
+    @include breakpointify('offset-margin-#{$side}-#{$name}', true, [small]) {
       margin-#{$side}: -(space($name));
     }
   }

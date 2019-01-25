@@ -25,6 +25,7 @@
 
 // a 'flush' gutter group gets a negative margin so it appears to have no
 // outside gutter
+// -> note this will cause horizontal scrolling if outside margins are narrower than the inside gutter. add .overflow-hidden to a parent to prevent this.
 [data-ui-gutter~='flush'] {
   margin: -(space());
 }

@@ -8,8 +8,14 @@
 @import '../config/borders';
 @import '../config/breakpoints';
 
+$_sides: ['top', 'right', 'bottom', 'left'];
+
 // Decorative borders
 // -----------------------------------------------------------------------------
+
+.border-markers-top-left {
+
+}
 
 .border-markers-corners {
   $slice-width: 20;
@@ -124,10 +130,10 @@
 
 // .border, .border@[screen]
 @include breakpointify('.border', true) {
-  @include border;
+  @include border();
 }
 
-@each $side in 'top', 'right', 'bottom', 'left' {
+@each $side in $_sides {
   // .border-[side]
   @include breakpointify('.border-#{$side}', true) {
     @include border($side);
@@ -157,4 +163,15 @@
 // make a border thicker
 .border-thick {
   border-width: border-width('thick') !important;
+}
+
+.border-secondary {
+  border-style: border-style('secondary') !important;
+
+  @each $side in $_sides {
+    &[class*='border-#{$side}'] {
+      border-style: none !important;
+      border-#{$side}-style: border-style('secondary') !important;
+    }
+  }
 }

@@ -91,6 +91,7 @@ $gallery-gutter: space(); // default gutter width
 
   @supports (display: flex) {
     display: flex;
+    flex-direction: column;
   }
 
   // CSS grid version
@@ -98,8 +99,6 @@ $gallery-gutter: space(); // default gutter width
   // -> for modern browsers
   @supports (display: grid) {
     // set the grid item as a flex container itself, so it can position its children better
-    // use flex here b/c if grid is supported, flex most likely is too
-    display: flex;
     max-width: auto;
     min-width: auto;
     padding: 0;
