@@ -1,12 +1,15 @@
 // =============================================================================
 // Border utilities
-// ==========================================================================
+// =============================================================================
 
 // Allow 'important!' here because we want the styles to always apply in small utility classes
 // sass-lint:disable no-important
 
 @import '../config/borders';
 @import '../config/breakpoints';
+
+// Decorative borders
+// -----------------------------------------------------------------------------
 
 .border-markers-corners {
   $slice-width: 20;
@@ -35,45 +38,75 @@
   }
 }
 
-.border-markers-wide-top {
-  $slice-width: 53;
+// base styles for border-markers classes used on panels, etc.
+[class*='border-markers'] {
+  &:not(.border-markers-corners) {
+    position: relative;
 
-  border-top: border-width('thin') dotted color('border');
-  position: relative;
+    // the vertical 'eyebrow' at top center
+    &::after {
+      content: '';
+      display: block;
+      left: 50%;
+      position: absolute;
+    }
+
+    @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') 12 repeat) {
+      &::before {
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+@mixin border-markers(
+  $side,
+  $image: 'border-markers-wide-top.svg',
+  $path: '/assets/images/borders/',
+  $color: 'border',
+  $slice-width: 53,
+  $image-height: 15px,
+  $border-height: 1px,
+  $eyebrow-height: 40px,
+  $eyebrow-width: border-width('thin')
+) {
+  border-#{$side}: border-width('thin') dotted color('border');
 
   &::after {
-    $h: 40px;
-    $w: border-width('thin');
-    @include color-background('border');
-    content: '';
-    display: block;
-    height: $h;
-    left: 50%;
-    margin-left: -($w / 2);
-    position: absolute;
-    top: -($h / 2);
-    width: $w;
+    @include color-background($color);
+    #{$side}: -($eyebrow-height / 2);
+    height: $eyebrow-height;
+    margin-left: -($eyebrow-width / 2);
+    width: $eyebrow-width;
   }
 
-  @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') $slice-width repeat) {
-    border-top: 0;
+  @supports(border-image: url('#{$path}#{$image}') $slice-width repeat) {
+    border-#{$side}: 0;
 
     // add the border image to a pseudo element so it doesn't mess with the container's padding or bg image
     &::before {
       border: #{$slice-width}px dotted color('border');
-      border-image: url('/assets/images/borders/border-markers-wide-top.svg') $slice-width repeat;
-      content: '';
-      display: block;
-      left: 0;
-      position: absolute;
-      right: 0;
-      // height of SVG image is 15px
-      // border height is 1px
-      // offset = (15px - 1px)/2
-      top: -7px;
+      border-image: url('#{$path}#{$image}') $slice-width repeat;
+      // vertical offset so the border is placed at the edge of the container
+      #{$side}: -(($image-height - $border-height) / 2);
     }
   }
 }
+
+.border-markers-wide-top {
+  @include border-markers('top');
+}
+
+.border-markers-wide-bottom {
+  @include border-markers('bottom', 'border-markers-wide-bottom.svg');
+}
+
+// Basic borders
+// -----------------------------------------------------------------------------
 
 // .border, .border@[screen]
 @include breakpointify('.border', true) {
@@ -105,8 +138,7 @@
   border-radius: border-radius('large');
 }
 
-// Modifiers
-// --------------------------------------------------------------------------
+// --- Modifiers
 
 // make a border thicker
 .border-thick {
