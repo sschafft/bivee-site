@@ -6,21 +6,31 @@
 %>
 
 <% unless hide_contact %>
-  <!-- Contact us -->
+
+  <!-- Contact us panel -->
   <% component 'panel', locals: {
     theme: 'dark',
     painted: true,
     bg: 'light',
     id: 'contact'
   } do %>
-    <h1 class="t-scale-beta t-align-center padding-bottom"><%= data.site.contact.headline %></h1>
-    <% component 'wrapper', locals: { width: 'wide', classes: 'overflow-hidden' } do %>
-       <%= "<p class='t-content padding-bottom'>#{data.site.contact.intro}</p>" if data.site.contact.intro %>
 
+    <!-- headline and intro (if any) -->
+    <h1 class="t-scale-beta t-align-center padding-bottom-wide"><%= data.site.contact.headline %></h1>
+    <% if data.site.contact.intro %>
+      <% component 'wrapper', locals: { width: 'narrow' } do %>
+        <p class='t-content padding-bottom'>
+          <%= data.site.contact.intro %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <!-- contact info -->
+    <% component 'wrapper', locals: { width: 'wide', classes: '' } do %>
       <!-- office addresses -->
       <ul data-ui-gallery>
         <% data.site.contact.locations.each_with_index do |location, index| %>
-          <li data-ui-gallery-item>
+          <li data-ui-gallery-item class="border-markers-top-left padding-top-narrow">
             <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
             <p class="t-scale-zeta"><%= location.address %></p>
           </li>
@@ -28,8 +38,8 @@
       </ul>
 
       <!-- message & social buttons -->
-      <div class="margin-top padding-top border-top border-secondary t-align-center t-align-left@xsmall">
-        <div data-ui-bookend="horizontal@small" data-ui-gutter="flush">
+      <div class="margin-top padding-top border-top border-secondary t-align-center t-align-left@xsmall overflow-hidden">
+        <div data-ui-bookend="horizontal@medium" data-ui-gutter="flush">
           <div data-ui-bookend-item="left" data-ui-gutter-item>
             <div data-ui-gutter="flush narrow">
               <!-- Email button -->
@@ -39,11 +49,12 @@
               <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.email %></p>
             </div>
           </div>
+
           <!-- Social channels -->
           <div data-ui-bookend-item="right" data-ui-gutter-item>
-            <div data-ui-gutter="flush xxnarrow">
+            <div data-ui-gutter="flush narrow">
               <h2 data-ui-gutter-item class="t-font-body t-scale-zeta c-text-secondary display-inline-block">Say hi:</h2>
-              <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xxnarrow">
+              <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xnarrow">
                 <% data.site.contact.social.each do |channel| %>
                 <li class="list-inline-item">
                   <% link_to channel.url, class: 'c-text-primary t-scale-zeta t-decoration-none', target: '_blank', title: "Say hi on #{channel.name}" do %>
@@ -61,7 +72,8 @@
   <% end %>
 <% end %>
 
-<footer class="c-theme-dark border-top padding-x-outside padding-y-narrow overflow-hidden" role="contentinfo">
+<!-- Signoff: logo and copyright -->
+<footer class="c-theme-dark border-top border-secondary padding-x-outside padding-y-narrow overflow-hidden" role="contentinfo">
   <div data-ui-gutter="flush narrow">
     <div data-ui-bookend="horizontal@xsmall">
       <div data-ui-bookend-item="left" class="t-align-center t-align-left@xsmall">

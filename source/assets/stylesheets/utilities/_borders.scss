@@ -7,6 +7,7 @@
 
 @import '../config/borders';
 @import '../config/breakpoints';
+@import '../config/positioning';
 
 $_sides: ['top', 'right', 'bottom', 'left'];
 
@@ -14,7 +15,31 @@ $_sides: ['top', 'right', 'bottom', 'left'];
 // -----------------------------------------------------------------------------
 
 .border-markers-top-left {
+  $slice-width: 24;
+  $marker-width: 15px;
 
+  border: border-width('thin') dotted color('border');
+  position: relative;
+
+  @supports(border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat) {
+
+    border: 0;
+
+    &::before {
+      $offset: -(($marker-width - border-width('thin')) / 2);
+      border: #{$slice-width}px solid transparent;
+      border-image: url('/assets/images/borders/border-markers-top-left.svg') $slice-width repeat;
+      bottom: $offset;
+      content: '';
+      display: block;
+      left: $offset;
+      position: absolute;
+      right: $offset;
+      top: $offset;
+      z-index: z('high');
+    }
+
+  }
 }
 
 .border-markers-corners {
@@ -39,7 +64,7 @@ $_sides: ['top', 'right', 'bottom', 'left'];
       position: absolute;
       right: $offset;
       top: $offset;
-      z-index: 3;
+      z-index: z('high');
     }
   }
 }
