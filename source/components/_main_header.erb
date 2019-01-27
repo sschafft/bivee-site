@@ -5,7 +5,7 @@
   # Locals:
   hide_logo ||= false # BOOLEAN (optional): hide the logo/'home' link?
   overlay ||= false # BOOLEAN (optional): turn on 'overlay' styles for the header
-  theme ||= 'dark' # STRING (optional): color theme
+  theme ||= 'default' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
   breakpoint ||= 'medium' # STRING (optional): breakpoint where main menu layout changes
 
@@ -16,7 +16,7 @@
   utils = [
     'padding-x-outside',
     'padding-y-narrow',
-    "c-theme-#{theme}",
+    ("c-theme-#{theme}" unless theme == 'default'),
     ('c-bg-transparent' if overlay)
   ]
 %>
@@ -28,7 +28,10 @@
       <!-- logo -->
       <div data-ui-bookend-item="left" class="t-align-center">
         <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
-          <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block', alt: 'Bivee', style: 'max-width: 5em;' %>
+          <%= image_tag "logos/logo-bivee-red#{'-reverse' if theme == 'dark'}.svg",
+            class: 'display-inline-block',
+            alt: 'Bivee', style: 'max-width: 5em;'
+          %>
         <% end %>
       </div>
     <% end %>

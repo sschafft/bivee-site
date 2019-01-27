@@ -47,11 +47,18 @@ contact:
   # Places where we have offices
   locations:
     - name: 'Washington, DC'
-      address: '1875 Connecticut Ave NW, 10th floor, Washington, DC 20009'
+      address: |-
+        1875 Connecticut Ave NW, 10th floor<br>
+        Washington, DC 20009
     - name: 'Denver, CO'
-      address: '2420 17th St, Denver, CO 80202'
+      address: |-
+        2420 17th St<br>
+        Denver, CO 80202
     - name: 'Hong Kong'
-      address: 14F, Manning House, 38-48 Queen's Road Central, Central, Hong Kong
+      address: |-
+        14F, Manning House<br>
+        38-48 Queen's Road Central<br>
+        Central, Hong Kong
   # Social channels for the whole company
   # -> current icons available: github, linkedin, instagram, pinterest, facebook
   # -> icons are from iconmonstr.com

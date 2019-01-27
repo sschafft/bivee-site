@@ -45,9 +45,11 @@ $border-styles: (
 $border-widths: (
   'thin': 1px,
   'medium': 2px,
-  'thick': 11px
+  'thick': 11px,
+  'xthick': 24px
 ) !default;
 
+// slice widths for full-bleed decorative borders (see utilities/borders)
 $border-markers-full-bleed-slices: (
   'narrow': 40,
   'medium': 53,

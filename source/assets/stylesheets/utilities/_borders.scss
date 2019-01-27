@@ -186,14 +186,20 @@ $_sides: ['top', 'right', 'bottom', 'left'];
 // --- Modifiers
 
 // make a border thicker
-.border-thick {
-  border-width: border-width('thick') !important;
+@each $name, $width in $border-widths {
+  @if $name != 'thin' {
+    .border-#{$name} {
+      border-width: border-width($name) !important;
+    }
+  }
 }
 
 .border-secondary {
   border-style: border-style('secondary') !important;
 
   @each $side in $_sides {
+    // Allow border-style to come first b/c we need to override it
+    // sass-lint:disable property-sort-order
     &[class*='border-#{$side}'] {
       border-style: none !important;
       border-#{$side}-style: border-style('secondary') !important;
