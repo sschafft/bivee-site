@@ -11,9 +11,9 @@ title: home
   <!-- Cover -->
   <% component 'cover', locals: {
     bg_image: '/assets/images/covers/ink-cover%401200w.png',
-    padding: { y: 'none', x: 'outside' },
-    classes: 'c-bg-wash',
-    content_position: 'top-heavy'
+    padding: { top: 'medium', bottom: 'xxwide', x: 'outside' },
+    classes: 'c-bg-painted-wash',
+    header_offset: true
   } do %>
     <%= component 'responsive_image', locals: {
       source: {

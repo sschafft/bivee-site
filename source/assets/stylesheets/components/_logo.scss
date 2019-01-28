@@ -10,14 +10,14 @@
 
 [data-ui-logo] {
   display: inline-block;
-  width: 10em;
+  width: 10rem;
 
   @include media('>small') {
-    width: 13em;
+    width: 13rem;
   }
 
   @include media('>medium') {
-    width: 15em;
+    width: 15rem;
   }
 }
 

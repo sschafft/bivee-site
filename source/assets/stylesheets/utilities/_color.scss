@@ -77,42 +77,44 @@ body,
 
 // base styles
 [class*='c-bg-painted'] {
-  position: relative;
-  z-index: 1; // add a z-index value so subsequent containers 'overlap' correctly
+  &:not(.c-bg-painted-wash) {
+    position: relative;
+    z-index: 1; // add a z-index value so subsequent containers 'overlap' correctly
 
-  &::before {
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    content: '';
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 0;
-  }
+    &::before {
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: 0;
+    }
 
-  &::after {
-    content: '';
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    z-index: 1;
-  }
+    &::after {
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: 1;
+    }
 
-  // make sure children are located above the bg color.
-  > * {
-    z-index: 2;
-  }
+    // make sure children are located above the bg color.
+    > * {
+      z-index: 2;
+    }
 
-  // make some selectors to set background color for each theme
-  // -> selectors here are a bit too complicated to just use the background-color mixin
-  @each $theme, $colors in $themes {
-    @if $theme != 'default' {
-      .c-theme-#{$theme} &,
-      &.c-theme-#{$theme} {
-        &::after {
-          background-color: color('bg', $theme);
+    // make some selectors to set background color for each theme
+    // -> selectors here are a bit too complicated to just use the background-color mixin
+    @each $theme, $colors in $themes {
+      @if $theme != 'default' {
+        .c-theme-#{$theme} &,
+        &.c-theme-#{$theme} {
+          &::after {
+            background-color: color('bg', $theme);
+          }
         }
       }
     }
@@ -194,7 +196,7 @@ body,
   }
 }
 
-.c-bg-wash {
+.c-bg-painted-wash {
   background-image: url('/assets/images/covers/ink-cover@400w.png');
   background-position: bottom;
   background-repeat: no-repeat;
