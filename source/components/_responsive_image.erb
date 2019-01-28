@@ -7,6 +7,7 @@
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional classes you'd like to pass in
+  style ||= false # STRING (optional): inline styles
   data ||= false # HASH (optional): additional data attributes
 
   # Private:
@@ -32,4 +33,4 @@
   end
 %>
 
-<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">

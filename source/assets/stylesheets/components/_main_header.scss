@@ -83,6 +83,10 @@ $_header-border-slices: (
   z-index: z('top');
 }
 
+[data-ui-main-header-overlay-offset] {
+  padding-top: 5rem;
+}
+
 // Elements
 // -----------------------------------------------------------------------------
 [data-ui-main-header-menu] {

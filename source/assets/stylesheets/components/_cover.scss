@@ -2,6 +2,8 @@
 //  Cover
 //  -> a big splashy 'book cover' for a page of content
 // =============================================================================
+// sass-lint:disable no-duplicate-properties
+// -> need fallback min-height props for vh units
 
 @import '../config/spacing';
 
@@ -9,35 +11,30 @@
 // -----------------------------------------------------------------------------
 
 [data-ui-cover] {
-  // sass-lint:disable no-duplicate-properties
-  // -> need a fallback min-height here
-  background-image: url('/assets/images/covers/ink-cover@400w.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: block;
-  min-height: 400px;
-  min-height: 70vh;
+  min-height: 300px;
+  min-height: 90vh;
   position: relative;
 
   @supports (display: flex) {
     display: flex;
+    flex-direction: column;
   }
 
-  @include media('>xsmall') {
-    background-image: url('/assets/images/covers/ink-cover@800w.png');
+  @include media('height>30em') {
+    min-height: 85vh;
   }
 
-  @include media('>medium') {
-    background-image: url('/assets/images/covers/ink-cover@1200w.png');
+  @include media('height>40em') {
+    min-height: 75vh;
   }
 
-  @include media('>large') {
-    background-image: url('/assets/images/covers/ink-cover@1600w.png');
+  @include media('height>55em') {
+    min-height: 70vh;
   }
 
-  @include media('>huge') {
-    background-image: url('/assets/images/covers/ink-cover@2000w.png');
+  @include media('height>75em') {
+    min-height: 60vh;
   }
 }
 
@@ -46,14 +43,25 @@
 
 [data-ui-cover-content] {
   display: block;
-  // margin-top: auto;
   // margin-bottom: auto;
+  // margin-top: auto;
   width: 100%;
+}
+
+[data-ui-cover-content~='top-heavy'] {
+  // margin-bottom: 0;
+  margin-top: 50px;
+  margin-top: 23vh;
+
+  @include media('>small') {
+    margin-top: 15vh;
+  }
 }
 
 // Traits
 // -----------------------------------------------------------------------------
 
-// [data-ui-cover~='TRAIT'] {
-
-// }
+[data-ui-cover~='short'] {
+  min-height: 300px;
+  min-height: 40vh;
+}
