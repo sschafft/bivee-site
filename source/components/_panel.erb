@@ -12,6 +12,7 @@
   classes ||= false # STRING: additional modifier classes for the container
   el ||= 'section' # What HTML element should the wrapper be?
   padding ||= { x: 'outside', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
+  header_offset ||= false # BOOLEAN (optional): add some padding to the top to offset an 'overlay'-style header?
 
   wrapper = [
     ("c-theme-#{theme}" if theme != 'default'),
@@ -26,7 +27,7 @@
   ]
 %>
 
-<<%= el %><%= class_list(wrapper) %><%= " id='#{id}'" if id %>>
+<<%= el %><%= ' data-ui-main-header-offset' if header_offset %><%= class_list(wrapper) %><%= " id='#{id}'" if id %>>
   <div<%= class_list(utils) %>>
     <%= yield %>
   </div>

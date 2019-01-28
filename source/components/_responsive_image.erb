@@ -16,13 +16,13 @@
   def source_set(src)
     if src.is_a?(Hash)
       src.collect do |width, path|
-        "#{asset_url(path)} #{width}w"
-      end.join(', ')
+        "#{asset_url(path)} #{width}w" unless width == 'default'
+      end.reject(&:nil?).join(', ')
     end
   end
 
   utils = [
-    ('border' if borders),
+    ('border c-border-well' if borders),
     (classes if classes)
   ]
 

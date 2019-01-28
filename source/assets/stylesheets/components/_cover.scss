@@ -26,7 +26,8 @@
     min-height: 60vh;
   }
 
-  // for larger, wider screens. maybe try aspect ratio queries here?
+  // for larger, wider screens, increase the height of the hero unit so the background covers the content well enough
+  // -> this is a hacky magic numbers bad solution. @jay TODO refactor
   @include media('height>60em', '>medium') {
     min-height: 70vh;
   }
@@ -50,8 +51,4 @@
 [data-ui-cover~='short'] {
   min-height: 300px;
   min-height: 40vh;
-}
-
-[data-ui-cover~='tall'] {
-
 }

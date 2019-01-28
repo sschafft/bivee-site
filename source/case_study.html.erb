@@ -10,17 +10,27 @@
     theme: 'dark',
     painted: true,
     painted_side: 'bottom',
-    border: 'bottom'
+    border: 'bottom',
+    padding: {
+      x: 'outside',
+      top: 'medium',
+      bottom: 'xwide'
+    },
+    header_offset: true
   } do %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
-      <%= image_tag project.client.logo, alt: project.client.name, style: 'max-width: 13em; max-height: 12em;' %>
+      <%= component 'responsive_image', locals: {
+        source: Hash[project.cover.full_size.collect { |version| [version.width, version.source] }],
+        alt: project.title.short,
+        style: 'width: 35rem;'
+      } %>
       <h1 class="padding-top-wide"><%= project.title.long %></h1>
       <% if project.title.subtitle %>
         <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
       <% end %>
       <div class="padding-top">
-        <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon c-text-secondary">
-          <time data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="padding-right-xnarrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block"><%= project.type %></span>
+        <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon">
+          <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight"><span class="padding-right-narrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block c-text-secondary"><%= project.type %></span>
         </p>
       </div>
       <a class="display-inline-block margin-top-wide t-decoration-none c-accent" href="#main_content">

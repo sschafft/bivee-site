@@ -28,12 +28,19 @@ projects:
     thumb:
       logo: work/ppp/assets/thumb-PPP.png
       bg: 5
-    full_size: work/ppp/assets/ppp-cover.png
+    full_size:
+      - source: work/ppp/assets/ppp-cover@400w.png
+        width: default
+      - source: work/ppp/assets/ppp-cover@800w.png
+        width: 800
+      - source: work/ppp/assets/ppp-cover@1200w.png
+        width: 1200
+      - source: work/ppp/assets/ppp-cover@1600w.png
+        width: 1600
 
 - title:
     long: e-Learning for financial inclusion
     short: Gateway Academy
-    subtitle: Gateway Academy
   slug: GA
   client:
     name: CGAP and Mastercard Foundation
@@ -44,7 +51,15 @@ projects:
     thumb:
       logo: work/ga/assets/thumb-GA.png
       bg: 4
-    full_size: work/ppp/assets/ppp-cover.png
+    full_size:
+      - source: work/ga/assets/ga-cover@400w.png
+        width: default
+      - source: work/ga/assets/ga-cover@800w.png
+        width: 800
+      - source: work/ga/assets/ga-cover@1200w.png
+        width: 1200
+      - source: work/ga/assets/ga-cover@1600w.png
+        width: 1600
 
 # - title:
 #     long: A strategy for data sharing
