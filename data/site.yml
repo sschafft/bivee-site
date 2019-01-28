@@ -7,15 +7,15 @@ title: Bivee
 # priority: [positive integer] highest priority link is visible as much as possible, even on tiny phones. Lower priority links get moved to a flyout menu as space gets tighter. Try to give 'priority: 1' to only one link.
 # highlight: [boolean] make a link stand out (e.g. red).
 main_nav:
-  - title: What we do
-    url: '#'
-    priority: 2
-  - title: Who we are
-    url: '#'
-    priority: 2
-  - title: How we work
-    url: 'design_thinking'
-    priority: 2
+  # - title: What we do
+  #   url: '#'
+  #   priority: 2
+  # - title: Who we are
+  #   url: '#'
+  #   priority: 2
+  # - title: How we work
+  #   url: 'design_thinking'
+  #   priority: 2
   - title: Contact us
     url: '#contact'
     priority: 1

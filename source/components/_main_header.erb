@@ -64,36 +64,38 @@
           </ul>
         </div>
 
-        <!-- flyout nav for small screens -->
-        <div data-ui-gutter-item class="display-inline-block hide-above@<%= breakpoint %>">
-          <button data-ui-button="incognito toggle" data-js-toggle="main-nav-flyout">
-            <span data-ui-button-toggle-item="default">
-              <%= component "icon", locals: { id: "menu", size: "large" } %>
-            </span>
-            <span data-ui-button-toggle-item="active">
-              <%= component "icon", locals: { id: "close", size: "large" } %>
-            </span>
-          </button>
-          <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
-            <ul class="list-undecorated margin-y-between-xxnarrow">
-              <% data.site.main_nav.each do |item| %>
-                <% if item.priority > 1 %>
-                  <li>
-                    <%
-                      link_classes = [
-                        'display-inline-block',
-                        't-scale-eta',
-                        't-decoration-hover',
-                        (item.highlight ? 'c-highlight' : 'c-text-primary')
-                      ]
-                    %>
-                    <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
-                  </li>
+        <% if data.site.main_nav.length > 1 %>
+          <!-- flyout nav for small screens -->
+          <div data-ui-gutter-item class="display-inline-block hide-above@<%= breakpoint %>">
+            <button data-ui-button="incognito toggle" data-js-toggle="main-nav-flyout">
+              <span data-ui-button-toggle-item="default">
+                <%= component "icon", locals: { id: "menu", size: "large" } %>
+              </span>
+              <span data-ui-button-toggle-item="active">
+                <%= component "icon", locals: { id: "close", size: "large" } %>
+              </span>
+            </button>
+            <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
+              <ul class="list-undecorated margin-y-between-xxnarrow">
+                <% data.site.main_nav.each do |item| %>
+                  <% if item.priority > 1 %>
+                    <li>
+                      <%
+                        link_classes = [
+                          'display-inline-block',
+                          't-scale-eta',
+                          't-decoration-hover',
+                          (item.highlight ? 'c-highlight' : 'c-text-primary')
+                        ]
+                      %>
+                      <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
+                    </li>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </ul>
+              </ul>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </nav>
   </div>
