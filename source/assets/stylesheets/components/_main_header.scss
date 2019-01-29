@@ -6,40 +6,68 @@
 @import '../config/borders';
 @import '../config/scale';
 
+$_header-border-slices: (
+  'narrow': 68,
+  'medium': 84,
+  'wide': 104
+);
+
 // Block
 // -----------------------------------------------------------------------------
 
 [data-ui-main-header] {
   $slice-width-x: 18;
-  $slice-width-y: 80;
+
+  border: border-width('thin') dotted color('border'); // fallback border
   position: relative;
 
-  &::before {
-    border-color: color('border');
-    border-image: url('/assets/images/borders/border-header.svg') $slice-width-x $slice-width-y repeat;
-    border-style: dotted;
-    border-width: #{$slice-width-x}px #{$slice-width-y}px;
-    bottom: -7px;
-    content: '';
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+
+  @supports(border-image: url('/assets/images/borders/border-header-#{space-outside('default')}.svg') $slice-width-x #{map-get($_header-border-slices, space-outside('default'))} repeat) {
+    border: 0;
+
+    &::before {
+      border-color: transparent;
+      border-image: url('/assets/images/borders/border-header-#{space-outside('default')}.svg') $slice-width-x #{map-get($_header-border-slices, space-outside('default'))} repeat;
+      border-style: solid;
+      border-width: #{$slice-width-x}px #{map-get($_header-border-slices, space-outside('default'))}px;
+      bottom: -7px;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 
-  &::after {
-    $w: border-width('thin');
+  @include media('>xsmall') {
+    &::after {
+      $w: border-width('thin');
 
-    background-color: #fff;
-    content: '';
-    display: block;
-    height: scale-type('delta');
-    left: 50%;
-    margin-left: -($w / 2);
-    position: absolute;
-    top: 0;
-    width: $w;
+      background-color: color('border');
+      content: '';
+      display: block;
+      height: scale-type('delta');
+      left: 50%;
+      margin-left: -($w / 2);
+      position: absolute;
+      top: 0;
+      width: $w;
+    }
+  }
+
+  // make the borders responsive to match the outside margins
+  @each $screen, $width in $spacing-outside {
+    @if $screen != 'default' {
+      @include media('>#{$screen}') {
+        &::before {
+          @supports(border-image: url('/assets/images/borders/border-header-#{$width}.svg') $slice-width-x #{map-get($_header-border-slices, $width)} repeat) {
+            border-image: url('/assets/images/borders/border-header-#{$width}.svg') $slice-width-x #{map-get($_header-border-slices, $width)} repeat;
+            border-width: #{$slice-width-x}px #{map-get($_header-border-slices, $width)}px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -53,6 +81,10 @@
   right: 0;
   top: 0;
   z-index: z('top');
+}
+
+[data-ui-main-header-offset] {
+  padding-top: 5rem;
 }
 
 // Elements

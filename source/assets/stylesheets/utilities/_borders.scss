@@ -1,59 +1,164 @@
 // =============================================================================
 // Border utilities
-// ==========================================================================
+// =============================================================================
 
 // Allow 'important!' here because we want the styles to always apply in small utility classes
 // sass-lint:disable no-important
 
 @import '../config/borders';
 @import '../config/breakpoints';
+@import '../config/positioning';
 
-.border-markers-wide-top {
-  $slice-width: 53;
+$_sides: ['top', 'right', 'bottom', 'left'];
 
-  border-top: 1px dotted color('border');
+// Decorative borders
+// -----------------------------------------------------------------------------
+
+.border-markers-top-left {
+  $slice-width: 24;
+  $marker-width: 15px;
+
+  border: border-width('thin') dotted color('border');
   position: relative;
 
-  &::after {
-    $h: 40px;
-    $w: 1px;
-    background-color: color('border');
-    content: '';
-    display: block;
-    height: $h;
-    left: 50%;
-    margin-left: -($w / 2);
-    position: absolute;
-    top: -($h / 2);
-    width: $w;
-  }
+  @supports(border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat) {
 
-  @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') $slice-width repeat) {
-    border-top: 0;
+    border: 0;
+
+    &::before {
+      $offset: -(($marker-width - border-width('thin')) / 2);
+      border: #{$slice-width}px solid transparent;
+      border-image: url('/assets/images/borders/border-markers-top-left.svg') $slice-width repeat;
+      bottom: $offset;
+      content: '';
+      display: block;
+      left: $offset;
+      position: absolute;
+      right: $offset;
+      top: $offset;
+      z-index: z('high');
+    }
+
+  }
+}
+
+.border-markers-corners {
+  $slice-width: 20;
+  $marker-width: 15px;
+  border: border-width('thin') dotted color('border');
+  position: relative;
+
+  @supports(border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat) {
+    border: 0;
 
     // add the border image to a pseudo element so it doesn't mess with the container's padding or bg image
     &::before {
-      border: #{$slice-width}px dotted color('border');
-      border-image: url('/assets/images/borders/border-markers-wide-top.svg') $slice-width repeat;
+      $offset: -(($marker-width - border-width('thin')) / 2);
+
+      border: #{$slice-width}px solid transparent;
+      border-image: url('/assets/images/borders/border-markers-corners.svg') $slice-width repeat;
+      bottom: $offset;
+      content: '';
+      display: block;
+      left: $offset;
+      position: absolute;
+      right: $offset;
+      top: $offset;
+      z-index: z('high');
+    }
+  }
+}
+
+// base styles for border-markers classes used on panels, etc.
+[class*='border-markers-full-bleed'] {
+  position: relative;
+
+  // the vertical 'eyebrow' at top center
+  &::after {
+    content: '';
+    display: block;
+    left: 50%;
+    position: absolute;
+  }
+
+  @supports(border-image: url('/assets/images/borders/border-markers-wide-top.svg') 12 repeat) {
+    &::before {
       content: '';
       display: block;
       left: 0;
       position: absolute;
       right: 0;
-      // height of SVG image is 15px
-      // border height is 1px
-      // offset = (15px - 1px)/2
-      top: -7px;
     }
   }
 }
 
-// .border, .border@[screen]
-@include breakpointify('.border', true) {
-  @include border;
+@mixin border-markers-full-bleed(
+  $side,
+  $image,
+  $path: '/assets/images/borders/',
+  $color: 'border',
+  $slice-width: 76,
+  $image-height: 15px,
+  $border-height: 1px,
+  $eyebrow-height: 40px,
+  $eyebrow-width: border-width('thin')
+) {
+  border-#{$side}: border-width('thin') dotted color('border');
+
+  &::after {
+    @include color-background($color);
+    #{$side}: -($eyebrow-height / 2);
+    height: $eyebrow-height;
+    margin-left: -($eyebrow-width / 2);
+    width: $eyebrow-width;
+  }
+
+  @supports(border-image: url('#{$path}#{$image}') $slice-width repeat) {
+    border-#{$side}: 0;
+
+    // add the border image to a pseudo element so it doesn't mess with the container's padding or bg image
+    &::before {
+      border: #{$slice-width}px solid transparent;
+      border-image: url('#{$path}#{$image}') $slice-width repeat;
+      // vertical offset so the border is placed at the edge of the container
+      #{$side}: -(($image-height - $border-height) / 2);
+    }
+  }
 }
 
-@each $side in 'top', 'right', 'bottom', 'left' {
+// Full-bleed decorative borders, for full-width containers
+// -> they follow (and respond with) outside margins. See config/spacing
+@each $side in ('top', 'bottom') {
+  .border-markers-full-bleed-#{$side} {
+    @include border-markers-full-bleed(
+      $side,
+      'border-markers-#{space-outside('default')}-#{$side}.svg',
+      $slice-width: border-markers-full-bleed-slices(space-outside('default'))
+    );
+
+    @each $screen, $width in $spacing-outside {
+      @if $screen != 'default' {
+        @include media('>#{$screen}') {
+          @include border-markers-full-bleed(
+            $side,
+            'border-markers-#{$width}-#{$side}.svg',
+            $slice-width: border-markers-full-bleed-slices($width)
+          );
+        }
+      }
+    }
+  }
+}
+
+// Basic borders
+// -----------------------------------------------------------------------------
+
+// .border, .border@[screen]
+@include breakpointify('.border', true) {
+  @include border();
+}
+
+@each $side in $_sides {
   // .border-[side]
   @include breakpointify('.border-#{$side}', true) {
     @include border($side);
@@ -78,10 +183,26 @@
   border-radius: border-radius('large');
 }
 
-// Modifiers
-// --------------------------------------------------------------------------
+// --- Modifiers
 
 // make a border thicker
-.border-thick {
-  border-width: border-w('thick');
+@each $name, $width in $border-widths {
+  @if $name != 'thin' {
+    .border-#{$name} {
+      border-width: border-width($name) !important;
+    }
+  }
+}
+
+.border-secondary {
+  border-style: border-style('secondary') !important;
+
+  @each $side in $_sides {
+    // Allow border-style to come first b/c we need to override it
+    // sass-lint:disable property-sort-order
+    &[class*='border-#{$side}'] {
+      border-style: none !important;
+      border-#{$side}-style: border-style('secondary') !important;
+    }
+  }
 }

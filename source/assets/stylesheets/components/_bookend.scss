@@ -62,7 +62,7 @@
   @include bookend-horizontal;
 }
 
-@each $name in ('xsmall' 'small') {
+@each $name in ('xsmall' 'small' 'medium') {
   @include media('>#{$name}') {
     [data-ui-bookend~='horizontal@#{$name}'] {
       @include bookend-horizontal;

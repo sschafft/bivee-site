@@ -3,24 +3,55 @@ title: Bivee styleguide
 hide_contact: true
 ---
 
-<!-- Main header -->
-<%= component 'main_header' %>
-
-<article class="">
+<article>
   <header class="padding-x-wide padding-y-xwide">
     <% component 'wrapper', locals: { width: 'narrow' } do %>
-      <h1 class="t-align-center padding-bottom-narrow"><%= current_resource.data.title %></h1>
-      <p class="t-align-center t-heading t-scale-gamma t-leading-default c-text-secondary">A kitcken sink of UI components for now, but will be evolving into a real styleguide soon. Stay tuned.</p>
+      <h1 class="t-align-center padding-bottom-xxnarrow"><%= current_resource.data.title %></h1>
+      <p class="t-align-center t-heading t-scale-delta c-text-secondary">A kitcken sink of UI components for now, but will be evolving into a real styleguide soon. Stay tuned.</p>
     <% end %>
   </header>
+
+  <!-- Scale -->
+  <% component 'panel' do %>
+    <% component 'wrapper', locals: { width: 'wide' } do %>
+      <h2 class="t-align-center">Scale and spacing</h2>
+      <ul data-ui-gutter="narrow" class="list-undecorated t-align-center">
+        <% ['xxnarrow', 'xnarrow', 'narrow', 'medium', 'wide', 'xwide', 'xxwide'].each do |size| %>
+          <li data-ui-gutter-item class="display-inline-block t-align-left">
+            <p class="t-heading t-scale-zeta padding-bottom-xnarrow c-text-secondary"><%= size %></p>
+            <div class="c-bg-dark padding-left<%= "-#{size}" unless size == 'medium' %> display-inline-block" style="height: 2rem;"></div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <!-- Type -->
   <% component 'panel' do %>
     <% component 'wrapper' do %>
-    <h1 class="t-scale-beta t-align-center">Color themes</h1>
+      <h2 class="t-align-center padding-bottom-wide">Type</h2>
+      <ul class="list-undecorated">
+        <% ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta'].each do |size| %>
+          <li>
+            <h3 class="t-heading t-scale-eta t-weight-bold c-text-secondary"><%= size.titleize %></h3>
+            <p class="t-heading t-scale-<%= size %> padding-bottom-xnarrow">
+              Lorem ipsum dolor sit <strong>amet <em>adipiscig</em></strong> <em>elit</em>
+            </p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <!-- Color themes -->
+  <% component 'panel' do %>
+    <% component 'wrapper' do %>
+    <h2 class="t-align-center">Color themes</h2>
       <div class="padding-top-wide margin-y-between">
-        <% ['default', 'midtone', 'dark'].each do |theme| %>
-          <section class="c-theme-<%= theme %> border border-round border-round-large padding-wide">
+        <% ['default', 'light', 'dark'].each do |theme| %>
+          <section class="c-theme-<%= theme %> border border-round padding-wide">
             <header class="padding-bottom">
-              <p class="t-heading t-scale-zeta t-case-upper c-text-tertiary padding-bottom-narrow">Theme: <strong><%= theme %></strong></p>
+              <p class="t-heading t-scale-zeta t-case-upper c-text-secondary padding-bottom-narrow">Theme: <strong><%= theme %></strong></p>
               <h1 class="padding-bottom-xnarrow">Lorem ipsum dolor <strong>sit amet</strong></h1>
               <p class="t-heading t-scale-gamma c-highlight padding-bottom-xxnarrow">Subhead <strong>lorem ipsum</strong> dolor sit amet</p>
             </header>

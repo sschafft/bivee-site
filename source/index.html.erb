@@ -2,18 +2,38 @@
 title: home
 ---
 
+<%= component 'main_header', locals: {
+  hide_logo: true,
+  overlay: true,
+  theme: 'dark'
+} %>
 <section class="t-align-center">
   <!-- Cover -->
   <% component 'cover', locals: {
     bg_image: '/assets/images/covers/ink-cover%401200w.png',
-    padding: { top: 'xxwide', bottom: 'xxwide', x: 'wide' }
+    padding: { top: 'medium', bottom: 'xxwide', x: 'outside' },
+    classes: 'c-bg-painted-wash',
+    header_offset: true
   } do %>
-    <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block padding-bottom-wide', alt: 'Bivee', style: 'width: 15em;' %>
-    <h1 class="t-scale-beta t-leading-default c-text-reverse"><%= data.site.cover.headline %></h1>
+    <%= component 'responsive_image', locals: {
+      source: {
+         '480': '/assets/images/bivee-logo-process@480w.png',
+         '800': '/assets/images/bivee-logo-process@800w.png',
+        '1200': '/assets/images/bivee-logo-process@1200w.png'
+      },
+      classes: 'display-block align-center-block',
+      style: 'width: 40rem;'
+    } %>
+    <%= image_tag "logos/logo-bivee-red-reverse.svg",
+      data: { 'ui-logo': '' },
+      class: 'padding-bottom-narrow padding-top',
+      alt: 'Bivee'
+    %>
+    <h1 class="t-scale-gamma c-text-reverse"><%= data.site.cover.headline %></h1>
   <% end %>
 
   <!-- Intro blurb -->
-  <div class="padding-x-wide padding-bottom-xwide padding-top-wide">
+  <div class="padding-x-wide padding-bottom-xwide padding-top">
     <% component 'wrapper', locals: {
       width: 'narrow'
     } do %>
@@ -24,12 +44,12 @@ title: home
 </section>
 
 <!-- Work -->
-<% component 'panel', locals: { classes: 'c-well' } do %>
+<% component 'panel' do %>
   <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> <%= data.case_studies.intro %>
   <% end %>
-  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center' } do %>
+  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center padding-top-xwide' } do %>
     <!-- Case study listings -->
-    <%= component 'case_studies_list', locals: { projects: data.case_studies.projects, classes: 'padding-top-xwide' } %>
+    <%= component 'case_studies_list', locals: { projects: data.case_studies.projects } %>
 
     <%# enable this button when there's more than 3 case studies to display %>
     <%#= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top-wide', role: 'primary' } %>
@@ -37,12 +57,13 @@ title: home
 <% end %>
 
 <!-- Staff -->
-<% component 'panel', locals: { theme: 'midtone' } do %>
-  <% component 'blurb', locals: { heading: data.site.staff.headline.home } do %>
-    <%= data.site.staff.intro %>
-  <% end %>
+<% component 'panel', locals: {
+  theme: 'light',
+  painted: rand(1..9)
+} do %>
+  <h2 class="t-scale-alpha t-align-center"><%= data.site.staff.headline.home %></h2>
   <!-- list of staff photos -->
-  <section class='l-wrapper l-wrapper--wide padding-top-wide'>
+  <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
     <%= component 'staff_list', locals: { staff: find_staff_profiles, classes: 't-align-center' } %>
-  </section>
+  <% end %>
 <% end %>

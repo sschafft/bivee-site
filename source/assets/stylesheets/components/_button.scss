@@ -16,9 +16,9 @@ $button-icon-margin: ms(1, 1em);
 // -----------------------------------------------------------------------------
 
 [data-ui-button] {
-  @include border-radius($size: 'large');
+  @include border-radius();
   @include color('text' 'primary');
-  @include color-border('accent', $hover: 15, $active: -15, $focus: 15);
+  @include color-border('text' 'primary', $hover: 15, $active: -15, $focus: 15);
   @include color-background('bg', $grade: 20, $opacity: 0.2, $hover: 10, $active: -10, $focus: 10);
   @include font('bold');
   @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.5);
@@ -71,9 +71,10 @@ $button-icon-margin: ms(1, 1em);
 [data-ui-button~='primary'] {
   // sass-lint:disable no-important
   // -> need important here because it should always always always be white
-  @include color-background('accent', $hover: 6, $active: -6, $focus: 6);
-  @include color-border('accent', $grade: -10, $hover: 10, $active: 0, $focus: 10);
-  color: $white !important;
+  @include color-background('text' 'primary', $hover: 6, $active: -6, $focus: 6);
+  @include color-border('text' 'primary', $grade: -10, $hover: 10, $active: 0, $focus: 10);
+  @include color('bg');
+  // color: $white !important;
 }
 
 // --- special effects

@@ -5,7 +5,7 @@
   # Locals:
   hide_logo ||= false # BOOLEAN (optional): hide the logo/'home' link?
   overlay ||= false # BOOLEAN (optional): turn on 'overlay' styles for the header
-  theme ||= 'dark' # STRING (optional): color theme
+  theme ||= 'default' # STRING (optional): color theme
   classes ||= false # STRING (optional): any additional classes to pass in
   breakpoint ||= 'medium' # STRING (optional): breakpoint where main menu layout changes
 
@@ -14,9 +14,9 @@
   ]
 
   utils = [
-    'padding-x-wide',
+    'padding-x-outside',
     'padding-y-narrow',
-    "c-theme-#{theme}",
+    ("c-theme-#{theme}" unless theme == 'default'),
     ('c-bg-transparent' if overlay)
   ]
 %>
@@ -28,64 +28,74 @@
       <!-- logo -->
       <div data-ui-bookend-item="left" class="t-align-center">
         <% link_to '/', class: 'display-inline-block t-decoration-none' do %>
-          <%= image_tag "logos/logo-bivee-red-reverse.svg", class: 'display-inline-block', alt: 'Bivee', style: 'max-width: 5em;' %>
+          <%= image_tag "logos/logo-bivee-red#{'-reverse' if theme == 'dark'}.svg",
+            class: 'display-inline-block',
+            alt: 'Bivee', style: 'max-width: 5em;'
+          %>
         <% end %>
       </div>
     <% end %>
 
     <!-- main menu -->
     <nav data-ui-bookend-item="right">
+      <div data-ui-gutter="narrow flush">
 
-    <!-- horizontal nav for larger screens -->
-      <ul data-ui-main-header-menu class="display-inline-block padding-x-between-narrow list-undecorated">
-        <% data.site.main_nav.each do |item| %>
-          <%
-            list_classes = [
-              'no-margin-top',
-              (item.priority > 1 ? "hide-visually show-visually-above@#{breakpoint}" : '')
-            ]
-            link_classes = [
-              'display-inline-block',
-              't-scale-eta',
-              't-decoration-hover',
-              (item.highlight && 'c-highlight')
-            ]
-          %>
-          <li<%= class_list(list_classes) %>>
-            <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
-          </li>
-        <% end %>
-      </ul>
-
-      <!-- flyout nav for small screens -->
-      <div class="display-inline-block hide-above@<%= breakpoint %>">
-        <button data-ui-button="incognito toggle" data-js-toggle="main-nav-flyout">
-          <span data-ui-button-toggle-item="default">
-            <%= component "icon", locals: { id: "menu", size: "large" } %>
-          </span>
-          <span data-ui-button-toggle-item="active">
-            <%= component "icon", locals: { id: "close", size: "large" } %>
-          </span>
-        </button>
-        <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
-          <ul class="list-undecorated margin-y-between-xxnarrow">
+        <!-- horizontal nav for larger screens -->
+        <div data-ui-gutter-item class="display-inline-block">
+          <ul data-ui-main-header-menu class="display-inline-block padding-x-between-narrow list-undecorated">
             <% data.site.main_nav.each do |item| %>
-              <% if item.priority > 1 %>
-                <li>
-                  <%
-                    link_classes = [
-                      'display-inline-block',
-                      't-scale-eta',
-                      't-decoration-hover',
-                      (item.highlight ? 'c-highlight' : 'c-text-primary')
-                    ]
-                  %>
-                  <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
-                </li>
-              <% end %>
+              <%
+                list_classes = [
+                  'display-inline-block',
+                  'no-margin-top',
+                  (item.priority > 1 ? "hide-visually show-visually-above@#{breakpoint}" : '')
+                ]
+                link_classes = [
+                  'display-block',
+                  't-scale-eta',
+                  't-decoration-hover',
+                  (item.highlight && 'c-highlight')
+                ]
+              %>
+              <li<%= class_list(list_classes) %>>
+                <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
+              </li>
             <% end %>
           </ul>
         </div>
+
+        <% if data.site.main_nav.length > 1 %>
+          <!-- flyout nav for small screens -->
+          <div data-ui-gutter-item class="display-inline-block hide-above@<%= breakpoint %>">
+            <button data-ui-button="incognito toggle" data-js-toggle="main-nav-flyout">
+              <span data-ui-button-toggle-item="default">
+                <%= component "icon", locals: { id: "menu", size: "large" } %>
+              </span>
+              <span data-ui-button-toggle-item="active">
+                <%= component "icon", locals: { id: "close", size: "large" } %>
+              </span>
+            </button>
+            <div data-ui-button-flyout class="t-align-left padding-narrow c-theme-default has-shadow border" id="main-nav-flyout">
+              <ul class="list-undecorated margin-y-between-xxnarrow">
+                <% data.site.main_nav.each do |item| %>
+                  <% if item.priority > 1 %>
+                    <li>
+                      <%
+                        link_classes = [
+                          'display-inline-block',
+                          't-scale-eta',
+                          't-decoration-hover',
+                          (item.highlight ? 'c-highlight' : 'c-text-primary')
+                        ]
+                      %>
+                      <%= link_to item.title, item.url, class: link_classes.join(' ').rstrip %>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
       </div>
     </nav>
   </div>

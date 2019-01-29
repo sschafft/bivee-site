@@ -14,17 +14,13 @@
 // neutrals
 $white: #fff;
 $blackberry: #263750;
-$blue-kuri: tint($blackberry, 40);
-
+$blue-kuri: #e3e5e9;
+$dark-blue-kuri: #939ba8;
 
 // highlights
-// -> 4 flavors of Bivee. Hat tip to Christie.
-$highlights: (
-  'blueberry': #11a9be,
-  'raspberry': #ef4759,
-  'orange': #eabf32,
-  'kiwi': #9bc73f
-);
+$raspberry: #ef4759;
+$blueberry: #11a9be;
+
 
 // getter function for highlight colors
 // -> PRIVATE
@@ -36,44 +32,44 @@ $highlights: (
 // -----------------------------------------------------------------------------
 
 $themes: (
+  // dark blue background, light text
   'dark': (
     'text': (
-      'primary': #fff,
-      'secondary': tint($blackberry, 70),
-      'tertiary': tint($blackberry, 45)
+      'primary': $white,
+      'secondary': $dark-blue-kuri
     ),
     'bg': $blackberry,
-    'well': darken($blackberry, 7),
+    'island': tint($blackberry, 10),
+    'well': shade($blackberry, 10),
     'shadow': shade($blackberry, 50),
-    'border': darken($blackberry, 15),
-    'highlight': highlight('raspberry'),
-    'accent': highlight('blueberry')
+    'border': $dark-blue-kuri,
+    'highlight': $raspberry,
   ),
-  'midtone': (
+  // light gray background, dark text
+  'light': (
     'text': (
-      'primary': #fff,
-      'secondary': shade($blackberry, 40),
-      'tertiary': shade($blue-kuri, 40)
+      'primary': $blackberry,
+      'secondary': tint($blackberry, 20)
     ),
     'bg': $blue-kuri,
-    'well': darken($blue-kuri, 5),
-    'shadow': shade($blue-kuri, 30),
-    'border': darken($blue-kuri, 10),
-    'highlight': #ffc60c,
-    'accent': $blackberry
+    'island': $white,
+    'well': shade($blue-kuri, 10),
+    'shadow': tint($blue-kuri, 60),
+    'border': $dark-blue-kuri,
+    'highlight': $raspberry,
   ),
+  // white background, dark text
   'default': (
     'text': (
       'primary': tint($blackberry, 5),
-      'secondary': shade($blue-kuri, 10),
-      'tertiary': tint($blue-kuri, 10)
+      'secondary': tint($blackberry, 40)
     ),
-    'bg': #fff,
-    'well': tint($blue-kuri, 92),
+    'bg': $white,
+    'island': $white,
+    'well': $blue-kuri,
     'shadow': tint($blue-kuri, 40),
-    'border': tint($blue-kuri, 60),
-    'highlight': highlight('raspberry'),
-    'accent': highlight('blueberry')
+    'border': $dark-blue-kuri,
+    'highlight': $raspberry,
   )
 );
 

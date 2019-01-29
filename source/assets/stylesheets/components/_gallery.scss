@@ -10,7 +10,7 @@
 @import '../config/scale';
 @import '../config/type';
 
-$gallery-gutter: space();
+$gallery-gutter: space(); // default gutter width
 
 // Block
 // -----------------------------------------------------------------------------
@@ -46,6 +46,28 @@ $gallery-gutter: space();
   }
 }
 
+@each $name, $width in $spacing {
+  [data-ui-gallery~='gutter-#{$name}'] {
+    margin: -($width / 2);
+
+    @supports (display: grid) {
+      // Disable 'spelling' linter b/c it doesn't recognize grid properties
+      // scss-lint:disable PropertySpelling
+      grid-column-gap: $width;
+      grid-row-gap: $width;
+      margin: 0;
+    }
+
+    [data-ui-gallery-item] {
+      padding: ($width / 2);
+
+      @supports (display: grid) {
+        padding: 0;
+      }
+    }
+  }
+}
+
 // Elements
 // -----------------------------------------------------------------------------
 
@@ -69,6 +91,7 @@ $gallery-gutter: space();
 
   @supports (display: flex) {
     display: flex;
+    flex-direction: column;
   }
 
   // CSS grid version
@@ -76,8 +99,6 @@ $gallery-gutter: space();
   // -> for modern browsers
   @supports (display: grid) {
     // set the grid item as a flex container itself, so it can position its children better
-    // use flex here b/c if grid is supported, flex most likely is too
-    display: flex;
     max-width: auto;
     min-width: auto;
     padding: 0;

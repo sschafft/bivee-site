@@ -96,12 +96,13 @@ helpers do
   # figure out the utility border classes to use
   # arguments:
   # ARRAY list (required): a list of the sides that should get borders
-  def border_classes(sides)
+  def border_classes(sides, class_prefix = 'border')
     if sides.is_a?(String)
-      return 'border' if sides == 'all'
-      "border-#{sides}"
+      return '' if sides == 'none'
+      return class_prefix if sides == 'all'
+      "#{class_prefix}-#{sides}"
     else
-      sides.collect { |side| "border-#{side}" }.join(' ')
+      sides.collect { |side| "#{class_prefix}-#{side}" }.join(' ')
     end
   end
 

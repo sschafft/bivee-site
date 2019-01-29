@@ -14,11 +14,11 @@ $scale-global: 1.2 !default;
 $scale-base-type: 16px;
 
 $scale-base-type-percentages: (
-  'default': 95%,
-  'xsmall': 100%,
-  'small': 105%,
-  'medium': 110%,
-  'large': 120%
+  'default': 90%,
+  'xsmall': 95%,
+  'small': 100%,
+  'medium': 105%,
+  'large': 110%
 );
 
 @function scale-base-type-size($screen: 'default') {
@@ -47,5 +47,7 @@ $scale-type: (
 // --- modular scale config ----------------------------------------------------
 // -> for layout and spacing
 
-$ms-base: 1;
-$ms-ratio: $scale-global;
+$modularscale: (
+  base: 1rem,
+  ratio: $scale-global
+);

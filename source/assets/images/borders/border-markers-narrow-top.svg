@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="100px" viewBox="0 0 200 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>border-markers-narrow-top</title>
+    <desc>Created with Sketch.</desc>
+    <g id="border-markers-narrow-top" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M188.758443,7.5 L199.5,7.5" id="line-right" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M1.7584434,7.5 L12.5,7.5" id="line-right-copy" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M36.7345242,7.5 L165.156188,7.5" id="line-middle" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M177.5,7 L184,7 C184.276142,7 184.5,7.22385763 184.5,7.5 C184.5,7.77614237 184.276142,8 184,8 L177.5,8 L177.5,14.5 C177.5,14.7761424 177.276142,15 177,15 C176.723858,15 176.5,14.7761424 176.5,14.5 L176.5,8 L170,8 C169.723858,8 169.5,7.77614237 169.5,7.5 C169.5,7.22385763 169.723858,7 170,7 L176.5,7 L176.5,0.5 C176.5,0.223857625 176.723858,5.07265313e-17 177,0 C177.276142,-5.07265313e-17 177.5,0.223857625 177.5,0.5 L177.5,7 Z" id="marker-right" fill="#939BA8"></path>
+        <path d="M24,7 L30.5,7 C30.7761424,7 31,7.22385763 31,7.5 C31,7.77614237 30.7761424,8 30.5,8 L24,8 L24,14.5 C24,14.7761424 23.7761424,15 23.5,15 C23.2238576,15 23,14.7761424 23,14.5 L23,8 L16.5,8 C16.2238576,8 16,7.77614237 16,7.5 C16,7.22385763 16.2238576,7 16.5,7 L23,7 L23,0.5 C23,0.223857625 23.2238576,5.07265313e-17 23.5,0 C23.7761424,-5.07265313e-17 24,0.223857625 24,0.5 L24,7 Z" id="marker-left" fill="#939BA8"></path>
+    </g>
+</svg>
