@@ -23,11 +23,13 @@ $button-icon-margin: ms(1, 1em);
   @include font('bold');
   @include se-shadow($blur: 0, $spread: 0.0625rem, $opacity: 0.5);
   @include transition;
+  border-bottom-style: border-style();
   border-style: border-style();
   border-width: border-width('thin');
   cursor: pointer;
   display: inline-block;
   font-size: scale-type('zeta');
+  margin-bottom: border-width('thin'); // webkit bug: set a default bottom margin to keep border from overflowing the bottom of its container - gets cut off by overflow: hidden
   padding: ms(-2, 1em) ms(3, 1em);
   position: relative;
   text-decoration: none;

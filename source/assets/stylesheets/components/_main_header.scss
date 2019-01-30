@@ -26,7 +26,6 @@ $_header-border-slices: (
     border: 0;
 
     &::before {
-      border-color: transparent;
       border-image: url('/assets/images/borders/border-header-#{space-outside('default')}.svg') $slice-width-x #{map-get($_header-border-slices, space-outside('default'))} repeat;
       border-style: solid;
       border-width: #{$slice-width-x}px #{map-get($_header-border-slices, space-outside('default'))}px;
