@@ -12,7 +12,7 @@
 // -----------------------------------------------------------------------------
 
 $border-radii: (
-  'default': 0.2em,
+  'default': 0.18em,
   'large': 0.375em
 );
 
@@ -38,15 +38,23 @@ $border-radii: (
 $border-w-default: 'thin' !default;
 
 $border-styles: (
-  'default': solid,
-  'secondary': dashed
+  'default': solid, // buttons, etc.
+  'secondary': dotted // hairlines
 ) !default;
 
 $border-widths: (
   'thin': 1px,
   'medium': 2px,
-  'thick': 4px
+  'thick': 11px,
+  'xthick': 24px
 ) !default;
+
+// slice widths for full-bleed decorative borders (see utilities/borders)
+$border-markers-full-bleed-slices: (
+  'narrow': 40,
+  'medium': 53,
+  'wide': 76
+);
 
 // get function for border style
 @function border-style($name: 'default') {
@@ -60,6 +68,10 @@ $border-widths: (
   } @else {
     @return map-get($border-widths, $w);
   }
+}
+
+@function border-markers-full-bleed-slices($size) {
+  @return map-get($border-markers-full-bleed-slices, $size);
 }
 
 // make a standard border/hairline that works with the parent color theme

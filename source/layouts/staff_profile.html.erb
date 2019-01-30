@@ -4,22 +4,25 @@
 %>
 
 <% wrap_layout :layout do %>
+  <%# header %>
   <%= component 'main_header' %>
 
   <!-- Staff profile -->
-  <article class="margin-bottom-xwide padding-wide">
-    <% component 'wrapper', locals: { classes: 'padding-bottom-wide' } do %>
-      <%= component 'responsive_image', locals: {
-        source: portrait_source(current_page.data.portrait.full_size),
-        alt: current_page.data.name,
-        classes: 'border-round-large'
-      } %>
+  <article class="margin-bottom-xwide padding-y-wide padding-x-outside">
+    <% component 'wrapper', locals: { classes: 'padding-bottom' } do %>
+      <div class="border-markers-corners">
+        <%= component 'responsive_image', locals: {
+          source: portrait_source(current_page.data.portrait.full_size),
+          alt: current_page.data.name,
+          classes: 'border border-xthick c-border-island'
+        } %>
+      </div>
     <% end %>
     <% component 'wrapper', locals: { width: 'narrow' } do %>
       <header class="padding-bottom t-align-center">
-  	    <h1 class="t-scale-alpha"><%= current_page.data.name %></h1>
-        <p data-ui-gutter="xnarrow" class="t-heading t-scale-delta c-accent">
-          <% unless current_page.data.role.level == 'Team' %><span data-ui-gutter-item class="display-inline-block t-weight-bold"><span class="display-inline-block padding-right-xnarrow border-right"><%= current_page.data.role.level %></span></span><% end %><span data-ui-gutter-item class="display-inline-block"><%= current_page.data.role.title %></span>
+  	    <h1 class="t-scale-beta padding-bottom-xxnarrow"><%= current_page.data.name %></h1>
+        <p class="t-heading t-scale-epsilon c-highlight">
+          <%= current_page.data.job_title %>
         </p>
     	</header>
       <%= yield %>
@@ -27,7 +30,7 @@
   </article>
 
   <!-- List of other staff -->
-  <% component 'panel', locals: { theme: 'midtone' } do %>
+  <% component 'panel', locals: { theme: 'light', painted: rand(1..9) } do %>
     <% component 'wrapper', locals: { width: 'wide' } do %>
   		<h1 class="t-heading t-scale-beta t-align-center padding-bottom-wide"><%= data.site.staff.headline.nav %></h1>
   		<%= component "staff_list", locals: { staff: find_staff_profiles(exclude: [ current_page.data.name ]), classes: "l-margin-top-wide" } %>

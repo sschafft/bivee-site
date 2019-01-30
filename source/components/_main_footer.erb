@@ -6,38 +6,55 @@
 %>
 
 <% unless hide_contact %>
-  <!-- Contact us -->
-  <% component 'panel', locals: { theme: 'dark' } do %>
-    <% component 'wrapper', locals: { width: 'narrow' } do %>
-      <h1 class="t-scale-beta t-align-center padding-bottom"><%= data.site.contact.headline %></h1>
-       <%= "<p class='t-content'>#{data.site.contact.intro}</p>" if data.site.contact.intro %>
 
-      <ul class="list-undecorated padding-top margin-y-between">
+  <!-- Contact us panel -->
+  <% component 'panel', locals: {
+    theme: 'dark',
+    painted: true,
+    bg: 'light',
+    id: 'contact'
+  } do %>
+
+    <!-- headline and intro (if any) -->
+    <h1 class="t-scale-beta t-align-center padding-bottom-wide"><%= data.site.contact.headline %></h1>
+    <% if data.site.contact.intro %>
+      <% component 'wrapper', locals: { width: 'narrow' } do %>
+        <p class='t-content padding-bottom'>
+          <%= data.site.contact.intro %>
+        </p>
+      <% end %>
+    <% end %>
+
+    <!-- contact info -->
+    <% component 'wrapper' do %>
+      <!-- office addresses -->
+      <ul data-ui-gallery>
         <% data.site.contact.locations.each_with_index do |location, index| %>
-          <li>
+          <li data-ui-gallery-item class="border-markers-top-left padding-top-narrow">
             <h2 class="t-scale-delta padding-bottom-xxnarrow c-highlight"><%= location.name %></h2>
-            <p><%= location.address %></p>
+            <p class="t-scale-zeta"><%= location.address %></p>
           </li>
         <% end %>
       </ul>
 
       <!-- message & social buttons -->
-      <div class="margin-top padding-top border-top t-align-center t-align-left@xsmall">
-        <div data-ui-bookend="horizontal@small" data-ui-gutter="flush">
+      <div class="margin-top padding-top border-top border-secondary t-align-center t-align-left@xsmall overflow-hidden">
+        <div data-ui-bookend="horizontal@medium" data-ui-gutter="flush">
           <div data-ui-bookend-item="left" data-ui-gutter-item>
             <div data-ui-gutter="flush narrow">
               <!-- Email button -->
               <div data-ui-gutter-item class="display-inline-block">
-                <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}", role: 'primary' } %>
+                <%= component 'button_link', locals: { label: 'Send us a message', url: "mailto:#{data.site.contact.email}" } %>
               </div>
               <p data-ui-gutter-item class="display-inline-block t-scale-zeta c-text-secondary"><%= data.site.contact.email %></p>
             </div>
           </div>
+
           <!-- Social channels -->
           <div data-ui-bookend-item="right" data-ui-gutter-item>
-            <div data-ui-gutter="flush xxnarrow">
+            <div data-ui-gutter="flush narrow">
               <h2 data-ui-gutter-item class="t-font-body t-scale-zeta c-text-secondary display-inline-block">Say hi:</h2>
-              <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xxnarrow">
+              <ul data-ui-gutter-item class="list-inline display-inline-block padding-x-between-xnarrow">
                 <% data.site.contact.social.each do |channel| %>
                 <li class="list-inline-item">
                   <% link_to channel.url, class: 'c-text-primary t-scale-zeta t-decoration-none', target: '_blank', title: "Say hi on #{channel.name}" do %>
@@ -50,11 +67,13 @@
           </div>
         </div>
       </div>
+
     <% end %>
   <% end %>
 <% end %>
 
-<footer class="c-theme-dark c-well border-top padding-x padding-y-narrow" role="contentinfo">
+<!-- Signoff: logo and copyright -->
+<footer class="c-theme-dark border-top border-secondary padding-x-outside padding-y-narrow overflow-hidden" role="contentinfo">
   <div data-ui-gutter="flush narrow">
     <div data-ui-bookend="horizontal@xsmall">
       <div data-ui-bookend-item="left" class="t-align-center t-align-left@xsmall">
@@ -62,7 +81,7 @@
           <%= image_tag 'logos/logo-bivee-red-reverse.svg', alt: 'Bivee' %>
         <% end %>
       </div>
-      <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-tertiary">
+      <small data-ui-bookend-item="right" data-ui-gutter-item class="l-margin-top-narrow l-no-margin@xsmall t-align-center t-align-right@xsmall t-scale-eta c-text-secondary">
         &copy; Copyright <%= Time.now.year %> Bivee Inc. All rights reserved.
       </small>
     </div>

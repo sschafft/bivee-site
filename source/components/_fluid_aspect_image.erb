@@ -14,7 +14,8 @@
   # list of props to pass to the data-ui attributes
   props = [
     'bg',
-    (bg_size unless bg_size == 'contain')
+    'swap',
+    ("scale-#{bg_size}" unless bg_size == 'contain')
   ]
 %>
 
@@ -23,7 +24,7 @@
     <%= component 'responsive_image', locals: {
       source: source,
       alt: alt,
-      data: { 'ui-aspect-image': '' }
+      data: { 'ui-aspect-image': "scale-#{bg_size}" }
     } %>
   </div>
 </div>

@@ -2,42 +2,38 @@
 //  Cover
 //  -> a big splashy 'book cover' for a page of content
 // =============================================================================
+// sass-lint:disable no-duplicate-properties
+// -> need fallback min-height props for vh units
 
 @import '../config/spacing';
+@import '../config/breakpoints';
 
 // Block
 // -----------------------------------------------------------------------------
 
 [data-ui-cover] {
-  // sass-lint:disable no-duplicate-properties
-  // -> need a fallback min-height here
-  background-image: url('/assets/images/covers/ink-cover@400w.png');
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
   display: block;
-  min-height: 400px;
-  min-height: 70vh;
+  min-height: 300px;
+  min-height: 65vh;
   position: relative;
 
   @supports (display: flex) {
     display: flex;
+    flex-direction: column;
   }
 
-  @include media('>xsmall') {
-    background-image: url('/assets/images/covers/ink-cover@800w.png');
+  @include media('height>60em') {
+    min-height: 60vh;
   }
 
-  @include media('>medium') {
-    background-image: url('/assets/images/covers/ink-cover@1200w.png');
+  // for larger, wider screens, increase the height of the hero unit so the background covers the content well enough
+  // -> this is a hacky magic numbers bad solution. @jay TODO refactor
+  @include media('height>60em', '>medium') {
+    min-height: 70vh;
   }
 
-  @include media('>large') {
-    background-image: url('/assets/images/covers/ink-cover@1600w.png');
-  }
-
-  @include media('>huge') {
-    background-image: url('/assets/images/covers/ink-cover@2000w.png');
+  @include media('height>60em', '>large') {
+    min-height: 75vh;
   }
 }
 
@@ -46,14 +42,13 @@
 
 [data-ui-cover-content] {
   display: block;
-  // margin-top: auto;
-  // margin-bottom: auto;
   width: 100%;
 }
 
 // Traits
 // -----------------------------------------------------------------------------
 
-// [data-ui-cover~='TRAIT'] {
-
-// }
+[data-ui-cover~='short'] {
+  min-height: 300px;
+  min-height: 40vh;
+}

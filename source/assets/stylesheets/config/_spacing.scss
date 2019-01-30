@@ -6,19 +6,25 @@
 @import '../config/libs';
 @import '../config/scale';
 
-@function space-scale($size: 0) {
-  @return ms($size, 1rem);
-}
-
 // standard spacing for margins and padding, etc.
 $spacing: (
-  'xxwide': space-scale(11),
-  'xwide': space-scale(8),
-  'wide': space-scale(4),
-  'medium': space-scale(2),
-  'narrow': space-scale(0),
-  'xnarrow': space-scale(-2),
-  'xxnarrow': space-scale(-6)
+  'xxwide': ms(12),
+  'xwide': ms(10),
+  'wide': ms(7),
+  'medium': ms(4),
+  'narrow': ms(2),
+  'xnarrow': ms(-2),
+  'xxnarrow': ms(-8)
+);
+
+// outside margins for full-width containers
+// -> [screen size]: [margin width]
+// -> need to be responsive to keep content from getting too scrunched on small screens, and to add more air on larger screens
+// -> used for both spacing utils also decorated borders
+$spacing-outside: (
+  'default': 'narrow',
+  'small': 'medium',
+  'medium': 'wide'
 );
 
 // getter function for $gutters map
@@ -28,4 +34,9 @@ $spacing: (
   } @else {
     @return (map-get($spacing, $name) / 2);
   }
+}
+
+// getter function for outside spacing
+@function space-outside($name) {
+  @return map-get($spacing-outside, $name);
 }

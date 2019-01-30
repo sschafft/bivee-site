@@ -2,21 +2,33 @@
   # Panel component
   # -> For short content in scrolling sections. Meant to be full-width.
 
-  borders ||= [ 'top' ] # STRING/ARRAY: sides you want borders on - see border_classes helper in config.rb
+  id ||= false # STRING: id attribute for the container, for anchor links etc.
+  theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
+  bg ||= 'transparent' # STRING: how to handle the bg color. "transparent" forces it to be transparent. "inherit" will use the bg color of the theme (e.g. "dark"). Or, pass in a theme name ("light") to use a specific bg color.
+  border ||= 'top' # STRING or ARRAY (optional): include border?
+  painted ||= false # BOOLEAN (optional): use painted background?
+  painted_version ||= rand(1...9) # NUMBER (optional): number of the bg image used for the painted bg. 1-9.
+  painted_side ||= 'top' # STRING (optional): side the painted bg appears on. Can be 'top' or 'bottom'.
   classes ||= false # STRING: additional modifier classes for the container
   el ||= 'section' # What HTML element should the wrapper be?
-  padding ||= { x: 'wide', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
-  byline ||= false # STRING: a byline or label for the top of the panel, e.g. "Recent work"
-  theme ||= 'default' # STRING: name of color theme, e.g. "reverse" or "wash"
+  padding ||= { x: 'outside', y: 'xwide' } # STRING/HASH: outside padding - see padding_classes helper in config.rb
+  header_offset ||= false # BOOLEAN (optional): add some padding to the top to offset an 'overlay'-style header?
+
+  wrapper = [
+    ("c-theme-#{theme}" if theme != 'default'),
+    ("c-bg-painted-#{painted_side}-0#{painted_version}" if painted),
+    ("c-bg-#{bg}" if bg != 'inherit'),
+    (classes if classes)
+  ]
 
   utils = [
-    padding_classes(padding),
-    border_classes(borders),
-    ("c-theme-#{theme}" if theme != 'default'),
-    (classes if classes)
+    border_classes(border, 'border-markers-full-bleed'),
+    padding_classes(padding)
   ]
 %>
 
-<<%= el %><%= class_list(utils) %>>
-  <%= yield %>
+<<%= el %><%= ' data-ui-main-header-offset' if header_offset %><%= class_list(wrapper) %><%= " id='#{id}'" if id %>>
+  <div<%= class_list(utils) %>>
+    <%= yield %>
+  </div>
 </<%= el %>>

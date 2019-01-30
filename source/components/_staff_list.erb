@@ -11,17 +11,16 @@
   <% staff.each do |profile| %>
     <li data-ui-gallery-item>
       <% link_to profile.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
-        <%= component 'fluid_aspect_image', locals: {
-          source: "assets/images/portraits/#{profile.data.portrait.thumb}",
-          bg_size: 'cover',
-          alt: profile.data.name,
-          classes: 'border-round border'
-        } %>
-        <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-narrow"><%= profile.data.name %></h3>
-        <% unless profile.data.role.level == 'Team' %>
-          <p class="t-heading t-weight-bold t-scale-zeta c-highlight padding-bottom-xxnarrow"><%= profile.data.role.level %></p>
-        <% end %>
-        <p class="t-heading t-scale-zeta c-text-secondary"><%= profile.data.role.title %></p>
+        <div class="border-markers-corners">
+          <%= component 'fluid_aspect_image', locals: {
+            source: "assets/images/portraits/#{profile.data.portrait.thumb}",
+            bg_size: 'cover',
+            alt: profile.data.name,
+            classes: 'border border-thick c-border-island'
+          } %>
+        </div>
+        <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-xnarrow"><%= profile.data.name %></h3>
+        <p class="t-heading t-scale-eta c-highlight"><%= profile.data.job_title %></p>
       <% end %>
     </li>
   <% end %>

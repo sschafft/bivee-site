@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="100px" viewBox="0 0 200 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>border-markers-wide-bottom</title>
+    <desc>Created with Sketch.</desc>
+    <g id="border-markers-wide-bottom" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M72.5,92.5 L128.4406,92.5" id="line-middle" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M140,92 L146.5,92 C146.776142,92 147,92.2238576 147,92.5 C147,92.7761424 146.776142,93 146.5,93 L140,93 L140,99.5 C140,99.7761424 139.776142,100 139.5,100 C139.223858,100 139,99.7761424 139,99.5 L139,93 L132.5,93 C132.223858,93 132,92.7761424 132,92.5 C132,92.2238576 132.223858,92 132.5,92 L139,92 L139,85.5 C139,85.2238576 139.223858,85 139.5,85 C139.776142,85 140,85.2238576 140,85.5 L140,92 Z" id="marker-right" fill="#939BA8"></path>
+        <path d="M60,92 L66.5,92 C66.7761424,92 67,92.2238576 67,92.5 C67,92.7761424 66.7761424,93 66.5,93 L60,93 L60,99.5 C60,99.7761424 59.7761424,100 59.5,100 C59.2238576,100 59,99.7761424 59,99.5 L59,93 L52.5,93 C52.2238576,93 52,92.7761424 52,92.5 C52,92.2238576 52.2238576,92 52.5,92 L59,92 L59,85.5 C59,85.2238576 59.2238576,85 59.5,85 C59.7761424,85 60,85.2238576 60,85.5 L60,92 Z" id="marker-left" fill="#939BA8"></path>
+        <path d="M0,92.5 L48.5,92.5" id="line-left" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+        <path d="M151,92.5 L199.5,92.5" id="line-left-copy" stroke="#939BA8" stroke-linecap="round" stroke-dasharray="0,3"></path>
+    </g>
+</svg>
