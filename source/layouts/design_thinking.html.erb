@@ -3,14 +3,26 @@
 %>
 
 <% wrap_layout :layout do %>
+  <%= component "main_header", locals: {
+    theme: 'dark',
+    overlay: true
+  } %>
+
   <article>
     <!-- Cover image, and title -->
-    <header class="padding-x-wide padding-y-xwide border-bottom c-theme-dark">
+    <% component 'panel', locals: {
+      el: 'header',
+      theme: 'dark',
+      painted: true,
+      painted_side: 'bottom',
+      border: 'bottom',
+      header_offset: true
+    } do %>
       <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
         <h1><%= current_page.data.title %></h1>
         <%= "<p class='t-heading t-scale-gamma c-text-secondary margin-top-narrow'>#{current_page.data.subtitle}</p>" if current_page.data.subtitle %>
       <% end %>
-    </header>
+    <% end %>
     <!-- body text -->
     <div class="padding-wide padding-bottom-xwide">
       <% component 'wrapper', locals: { width: 'narrow', classes: 't-content' } do %>
@@ -21,7 +33,7 @@
 
   <!-- Case studies local nav -->
   <% if data.case_studies.projects.length > 1 %>
-    <% component 'panel', locals: { theme: 'light', painted: rand(1..9), classes: 'c-well' } do %>
+    <% component 'panel', locals: { theme: 'light', painted: true } do %>
       <% component 'wrapper' do %>
         <h1 class="t-scale-beta t-align-center padding-bottom-xnarrow"><%= current_page.data.footer_nav.heading %></h1>
         <p class="t-scale-delta t-align-center padding-bottom-wide"><%= current_page.data.footer_nav.description %></p>

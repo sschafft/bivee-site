@@ -178,8 +178,8 @@ address,
 
 blockquote,
 .t-blockquote {
-  @include border('left', $w: 'thick', $color: 'highlight');
-  padding-left: space();
+  @include border('left', $w: 'medium', $color: 'highlight');
+  padding-left: space('narrow');
 
   @media print {
     page-break-inside: avoid;
