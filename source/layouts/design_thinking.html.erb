@@ -24,11 +24,11 @@
       <% end %>
     <% end %>
     <!-- body text -->
-    <div class="padding-wide padding-bottom-xwide">
+    <main class="padding-y-xwide">
       <% component 'wrapper', locals: { width: 'narrow', classes: 't-content' } do %>
         <%= yield %>
       <% end %>
-    </div>
+    </main>
   </article>
 
   <!-- Case studies local nav -->
@@ -38,7 +38,8 @@
         <h1 class="t-scale-beta t-align-center padding-bottom-xnarrow"><%= current_page.data.footer_nav.heading %></h1>
         <p class="t-scale-delta t-align-center padding-bottom-wide"><%= current_page.data.footer_nav.description %></p>
         <%= component 'case_studies_list', locals: {
-          projects: data.case_studies.projects
+          projects: data.case_studies.projects,
+          color: 'white'
         } %>
       <% end %>
     <% end %>
