@@ -19,6 +19,7 @@
     header_offset: true
   } do %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+      <%# Project logo/header illustration %>
       <%= component 'responsive_image', locals: {
         source: Hash[project.cover.full_size.collect { |version| [version.width, version.source] }],
         alt: project.title.short,

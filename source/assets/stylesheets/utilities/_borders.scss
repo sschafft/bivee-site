@@ -92,6 +92,7 @@ $_sides: ['top', 'right', 'bottom', 'left'];
       left: 0;
       position: absolute;
       right: 0;
+      z-index: z('high');
     }
   }
 }

@@ -120,9 +120,9 @@ helpers do
   # return a list of site resouces for staff from a list of names
   # arguments:
   # ARRAY exclude (optional): the names of staff you want to exclude.
-  def find_staff_profiles(exclude: [])
+  def find_people(group: 'staff', exclude: [])
     profiles = sitemap.resources.select do |r|
-      r.path.include?('staff') unless exclude.include?(r.data.name)
+      r.path.include?(group) unless exclude.include?(r.data.name)
     end
     profiles.sort_by do |r|
       # order alphbetically by last name

@@ -11,8 +11,11 @@
 
 // make an element rise to the top of a layout
 // -> useful if it contains, for instance, stuff like a jump nav that needs to overlay elements below
-.z-top {
-  z-index: z('high') !important;
+
+@each $name, $level in $z-indexes {
+  .z-#{$name} {
+    z-index: z($name) !important;
+  }
 }
 
 .display-block {
@@ -34,4 +37,8 @@
 .align-center-block {
   margin-left: auto;
   margin-right: auto;
+}
+
+.position-relative {
+  position: relative !important;
 }

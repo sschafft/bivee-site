@@ -1,0 +1,40 @@
+<%= component "main_header" %>
+
+<main>
+  <h1 class="padding-top-wide padding-bottom-xwide padding-x-outside t-align-center">Our people</h1>
+
+  <!-- core staff -->
+  <% component "panel", locals: {
+    theme: 'light',
+    painted: true
+  } do %>
+    <h2 class="t-align-center padding-bottom-wide">Staff</h2>
+    <% component "wrapper", locals: { width: "wide" } do %>
+      <%= component "people_list", locals: { group: find_people } %>
+    <% end %>
+  <% end %>
+
+  <!-- consultants -->
+  <% component "panel", locals: {
+    theme: 'light',
+    bg: 'inherit',
+    classes: 'z-middle'
+  } do %>
+    <h2 class="t-align-center padding-bottom-wide">Consultants</h2>
+    <% component "wrapper", locals: { width: "wide" } do %>
+      <%= component "people_list", locals: { group: find_people(group: 'consultants') } %>
+    <% end %>
+  <% end %>
+
+  <!-- partners -->
+  <% component "panel", locals: {
+    theme: 'light',
+    bg: 'inherit',
+    classes: 'z-middle'
+  } do %>
+    <h2 class="t-align-center padding-bottom-wide">Partners</h2>
+    <% component "wrapper", locals: { width: "wide" } do %>
+      <%= component "people_list", locals: { group: find_people(group: 'partners') } %>
+    <% end %>
+  <% end %>
+</main>

@@ -3,12 +3,12 @@
   # -> A grid of staff listings
 
   # Locals:
-  # staff - ARRAY: the staff to display
+  # group - ARRAY: the list of people to display, e.g. staff, consultants, etc.
   classes ||= false # STRING: additional modifier classes, if needed
 %>
 
 <ul data-ui-gallery="small default@small large@medium"<%= class_list(classes) if classes %>>
-  <% staff.each do |profile| %>
+  <% group.each do |profile| %>
     <li data-ui-gallery-item>
       <% link_to profile.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <div class="border-markers-corners">

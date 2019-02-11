@@ -59,11 +59,11 @@ title: home
 <!-- Staff -->
 <% component 'panel', locals: {
   theme: 'light',
-  painted: rand(1..9)
+  painted: true
 } do %>
   <h2 class="t-scale-alpha t-align-center"><%= data.site.staff.headline.home %></h2>
   <!-- list of staff photos -->
   <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
-    <%= component 'staff_list', locals: { staff: find_staff_profiles, classes: 't-align-center' } %>
+    <%= component 'people_list', locals: { group: find_people, classes: 't-align-center' } %>
   <% end %>
 <% end %>
