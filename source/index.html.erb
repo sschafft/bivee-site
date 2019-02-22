@@ -61,7 +61,7 @@ title: home
   theme: 'light',
   painted: true
 } do %>
-  <h2 class="t-scale-alpha t-align-center"><%= data.site.staff.headline.home %></h2>
+  <h2 class="t-scale-alpha t-align-center"><%= data.people.headline.home %></h2>
   <!-- list of staff photos -->
   <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
     <%= component 'people_list', locals: { group: find_people, classes: 't-align-center' } %>

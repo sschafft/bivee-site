@@ -123,10 +123,10 @@ helpers do
   # arguments:
   # ARRAY exclude (optional): the names of staff you want to exclude.
   def find_people(group: 'staff', exclude: [])
-    profiles = sitemap.resources.select do |r|
-      r.path.include?(group) unless exclude.include?(r.data.name)
+    profiles = sitemap.resources.select do |resource|
+      resource.path.include?(group) unless exclude.include?(resource.data.name)
     end
-    profiles.sort_by do |r|
+    profiles.reject {|profile| profile.path.include?('assets') }.sort_by do |r|
       # order alphbetically by last name
       # -> use split to find the last word in the string
       r.data.name.split(' ').last

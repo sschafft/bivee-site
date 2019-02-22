@@ -16,10 +16,17 @@
     <% data.people.groups.each_with_index do |group, index| %>
       <div<%= " class='border-top border-secondary padding-top-narrow margin-top-wide'" if index > 0 %>>
         <h3 class="t-scale-zeta t-weight-bold t-case-upper t-align-center c-text-secondary padding-bottom"><%= group.name %></h3>
-        <%= component "people_list", locals: { group: find_people(
-          group: group.folder,
-          exclude: exclude || []
-        ) } %>
+        <% if group.folder == 'partners' %>
+          <%= component "partners_list", locals: {
+            group: find_people(group: group.folder),
+            exclude: exclude || []
+          } %>
+        <% else %>
+          <%= component "people_list", locals: {
+            group: find_people(group: group.folder),
+            exclude: exclude || []
+          } %>
+        <% end %>
       </div>
     <% end %>
   <% end %>

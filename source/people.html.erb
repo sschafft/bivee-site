@@ -12,7 +12,11 @@
     } do %>
       <h2 class="t-align-center padding-bottom-wide"><%= group.name %></h2>
       <% component "wrapper", locals: { width: "wide" } do %>
-        <%= component "people_list", locals: { group: find_people(group: group.folder) } %>
+        <% if group.folder == 'partners' %>
+          <%= component "partners_list", locals: { group: find_people(group: group.folder) } %>
+        <% else %>
+          <%= component "people_list", locals: { group: find_people(group: group.folder) } %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>
