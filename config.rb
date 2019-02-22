@@ -11,7 +11,9 @@ page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
 
-page '/staff/*', layout: 'staff_profile'
+page '/people/staff/*', layout: 'profile'
+page '/people/consultants/*', layout: 'profile'
+page '/people/partners/*', layout: 'partner'
 
 # General configuration
 

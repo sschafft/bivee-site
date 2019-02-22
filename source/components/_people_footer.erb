@@ -1,0 +1,26 @@
+<%
+  # List of other people shown at the bottom of profile, partner pages
+
+  # Locals:
+  # exclude ||= []
+%>
+
+<!-- List of other people -->
+<% component 'panel', locals: {
+  theme: 'light',
+  painted: rand(1..9)
+} do %>
+  <% component 'wrapper', locals: { width: 'wide' } do %>
+    <h2 class="t-heading t-scale-beta t-align-center padding-bottom"><%= data.people.headline.nav %></h2>
+
+    <% data.people.groups.each_with_index do |group, index| %>
+      <div<%= " class='border-top border-secondary padding-top-narrow margin-top-wide'" if index > 0 %>>
+        <h3 class="t-scale-zeta t-weight-bold t-case-upper t-align-center c-text-secondary padding-bottom"><%= group.name %></h3>
+        <%= component "people_list", locals: { group: find_people(
+          group: group.folder,
+          exclude: exclude || []
+        ) } %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

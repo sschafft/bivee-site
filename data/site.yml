@@ -28,14 +28,6 @@ cover:
   # Blurb introducing us. It'll be followed by a link to the about page.
   intro: 'Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution.'
 
-# Content for the staff listings that appear around the site
-staff:
-  headline:
-    # Headline for the staff section on the homepage
-    home: Our team
-    # Headline for the staff nav at the bottom of each profle
-    nav: Meet the rest of the team
-
 # Contact/location info that appears in various places around the site
 # -> primarily used in the footer
 contact:
