@@ -1,7 +1,7 @@
 ---
 name: Arsham Skrenes
 portrait:
-  thumb: /people/staff/assets/nico-thumb.jpg
+  thumb: /people/consultants/assets/Arsham_Balanced.jpg
   full_size:
     - source: /people/staff/assets/nico@480.jpg
       width: 480

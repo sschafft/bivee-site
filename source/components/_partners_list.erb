@@ -14,7 +14,9 @@
     <li data-ui-gallery-item>
       <% link_to partner.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <%= component 'logo_thumb', locals: {
-          logo: "#{partner.data.logo.path}#{partner.data.logo.thumb}",
+          path: partner.data.logo.path,
+          logo: partner.data.logo.thumb,
+          padding: partner.data.logo.padding || false,
           alt: partner.data.name,
           color: 'white'
         } %>

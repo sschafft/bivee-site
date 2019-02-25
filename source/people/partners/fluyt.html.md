@@ -2,8 +2,16 @@
 name: Fluyt
 website: https://fluytdesign.com/
 logo:
-  path: /people/staff/assets/
-  thumb: haley-thumb.jpg
+  path: /people/partners/assets/
+  thumb:
+    - source: fluyt-thumbnail@200w.png
+      width: 200
+    - source: fluyt-thumbnail@400w.png
+      width: 400
+    - source: fluyt-thumbnail@800w.png
+      width: 800
+    - source: fluyt-thumbnail@1200w.png
+      width: 1200
   full_size:
     - source: haley@480.jpg
       width: 480

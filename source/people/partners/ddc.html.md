@@ -2,8 +2,19 @@
 name: DDC
 website: http://ddc-international.com
 logo:
-  path: /people/staff/assets/
-  thumb: haley-thumb.jpg
+  path: /people/partners/assets/
+  padding: 21
+  thumb:
+    - source: DDC-logo@200w.png
+      width: 200
+    - source: DDC-logo@400w.png
+      width: 400
+    - source: DDC-logo@800w.png
+      width: 800
+    - source: DDC-logo@1200w.png
+      width: 1200
+    - source: DDC-logo@1600w.png
+      width: 1600
   full_size:
     - source: haley@480.jpg
       width: 480

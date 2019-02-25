@@ -15,15 +15,13 @@ title: home
     classes: 'c-bg-painted-wash',
     header_offset: true
   } do %>
+    <!-- Logo evolution sketches -->
     <%= component 'responsive_image', locals: {
-      source: {
-         '480': '/assets/images/bivee-logo-process@480w.png',
-         '800': '/assets/images/bivee-logo-process@800w.png',
-        '1200': '/assets/images/bivee-logo-process@1200w.png'
-      },
+      source: data.site.cover.logo_sketches,
       classes: 'display-block align-center-block',
       style: 'width: 40rem;'
     } %>
+    <!-- Main logo -->
     <%= image_tag "logos/logo-bivee-red-reverse.svg",
       data: { 'ui-logo': '' },
       class: 'padding-bottom-narrow padding-top',

@@ -9,6 +9,7 @@
     # -> useful for local navs where you don't want to show the current project
   gutter ||= 'wide' # STRING (optional): width of the gutter between thumbnails
   color ||= 'light' # STRING (optional): color of the background paint image
+  bg ||= data.site.painted_bg_versions.thumbnails
 %>
 
 <ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
@@ -19,7 +20,7 @@
           <%= component "logo_thumb", locals: {
             logo: project.cover.thumb.logo,
             alt: project.title.short,
-            bg: project.cover.thumb.bg,
+            bg: (project.cover.thumb.bg || bg),
             color: color
           } %>
           <h2 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h2>

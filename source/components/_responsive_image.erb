@@ -3,7 +3,8 @@
   # -> use srcset to create an image that scales with screen size
 
   # Locals:
-  # STRING/HASH source: the path(s) or url(s) of the image files(s)
+  # source - STRING/HASH: the path(s) or url(s) of the image files(s)
+  path ||= '' # STRING (optional): the path to the source images, if not included in source
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional classes you'd like to pass in
@@ -11,13 +12,14 @@
   data ||= false # HASH (optional): additional data attributes
 
   # Private:
-  fallback_source = source.is_a?(Hash) ? source.values[0] : source
 
-  def source_set(src)
-    if src.is_a?(Hash)
-      src.collect do |width, path|
-        "#{asset_url(path)} #{width}w" unless width == 'default'
-      end.reject(&:nil?).join(', ')
+  default_source = "#{path}#{source.is_a?(Array) ? source[0].source : source}"
+
+  def source_set(src, path)
+    if src.is_a?(Array)
+      src.collect do |image|
+        "#{asset_url(path + image.source)} #{image.width}w"
+      end.reject(&:nil?)[1...src.length].join(', ')
     end
   end
 
@@ -32,5 +34,4 @@
     end.join(' ')
   end
 %>
-
-<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= default_source %>"<%= " srcset='#{source_set(source, path)}'" if source_set(source, path) %> alt="<%= alt %>">

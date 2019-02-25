@@ -23,6 +23,13 @@ main_nav:
 
 # Content for the 'cover' (hero unit) on the homepage
 cover:
+  logo_sketches:
+    - source: /assets/images/bivee-logo-process@480w.png
+      width: 480
+    - source: /assets/images/bivee-logo-process@800w.png
+      width: 800
+    - source: /assets/images/bivee-logo-process@1200w.png
+      width: 1200
   # Main headline/tagline
   headline: Development done differently.
   # Blurb introducing us. It'll be followed by a link to the about page.
@@ -68,4 +75,8 @@ contact:
       url: https://twitter.com/biveeco
       icon: 'twitter'
 
-background_variations: 9
+# Painted backgrounds
+# -> this is the number of choices we have, so you can do stuff like `background =  rand(1...data.site.painted_bg_versions.thumbnails)`
+painted_bg_versions:
+  edges: 9
+  thumbnails: 6
