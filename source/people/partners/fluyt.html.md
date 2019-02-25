@@ -13,13 +13,13 @@ logo:
     - source: fluyt-thumbnail@1200w.png
       width: 1200
   full_size:
-    - source: haley@480.jpg
+    - source: fluyt-lockup@480w.png
       width: 480
-    - source: haley@800.jpg
+    - source: fluyt-lockup@800w.png
       width: 800
-    - source: haley@1200.jpg
+    - source: fluyt-lockup@1200w.png
       width: 1200
-    - source: haley@1600.jpg
+    - source: fluyt-lockup@1600w.png
       width: 1600
 expertise:
   - print

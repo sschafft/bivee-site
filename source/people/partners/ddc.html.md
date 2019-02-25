@@ -13,16 +13,14 @@ logo:
       width: 800
     - source: DDC-logo@1200w.png
       width: 1200
-    - source: DDC-logo@1600w.png
-      width: 1600
   full_size:
-    - source: haley@480.jpg
-      width: 480
-    - source: haley@800.jpg
+    - source: DDC-logo@400w.png
+      width: 400
+    - source: DDC-logo@800w.png
       width: 800
-    - source: haley@1200.jpg
+    - source: DDC-logo@1200w.png
       width: 1200
-    - source: haley@1600.jpg
+    - source: DDC-logo@1600w.png
       width: 1600
 expertise:
   - print

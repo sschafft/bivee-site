@@ -18,13 +18,11 @@
         <h3 class="t-scale-zeta t-weight-bold t-case-upper t-align-center c-text-secondary padding-bottom"><%= group.name %></h3>
         <% if group.folder == 'partners' %>
           <%= component "partners_list", locals: {
-            group: find_people(group: group.folder),
-            exclude: exclude || []
+            group: find_people(group: group.folder, exclude: (exclude || []))
           } %>
         <% else %>
           <%= component "people_list", locals: {
-            group: find_people(group: group.folder),
-            exclude: exclude || []
+            group: find_people(group: group.folder, exclude: (exclude || []))
           } %>
         <% end %>
       </div>

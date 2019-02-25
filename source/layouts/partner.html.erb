@@ -9,15 +9,15 @@
 
   <!-- Staff profile -->
   <article class="margin-bottom-xwide padding-y-wide padding-x-outside">
-    <% component 'wrapper', locals: { classes: 'padding-bottom' } do %>
-      <div class="border-markers-corners">
-        <%= component 'responsive_image', locals: {
-          source: current_page.data.logo.full_size,
-          path: (current_page.data.logo.path || false),
-          alt: current_page.data.name,
-          classes: 'border border-xthick c-border-island'
-        } %>
-      </div>
+    <% component 'wrapper', locals: {
+      width: 'narrow',
+      classes: 'padding-bottom-wide'
+    } do %>
+      <%= component 'logo_with_swatch', locals: {
+        logo: current_page.data.logo.full_size,
+        path: current_page.data.logo.path,
+        padding: current_page.data.logo.padding || false
+      } %>
     <% end %>
     <% component 'wrapper', locals: { width: 'narrow' } do %>
       <header class="padding-bottom t-align-center">
