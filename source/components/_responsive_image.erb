@@ -19,7 +19,7 @@
     if src.is_a?(Array)
       src.collect do |image|
         "#{asset_url(path + image.source)} #{image.width}w"
-      end.reject(&:nil?)[1...src.length].join(', ')
+      end.compact[1...src.length].join(', ')
     end
   end
 
