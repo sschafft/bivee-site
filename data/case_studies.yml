@@ -7,7 +7,7 @@ headline:
 # an intro blurb describing our work
 intro: |-
   <p>We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and the development of new products and applications.</p>
-  <p>We’ve taken this approach on projects in development, healthcare, and education, among others, and with a wide variety of partners, from international development organisations to nonprofits and private sector firms. </p>
+  <p>We’ve taken this approach on projects in development, healthcare, and education, among others, and with a wide variety of partners, from international development organisations to nonprofits and private sector firms.</p>
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders

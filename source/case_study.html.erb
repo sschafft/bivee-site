@@ -21,7 +21,7 @@
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
       <%# Project logo/header illustration %>
       <%= component 'responsive_image', locals: {
-        source: Hash[project.cover.full_size.collect { |version| [version.width, version.source] }],
+        source: project.cover.full_size,
         alt: project.title.short,
         style: 'width: 35rem;'
       } %>
