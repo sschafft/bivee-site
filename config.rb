@@ -68,8 +68,8 @@ helpers do
   # -> Pass in a string to apply the same padding to all sides, e.g. 'wide'
   # -> Pass in a hash to apply padding to each side, e.g. { top: 'narrow' }.
   #    Any sides you leave out will have no padding.
-  # rubocop:disable Metrics/MethodLength
   # -> we need all this logic in this method, doesn't make sense to split it up
+  # rubocop:disable Metrics/MethodLength
   def padding_classes(values)
     if values.is_a?(String)
       case values
@@ -90,7 +90,7 @@ helpers do
         else
           "padding-#{side}-#{width}"
         end
-      end.join(' ')
+      end.join(' ').rstrip
     end
   end
   # rubocop:enable Metrics/MethodLength
@@ -104,7 +104,9 @@ helpers do
       return class_prefix if sides == 'all'
       "#{class_prefix}-#{sides}"
     else
-      sides.collect { |side| "#{class_prefix}-#{side}" }.join(' ')
+      sides.collect do |side|
+        "#{class_prefix}-#{side}"
+      end.join(' ').rstrip
     end
   end
 
@@ -126,10 +128,22 @@ helpers do
     profiles = sitemap.resources.select do |resource|
       resource.path.include?(group) unless exclude.include?(resource.data.name)
     end
-    profiles.reject {|profile| profile.path.include?('assets') }.sort_by do |r|
-      # order alphbetically by last name
-      # -> use split to find the last word in the string
+    # clear out the assets folder from the selection
+    # -> so we don't accidentally include pictures, logos, etc.
+    profiles.reject do |r|
+      r.path.include?('assets')
+    end
+  end
+
+  def order_by_last_name(resources)
+    resources.sort_by do |r|
       r.data.name.split(' ').last
+    end
+  end
+
+  def order_by_name(resources)
+    resources.sort_by do |r|
+      r.data.name
     end
   end
 

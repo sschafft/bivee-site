@@ -10,7 +10,7 @@
 %>
 
 <ul data-ui-gallery="gutter-<%= gutter %> small default@small large@medium"<%= class_list(classes) if classes %>>
-  <% group.each do |partner| %>
+  <% order_by_name(group).each do |partner| %>
     <li data-ui-gallery-item>
       <% link_to partner.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <%= component 'logo_with_swatch', locals: {
