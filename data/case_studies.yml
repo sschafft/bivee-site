@@ -26,7 +26,7 @@ projects:
   type: Data, knowledge, and learning systems
   cover:
     thumb:
-      logo: work/ppp/assets/thumb-PPP.png
+      logo: /work/ppp/assets/thumb-PPP.png
       bg: 5
     full_size:
       - source: work/ppp/assets/ppp-cover@400w.png
@@ -49,7 +49,7 @@ projects:
   type: Data, knowledge, and learning systems
   cover:
     thumb:
-      logo: work/ga/assets/thumb-GA.png
+      logo: /work/ga/assets/thumb-GA.png
       bg: 4
     full_size:
       - source: work/ga/assets/ga-cover@400w.png

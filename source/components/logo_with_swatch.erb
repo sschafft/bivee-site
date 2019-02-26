@@ -2,7 +2,7 @@
   # Logo thumbnail image
 
   # Locals:
-  # logo - STRING or HASH: the logo image and/or scaled versions
+  logo ||= '' # STRING or HASH: the logo image and/or scaled versions
   path ||= '' #STRING (optional): path to the file, if not included in logo above
   alt ||= 'logo'
   bg ||= rand(1...data.site.painted_bg_versions.thumbnails)
