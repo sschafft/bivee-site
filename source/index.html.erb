@@ -66,8 +66,12 @@ title: home
 } do %>
   <h2 class="t-scale-alpha t-align-center"><%= data.people.headline.home %></h2>
   <!-- list of staff photos -->
-  <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
-    <%= component 'people_list', locals: { group: find_people, classes: 't-align-center' } %>
+  <% component 'wrapper', locals: {
+    width: 'wide',
+    padding: { top: 'wide' },
+    classes: 't-align-center'
+  } do %>
+    <%= component 'people_list', locals: { group: find_people } %>
     <%= component 'button_link', locals: {
       label: 'Meet the rest of the team',
       url: '/people',

@@ -3,7 +3,8 @@
 <main class="padding-x-outside padding-top-wide padding-bottom-xwide">
   <h1 class="padding-bottom-xwide padding-x-outside t-align-center">Our work</h1>
 
-  <% component "wrapper", locals: { width: "wide" } do %>
+  <%# change width of wrapper to wide when there are more than a couple projects %>
+  <% component "wrapper", locals: { width: "narrow" } do %>
       <%= component "projects_list", locals: { projects: data.work.projects } %>
   <% end %>
 </main>
