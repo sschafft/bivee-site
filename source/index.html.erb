@@ -43,14 +43,19 @@ title: home
 
 <!-- Work -->
 <% component 'panel' do %>
-  <% component 'blurb', locals: { heading: data.case_studies.headline.home, borders: 'none' } do %> <%= data.case_studies.intro %>
+  <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %> <%= data.work.intro %>
   <% end %>
   <% component 'wrapper', locals: { width: 'default', classes: 't-align-center padding-top-xwide' } do %>
     <!-- Case study listings -->
-    <%= component 'case_studies_list', locals: { projects: data.case_studies.projects } %>
+    <%= component 'projects_list', locals: { projects: data.work.projects } %>
 
-    <%# enable this button when there's more than 3 case studies to display %>
-    <%#= component 'button_link', locals: { label: 'More work', url: '#', classes: 'margin-top-wide', role: 'primary' } %>
+    <%# this button appears when there's more than 3 case studies to display %>
+    <%= component 'button_link', locals: {
+      label: 'More work',
+      url: '/work',
+      role: 'primary',
+      classes: 'margin-top-wide'
+    } if (data.work.projects.length > 3) %>
   <% end %>
 <% end %>
 
@@ -61,7 +66,16 @@ title: home
 } do %>
   <h2 class="t-scale-alpha t-align-center"><%= data.people.headline.home %></h2>
   <!-- list of staff photos -->
-  <% component 'wrapper', locals: { width: 'wide', padding: { top: 'wide' } } do %>
-    <%= component 'people_list', locals: { group: find_people, classes: 't-align-center' } %>
+  <% component 'wrapper', locals: {
+    width: 'wide',
+    padding: { top: 'wide' },
+    classes: 't-align-center'
+  } do %>
+    <%= component 'people_list', locals: { group: find_people } %>
+    <%= component 'button_link', locals: {
+      label: 'Meet the rest of the team',
+      url: '/people',
+      classes: 'margin-top-wide'
+    } %>
   <% end %>
 <% end %>

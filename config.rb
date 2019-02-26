@@ -36,8 +36,8 @@ activate :external_pipeline,
 config[:markdown_engine] = :kramdown
 
 # Proxy pages (http://middlemanapp.com/basics/dynamic-pages/)
-data.case_studies.projects.each do |project|
-  proxy "work/#{project.slug.urlize}/index.html", '/case_study.html', locals: {
+data.work.projects.each do |project|
+  proxy "work/#{project.slug.urlize}/index.html", '/project.html', locals: {
     project: project
   }, ignore: true
 end

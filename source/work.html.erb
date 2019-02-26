@@ -1,0 +1,10 @@
+<%= component "main_header" %>
+
+<main class="padding-x-outside padding-top-wide padding-bottom-xwide">
+  <h1 class="padding-bottom-wide padding-x-outside t-align-center">Our work</h1>
+
+  <%# change width of wrapper to wide when there are more than a couple projects %>
+  <% component "wrapper", locals: { width: "default" } do %>
+    <%= component "projects_list", locals: { projects: data.work.projects } %>
+  <% end %>
+</main>
