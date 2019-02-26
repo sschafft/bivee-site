@@ -30,7 +30,7 @@ projects:
       bg: 5
     full_size:
       - source: work/ppp/assets/ppp-cover@400w.png
-        width: default
+        width: 400
       - source: work/ppp/assets/ppp-cover@800w.png
         width: 800
       - source: work/ppp/assets/ppp-cover@1200w.png
@@ -53,7 +53,7 @@ projects:
       bg: 4
     full_size:
       - source: work/ga/assets/ga-cover@400w.png
-        width: default
+        width: 400
       - source: work/ga/assets/ga-cover@800w.png
         width: 800
       - source: work/ga/assets/ga-cover@1200w.png

@@ -57,13 +57,13 @@
 </article>
 
 <!-- Case studies local nav -->
-<% if data.case_studies.projects.length > 1 %>
+<% if data.work.projects.length > 1 %>
   <% component 'panel', locals: { theme: 'light', painted: true } do %>
     <%# temporarily use local styles to keep single thumb from being huge %>
-    <% component 'wrapper', locals: { style: ('width: 21rem;' if data.case_studies.projects.length == 2) } do %>
-      <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.case_studies.headline.nav %></h1>
-      <%= component 'case_studies_list', locals: {
-        projects: data.case_studies.projects,
+    <% component 'wrapper', locals: { style: ('width: 21rem;' if data.work.projects.length == 2) } do %>
+      <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.work.headline.nav %></h1>
+      <%= component 'projects_list', locals: {
+        projects: data.work.projects,
         exclude: project.slug,
         color: 'white'
       } %>
