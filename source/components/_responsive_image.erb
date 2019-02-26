@@ -3,7 +3,8 @@
   # -> use srcset to create an image that scales with screen size
 
   # Locals:
-  # STRING/HASH source: the path(s) or url(s) of the image files(s)
+  # source - STRING/HASH: the path(s) or url(s) of the image files(s)
+  path ||= '' # STRING (optional): the path to the source images, if not included in source
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional classes you'd like to pass in
@@ -11,26 +12,46 @@
   data ||= false # HASH (optional): additional data attributes
 
   # Private:
-  fallback_source = source.is_a?(Hash) ? source.values[0] : source
 
-  def source_set(src)
-    if src.is_a?(Hash)
-      src.collect do |width, path|
-        "#{asset_url(path)} #{width}w" unless width == 'default'
-      end.reject(&:nil?).join(', ')
-    end
+  def default_source(src, path)
+    return "#{path}#{src}" if src.is_a?(String)
+
+    return "#{path}#{src[0].source}" if src.is_a?(Array)
+
+    return "#{path}#{src.values[0]}" if src.is_a?(Hash)
   end
 
-  utils = [
-    ('border c-border-well' if borders),
-    (classes if classes)
-  ]
+  def source_set(src, path)
+    return "#{path}#{src}" if src.is_a?(String)
+
+    # Array of hashes from post front matter e.g.
+    # image:
+    #   - source: image@480w.jpg
+    #     size: 480
+    if src.is_a?(Array)
+      return src.collect do |image|
+        "#{asset_url(path + image.source)} #{image.width}w"
+      end.compact[1...src.length].join(', ')
+    end
+
+    # Hash passed into partial directly, e.g. { '480' => 'image@480w.jpg' }
+    if src.is_a?(Hash)
+      return src.collect do |width, image|
+        "#{asset_url(path + image)} #{width}w"
+      end.compact[1...src.length].join(', ')
+    end
+  end
 
   def data_attr(attrs)
     attrs.collect do |attr, value|
       ["data-#{attr}='#{value}'"]
     end.join(' ')
   end
+
+  utils = [
+    ('border c-border-well' if borders),
+    (classes if classes)
+  ]
 %>
 
-<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= default_source(source, path) %>"<%= " srcset='#{source_set(source, path)}'" if source_set(source, path) %> alt="<%= alt %>">

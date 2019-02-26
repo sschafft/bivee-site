@@ -3,24 +3,27 @@
   # -> A grid of staff listings
 
   # Locals:
-  # staff - ARRAY: the staff to display
+  # group - ARRAY: the list of people to display, e.g. staff, consultants, etc.
   classes ||= false # STRING: additional modifier classes, if needed
 %>
 
 <ul data-ui-gallery="small default@small large@medium"<%= class_list(classes) if classes %>>
-  <% staff.each do |profile| %>
+  <% order_by_last_name(group).each do |profile| %>
     <li data-ui-gallery-item>
       <% link_to profile.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <div class="border-markers-corners">
           <%= component 'fluid_aspect_image', locals: {
-            source: "assets/images/portraits/#{profile.data.portrait.thumb}",
+            source: "#{profile.data.portrait.path}#{profile.data.portrait.thumb}",
             bg_size: 'cover',
             alt: profile.data.name,
             classes: 'border border-thick c-border-island'
           } %>
         </div>
         <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-xnarrow"><%= profile.data.name %></h3>
-        <p class="t-heading t-scale-eta c-highlight"><%= profile.data.job_title %></p>
+        <p class="t-heading t-scale-eta<%= profile.data.job_title ? ' c-highlight' : ' c-text-tertiary' %>">
+          <%# show either the job title (for staff) or their interests %>
+          <%= profile.data.job_title || profile.data.interests[0...3].join(', ').rstrip %>
+        </p>
       <% end %>
     </li>
   <% end %>

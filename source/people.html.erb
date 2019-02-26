@@ -1,0 +1,23 @@
+<%= component "main_header" %>
+
+<main>
+  <h1 class="padding-top-wide padding-bottom-xwide padding-x-outside t-align-center">Our people</h1>
+
+  <% data.people.groups.each_with_index do |group, index| %>
+    <% component "panel", locals: {
+      theme: 'light',
+      painted: index == 0 ? true : false,
+      bg: index == 0 ? 'transparent' : 'inherit',
+      classes: index == 0 ? '' : 'z-middle'
+    } do %>
+      <h2 class="t-align-center padding-bottom-wide"><%= group.name %></h2>
+      <% component "wrapper", locals: { width: "wide" } do %>
+        <% if group.folder == 'partners' %>
+          <%= component "partners_list", locals: { group: find_people(group: group.folder) } %>
+        <% else %>
+          <%= component "people_list", locals: { group: find_people(group: group.folder) } %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</main>

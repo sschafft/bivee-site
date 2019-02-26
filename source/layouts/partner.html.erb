@@ -1,0 +1,40 @@
+<%#
+    Staff Profile layout
+    - a bio & details of each staff person
+%>
+
+<% wrap_layout :layout do %>
+  <%# header %>
+  <%= component 'main_header' %>
+
+  <!-- Staff profile -->
+  <article class="margin-bottom-xwide padding-y-wide padding-x-outside">
+    <% component 'wrapper', locals: {
+      width: 'narrow',
+      classes: 'padding-bottom-wide'
+    } do %>
+      <%= component 'logo_with_swatch', locals: {
+        logo: current_page.data.logo.full_size,
+        path: current_page.data.logo.path,
+        padding: current_page.data.logo.padding || false
+      } %>
+    <% end %>
+    <% component 'wrapper', locals: { width: 'narrow' } do %>
+      <header class="padding-bottom t-align-center">
+  	    <h1 class="t-scale-beta padding-bottom-xxnarrow"><%= current_page.data.name %></h1>
+    	</header>
+      <%= yield %>
+      <div class="padding-top t-align-center">
+        <%= component 'button_link', locals: {
+          label: "Visit #{current_page.data.name}'s website",
+          url: current_page.data.website
+        } %>
+      </div>
+    <% end %>
+  </article>
+
+  <!-- other people -->
+  <%= component 'people_footer', locals: {
+    exclude: [ current_page.data.name ]
+  } %>
+<% end %>

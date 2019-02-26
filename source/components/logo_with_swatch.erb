@@ -1,0 +1,30 @@
+<%
+  # Logo thumbnail image
+
+  # Locals:
+  logo ||= '' # STRING or HASH: the logo image and/or scaled versions
+  path ||= '' #STRING (optional): path to the file, if not included in logo above
+  alt ||= 'logo'
+  bg ||= rand(1...data.site.painted_bg_versions.thumbnails)
+  offset ||= 'narrow' # STRING (optional): how much the painted bg sticks out on either side. Use names from the spacing scale, e.g. 'narrow'
+  padding ||= 16 # PERCENTAGE (optional): amount of padding around the logo
+  color ||= 'light'
+%>
+
+<div class="border-markers-corners">
+  <div class="offset-margin-left-<%= offset %> offset-margin-right-<%= offset %>">
+    <div data-ui-aspect="3x1">
+      <div data-ui-aspect-content="bg" class="t-align-center" style="
+        background-image: url('<%= "/assets/images/thumbs/#{color}/thumb-0#{bg}.png" %>');
+        padding: <%= padding %>%; /* padding around client logo drawing */
+      ">
+        <%= component 'responsive_image', locals: {
+          path: path,
+          source: logo,
+          alt: alt,
+          data: { 'ui-aspect-image': ''}
+        } %>
+      </div>
+    </div>
+  </div>
+</div>

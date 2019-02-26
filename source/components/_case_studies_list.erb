@@ -9,6 +9,7 @@
     # -> useful for local navs where you don't want to show the current project
   gutter ||= 'wide' # STRING (optional): width of the gutter between thumbnails
   color ||= 'light' # STRING (optional): color of the background paint image
+  bg ||= rand(1...data.site.painted_bg_versions.thumbnails)
 %>
 
 <ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
@@ -16,23 +17,13 @@
     <% unless project.slug == exclude || project.title.short == exclude %>
       <li data-ui-gallery-item>
         <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
-          <div class="border-markers-corners">
-            <div class="offset-margin-left-narrow offset-margin-right-narrow">
-              <div data-ui-aspect="3x1">
-                <div data-ui-aspect-content="bg" style="
-                  background-image: url('<%= "/assets/images/thumbs/#{color}/thumb-0#{project.cover.thumb.bg}.png" %>');
-                  padding: 16%; /* padding around client logo drawing */
-                ">
-                  <%= component 'responsive_image', locals: {
-                    source: project.cover.thumb.logo,
-                    alt: project.title.short,
-                    data: { 'ui-aspect-image': ''}
-                  } %>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <%= component 'logo_with_swatch', locals: {
+            logo: project.cover.thumb.logo,
+            alt: project.title.short,
+            padding: project.cover.padding || false,
+            bg: (project.cover.thumb.bg || bg),
+            color: color
+          } %>
           <h2 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h2>
           <p class="t-scale-zeta padding-top-xxnarrow c-highlight"><%= project.client.name %></p>
         <% end %>
