@@ -16,12 +16,48 @@ intro: |-
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
 - title:
+    long: Knowledge and innovation fund
+    subtitle: Strategy blueprint design
+    short: Knowledge and innovation fund
+  slug: GPE
+  client: Global Partnership for Education
+  type: Data, knowledge, and learning systems
+  date: 2018
+  locations:
+    - US
+    - Belgium
+    - France
+    - developing country partners
+  cover:
+    thumb:
+      # path: work/gpe/assets/gpe-icon@{size}w.png
+      # sizes: [200, 480, 800, 1200]
+      # padding: 16
+      logo:
+        - source: work/gpe/assets/gpe-icon@200w.png
+          width: 200
+        - source: work/gpe/assets/gpe-icon@480w.png
+          width: 480
+        - source: work/gpe/assets/gpe-icon@800w.png
+          width: 800
+        - source: work/gpe/assets/gpe-icon@1200w.png
+          width: 1200
+      bg: 5
+    full_size:
+      - source: work/gpe/assets/gpe-lockup@400w.png
+        width: 400
+      - source: work/gpe/assets/gpe-lockup@800w.png
+        width: 800
+      - source: work/gpe/assets/gpe-lockup@1200w.png
+        width: 1200
+      - source: work/gpe/assets/gpe-lockup@1600w.png
+        width: 1600
+
+- title:
     long: Knowledge sharing for public private partnerships
     short: PPP Knowledge Lab
   slug: PPP
-  client:
-    name: World Bank PPP Group
-    logo: work/ppp/assets/logo-knowledge_lab.svg
+  client: World Bank PPP Group
   date: 2014
   type: Data, knowledge, and learning systems
   cover:
@@ -42,10 +78,10 @@ projects:
     long: e-Learning for financial inclusion
     short: Gateway Academy
   slug: GA
-  client:
-    name: CGAP and Mastercard Foundation
-    logo: work/ga/assets/logo-cgap.svg
-  date: 2017+
+  client: CGAP and Mastercard Foundation
+  date:
+    start: 2017
+    end: Present
   type: Data, knowledge, and learning systems
   cover:
     thumb:

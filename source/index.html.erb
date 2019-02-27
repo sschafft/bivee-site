@@ -45,7 +45,7 @@ title: home
 <% component 'panel' do %>
   <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %> <%= data.work.intro %>
   <% end %>
-  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center padding-top-xwide' } do %>
+  <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
     <!-- Case study listings -->
     <%= component 'projects_list', locals: { projects: data.work.projects } %>
 

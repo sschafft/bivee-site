@@ -1,9 +1,15 @@
+<%
+  # Consulting project page
+  # -> a proxy page used by data/work.yml for content in source/work
+%>
+
 <%= component "main_header", locals: {
   theme: 'dark',
   overlay: true
 } %>
 
 <article>
+
   <!-- Cover image, and title -->
   <% component 'panel', locals: {
     el: 'header',
@@ -19,6 +25,7 @@
     header_offset: true
   } do %>
     <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+
       <%# Project logo/header illustration %>
       <%= component 'responsive_image', locals: {
         source: project.cover.full_size,
@@ -31,7 +38,14 @@
       <% end %>
       <div class="padding-top">
         <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon">
-          <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight"><span class="padding-right-narrow border-right"><%= project.date %></span></time><span data-ui-gutter-item class="display-inline-block c-text-secondary"><%= project.type %></span>
+          <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight">
+            <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
+          </time>
+          <% if project.respond_to?(:type) %>
+            <span data-ui-gutter-item class="display-inline-block c-text-secondary">
+              <span class="padding-left-narrow border-left"><%= project.type %></span>
+            </span>
+          <% end %>
         </p>
       </div>
       <a class="display-inline-block margin-top-wide t-decoration-none c-accent" href="#main_content">
@@ -46,7 +60,9 @@
     <% sections.each_with_index do |section, index| %>
       <% component 'panel', locals: { border: (index == 0 ? 'none' : 'top') } do %>
         <% component 'wrapper', locals: { width: 'narrow' } do %>
-          <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
+          <% unless section.data.title == 'Index' %>
+            <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
+          <% end %>
           <div class="t-content">
             <%= section.render layout: false %>
           </div>
