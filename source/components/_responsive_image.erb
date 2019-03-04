@@ -15,9 +15,7 @@
 
   def default_source(src, path)
     return "#{path}#{src}" if src.is_a?(String)
-
     return "#{path}#{src[0].source}" if src.is_a?(Array)
-
     return "#{path}#{src.values[0]}" if src.is_a?(Hash)
   end
 

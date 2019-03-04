@@ -30,9 +30,10 @@ projects:
     - developing country partners
   cover:
     thumb:
+      # better format to migrate to reponsive_image?
       # path: work/gpe/assets/gpe-icon@{size}w.png
       # sizes: [200, 480, 800, 1200]
-      # padding: 16
+      padding: 14
       logo:
         - source: work/gpe/assets/gpe-icon@200w.png
           width: 200

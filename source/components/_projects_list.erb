@@ -20,7 +20,7 @@
           <%= component 'logo_with_swatch', locals: {
             logo: project.cover.thumb.logo,
             alt: project.title.short,
-            padding: project.cover.padding || false,
+            padding: project.cover.thumb.padding || false,
             bg: (project.cover.thumb.bg || bg),
             color: color
           } %>
