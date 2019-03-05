@@ -17,7 +17,9 @@ title: home
   } do %>
     <!-- Logo evolution sketches -->
     <%= component 'responsive_image', locals: {
-      source: data.site.cover.logo_sketches,
+      source: data.site.cover.logo_sketches.source,
+      sizes: data.site.cover.logo_sketches.sizes,
+      alt: 'Bivee logo evolution',
       classes: 'display-block align-center-block',
       style: 'width: 40rem;'
     } %>

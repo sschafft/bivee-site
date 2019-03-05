@@ -28,7 +28,8 @@
 
       <%# Project logo/header illustration %>
       <%= component 'responsive_image', locals: {
-        source: project.cover.full_size,
+        source: project.cover.full_size.source,
+        sizes: project.cover.full_size.sizes,
         alt: project.title.short,
         style: 'width: 35rem;'
       } %>

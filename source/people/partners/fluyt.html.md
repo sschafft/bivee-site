@@ -2,25 +2,12 @@
 name: Fluyt
 website: https://fluytdesign.com/
 logo:
-  path: /people/partners/assets/
   thumb:
-    - source: fluyt-thumbnail@200w.png
-      width: 200
-    - source: fluyt-thumbnail@400w.png
-      width: 400
-    - source: fluyt-thumbnail@800w.png
-      width: 800
-    - source: fluyt-thumbnail@1200w.png
-      width: 1200
+    source: /people/partners/assets/fluyt-thumbnail@{size}w.png
+    sizes: [200, 400, 800, 1200]
   full_size:
-    - source: fluyt-lockup@480w.png
-      width: 480
-    - source: fluyt-lockup@800w.png
-      width: 800
-    - source: fluyt-lockup@1200w.png
-      width: 1200
-    - source: fluyt-lockup@1600w.png
-      width: 1600
+    source: /people/partners/assets/fluyt-lockup@{size}w.png
+    sizes: [400, 800, 1200, 1600]
 expertise:
   - print
   - branding

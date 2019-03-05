@@ -5,39 +5,27 @@ project: GA
 ---
 Participant feedback on the platform’s functionality and content allowed us to refine Gateway Academy for the Beta phase launch in 2017, which is currently ongoing. During the Beta phase, we’ve expanded course access to a greater number of financial service providers and provided content that’s better targeted to the needs of learners in the region. This phase will conclude in 2018, with the next iteration of the platform released in the Launch phase shortly thereafter.
 
-To learn more, visit <%= link_to('Gateway Academy', 'https://gateway.academy', target: '_blank', ) %>
+To learn more, visit [Gateway Academy](https://gateway.academy){:target='_blank'}.
 
 <%= component 'feature_image', locals: {
-  source: {
-    '480': 'assets/GA-home@480.jpg',
-    '800': 'assets/GA-home@800.jpg',
-    '1200': 'assets/GA-home@1200.jpg',
-    '1600': 'assets/GA-home@1600.jpg'
-  },
+  source: 'assets/GA-home@{size}.jpg',
+  sizes: [480, 800, 1200, 1600],
   alt: 'Gateway Academy homepage',
   screenshot: true,
   padding: { top: 'wide' }
 } %>
 
 <%= component 'feature_image', locals: {
-  source: {
-    '480': 'assets/intro-video@480.jpg',
-    '800': 'assets/intro-video@800.jpg',
-    '1200': 'assets/intro-video@1200.jpg',
-    '1600': 'assets/intro-video@1600.jpg'
-  },
+  source: 'assets/intro-video@{size}.jpg',
+  sizes: [480, 800, 1200, 1600],
   alt: 'Gateway Academy web application',
   screenshot: true,
   padding: { top: 'wide' }
 } %>
 
 <%= component 'feature_image', locals: {
-  source: {
-    '480': 'assets/GA-course-progress@480.jpg',
-    '800': 'assets/GA-course-progress@800.jpg',
-    '1200': 'assets/GA-course-progress@1200.jpg',
-    '1600': 'assets/GA-course-progress@1600.jpg'
-  },
+  source: 'assets/GA-course-progress@{size}.jpg',
+  sizes: [480, 800, 1200, 1600],
   alt: 'Gateway Academy web application',
   screenshot: true,
   padding: { top: 'wide' }

@@ -30,29 +30,13 @@ projects:
     - developing country partners
   cover:
     thumb:
-      # better format to migrate to reponsive_image?
-      # path: work/gpe/assets/gpe-icon@{size}w.png
-      # sizes: [200, 480, 800, 1200]
+      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      sizes: [200, 480, 800, 1200]
       padding: 14
-      logo:
-        - source: work/gpe/assets/gpe-icon@200w.png
-          width: 200
-        - source: work/gpe/assets/gpe-icon@480w.png
-          width: 480
-        - source: work/gpe/assets/gpe-icon@800w.png
-          width: 800
-        - source: work/gpe/assets/gpe-icon@1200w.png
-          width: 1200
       bg: 5
     full_size:
-      - source: work/gpe/assets/gpe-lockup@400w.png
-        width: 400
-      - source: work/gpe/assets/gpe-lockup@800w.png
-        width: 800
-      - source: work/gpe/assets/gpe-lockup@1200w.png
-        width: 1200
-      - source: work/gpe/assets/gpe-lockup@1600w.png
-        width: 1600
+      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
 
 - title:
     long: Knowledge sharing for public private partnerships
@@ -66,14 +50,8 @@ projects:
       logo: /work/ppp/assets/thumb-PPP.png
       bg: 5
     full_size:
-      - source: work/ppp/assets/ppp-cover@400w.png
-        width: 400
-      - source: work/ppp/assets/ppp-cover@800w.png
-        width: 800
-      - source: work/ppp/assets/ppp-cover@1200w.png
-        width: 1200
-      - source: work/ppp/assets/ppp-cover@1600w.png
-        width: 1600
+      source: 'work/ppp/assets/ppp-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
 
 - title:
     long: e-Learning for financial inclusion
@@ -89,14 +67,8 @@ projects:
       logo: /work/ga/assets/thumb-GA.png
       bg: 4
     full_size:
-      - source: work/ga/assets/ga-cover@400w.png
-        width: 400
-      - source: work/ga/assets/ga-cover@800w.png
-        width: 800
-      - source: work/ga/assets/ga-cover@1200w.png
-        width: 1200
-      - source: work/ga/assets/ga-cover@1600w.png
-        width: 1600
+      source: 'work/ppp/assets/ga-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
 
 # - title:
 #     long: A strategy for data sharing
