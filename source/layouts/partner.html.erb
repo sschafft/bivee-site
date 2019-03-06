@@ -14,9 +14,9 @@
       classes: 'padding-bottom-wide'
     } do %>
       <%= component 'logo_with_swatch', locals: {
-        logo: current_page.data.logo.full_size,
-        path: current_page.data.logo.path,
-        padding: current_page.data.logo.padding || false
+        logo: current_page.data.logo.full_size.source,
+        sizes: current_page.data.logo.full_size.sizes,
+        padding: current_page.data.logo.full_size.padding || false
       } %>
     <% end %>
     <% component 'wrapper', locals: { width: 'narrow' } do %>

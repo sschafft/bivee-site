@@ -17,7 +17,9 @@ title: home
   } do %>
     <!-- Logo evolution sketches -->
     <%= component 'responsive_image', locals: {
-      source: data.site.cover.logo_sketches,
+      source: data.site.cover.logo_sketches.source,
+      sizes: data.site.cover.logo_sketches.sizes,
+      alt: 'Bivee logo evolution',
       classes: 'display-block align-center-block',
       style: 'width: 40rem;'
     } %>
@@ -35,7 +37,7 @@ title: home
     <% component 'wrapper', locals: {
       width: 'narrow'
     } do %>
-      <p class="t-heading t-scale-delta t-leading-default"><%= data.site.cover.intro %></p>
+      <p class="t-scale-epsilon"><%= data.site.cover.intro %></p>
       <%= component 'button_link', locals: { label: 'Why does this work?', url: 'design_thinking', classes: 'margin-top-wide' } %>
     <% end %>
   </div>
@@ -45,15 +47,14 @@ title: home
 <% component 'panel' do %>
   <% component 'blurb', locals: { heading: data.work.headline.home, borders: 'none' } do %> <%= data.work.intro %>
   <% end %>
-  <% component 'wrapper', locals: { width: 'default', classes: 't-align-center padding-top-xwide' } do %>
+  <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
     <!-- Case study listings -->
     <%= component 'projects_list', locals: { projects: data.work.projects } %>
 
     <%# this button appears when there's more than 3 case studies to display %>
     <%= component 'button_link', locals: {
-      label: 'More work',
+      label: 'See more of our work',
       url: '/work',
-      role: 'primary',
       classes: 'margin-top-wide'
     } if (data.work.projects.length > 3) %>
   <% end %>

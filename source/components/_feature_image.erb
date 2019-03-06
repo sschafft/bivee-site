@@ -4,6 +4,7 @@
 
   # Locals:
   # STRING/HASH source: the path or url of the image file
+  sizes ||= [] # Array of numbers (optional): size variations of the source image
   alt ||= '' # STRING (optional): alt tag
   screenshot ||= false # BOOLEAN: is it a screenshot?
   width ||= 'wide' # STRING (optional): how wide the image should be
@@ -26,8 +27,17 @@
 
 <div data-ui-wrapper<%= props_list(props) %><%= class_list(utils) %>>
   <% unless screenshot %>
-    <%= component 'responsive_image', locals: { source: source, alt: alt, borders: borders } %>
+    <%= component 'responsive_image', locals: {
+      source: source,
+      sizes: sizes,
+      alt: alt,
+      borders: borders
+    } %>
   <% else %>
-    <%= component 'screenshot', locals: { source: source, alt: alt } %>
+    <%= component 'screenshot', locals: {
+      source: source,
+      sizes: sizes,
+      alt: alt
+    } %>
   <% end %>
 </div>

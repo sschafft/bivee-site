@@ -4,7 +4,8 @@
 
   # Locals:
   # source - STRING/HASH: the path(s) or url(s) of the image files(s)
-  path ||= '' # STRING (optional): the path to the source images, if not included in source
+  #path ||= '' # STRING (optional): the path to the source images, if not included in source
+  sizes ||= [] # Array of numbers (optional): the size variations of the image available, e.g. 400, 800, 1200 etc. Must be pixels; do not include units.
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional classes you'd like to pass in
@@ -13,33 +14,25 @@
 
   # Private:
 
-  def default_source(src, path)
-    return "#{path}#{src}" if src.is_a?(String)
-
-    return "#{path}#{src[0].source}" if src.is_a?(Array)
-
-    return "#{path}#{src.values[0]}" if src.is_a?(Hash)
+  def path_template(path, size)
+    return path.gsub('{size}', size.to_s)
   end
 
-  def source_set(src, path)
-    return "#{path}#{src}" if src.is_a?(String)
+  def default_source(path, sizes)
+    if (sizes.length > 0)
+      return path_template(path, sizes[0])
+    end
+    return path
+  end
 
-    # Array of hashes from post front matter e.g.
-    # image:
-    #   - source: image@480w.jpg
-    #     size: 480
-    if src.is_a?(Array)
-      return src.collect do |image|
-        "#{asset_url(path + image.source)} #{image.width}w"
-      end.compact[1...src.length].join(', ')
+  def source_set(path, sizes)
+    if (sizes.length > 0)
+      return sizes.collect do |size|
+        "#{asset_url(path_template(path, size))} #{size}w"
+      end.compact.join(', ').rstrip
     end
 
-    # Hash passed into partial directly, e.g. { '480' => 'image@480w.jpg' }
-    if src.is_a?(Hash)
-      return src.collect do |width, image|
-        "#{asset_url(path + image)} #{width}w"
-      end.compact[1...src.length].join(', ')
-    end
+    # return false
   end
 
   def data_attr(attrs)
@@ -54,4 +47,4 @@
   ]
 %>
 
-<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= default_source(source, path) %>"<%= " srcset='#{source_set(source, path)}'" if source_set(source, path) %> alt="<%= alt %>">
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= default_source(source, sizes) %>"<%= " srcset='#{source_set(source, sizes)}'" if source_set(source, sizes) %> alt="<%= alt %>">

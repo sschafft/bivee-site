@@ -16,51 +16,123 @@ intro: |-
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
 - title:
+    long: Handshake Journal
+    subtitle: Design and implementation of segment-specific editorial platform
+    short: Handshake Journal
+  slug: Handshake
+  client: PPP
+  date: 2016
+  categories:
+    - branding
+    - web
+    - publication design
+  locations:
+    - US
+  cover:
+    thumb:
+      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      sizes: [200, 480, 800, 1200]
+      padding: 14
+      bg: 5
+    full_size:
+      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+      
+- title:
+    long: Donor engagement strategy
+    subtitle: Communications audit and recommendations
+    short: Donor engagement strategy
+  slug: GPOBA
+  client: Global Partnership on Output-Based Aid
+  date: 2016
+  categories:
+    - branding
+    - print
+    - web
+    - communications
+  locations:
+    - US
+    - Belgium
+    - France
+    - developing country partners
+  cover:
+    thumb:
+      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      sizes: [200, 480, 800, 1200]
+      padding: 14
+      bg: 5
+    full_size:
+      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+
+- title:
+    long: Knowledge and innovation fund
+    subtitle: Strategy blueprint design
+    short: Knowledge and innovation fund
+  slug: GPE
+  client: Global Partnership for Education
+  date: 2018
+  categories:
+    - data
+    - knowledge
+    - learning systems
+  locations:
+    - US
+    - Belgium
+    - France
+    - developing country partners
+  cover:
+    thumb:
+      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      sizes: [200, 480, 800, 1200]
+      padding: 14
+      bg: 5
+    full_size:
+      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+
+- title:
     long: Knowledge sharing for public private partnerships
     short: PPP Knowledge Lab
   slug: PPP
-  client:
-    name: World Bank PPP Group
-    logo: work/ppp/assets/logo-knowledge_lab.svg
+  client: World Bank PPP Group
   date: 2014
-  type: Data, knowledge, and learning systems
+  categories:
+    - data
+    - web
+    - knowledge management
+    - learning systems
   cover:
     thumb:
       logo: /work/ppp/assets/thumb-PPP.png
       bg: 5
     full_size:
-      - source: work/ppp/assets/ppp-cover@400w.png
-        width: 400
-      - source: work/ppp/assets/ppp-cover@800w.png
-        width: 800
-      - source: work/ppp/assets/ppp-cover@1200w.png
-        width: 1200
-      - source: work/ppp/assets/ppp-cover@1600w.png
-        width: 1600
+      source: 'work/ppp/assets/ppp-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
 
 - title:
     long: e-Learning for financial inclusion
     short: Gateway Academy
   slug: GA
-  client:
-    name: CGAP and Mastercard Foundation
-    logo: work/ga/assets/logo-cgap.svg
-  date: 2017+
-  type: Data, knowledge, and learning systems
+  client: CGAP and Mastercard Foundation
+  date:
+    start: 2017
+    end: Present
+  categories:
+    - data
+    - web
+    - mobile applications
+    - knowledge management
+    - learning systems
   cover:
     thumb:
       logo: /work/ga/assets/thumb-GA.png
       bg: 4
     full_size:
-      - source: work/ga/assets/ga-cover@400w.png
-        width: 400
-      - source: work/ga/assets/ga-cover@800w.png
-        width: 800
-      - source: work/ga/assets/ga-cover@1200w.png
-        width: 1200
-      - source: work/ga/assets/ga-cover@1600w.png
-        width: 1600
+      source: 'assets/ga-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
 
+# Killing DDH until we get permission
 # - title:
 #     long: A strategy for data sharing
 #     short: Development Data Hub
@@ -70,7 +142,7 @@ projects:
 #     name: World Bank Group
 #     logo: work/ddh/assets/logo-wbg.svg
 #   date: 2015
-#   type: Data, knowledge, and learning systems
+#   categories: Data, knowledge, and learning systems
 #   cover:
 #     thumb: work/ddh/assets/DDH-thumb@800.jpg
 #     full_size: work/ppp/assets/ppp-cover.png

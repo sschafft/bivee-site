@@ -19,17 +19,12 @@ main_nav:
   - title: Contact
     url: '#contact'
     priority: 1
-    highlight: true
 
 # Content for the 'cover' (hero unit) on the homepage
 cover:
   logo_sketches:
-    - source: /assets/images/bivee-logo-process@480w.png
-      width: 480
-    - source: /assets/images/bivee-logo-process@800w.png
-      width: 800
-    - source: /assets/images/bivee-logo-process@1200w.png
-      width: 1200
+    source: /assets/images/bivee-logo-process@{size}w.png
+    sizes: [480, 800, 1200]
   # Main headline/tagline
   headline: Development done differently.
   # Blurb introducing us. It'll be followed by a link to the about page.

@@ -14,9 +14,9 @@
     <li data-ui-gallery-item>
       <% link_to partner.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <%= component 'logo_with_swatch', locals: {
-          path: partner.data.logo.path,
-          logo: partner.data.logo.thumb,
-          padding: partner.data.logo.padding || false,
+          logo: partner.data.logo.thumb.source,
+          sizes: partner.data.logo.thumb.sizes,
+          padding: partner.data.logo.thumb.padding || false,
           alt: partner.data.name,
           color: 'white'
         } %>

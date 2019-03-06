@@ -19,13 +19,14 @@
         <% link_to "/work/#{project.slug.urlize}/", class: 'display-flex-fill display-block t-decoration-none t-align-center' do %>
           <%= component 'logo_with_swatch', locals: {
             logo: project.cover.thumb.logo,
+            sizes: project.cover.thumb.sizes || [],
             alt: project.title.short,
-            padding: project.cover.padding || false,
+            padding: project.cover.thumb.padding || false,
             bg: (project.cover.thumb.bg || bg),
             color: color
           } %>
           <h2 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h2>
-          <p class="t-scale-zeta padding-top-xxnarrow c-highlight"><%= project.client.name %></p>
+          <p class="t-scale-zeta padding-top-xxnarrow c-highlight"><%= project.client %></p>
         <% end %>
       </li>
     <% end %>
