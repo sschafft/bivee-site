@@ -3,14 +3,8 @@ name: Arsham Skrenes
 portrait:
   thumb: /people/consultants/assets/Arsham_Balanced.jpg
   full_size:
-    - source: /people/staff/assets/nico@480.jpg
-      width: 480
-    - source: /people/staff/assets/nico@800.jpg
-      width: 800
-    - source: /people/staff/assets/nico@1200.jpg
-      width: 1200
-    - source: /people/staff/assets/nico@1600.jpg
-      width: 1600
+    source: /people/staff/assets/nico@{size}.jpg
+    sizes: [480, 800, 1200, 1600]
 interests:
   - hardware
   - data architecture

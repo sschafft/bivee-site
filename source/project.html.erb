@@ -42,9 +42,9 @@
           <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight">
             <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
           </time>
-          <% if project.respond_to?(:type) %>
+          <% if project.respond_to?(:categories) %>
             <span data-ui-gutter-item class="display-inline-block c-text-secondary">
-              <span class="padding-left-narrow border-left"><%= project.type %></span>
+              <span class="padding-left-narrow border-left"><%= project.categories.collect(&:to_s).join(', ').rstrip %></span>
             </span>
           <% end %>
         </p>

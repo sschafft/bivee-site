@@ -13,7 +13,7 @@
       <% link_to profile.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
         <div class="border-markers-corners">
           <%= component 'fluid_aspect_image', locals: {
-            source: "#{profile.data.portrait.path}#{profile.data.portrait.thumb}",
+            source: profile.data.portrait.thumb,
             bg_size: 'cover',
             alt: profile.data.name,
             classes: 'border border-thick c-border-island'

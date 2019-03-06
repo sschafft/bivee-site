@@ -1,6 +1,33 @@
 # Bivee's website
 http://bivee.co
 
+## Adding content
+
+### People
+
+This applies to staff and consultants.
+
+1. Create a markdown (`*.html.md`) file in either the `staff` or `consultants` folders in `source/people`. The folder the file lives in will determine where it appears on the site.
+1. Add the following metadata:
+````
+---
+name:
+portrait:
+  thumb:
+  full_size:
+interests:
+---
+````
+1.
+
+### Partners
+
+"Partner company" content is the same as "people", but has slightly different metadata.
+
+1.
+
+### Projects
+
 ## About this site:
 
 This site is built primarily on Middleman, a static site generator. It uses [Sass](http://sass-lang.com) for its styling (via [LibSass](https://github.com/sass/sassc-ruby)) and a variant of [AMCSS](https://amcss.github.io) for its CSS naming conventions and architecture. Javascript is handled with [Webpack](https://webpack.js.org), and front-end dependencies are managed with Yarn. It's hosted on [Netlify](http://netlify.com).
