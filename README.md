@@ -59,6 +59,52 @@ Finally, `expertise` is a list of that company's specialities and capabilities. 
 
 ### Projects
 
+Projects are slightly more complicated, because case studies often have multiple sections of content. A "project", then, is actually a folder of markdown files paired with a chunk of metadata in `data/work.yml`.
+
+To create a new project, first add metadata to `data/work.yml`:
+
+````yml
+projects:
+- title:
+    long: Knowledge sharing for public private partnerships
+    short: PPP Knowledge Lab
+  slug: PPP
+  client: World Bank PPP Group
+  date: 2014
+  categories:
+    - data
+    - web
+    - knowledge management
+    - learning systems
+  cover:
+    thumb:
+      logo: /work/ppp/assets/thumb-PPP.png
+      bg: 5
+    full_size:
+      source: 'work/ppp/assets/ppp-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+````
+
+The `slug` field is important because it's the connecting thread between this metadata and the folder of markdown files that describe the actual content. It should ideally be short, memorable, and url-safe (e.g. use dashes instead of spaces, no apostrophes or punctuation, etc.)
+
+Next, create a folder inside `source/work` and name it something short and memorable, e.g. `ppp` or `handshake`, etc. Inside that folder, create an `assets` folder where imagery will go, and then create markdown files (`*.html.md.erb`) for each section of content in the case study. Here's the frontmatter each file will need:
+
+````yml
+---
+title: 
+weight: 
+project: 
+---
+````
+
+`title` is obviously the title/heading of the section. If you don't want to have a section title, just use `Index` instead.
+
+`weight` affects the order in which the sections will be displayed. The lower the number (ie the less "weight" it has), the higher it will rise on the page. `weight: 0` will be first, `weight: 1` will follow, etc.
+
+`project` should be the **slug** of the project you created in the `work.yml` metadata, e.g. `PPP`.
+
+For a simple, one-section project, just create a file called `index.html.md.erb`, give it a title of `Index`, and a weight of `0`.
+
 ### About responsive images
 
 We use ["responsive" images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) wherever possible on the site to reduce load times and ensure that content scales appropriately to any screen size. Our site uses a lot of imagery and textures, so it's important to reduce download sizes wherever we possibly can to keep pages loading fast.
