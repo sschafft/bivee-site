@@ -3,6 +3,10 @@ http://bivee.co
 
 ## Adding content
 
+Content on the site is handled mainly with [Markdown](https://daringfireball.net/projects/markdown/) files in various folders and [YAML](https://en.wikipedia.org/wiki/YAML) metadata.
+
+Note we use [Kramdown](https://kramdown.gettalong.org/syntax.html) as our markdown parser, which has some additional capabilities and syntax. Occasionally we also use Ruby partials directly in Markdown content to create specific effects (such as an image gallery).
+
 ### People
 
 This applies to staff and consultants.
