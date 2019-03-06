@@ -37,7 +37,7 @@ title: home
     <% component 'wrapper', locals: {
       width: 'narrow'
     } do %>
-      <p class="t-heading t-scale-epsilon t-leading-default"><%= data.site.cover.intro %></p>
+      <p class="t-scale-epsilon"><%= data.site.cover.intro %></p>
       <%= component 'button_link', locals: { label: 'Why does this work?', url: 'design_thinking', classes: 'margin-top-wide' } %>
     <% end %>
   </div>
@@ -53,9 +53,8 @@ title: home
 
     <%# this button appears when there's more than 3 case studies to display %>
     <%= component 'button_link', locals: {
-      label: 'More work',
+      label: 'See more of our work',
       url: '/work',
-      role: 'primary',
       classes: 'margin-top-wide'
     } if (data.work.projects.length > 3) %>
   <% end %>
