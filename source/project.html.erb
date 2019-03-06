@@ -77,7 +77,7 @@
 <% if data.work.projects.length > 1 %>
   <% component 'panel', locals: { theme: 'light', painted: true } do %>
     <%# temporarily use local styles to keep single thumb from being huge %>
-    <% component 'wrapper', locals: { style: ('width: 21rem;' if data.work.projects.length == 2) } do %>
+    <% component 'wrapper', locals: { width: 'wide' } do %>
       <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.work.headline.nav %></h1>
       <%= component 'projects_list', locals: {
         projects: data.work.projects,
