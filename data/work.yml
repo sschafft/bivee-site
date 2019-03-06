@@ -16,6 +16,29 @@ intro: |-
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
 - title:
+    long: Handshake Journal
+    subtitle: Design and implementation of segment-specific editorial platform
+    short: Handshake Journal
+  slug: Handshake
+  client: PPP
+  date: 2016
+  categories:
+    - branding
+    - web
+    - publication design
+  locations:
+    - US
+  cover:
+    thumb:
+      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      sizes: [200, 480, 800, 1200]
+      padding: 14
+      bg: 5
+    full_size:
+      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+      
+- title:
     long: Donor engagement strategy
     subtitle: Communications audit and recommendations
     short: Donor engagement strategy
