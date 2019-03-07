@@ -31,7 +31,7 @@
         source: project.cover.full_size.source,
         sizes: project.cover.full_size.sizes,
         alt: project.title.short,
-        style: 'width: 35rem;'
+        style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
       } %>
       <h1 class="padding-top-wide"><%= project.title.long %></h1>
       <% if project.title.subtitle %>

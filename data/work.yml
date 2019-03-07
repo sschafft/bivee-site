@@ -4,6 +4,8 @@ headline:
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
 
+default_cover_logo_width: 35rem
+
 # an intro blurb describing our work
 intro: |-
   <p>We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and the development of new products and applications.</p>
@@ -60,7 +62,7 @@ projects:
     full_size:
       source: 'work/gpe/assets/gpe-lockup@{size}w.png'
       sizes: [400, 800, 1200, 1600]
-      
+
 - title:
     long: Donor engagement strategy
     subtitle: Communications audit and recommendations
@@ -80,13 +82,14 @@ projects:
     - developing country partners
   cover:
     thumb:
-      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      logo: 'work/gpoba/assets/gpoba-thumb@{size}w.png'
       sizes: [200, 480, 800, 1200]
-      padding: 14
+      padding: 18
       bg: 5
     full_size:
-      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      source: 'work/gpoba/assets/gpoba-cover@{size}w.png'
       sizes: [400, 800, 1200, 1600]
+      width: 28rem
 
 - title:
     long: Knowledge and innovation fund
