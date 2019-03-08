@@ -18,6 +18,31 @@ intro: |-
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
 - title:
+    long: Micronutrient survey toolkit
+    subtitle: On- and offline web application development
+    short: Micronutrient survey toolkit
+  slug: CDC
+  client: Centers for Disease Control
+  date:
+    start: 2016
+    end: present
+  categories:
+    - web application
+    - design
+    - knowledge management
+  locations:
+    - Global
+  cover:
+    thumb:
+      logo: 'work/cdc/assets/cdc-thumb@{size}w.png'
+      sizes: [200, 480, 800, 1200]
+      padding: 18
+    full_size:
+      source: 'work/cdc/assets/cdc-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+      width: 30rem
+
+- title:
     long: Tela Inc.
     subtitle: Symptom tracking mobile app for cancer patients
     short: Tela
@@ -35,7 +60,6 @@ projects:
       logo: 'work/gpe/assets/gpe-icon@{size}w.png'
       sizes: [200, 480, 800, 1200]
       padding: 14
-      bg: 5
     full_size:
       source: 'work/gpe/assets/gpe-lockup@{size}w.png'
       sizes: [400, 800, 1200, 1600]
@@ -55,13 +79,13 @@ projects:
     - US
   cover:
     thumb:
-      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      logo: 'work/handshake/assets/handshake-thumb@{size}w.png'
       sizes: [200, 480, 800, 1200]
-      padding: 14
-      bg: 5
+      padding: 22
     full_size:
-      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      source: 'work/handshake/assets/handshake-cover@{size}w.png'
       sizes: [400, 800, 1200, 1600]
+      width: 25rem
 
 - title:
     long: Donor engagement strategy
@@ -85,7 +109,6 @@ projects:
       logo: 'work/gpoba/assets/gpoba-thumb@{size}w.png'
       sizes: [200, 480, 800, 1200]
       padding: 18
-      bg: 5
     full_size:
       source: 'work/gpoba/assets/gpoba-cover@{size}w.png'
       sizes: [400, 800, 1200, 1600]
@@ -112,10 +135,10 @@ projects:
       logo: 'work/gpe/assets/gpe-icon@{size}w.png'
       sizes: [200, 480, 800, 1200]
       padding: 14
-      bg: 5
     full_size:
       source: 'work/gpe/assets/gpe-lockup@{size}w.png'
       sizes: [400, 800, 1200, 1600]
+      width: 55rem
 
 - title:
     long: Knowledge sharing for public private partnerships
@@ -131,7 +154,6 @@ projects:
   cover:
     thumb:
       logo: /work/ppp/assets/thumb-PPP.png
-      bg: 5
     full_size:
       source: 'work/ppp/assets/ppp-cover@{size}w.png'
       sizes: [400, 800, 1200, 1600]
@@ -153,7 +175,6 @@ projects:
   cover:
     thumb:
       logo: /work/ga/assets/thumb-GA.png
-      bg: 4
     full_size:
       source: 'assets/ga-cover@{size}w.png'
       sizes: [400, 800, 1200, 1600]

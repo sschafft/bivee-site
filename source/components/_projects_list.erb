@@ -9,7 +9,6 @@
     # -> useful for local navs where you don't want to show the current project
   gutter ||= 'wide' # STRING (optional): width of the gutter between thumbnails
   color ||= 'light' # STRING (optional): color of the background paint image
-  bg ||= rand(1...data.site.painted_bg_versions.thumbnails)
 %>
 
 <ul data-ui-gallery="gutter-<%= gutter %>"<%= " class='#{classes}'" if classes %>>
@@ -22,7 +21,7 @@
             sizes: project.cover.thumb.sizes || [],
             alt: project.title.short,
             padding: project.cover.thumb.padding || false,
-            bg: (project.cover.thumb.bg || bg),
+            bg: (project.cover.thumb.bg || false),
             color: color
           } %>
           <h2 class="t-scale-delta padding-top-narrow"><%= project.title.short %></h2>
