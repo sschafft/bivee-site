@@ -1,6 +1,6 @@
 ---
 name: Baker &amp; Hill
-website: https://fluytdesign.com/
+website: http://bakerandhill.com/
 logo:
   thumb:
     source: /people/partners/assets/b&h-logo@{size}w.png
