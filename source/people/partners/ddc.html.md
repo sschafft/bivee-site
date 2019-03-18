@@ -5,11 +5,11 @@ logo:
   thumb:
     source: /people/partners/assets/DDC-logo@{size}w.png
     sizes: [200, 400, 800, 1200]
-    padding: 21
+    padding: 19
   full_size:
     source: /people/partners/assets/DDC-logo@{size}w.png
     sizes: [400, 800, 1200, 1600]
-    padding: 21
+    padding: 20
 expertise:
   - photography
   - video production
