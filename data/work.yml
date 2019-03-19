@@ -18,6 +18,29 @@ intro: |-
 # -> title.subtitle is a descriptive/editorial subhead that should be displayed on the case study page. This is helpful if the client logo and long title don't make the project name obvious.
 projects:
 - title:
+    long: Evidence to Action
+    subtitle: National reproductive health plan evaluation tool
+    short: Evidence to Action
+  slug: E2A
+  client: Evidence to Action, Pathfinder International, & USAID
+  date: 2018
+  categories:
+    - web application
+    - design
+    - knowledge management
+  locations:
+    - Global
+  cover:
+    thumb:
+      logo: 'work/e2a/assets/e2a-thumb@{size}w.png'
+      sizes: [200, 480, 800, 1200]
+      padding: 22
+    full_size:
+      source: 'work/e2a/assets/e2a-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
+      width: 18rem
+
+- title:
     long: Micronutrient survey toolkit
     subtitle: On- and offline web application development
     short: Micronutrient survey toolkit
