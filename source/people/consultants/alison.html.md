@@ -1,5 +1,6 @@
 ---
-name: Alison
+name: Alison Buckholtz
+website: https://www.alisonbuckholtz.com
 portrait:
   thumb: /people/consultants/assets/Arsham_Balanced.jpg
   full_size:
