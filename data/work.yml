@@ -216,3 +216,24 @@ projects:
 #   cover:
 #     thumb: work/ddh/assets/DDH-thumb@800.jpg
 #     full_size: work/ppp/assets/ppp-cover.png
+
+- title:
+    long: Online Community Development
+    short: HF-TAG
+  slug: HF-TAG
+  client: Home Fortification Technical Advisory Group (HF-TAG), UNICEF, GAIN
+  date:
+    start: 2016
+    end: Present
+  categories:
+    - data
+    - web
+    - mobile applications
+    - knowledge management
+    - community development
+  cover:
+    thumb:
+      logo: /work/ga/assets/thumb-GA.png
+    full_size:
+      source: 'assets/ga-cover@{size}w.png'
+      sizes: [400, 800, 1200, 1600]
