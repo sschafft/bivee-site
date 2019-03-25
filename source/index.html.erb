@@ -49,7 +49,7 @@ title: home
   <% end %>
   <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center padding-top-xwide' } do %>
     <!-- Case study listings -->
-    <%= component 'projects_list', locals: { projects: data.work.projects } %>
+    <%= component 'projects_list', locals: { projects: data.work.projects[0...data.work.featured_projects] } %>
 
     <%# this button appears when there's more than 3 case studies to display %>
     <%= component 'button_link', locals: {

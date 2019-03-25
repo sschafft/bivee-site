@@ -4,12 +4,17 @@ headline:
   # the headline for the 'more work' nav at the bottom of each case study
   nav: More work
 
-default_cover_logo_width: 35rem
+
+# the number of projects featured on the homepage
+featured_projects: 6
 
 # an intro blurb describing our work
 intro: |-
   <p>We’re specialists in strategy, branding, design, communications, knowledge management, and technology. We use these skills in our consulting engagements and the development of new products and applications.</p>
   <p>We’ve taken this approach on projects in development, healthcare, and education, among others, and with a wide variety of partners, from international development organisations to nonprofits and private sector firms.</p>
+
+# the default width of the cover graphic on the project page
+default_cover_logo_width: 35rem
 
 # the list of projects and their metadata
 # -> used to construct pages for each case study, based on 'project' template and markdown files in 'work' folders
