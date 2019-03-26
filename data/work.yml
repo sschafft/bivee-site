@@ -85,11 +85,11 @@ projects:
     - US
   cover:
     thumb:
-      logo: 'work/gpe/assets/gpe-icon@{size}w.png'
+      logo: 'work/tela/assets/tela-thumb@{size}w.png'
       sizes: [200, 480, 800, 1200]
-      padding: 14
+      padding: 18
     full_size:
-      source: 'work/gpe/assets/gpe-lockup@{size}w.png'
+      source: 'work/tela/assets/tela-cover@{size}w.png'
       sizes: [400, 800, 1200, 1600]
 
 - title:
@@ -224,6 +224,7 @@ projects:
 
 - title:
     long: Online Community Development
+    subtitle: UNICEF's Home Fortification Technical Advisory Group
     short: HF-TAG
   slug: HF-TAG
   client: Home Fortification Technical Advisory Group (HF-TAG), UNICEF, GAIN
@@ -238,7 +239,10 @@ projects:
     - community development
   cover:
     thumb:
-      logo: /work/ga/assets/thumb-GA.png
+      logo: /work/hf-tag/assets/hftag-thumb@{size}w.png
+      sizes: [200, 400, 800, 1200]
+      padding: 18
     full_size:
-      source: 'assets/ga-cover@{size}w.png'
+      source: /work/hf-tag/assets/hftag-cover@{size}w.png
       sizes: [400, 800, 1200, 1600]
+      width: 23rem
