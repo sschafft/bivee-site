@@ -10,6 +10,7 @@ interests:
   - data architecture
   - software development
   - game engine development
+published: false
 ---
 
 **No permission yet.**

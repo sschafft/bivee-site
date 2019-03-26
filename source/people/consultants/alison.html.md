@@ -11,6 +11,7 @@ interests:
   - data architecture
   - software development
   - game engine development
+published: false
 ---
 
 Alison is an experienced writer and editor with an expertise in translating sophisticated concepts into readable, relatable language&mdash;telling the human stories behind the impact of development projects.
