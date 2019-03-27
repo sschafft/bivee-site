@@ -7,34 +7,28 @@ title: Bivee
 # priority: [positive integer] highest priority link is visible as much as possible, even on tiny phones. Lower priority links get moved to a flyout menu as space gets tighter. Try to give 'priority: 1' to only one link.
 # highlight: [boolean] make a link stand out (e.g. red).
 main_nav:
-  # - title: What we do
-  #   url: '#'
-  #   priority: 2
-  # - title: Who we are
-  #   url: '#'
+  - title: Work
+    url: '/work'
+    priority: 2
+  # - title: People
+  #   url: '/people'
   #   priority: 2
   # - title: How we work
   #   url: 'design_thinking'
   #   priority: 2
-  - title: Contact us
+  - title: Contact
     url: '#contact'
     priority: 1
-    highlight: true
 
 # Content for the 'cover' (hero unit) on the homepage
 cover:
+  logo_sketches:
+    source: /assets/images/bivee-logo-process@{size}w.png
+    sizes: [480, 800, 1200]
   # Main headline/tagline
   headline: Development done differently.
   # Blurb introducing us. It'll be followed by a link to the about page.
   intro: 'Different thinking leads to different outcomes: we bring the humility to listen and question, the creativity to imagine without limits, and the confidence to try and fail until we find the right solution.'
-
-# Content for the staff listings that appear around the site
-staff:
-  headline:
-    # Headline for the staff section on the homepage
-    home: Our team
-    # Headline for the staff nav at the bottom of each profle
-    nav: Meet the rest of the team
 
 # Contact/location info that appears in various places around the site
 # -> primarily used in the footer
@@ -76,4 +70,8 @@ contact:
       url: https://twitter.com/biveeco
       icon: 'twitter'
 
-background_variations: 9
+# Painted backgrounds
+# -> this is the number of choices we have, so you can do stuff like `background =  rand(1...data.site.painted_bg_versions.thumbnails)`
+painted_bg_versions:
+  edges: 9
+  thumbnails: 6

@@ -38,15 +38,21 @@
   position: absolute;
   top: 0;
   width: 100%;
+
+  @supports (display: flex) {
+    display: flex;
+  }
 }
 
 // force an inline child image to conform to the aspect ratio of the aspect-content container
 [data-ui-aspect-image] {
   display: inline-block;
+  line-height: 100%;
   margin: auto;
   max-height: 100%;
   max-width: 100%;
   object-fit: scale-down;
+  vertical-align: middle;
 }
 
 // change the object-fit scaling
@@ -75,6 +81,26 @@
 
     @media print {
       display: inline-block;
+    }
+  }
+}
+
+// vertically center child elements
+[data-ui-aspect-content~='centered'] {
+  // use pseudo-element to vertically center child elements
+  // -> non-flexbox fallback
+  &::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    vertical-align: middle;
+    width: 0;
+  }
+
+  [data-ui-aspect-image] {
+    @supports (align-self: center) {
+      align-self: center;
     }
   }
 }

@@ -32,13 +32,13 @@
   </article>
 
   <!-- Case studies local nav -->
-  <% if data.case_studies.projects.length > 1 %>
+  <% if data.work.projects.length > 1 %>
     <% component 'panel', locals: { theme: 'light', painted: true } do %>
       <% component 'wrapper' do %>
         <h1 class="t-scale-beta t-align-center padding-bottom-xnarrow"><%= current_page.data.footer_nav.heading %></h1>
         <p class="t-scale-delta t-align-center padding-bottom-wide"><%= current_page.data.footer_nav.description %></p>
-        <%= component 'case_studies_list', locals: {
-          projects: data.case_studies.projects,
+        <%= component 'projects_list', locals: {
+          projects: data.work.projects,
           color: 'white'
         } %>
       <% end %>

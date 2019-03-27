@@ -5,6 +5,7 @@
 
   # Locals:
   # STRING/HASH source: the path(s) or url(s) of the image files(s)
+  sizes ||= [] # Array of numbers (optional): size variations of the source image
   classes ||= false
 
   # Private
@@ -15,6 +16,7 @@
 
 <%= component 'responsive_image', locals: {
   source: source,
+  sizes: sizes,
   borders: true,
   classes: 'border-round-large has-shadow #{classes if classes}'
 } %>

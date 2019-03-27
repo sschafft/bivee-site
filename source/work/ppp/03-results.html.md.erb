@@ -4,25 +4,18 @@ weight: 2
 project: PPP
 ---
 
-The PPP Knowledge Suite was launched in London at <%= link_to('PPP Days 2015', 'http://www.ebrd.com/news/events/publicprivate-partnerships-ppp-days.html', target: '_blank', ) %>, and new contributions are made regularly by partner institutions. Integration with knowledge initiatives from other organisations is ongoing. You can learn more about PPPs by looking through the <%= link_to('Knowledge Lab', 'https://pppknowledgelab.org/', target: '_blank', ) %> or visiting the <%= link_to('Library', 'https://library.pppknowledgelab.org/', target: '_blank', ) %> to check out the developer documentation. 
+The PPP Knowledge Suite was launched in London at [PPP Days 2015](http://www.ebrd.com/news/events/publicprivate-partnerships-ppp-days.html){:target="_blank"}, and new contributions are made regularly by partner institutions. Integration with knowledge initiatives from other organisations is ongoing. You can learn more about PPPs by looking through the [Knowledge Lab](https://pppknowledgelab.org/){:target="_blank"} or visiting the [Library](https://library.pppknowledgelab.org/){:target="_blank"} to check out the developer documentation.
+
 <%= component "feature_image", locals: {
-  source: {
-    '480': 'assets/ppp-home@480.jpg',
-    '800': 'assets/ppp-home@800.jpg',
-    '1200': 'assets/ppp-home@1200.jpg',
-    '1600': 'assets/ppp-home@1600.jpg',
-  },
+  source: 'assets/ppp-home@{size}.jpg',
+  sizes: [480, 800, 1200, 1600],
   screenshot: true,
   padding: { top: 'wide' }
 } %>
 
 <%= component "feature_image", locals: {
-  source: {
-    '480': 'assets/ppp-country@480.jpg',
-    '800': 'assets/ppp-country@800.jpg',
-    '1200': 'assets/ppp-country@1200.jpg',
-    '1600': 'assets/ppp-country@1600.jpg',
-  },
+  source: 'assets/ppp-country@{size}.jpg',
+  sizes: [480, 800, 1200, 1600],
   screenshot: true,
   padding: { top: 'wide' }
 } %>

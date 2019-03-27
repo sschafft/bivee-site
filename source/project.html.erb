@@ -1,0 +1,89 @@
+<%
+  # Consulting project page
+  # -> a proxy page used by data/work.yml for content in source/work
+%>
+
+<%= component "main_header", locals: {
+  theme: 'dark',
+  overlay: true
+} %>
+
+<article>
+
+  <!-- Cover image, and title -->
+  <% component 'panel', locals: {
+    el: 'header',
+    theme: 'dark',
+    painted: true,
+    painted_side: 'bottom',
+    border: 'bottom',
+    padding: {
+      x: 'outside',
+      top: 'medium',
+      bottom: 'xwide'
+    },
+    header_offset: true
+  } do %>
+    <% component 'wrapper', locals: { width: 'wide', classes: 't-align-center' } do %>
+
+      <%# Project logo/header illustration %>
+      <%= component 'responsive_image', locals: {
+        source: project.cover.full_size.source,
+        sizes: project.cover.full_size.sizes,
+        alt: project.title.short,
+        style: "width: #{project.cover.full_size.width || data.work.default_cover_logo_width};"
+      } %>
+      <h1 class="padding-top-wide"><%= project.title.long %></h1>
+      <% if project.title.subtitle %>
+        <p class="t-heading t-scale-beta c-highlight padding-top-narrow"><%= project.title.subtitle %></p>
+      <% end %>
+      <div class="padding-top">
+        <p data-ui-gutter="flush narrow" class="t-heading t-scale-epsilon">
+          <time data-ui-gutter-item class="display-inline-block t-weight-bold c-highlight">
+            <%= project.date.respond_to?(:start) ? "#{project.date.start} - #{project.date.end}" : project.date %>
+          </time>
+          <% if project.respond_to?(:categories) %>
+            <span data-ui-gutter-item class="display-inline-block c-text-secondary">
+              <span class="padding-left-narrow border-left"><%= project.categories.collect(&:to_s).join(', ').rstrip %></span>
+            </span>
+          <% end %>
+        </p>
+      </div>
+      <a class="display-inline-block margin-top-wide t-decoration-none c-accent" href="#main_content">
+        <%= component 'icon', locals: { id: 'arrow-down' } %>
+      </a>
+    <% end %>
+  <% end %>
+
+  <!-- Main content: sections -->
+  <main class="z-top" id="main_content">
+    <% sections = sitemap.resources.select {|r| r.data.project == project.slug || r.data.project == project.title.short }.sort_by {|r| r.data.weight } %>
+    <% sections.each_with_index do |section, index| %>
+      <% component 'panel', locals: { border: (index == 0 ? 'none' : 'top') } do %>
+        <% component 'wrapper', locals: { width: 'narrow' } do %>
+          <% unless section.data.title == 'Index' %>
+            <h1 class="t-heading t-scale-beta t-align-center padding-bottom"><%= section.data.title %></h1>
+          <% end %>
+          <div class="t-content">
+            <%= section.render layout: false %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </main>
+</article>
+
+<!-- Case studies local nav -->
+<% if data.work.projects.length > 1 %>
+  <% component 'panel', locals: { theme: 'light', painted: true } do %>
+    <%# temporarily use local styles to keep single thumb from being huge %>
+    <% component 'wrapper', locals: { width: 'wide' } do %>
+      <h1 class="t-scale-beta padding-bottom-wide t-align-center"><%= data.work.headline.nav %></h1>
+      <%= component 'projects_list', locals: {
+        projects: data.work.projects,
+        exclude: project.slug,
+        color: 'white'
+      } %>
+    <% end %>
+  <% end %>
+<% end %>

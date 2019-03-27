@@ -1,0 +1,30 @@
+<%
+  # Staff list
+  # -> A grid of staff listings
+
+  # Locals:
+  # group - ARRAY: the list of people to display, e.g. staff, consultants, etc.
+  classes ||= false # STRING: additional modifier classes, if needed
+  color ||= 'white'
+  gutter ||= 'wide'
+%>
+
+<ul data-ui-gallery="gutter-<%= gutter %> small default@small large@medium"<%= class_list(classes) if classes %>>
+  <% order_by_name(group).each do |partner| %>
+    <li data-ui-gallery-item>
+      <% link_to partner.url, class: 'display-flex-fill display-block t-align-center t-decoration-none' do %>
+        <%= component 'logo_with_swatch', locals: {
+          logo: partner.data.logo.thumb.source,
+          sizes: partner.data.logo.thumb.sizes,
+          padding: partner.data.logo.thumb.padding || false,
+          alt: partner.data.name,
+          color: 'white'
+        } %>
+        <h3 class="t-scale-delta padding-bottom-xxnarrow padding-top-xnarrow"><%= partner.data.name %></h3>
+        <p class="t-heading t-scale-eta c-text-secondary">
+          <%= partner.data.expertise[0...3].join(', ').rstrip %>
+        </p>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

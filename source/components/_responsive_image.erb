@@ -3,7 +3,9 @@
   # -> use srcset to create an image that scales with screen size
 
   # Locals:
-  # STRING/HASH source: the path(s) or url(s) of the image files(s)
+  # source - STRING/HASH: the path(s) or url(s) of the image files(s)
+  #path ||= '' # STRING (optional): the path to the source images, if not included in source
+  sizes ||= [] # Array of numbers (optional): the size variations of the image available, e.g. 400, 800, 1200 etc. Must be pixels; do not include units.
   alt ||= '' # STRING (optional): alt tag
   borders ||= false # BOOLEAN (optional): add a border to the image
   classes ||= false # STRING (optional): additional classes you'd like to pass in
@@ -11,26 +13,38 @@
   data ||= false # HASH (optional): additional data attributes
 
   # Private:
-  fallback_source = source.is_a?(Hash) ? source.values[0] : source
 
-  def source_set(src)
-    if src.is_a?(Hash)
-      src.collect do |width, path|
-        "#{asset_url(path)} #{width}w" unless width == 'default'
-      end.reject(&:nil?).join(', ')
-    end
+  def path_template(path, size)
+    return path.gsub('{size}', size.to_s)
   end
 
-  utils = [
-    ('border c-border-well' if borders),
-    (classes if classes)
-  ]
+  def default_source(path, sizes)
+    if (sizes.length > 0)
+      return path_template(path, sizes[0])
+    end
+    return path
+  end
+
+  def source_set(path, sizes)
+    if (sizes.length > 0)
+      return sizes.collect do |size|
+        "#{asset_url(path_template(path, size))} #{size}w"
+      end.compact.join(', ').rstrip
+    end
+
+    # return false
+  end
 
   def data_attr(attrs)
     attrs.collect do |attr, value|
       ["data-#{attr}='#{value}'"]
     end.join(' ')
   end
+
+  utils = [
+    ('border c-border-well' if borders),
+    (classes if classes)
+  ]
 %>
 
-<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= asset_url(fallback_source) %>"<%= " srcset='#{source_set(source)}'" if source_set(source) %> alt="<%= alt %>">
+<img<%= " #{data_attr(data)}" if data %><%= class_list(utils) %><%= " style='#{style}'" if style %> src="<%= default_source(source, sizes) %>"<%= " srcset='#{source_set(source, sizes)}'" if source_set(source, sizes) %> alt="<%= alt %>">
