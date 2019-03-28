@@ -3,11 +3,13 @@ name: Fluyt
 website: https://fluytdesign.com/
 logo:
   thumb:
-    source: /people/partners/assets/fluyt-thumbnail@{size}w.png
+    source: /people/partners/assets/fluyt-thumb@{size}w.png
     sizes: [200, 400, 800, 1200]
+    padding: 14
   full_size:
-    source: /people/partners/assets/fluyt-lockup@{size}w.png
+    source: /people/partners/assets/fluyt-cover@{size}w.png
     sizes: [400, 800, 1200, 1600]
+    padding: 14
 expertise:
   - print
   - branding
