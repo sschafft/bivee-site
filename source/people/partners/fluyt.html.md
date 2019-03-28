@@ -17,6 +17,4 @@ expertise:
   - interactive
 ---
 
-Fluyt is a strategic communications, learning and creative design studio – providing innovative and user-centered consulting services.
-
-Bivee and Fluyt have partnered since 2017 on a number of projects ranging from interactive design to print, with clients including the World Bank’s [Public-Private Partnerships](https://pppknowledgelab.org) group and the [Consultative Group to Assist the Poor](https://www.cgap.org).
+Fluyt is a strategic communications, learning, and creative design studio – providing innovative and user-centered consulting services. Founded in {YEAR} by Liliana Parra and Felipe Mejia {is this right?}, the studio has expanded to include locations in London, Richmond, and Bogotá, and offers a wide range of expertise, from branding to interactive design to animation. They serve a diverse, international clientele including Population Services International, the World Bank Group, the International Finance Corporation (IFC), and Proximity - Myanmar.
