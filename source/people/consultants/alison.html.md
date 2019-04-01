@@ -8,9 +8,9 @@ portrait:
     sizes: [480, 800, 1200, 1600]
 interests:
   - writing
-  - data architecture
-  - software development
-  - game engine development
+  - editing
+  - research
+  - international development
 ---
 
 Alison is an experienced writer and editor with an expertise in translating sophisticated concepts into readable, relatable language&mdash;telling the human stories behind the impact of development projects.
