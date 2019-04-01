@@ -8,8 +8,9 @@
   icon ||= false # STRING (optional): include an icon? if so, pass in the icon id
   icon_position ||= 'right' # STRING (optional): which side should the icon be on?
   label ||= '' # STRING (optional): the button's label, e.g. "Read more"
-  size ||= false # STRING (optional): the button's size
-  role ||= false
+  size ||= false # STRING (optional): the button's size. See components/_button.scss.
+  role ||= false # STRING (optional): the button's role, e.g. 'primary'. See components/_button.scss.
+  options ||= {} # HASH (optional): any other link_to options you'd like to pass in, e.g. target: '_blank'
 
   # Private vars
   props = [
@@ -17,9 +18,13 @@
     (size if size),
     ("icon #{icon_position}" if icon)
   ]
+
+  data = {
+    'ui-button': props.empty? ? '' : props.join(' ')
+  }
 %>
 
-<% link_to url, data: { 'ui-button': props.empty? ? '' : props.join(' ') }, class: classes do %>
+<% link_to url, options.merge({ data: data, class: classes }) do %>
   <%= component("icon", locals: { id: icon, parent: 'data-ui-button-icon' }) if icon && icon_position == 'left' %>
   <%= label %>
   <%= component("icon", locals: { id: icon, parent: 'data-ui-button-icon' }) if icon && icon_position == 'right' %>

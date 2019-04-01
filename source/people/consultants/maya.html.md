@@ -10,7 +10,6 @@ interests:
   - strategy
   - writing
   - organizational development
-published: false
 ---
 
 Maya Townsend, MSOD, founder and lead consultant of Partnering Resources, specializes in bringing diverse groups together to solve complex, systemic problems.

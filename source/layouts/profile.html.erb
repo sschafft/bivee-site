@@ -20,22 +20,32 @@
       </div>
     <% end %>
     <% component 'wrapper', locals: { width: 'narrow' } do %>
+
+      <!-- name & job title (if any) -->
       <header class="padding-bottom t-align-center">
-  	    <h1 class="t-scale-beta padding-bottom-xxnarrow"><%= current_page.data.name %></h1>
-        <p class="t-heading t-scale-epsilon c-highlight">
-          <%= current_page.data.job_title %>
-        </p>
+  	    <h1 class="t-scale-beta"><%= current_page.data.name %></h1>
+
+        <% if current_page.data.job_title %>
+          <p class="t-heading t-scale-epsilon c-highlight padding-top-xxnarrow">
+            <%= current_page.data.job_title %>
+          </p>
+        <% end %>
     	</header>
 
       <%= yield %>
 
       <!-- website link -->
-      <div class="padding-top t-align-center">
-        <%= component 'button_link', locals: {
-          label: "Visit #{current_page.data.name.split(' ').first}'s website",
-          url: current_page.data.website
-        } %>
-      </div>
+      <% if current_page.data.website %>
+        <div class="padding-top t-align-center">
+          <%= component 'button_link', locals: {
+            label: "Visit #{current_page.data.name.split(' ').first}'s website",
+            url: current_page.data.website,
+            options: {
+              target: '_blank'
+            }
+          } %>
+        </div>
+      <% end %>
     <% end %>
   </article>
 
