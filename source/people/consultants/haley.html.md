@@ -1,10 +1,9 @@
 ---
 name: Haley Cline
-job_title: Consultant
 portrait:
-  thumb: /people/staff/assets/haley-thumb.jpg
+  thumb: /people/consultants/assets/haley-thumb.jpg
   full_size:
-    source: /people/staff/assets/haley@{size}.jpg
+    source: /people/consultants/assets/haley@{size}.jpg
     sizes: [480, 800, 1200, 1600]
 interests:
   - writing

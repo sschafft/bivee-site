@@ -1,9 +1,9 @@
 ---
 name: Arsham Skrenes
 portrait:
-  thumb: /people/consultants/assets/Arsham_Balanced.jpg
+  thumb: /people/consultants/assets/arsham@600w.jpg
   full_size:
-    source: /people/staff/assets/nico@{size}.jpg
+    source: /people/consultants/assets/arsham@{size}w.jpg
     sizes: [480, 800, 1200, 1600]
 interests:
   - hardware

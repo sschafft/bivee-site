@@ -26,7 +26,16 @@
           <%= current_page.data.job_title %>
         </p>
     	</header>
+
       <%= yield %>
+
+      <!-- website link -->
+      <div class="padding-top t-align-center">
+        <%= component 'button_link', locals: {
+          label: "Visit #{current_page.data.name.split(' ').first}'s website",
+          url: current_page.data.website
+        } %>
+      </div>
     <% end %>
   </article>
 

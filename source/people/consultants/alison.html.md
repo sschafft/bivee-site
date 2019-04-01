@@ -2,16 +2,15 @@
 name: Alison Buckholtz
 website: https://www.alisonbuckholtz.com
 portrait:
-  thumb: /people/consultants/assets/Arsham_Balanced.jpg
+  thumb: /people/consultants/assets/alison@600w.jpg
   full_size:
-    source: /people/staff/assets/nico@{size}.jpg
+    source: /people/consultants/assets/alison@{size}w.jpg
     sizes: [480, 800, 1200, 1600]
 interests:
   - writing
   - data architecture
   - software development
   - game engine development
-published: false
 ---
 
 Alison is an experienced writer and editor with an expertise in translating sophisticated concepts into readable, relatable language&mdash;telling the human stories behind the impact of development projects.
