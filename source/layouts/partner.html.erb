@@ -20,16 +20,26 @@
       } %>
     <% end %>
     <% component 'wrapper', locals: { width: 'narrow' } do %>
+
+      <!-- company name -->
       <header class="padding-bottom t-align-center">
-  	    <h1 class="t-scale-beta padding-bottom-xxnarrow"><%= current_page.data.name %></h1>
+  	    <h1 class="t-scale-beta"><%= current_page.data.name %></h1>
     	</header>
+
       <%= yield %>
-      <div class="padding-top t-align-center">
-        <%= component 'button_link', locals: {
-          label: "Visit #{current_page.data.name}'s website",
-          url: current_page.data.website
-        } %>
-      </div>
+
+      <!-- website link -->
+      <% if current_page.data.website %>
+        <div class="padding-top t-align-center">
+          <%= component 'button_link', locals: {
+            label: "Visit #{current_page.data.name}'s website",
+            url: current_page.data.website,
+            options: {
+              target: '_blank'
+            }
+          } %>
+        </div>
+      <% end %>
     <% end %>
   </article>
 

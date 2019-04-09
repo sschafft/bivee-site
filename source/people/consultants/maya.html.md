@@ -2,15 +2,14 @@
 name: Maya Townsend
 website: http://partneringresources.com/
 portrait:
-  thumb: /people/consultants/assets/Arsham_Balanced.jpg
+  thumb: /people/consultants/assets/maya@430w.jpg
   full_size:
-    source: /people/staff/assets/nico@{size}.jpg
-    sizes: [480, 800, 1200, 1600]
+    source: /people/consultants/assets/maya@{size}w.jpg
+    sizes: [200, 430]
 interests:
   - strategy
   - writing
   - organizational development
-published: false
 ---
 
 Maya Townsend, MSOD, founder and lead consultant of Partnering Resources, specializes in bringing diverse groups together to solve complex, systemic problems.

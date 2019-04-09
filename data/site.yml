@@ -10,9 +10,9 @@ main_nav:
   - title: Work
     url: '/work'
     priority: 2
-  # - title: People
-  #   url: '/people'
-  #   priority: 2
+  - title: People
+    url: '/people'
+    priority: 2
   # - title: How we work
   #   url: 'design_thinking'
   #   priority: 2
