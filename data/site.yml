@@ -42,12 +42,8 @@ contact:
   locations:
     - name: 'Washington, DC'
       address: |-
-        1875 Connecticut Ave NW, 10th floor<br>
+        1624 14th St NW<br>
         Washington, DC 20009
-    - name: 'Denver, CO'
-      address: |-
-        2420 17th St<br>
-        Denver, CO 80202
     - name: 'Hong Kong'
       address: |-
         14F, Manning House<br>
