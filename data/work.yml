@@ -246,3 +246,14 @@ projects:
         source: /work/hf-tag/assets/hftag-cover@{size}w.png
         sizes: [400, 800, 1200, 1600]
         width: 23rem
+
+pro_bono:
+  title: Pro-bono work
+  body: |-
+    Bivee regularly does pro-bono work as a way to support missions we care about. We find it’s also a great way to build new relationships, explore exciting new ideas, and learn about new contexts. We're currently able to schedule 3 pro-bono projects each year, and we choose projects based on these criteria:
+
+    - The project can be completed, from green-light to final approval, within a budget of 50 hours.
+    - The project is an opportunity to contribute to a mission or idea that we believe in; to explore new design, strategic, or technical approaches; or, ideally, all of the above.
+    - When we're done, we can write about the project and publicly share our work.
+
+    If you have a great idea that meets these criteria, we’d love to hear from you. Drop us a line at [getstarted@bivee.co](mailto:getstarted@givee.co).
