@@ -45,6 +45,12 @@ end
 # Helpers
 # rubocop:disable Metrics/BlockLength
 helpers do
+  # render markdown from an any string
+  # https://stackoverflow.com/questions/43926754/how-to-output-data-from-yaml-variables-written-in-markdown-into-an-html-haml-f#44014190
+  def render_markdown(content)
+    Kramdown::Document.new(content).to_html
+  end
+
   # 'Component' decorator for partial function
   # -> just used to point automatically to 'components' dir so you don't have
   #    to type the full path
